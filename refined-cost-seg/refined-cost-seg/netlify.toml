@@ -1,0 +1,30 @@
+# Netlify configuration — Refined Cost Segregation
+# No build step needed: this is a static HTML site served as-is.
+
+[build]
+  publish = "."
+
+# Pretty URLs: let /journal/some-post resolve to /journal/some-post.html
+[[redirects]]
+  from = "/journal/:slug"
+  to = "/journal/:slug.html"
+  status = 200
+  force = false
+
+# Security + caching headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/styles.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/script.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
