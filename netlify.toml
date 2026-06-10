@@ -11,6 +11,13 @@
   status = 200
   force = false
 
+
+[[redirects]]
+  from = "/audit-support"
+  to = "/audit-support.html"
+  status = 200
+  force = false
+
 # Security + caching headers
 [[headers]]
   for = "/*"

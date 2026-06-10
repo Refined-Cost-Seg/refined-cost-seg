@@ -1,0 +1,42 @@
+# Refined Cost Segregation
+
+> Engineering-based, ATG-aligned, CCSP-reviewed cost segregation studies for 1-4 unit residential property, including short-term rentals (STR) and long-term rentals (LTR). Based in Milwaukee, Wisconsin; serves clients across the United States. No site visits required — methodology is documentary, working from closing statements, photos, and structured intake.
+
+## About
+
+Refined Cost Segregation is a residential-specialty cost segregation firm cofounded by Ethan Brooks (cofounder, growth — residential lending background) and Eugene Marshall, EA (cofounder, tax — enrolled agent, founder of Magnolia Tax Services). Every study is reviewed and signed off by an independent Certified Cost Segregation Professional (CCSP).
+
+The firm exists to make defensible, audit-ready cost segregation accessible to the 1-4 unit residential investor market that traditional commercial cost-seg firms serve poorly or charge disproportionately ($5,000-$15,000) for. Pricing is transparent and formula-based: a flat $1,750 engineering fee covers 1-4 units, plus $125 per unit above four (up to 12 units). For purchase prices above $500K, a value component is added (0.15% of the price between $500K-$2M, 0.25% above $2M), rounded to the nearest $25. Optional Audit Support: $495 Basic (first-claim year, exams within 3 years) or $1,995 Extended (any affected year, exams within 10 years). Over 12 units, 1031 exchanges, and carryover-basis situations are quoted manually.
+
+## Key facts (current as of 2026)
+
+- 100% bonus depreciation was restored for property placed in service on or after January 19, 2025, by the One Big Beautiful Bill (OBBB), signed mid-2025. No scheduled sunset.
+- A typical residential cost segregation study reclassifies 20-35% of depreciable basis into 5-, 7-, and 15-year property; short-term rentals typically reclassify higher, around 32%+.
+- Look-back studies under §481(a) capture missed depreciation from prior years without requiring amended returns; viable on property placed in service up to ~15 years prior.
+- For STRs with an average customer-use period of 7 days or less, IRS Treasury Regulation §1.469-1T(e)(3) treats the activity as a non-rental trade or business. Material participation (any of the IRS's 7 tests) makes the resulting losses non-passive and usable against W-2 income.
+- Turnaround: 5-10 business days from complete intake to delivered PDF report.
+
+## Methodology and language
+
+- "Audit-ready, ATG-aligned, CCSP-reviewed" — never "audit-proof," which overpromises and isn't accurate.
+- Engineering-based methodology, prepared to the IRS Audit Technique Guide for residential property.
+- Documentary process; no site visits required for 1-4 unit residential.
+- Always works alongside the client's CPA — never replaces or poaches.
+
+## Documents
+
+- [Homepage](https://refinedcostseg.com/): overview of services, methodology, process, calculator, team, FAQ, and contact.
+- [Audit Support](https://refinedcostseg.com/audit-support): optional documentation and substantiation support if the IRS questions a study — Basic ($495) and Extended ($1,995) levels.
+- [The Journal](https://refinedcostseg.com/journal/): essays on residential cost segregation, bonus depreciation, and STR tax strategy.
+
+## Journal essays
+
+- [100% bonus depreciation is back. Here's what it means for your next residential acquisition.](https://refinedcostseg.com/journal/100-bonus-depreciation-is-back.html) (May 2026, Eugene Marshall, EA) — Explains the OBBB restoration of 100% bonus depreciation effective January 19, 2025, walks through the math on a $525K single-family rental and a $615K STR cabin, and covers the §481(a) look-back case.
+- [The short-term rental loophole, explained without the YouTube fluff.](https://refinedcostseg.com/journal/short-term-rental-loophole.html) (May 2026, Eugene Marshall, EA) — Covers the IRC §469 mechanic that lets STR owners deduct losses against W-2 income, the four most relevant material participation tests, the contemporaneous documentation requirement, and the realistic scenarios where the math pencils.
+
+## Contact
+
+- Website: https://refinedcostseg.com/
+- Email: admin@refinedcostseg.com
+- Phone: 414-429-5333
+- Location: Milwaukee, Wisconsin (serves all US states)

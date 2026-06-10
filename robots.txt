@@ -1,0 +1,32 @@
+# Refined Cost Segregation — robots.txt
+
+User-agent: *
+Allow: /
+
+# Major AI crawlers — explicit allow so this content can be cited
+# in LLM responses to tax/depreciation/STR questions.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+Sitemap: https://refinedcostseg.com/sitemap.xml

@@ -6,14 +6,21 @@ Static HTML marketing site for Refined Cost Segregation. No build step, no frame
 
 ```
 /
-├── index.html              ← Homepage (all sections: hero, services, calculator, team, FAQ, contact, etc.)
-├── styles.css              ← ALL design lives here. Edit colors, spacing, fonts in one place.
-├── script.js               ← Calculator logic, nav, FAQ accordion, scroll reveals.
-├── netlify.toml            ← Netlify config (pretty URLs, headers). Don't usually need to touch.
-├── CONTENT-CALENDAR.md     ← Backlog of blog topics for the weekly SEO cadence.
+├── index.html                ← Homepage with structured data, OG tags, all sections
+├── styles.css                ← ALL design. Edit colors, fonts, spacing in one place
+├── script.js                 ← Calculator, nav, FAQ accordion, scroll reveals
+├── netlify.toml              ← Netlify config (pretty URLs, headers)
+├── favicon.svg               ← Brand-matched SVG favicon
+├── robots.txt                ← Allows all crawlers including AI bots
+├── sitemap.xml               ← Tells search engines what to index
+├── llms.txt                  ← LLM-friendly site summary (llmstxt.org spec)
+├── README.md                 ← This file
+├── SEO-BEST-PRACTICES.md     ← What's implemented and what to keep doing
+├── CONTENT-CALENDAR.md       ← Backlog of blog topics
 └── journal/
-    ├── index.html          ← The blog listing page (/journal/). Lists every post.
-    └── 100-bonus-depreciation-is-back.html   ← A blog post.
+    ├── index.html                              ← Blog listing page
+    ├── 100-bonus-depreciation-is-back.html     ← Post #1 (Eugene, Tax policy)
+    └── short-term-rental-loophole.html         ← Post #2 (Eugene, STR strategy)
 ```
 
 ## Editing
