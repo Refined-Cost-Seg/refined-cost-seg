@@ -1,0 +1,73 @@
+# Autonomous Publishing Playbook — Refined Cost Segregation Journal
+
+This is the runbook the scheduled Cowork task follows on each run (Mon/Wed/Fri).
+It exists so every post is structurally identical, on-brand, and maximally
+optimized for search and AI citation. Read this top to bottom each run.
+
+## 0. Auth & checkout
+1. Read the GitHub token from `~/Cowork/.rcs-publish/gh_token` (mounted path
+   inside Cowork; in the sandbox shell that is `/sessions/<id>/mnt/Cowork/.rcs-publish/gh_token`).
+   The Cowork mount cannot run git (file-lock limitation), so:
+2. `git clone https://x-access-token:<TOKEN>@github.com/Refined-Cost-Seg/refined-cost-seg.git`
+   into the sandbox's own filesystem (e.g. `/tmp/rcs`), NOT into the Cowork mount.
+3. `git config user.name "Refined Cost Seg Bot"` / `user.email "admin@refinedcostseg.com"`.
+4. After cloning, reset the stored remote to the token-free URL so the token is
+   never written to disk in `.git/config`; pass the tokened URL only on `git push`.
+
+## 1. Pick the topic
+- Open `CONTENT-CALENDAR.md`. Choose the FIRST row still marked `⬜` (top to bottom).
+- If every row is `✅ Published`, GENERATE a new topic: a real search intent for
+  residential cost seg / STR strategy / look-backs that the existing posts do not
+  already cover. Add it to the calendar as a new row, then write it.
+- Note the assigned author (Eugene or Ethan). Eugene = tax/strategy angle,
+  byline "Eugene Marshall, EA", image `/assets/eugene-marshall.jpg`.
+  Ethan = investor/market angle, byline "Ethan Brooks", image `/assets/ethan-brooks.jpg`.
+
+## 2. Write the post — copy `journal/100-bonus-depreciation-is-back.html` as the template
+Keep the exact `<head>`, nav, and footer structure. Swap only the per-post parts.
+
+Required for SEO + AI citation (non-negotiable):
+- `<title>`, `<meta name="description">`, and `<link rel="canonical">` for the new URL.
+- Open Graph (`og:type=article`, title, description, url, `article:published_time`
+  = today's date `T12:00:00Z`, `article:author`, `article:section`) + Twitter card tags.
+- A JSON-LD `Article` block: headline, description, datePublished + dateModified =
+  today, named `author` Person with honorificSuffix where applicable, `publisher`
+  Organization, `mainEntityOfPage` = the post URL, `articleSection`, a specific
+  `keywords` array (target the calendar row's keyword + close variants), and an
+  `about` array of 2-3 Things.
+- One `<h1 class="article-title">` matching the headline. `<h2>`s phrased as
+  questions or plain claims a person would Google — never "Section 1: Discussion of…".
+- 700-1,000 words. At least one concrete, dollar-denominated worked example
+  (AI models cite numbers far more than hand-waving).
+- One internal link to another `/journal/` post AND one link to a homepage
+  section (`/#contact`, `/#calculator`, etc.).
+- The article CTA block and the "not tax, legal, or accounting advice" disclaimer.
+
+Brand voice: plain-spoken, candid, never hype. Say "audit-ready," NEVER "audit-proof."
+Pick a clean keyword-rich slug, e.g. `when-to-do-a-cost-seg-study.html`.
+
+## 3. Update the three index surfaces (the saved rule)
+Every new post = (a) the new HTML file under `/journal/`, PLUS:
+- **`journal/index.html`** — add a new `.blog-card` at the TOP of `.listing-grid`,
+  and add a `BlogPosting` entry at the TOP of the JSON-LD `Blog` -> `blogPost` array.
+- **`index.html`** (homepage) — refresh the `#journal` section's `.blog-grid` so it
+  shows the THREE most recent posts (newest replaces the oldest of the three).
+- **`sitemap.xml`** — add a `<url>` for the new post (priority 0.7, changefreq monthly,
+  lastmod today), and bump `lastmod` on `/` and `/journal/` to today.
+
+## 4. Mark the calendar
+In `CONTENT-CALENDAR.md`, change the chosen row's status from `⬜` to `✅ Published`
+so the next run does not repeat it.
+
+## 5. Validate, commit, push, verify
+- Validate: the post's and journal index's JSON-LD must `json.loads` cleanly;
+  `sitemap.xml` must parse as XML. Abort the push if either fails.
+- `git add -A && git commit -m "journal: add '<headline>'"`.
+- `git push https://x-access-token:<TOKEN>@github.com/Refined-Cost-Seg/refined-cost-seg.git HEAD:main`.
+- Wait ~40s, then fetch the live post URL to confirm Netlify deployed it.
+- Report: the headline, the live URL, and word count.
+
+## Notes
+- Netlify auto-deploys every push to `main`; there is no build step (static site).
+- Pretty URLs: `/journal/<slug>` resolves to `<slug>.html` via netlify.toml redirects.
+- If the org rejects the token (org policy), stop and surface the error — do not retry.
