@@ -8,8 +8,8 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 |---|--------|---------------|--------------------------|--------|
 | 1 | ✅ Published | 100% bonus depreciation is back: what it means for your next acquisition | "bonus depreciation 2025 residential" | Eugene |
 | 2 | ✅ Published | The short-term rental loophole, explained without the YouTube fluff | "short term rental loophole", "STR cost segregation W-2" | Eugene |
-| 3 | ⬜ Next | A CPA's quick reference: when residential cost seg is worth recommending | "cost segregation for CPAs", "when to recommend cost segregation" | Eugene |
-| 4 | ⬜ | Do you really need a site visit for a residential cost seg study? | "cost segregation site visit required" | Eugene |
+| 3 | ✅ Published | A CPA's quick reference: when residential cost seg is worth recommending | "cost segregation for CPAs", "when to recommend cost segregation" | Eugene |
+| 4 | ✅ Published | Do you really need a site visit for a residential cost seg study? | "cost segregation site visit required" | Eugene |
 | 5 | ⬜ | What a cost segregation study actually costs for a residential rental | "cost segregation cost residential", "how much is a cost segregation study" | Ethan |
 | 6 | ⬜ | Look-back studies and §481(a): catching the deduction you missed | "catch up depreciation 481a", "look back cost segregation" | Eugene |
 | 7 | ⬜ | Audit-ready vs. audit-proof: what defensible actually means | "is cost segregation an audit risk" | Eugene |
