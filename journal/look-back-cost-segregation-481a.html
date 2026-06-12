@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Look-back cost segregation and §481(a): catch-up depreciation explained — Refined Cost Segregation</title>
+<meta name="description" content="A look-back cost segregation study lets you claim years of missed depreciation in one tax year through a §481(a) adjustment — no amended returns. Here's how the catch-up works, with a worked example.">
+<link rel="canonical" href="https://refinedcostseg.com/journal/look-back-cost-segregation-481a.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Look-back studies and §481(a): catching the depreciation you missed.">
+<meta property="og:description" content="Bought a rental and never did a cost seg study? A look-back captures every year of missed depreciation in your current tax year through a §481(a) adjustment — no amended returns required.">
+<meta property="og:url" content="https://refinedcostseg.com/journal/look-back-cost-segregation-481a.html">
+<meta property="og:site_name" content="Refined Cost Segregation">
+<meta property="article:published_time" content="2026-06-12T12:00:00Z">
+<meta property="article:author" content="Eugene Marshall, EA">
+<meta property="article:section" content="Tax strategy">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://refinedcostseg.com/og-image.png">
+<meta name="twitter:image" content="https://refinedcostseg.com/og-image.png">
+<meta name="twitter:title" content="Look-back studies and §481(a): catching the depreciation you missed.">
+<meta name="twitter:description" content="A look-back cost seg study claims years of missed catch-up depreciation in one tax year — no amended returns. Here's the mechanic, with the numbers.">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Look-back studies and §481(a): catching the depreciation you missed.","description":"A look-back cost segregation study lets you claim years of missed depreciation in your current tax year through a §481(a) change-of-accounting adjustment — with no amended returns. Here's how catch-up depreciation works, when a look-back pencils, and a dollar-denominated worked example.","datePublished":"2026-06-12T12:00:00Z","dateModified":"2026-06-12T12:00:00Z","author":{"@type":"Person","name":"Eugene Marshall","honorificSuffix":"EA","jobTitle":"Cofounder, Tax","url":"https://refinedcostseg.com/#eugene"},"publisher":{"@type":"Organization","name":"Refined Cost Segregation","url":"https://refinedcostseg.com/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://refinedcostseg.com/journal/look-back-cost-segregation-481a.html"},"articleSection":"Tax strategy","keywords":["look-back cost segregation","catch-up depreciation","Section 481(a)","481(a) adjustment","Form 3115","change of accounting method","missed depreciation rental property"],"about":[{"@type":"Thing","name":"Section 481(a) adjustment"},{"@type":"Thing","name":"Cost segregation"},{"@type":"Thing","name":"Depreciation"}]}
+</script>
+</head>
+<body>
+<div class="rcs-embed">
+<nav class="rcs-nav" id="rcs-topnav">
+    <a href="/" class="logo" aria-label="Refined Cost Segregation — home">
+      <img class="logo-mark" src="/assets/logo-mark.png" alt="Refined Cost Segregation" style="width:36px;height:auto">
+      <div class="logo-text">
+        <span class="name">Refined</span>
+        <span class="tag">Cost Segregation</span>
+      </div>
+    </a>
+    <div class="nav-links" id="rcs-navlinks">
+      <a href="/#process">How it works</a>
+      <a href="/#services">Services</a>
+      <a href="/#calculator">Estimate</a>
+      <a href="/#team">Team</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/#contact" class="nav-cta">Get started &rarr;</a>
+    </div>
+    <button class="mobile-toggle" type="button" aria-label="Menu">&#9776;</button>
+  </nav>
+<section class="rcs-article">
+  <article class="article-wrap">
+    <a href="/journal/" class="article-back">&larr; The Journal</a>
+    <div class="article-meta">
+      <span class="tag">Tax strategy</span>
+      <span class="date">June 12, 2026</span>
+      <span class="read-time">5 min read</span>
+    </div>
+    <h1 class="article-title">Look-back studies and &sect;481(a): catching the depreciation you missed.</h1>
+    <div class="article-byline">
+      <img src="/assets/eugene-marshall.jpg" alt="Eugene Marshall">
+      <div class="who"><span class="nm">Eugene Marshall, EA</span><span class="rl">Cofounder &middot; Tax</span></div>
+    </div>
+    <div class="article-body">
+      <p>Here's a question we get a few times a month: "I bought my rental four years ago and never did a cost segregation study. Is it too late?" The short answer is no. The slightly longer answer is that there's a specific mechanism in the tax code &mdash; a &sect;481(a) adjustment &mdash; that exists precisely for this situation, and it usually works in your favor more than people expect.</p>
+<p>This is what the industry calls a look-back study. It's worth understanding, because the missed-deduction problem it solves is extremely common: most residential investors don't do a study in year one, either because nobody told them to or because the bonus depreciation schedule made it look marginal at the time.</p>
+<h2>What is catch-up depreciation, exactly?</h2>
+<p>When you place a rental in service, you start depreciating it &mdash; residential real property over 27.5 years. If you never broke out the short-life components, you've been depreciating the whole building on that long schedule. Every year you did that, you under-claimed: some of that basis should have been on a 5-, 7-, or 15-year schedule and depreciating much faster.</p>
+<p>A look-back study goes back and reclassifies those components as of the original placed-in-service date, then calculates the difference between the depreciation you actually took and the depreciation you <em>should</em> have taken. That cumulative difference is your catch-up &mdash; and you get to claim all of it at once.</p>
+<h2>Why don't I have to amend my old returns?</h2>
+<p>This is the part that surprises people. You'd assume catching up several years of deductions means refiling several years of returns. It doesn't. Changing how you depreciate an asset is treated by the IRS as a change in accounting method, and the catch-up is booked as a <strong>&sect;481(a) adjustment</strong> on your current-year return. You file <strong>Form 3115</strong> (Application for Change in Accounting Method) with that return, take the entire negative adjustment as a current deduction, and you're done. No amended returns, no reopening closed tax years.</p>
+<p>The practical advantages are real. Amended returns are slow, they can draw a second look, and you can't amend a year that's already closed by the statute of limitations anyway. The &sect;481(a) route sidesteps all of that &mdash; it pulls the full missed amount, including from years you could no longer amend, into one open year.</p>
+<h2>What does the catch-up actually look like in dollars?</h2>
+<p>Let's run a concrete one. Say you bought a single-family rental in 2021 for $475,000, with $380,000 of depreciable basis after carving out land. You've been depreciating that straight-line over 27.5 years &mdash; about $13,800 a year &mdash; and by your 2026 return you've claimed roughly five years of it.</p>
+<p>Now you run a look-back. The study reclassifies about 22% of basis &mdash; roughly $83,600 &mdash; into 5-, 7-, and 15-year property as of the 2021 in-service date. Because the property was placed in service in 2021, that reclassified portion would have been eligible for bonus depreciation at the 2021 rate, and a large share of it would already be fully depreciated under the correct method.</p>
+<p>When you net the depreciation you should have taken against the much smaller amount you actually took, the &sect;481(a) catch-up comes out somewhere around $65,000&ndash;$70,000 &mdash; deductible in full on your 2026 return. At a 32% marginal federal rate, that's roughly <strong>$21,000&ndash;$22,400 in tax savings</strong> in a single year, against a fixed-fee study cost of $1,750. You're recovering several years of missed deduction in one bite, which is exactly why look-backs sometimes pencil harder than a study on a brand-new purchase.</p>
+<h2>When does a look-back NOT make sense?</h2>
+<p>A few situations. If you're planning to sell the property in the next year or two, the catch-up accelerates deductions you'd lose to depreciation recapture on the sale, so the timing benefit shrinks &mdash; you'd want to weigh that carefully. If your income in the catch-up year is unusually low, a big deduction is worth less than it would be in a high-income year, and it may be better to wait. And if the property has very little short-life content &mdash; a bare-bones unit with no land improvements and minimal finishes &mdash; the reclassification percentage can be too thin to justify the fee.</p>
+<p>The point is that a look-back is a timing-and-rate decision, not an automatic yes. We'll tell you when it doesn't pencil. (For the case where you <em>did</em> just buy, the math is a little different &mdash; we walked through it in <a href="/journal/100-bonus-depreciation-is-back.html">100% bonus depreciation is back</a>.)</p>
+<h2>How do I know what mine would catch up?</h2>
+<p>The honest answer is that it depends on your purchase price, your in-service date, and how much short-life property the building actually contains &mdash; which is what the study measures. You can get a rough sense of the order of magnitude with our <a href="/#calculator">savings estimator</a>, then we'll give you a candid feasibility read on whether a look-back is worth filing for. The deliverable is built to be audit-ready and to hand straight to your CPA, Form 3115 and all.</p>
+    </div>
+    <div class="article-cta">
+      <h3>Missed the deduction on a property you already own?</h3>
+      <p>A fifteen-minute feasibility call tells you roughly what a &sect;481(a) catch-up would be worth on your property &mdash; and whether it's worth filing for this year.</p>
+      <a href="/#contact" class="btn">Request a feasibility review <span class="arrow">&rarr;</span></a>
+    </div>
+    <p class="article-disclaimer">This article is general information, not tax, legal, or accounting advice. Look-back outcomes, &sect;481(a) adjustments, and the decision to file Form 3115 depend on your specific property, placed-in-service date, prior depreciation, and tax situation. Confirm with your CPA before acting.</p>
+  </article>
+</section>
+<footer class="rcs-footer">
+    <div class="r-container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">
+            <img src="/assets/logo-mark-light.png" alt="Refined Cost Segregation" style="width:36px;height:auto">
+            <div>
+              <span class="name">Refined</span>
+              <span class="tag">Cost Segregation</span>
+            </div>
+          </div>
+          <p class="blurb">Residential cost segregation studies for 1-4 unit investment property and short-term rentals. Built by tax professionals.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="/#services">Residential studies</a>
+          <a href="/#services">STR studies</a>
+          <a href="/#services">Look-back / &sect;481(a)</a>
+          <a href="/audit-support">Audit support</a>
+          <a href="/#services">CPA partner program</a>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <a href="/#calculator">Savings calculator</a>
+          <a href="/#journal">The journal</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/#process">How it works</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="/#contact">Get started</a>
+          <a href="mailto:admin@refinedcostseg.com">admin@refinedcostseg.com</a>
+          <a href="tel:+14144295333">414-429-5333</a>
+          <a href="#">Milwaukee, WI</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Refined Cost Segregation</span>
+        <span>Audit-ready &middot; ATG-aligned &middot; Reviewer-approved</span>
+        <span>Not tax, legal, or accounting advice</span>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="../script.js"></script>
+</body>
+</html>
