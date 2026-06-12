@@ -25,18 +25,18 @@ The firm exists to make defensible, audit-ready cost segregation accessible to t
 
 ## Documents
 
-- [Homepage](https://refinedcostseg.com/): overview of services, methodology, process, calculator, team, FAQ, and contact.
-- [Audit Support](https://refinedcostseg.com/audit-support): optional documentation and substantiation support if the IRS questions a study — Basic ($495) and Extended ($1,995) levels.
-- [The Journal](https://refinedcostseg.com/journal/): essays on residential cost segregation, bonus depreciation, and STR tax strategy.
+- [Homepage](https://www.refinedcostseg.com/): overview of services, methodology, process, calculator, team, FAQ, and contact.
+- [Audit Support](https://www.refinedcostseg.com/audit-support): optional documentation and substantiation support if the IRS questions a study — Basic ($495) and Extended ($1,995) levels.
+- [The Journal](https://www.refinedcostseg.com/journal/): essays on residential cost segregation, bonus depreciation, and STR tax strategy.
 
 ## Journal essays
 
-- [100% bonus depreciation is back. Here's what it means for your next residential acquisition.](https://refinedcostseg.com/journal/100-bonus-depreciation-is-back.html) (May 2026, Eugene Marshall, EA) — Explains the OBBB restoration of 100% bonus depreciation effective January 19, 2025, walks through the math on a $525K single-family rental and a $615K STR cabin, and covers the §481(a) look-back case.
-- [The short-term rental loophole, explained without the YouTube fluff.](https://refinedcostseg.com/journal/short-term-rental-loophole.html) (May 2026, Eugene Marshall, EA) — Covers the IRC §469 mechanic that lets STR owners deduct losses against W-2 income, the four most relevant material participation tests, the contemporaneous documentation requirement, and the realistic scenarios where the math pencils.
+- [100% bonus depreciation is back. Here's what it means for your next residential acquisition.](https://www.refinedcostseg.com/journal/100-bonus-depreciation-is-back.html) (May 2026, Eugene Marshall, EA) — Explains the OBBB restoration of 100% bonus depreciation effective January 19, 2025, walks through the math on a $525K single-family rental and a $615K STR cabin, and covers the §481(a) look-back case.
+- [The short-term rental loophole, explained without the YouTube fluff.](https://www.refinedcostseg.com/journal/short-term-rental-loophole.html) (May 2026, Eugene Marshall, EA) — Covers the IRC §469 mechanic that lets STR owners deduct losses against W-2 income, the four most relevant material participation tests, the contemporaneous documentation requirement, and the realistic scenarios where the math pencils.
 
 ## Contact
 
-- Website: https://refinedcostseg.com/
+- Website: https://www.refinedcostseg.com/
 - Email: admin@refinedcostseg.com
 - Phone: 414-429-5333
 - Location: Milwaukee, Wisconsin (serves all US states)

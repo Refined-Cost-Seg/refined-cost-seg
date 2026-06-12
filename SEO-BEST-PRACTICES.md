@@ -56,7 +56,7 @@ Five things, in rough order of impact:
 
 **1. Set up Google Search Console.** Free, takes 10 minutes. Verify domain ownership via a DNS TXT record at GoDaddy, then submit the sitemap. This is how you'll actually see what queries you rank for. Same idea, smaller value: Bing Webmaster Tools.
 
-**2. Add a real OG image.** Right now the OG tags are configured but there's no preview image. When someone shares the homepage in iMessage or LinkedIn today, the card shows text-only. A 1200×630 PNG with the logo, tagline, and brand colors fixes that. Canva or Figma works fine for this. Save it as `/og-image.png` at the repo root, then add `<meta property="og:image" content="https://refinedcostseg.com/og-image.png">` to each HTML head.
+**2. Add a real OG image.** Right now the OG tags are configured but there's no preview image. When someone shares the homepage in iMessage or LinkedIn today, the card shows text-only. A 1200×630 PNG with the logo, tagline, and brand colors fixes that. Canva or Figma works fine for this. Save it as `/og-image.png` at the repo root, then add `<meta property="og:image" content="https://www.refinedcostseg.com/og-image.png">` to each HTML head.
 
 **3. Add Plausible or Google Analytics.** You can't improve what you can't measure. Plausible is privacy-friendly and ~$9/month; GA4 is free but heavier. Either gives you traffic, sources, top pages, and conversion tracking.
 
