@@ -13,7 +13,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 5 | ✅ Published | What a cost segregation study actually costs for a residential rental | "cost segregation cost residential", "how much is a cost segregation study" | Ethan |
 | 6 | ✅ Published | Look-back studies and §481(a): catching the deduction you missed | "catch up depreciation 481a", "look back cost segregation" | Eugene |
 | 7 | ✅ Published | Audit-ready vs. audit-proof: what defensible actually means | "is cost segregation an audit risk" | Eugene |
-| 8 | ⬜ | Cost segregation on a duplex or small multifamily: the numbers | "cost segregation duplex", "small multifamily depreciation" | Ethan |
+| 8 | ✅ Published | Cost segregation on a duplex or small multifamily: the numbers | "cost segregation duplex", "small multifamily depreciation" | Ethan |
 | 9 | ⬜ | The five short-life assets STR owners almost always under-claim | "STR depreciation furniture appliances" | Eugene |
 | 10 | ⬜ | Material participation for STRs: the documentation to keep | "material participation short term rental", "STR 100 hours rule" | Eugene |
 | 11 | ⬜ | Bonus depreciation vs. Section 179 for residential rentals | "bonus depreciation vs section 179 rental" | Eugene |
