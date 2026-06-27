@@ -4,6 +4,32 @@ This is the runbook the scheduled Cowork task follows on each run (Mon/Wed/Fri).
 It exists so every post is structurally identical, on-brand, and maximally
 optimized for search and AI citation. Read this top to bottom each run.
 
+## Direct git push — for any chat, not just the scheduled run
+
+Any Cowork chat can push changes to this repo (manual edits, fixes, one-offs), not only the
+autopublish task. The catch that trips chats up: **git cannot run on the Cowork mount**
+(`~/Cowork/...`, including any `~/Cowork/refined-cost-seg/` copy — file-lock limitation), so
+never `cd ~/Cowork/... && git push`. Do all git work in the sandbox shell
+(`mcp__workspace__bash`): clone into `/tmp` (never the mount) and push with a tokened URL.
+Bash calls are independent (no cwd/variable carryover), so run the sequence in one call or
+re-establish state each call. **Never echo the token** — mask it with `sed "s/${TOKEN}/***/g"`.
+
+```bash
+TOKEN=$(cat /sessions/*/mnt/Cowork/.rcs-publish/gh_token)
+cd /tmp && rm -rf rcs
+git clone "https://x-access-token:${TOKEN}@github.com/Refined-Cost-Seg/refined-cost-seg.git" rcs 2>&1 | sed "s/${TOKEN}/***/g"
+cd /tmp/rcs
+git config user.name "Refined Cost Seg Bot" && git config user.email "admin@refinedcostseg.com"
+# ...edit files under /tmp/rcs...
+git add -A
+git commit -m "your message" 2>&1 | sed "s/${TOKEN}/***/g"
+git push "https://x-access-token:${TOKEN}@github.com/Refined-Cost-Seg/refined-cost-seg.git" HEAD:main 2>&1 | sed "s/${TOKEN}/***/g"
+```
+
+Netlify auto-deploys `main`; wait ~40s and `web_fetch` the live URL to confirm. If the org
+rejects the token or the push is blocked by policy, stop and surface the exact error — don't
+retry blindly, and don't fall back to pushing from the mount.
+
 ## 0. Auth & checkout
 1. Read the GitHub token from `~/Cowork/.rcs-publish/gh_token` (mounted path
    inside Cowork; in the sandbox shell that is `/sessions/<id>/mnt/Cowork/.rcs-publish/gh_token`).
