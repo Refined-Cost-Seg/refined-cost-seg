@@ -16,7 +16,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 8 | ✅ Published | Cost segregation on a duplex or small multifamily: the numbers | "cost segregation duplex", "small multifamily depreciation" | Ethan |
 | 9 | ✅ Published | The five short-life assets STR owners almost always under-claim | "STR depreciation furniture appliances" | Eugene |
 | 10 | ✅ Published | Material participation for STRs: the documentation to keep | "material participation short term rental", "STR 100 hours rule" | Eugene |
-| 11 | ⬜ | Bonus depreciation vs. Section 179 for residential rentals | "bonus depreciation vs section 179 rental" | Eugene |
+| 11 | ✅ Published | Bonus depreciation vs. Section 179 for residential rentals | "bonus depreciation vs section 179 rental" | Eugene |
 | 12 | ⬜ | Should you do a cost seg study the year you buy, or wait? | "when to do cost segregation study" | Ethan |
 | 13 | ⬜ | What documents we actually need from you (and why no site visit) | "cost segregation study requirements documents" | Ethan |
 | 14 | ⬜ | Depreciation recapture: what happens when you sell | "depreciation recapture cost segregation sale" | Eugene |
