@@ -35,3 +35,15 @@
   for = "/script.js"
   [headers.values]
     Cache-Control = "public, max-age=3600"
+
+# Root River Realty partner landing page — pretty URL + keep it out of search indexes
+[[redirects]]
+  from = "/root-river-realty"
+  to = "/root-river-realty.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/root-river-realty*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
