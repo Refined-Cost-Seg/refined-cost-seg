@@ -19,7 +19,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 11 | ✅ Published | Bonus depreciation vs. Section 179 for residential rentals | "bonus depreciation vs section 179 rental" | Eugene |
 | 12 | ✅ Published | Should you do a cost seg study the year you buy, or wait? | "when to do cost segregation study" | Ethan |
 | 13 | ✅ Published | What documents we actually need from you (and why no site visit) | "cost segregation study requirements documents" | Ethan |
-| 14 | ⬜ | Depreciation recapture: what happens when you sell | "depreciation recapture cost segregation sale" | Eugene |
+| 14 | ✅ Published | Depreciation recapture: what happens when you sell | "depreciation recapture cost segregation sale" | Eugene |
 
 ## Cadence notes
 
