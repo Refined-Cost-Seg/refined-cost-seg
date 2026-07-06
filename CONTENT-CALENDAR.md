@@ -20,6 +20,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 12 | ✅ Published | Should you do a cost seg study the year you buy, or wait? | "when to do cost segregation study" | Ethan |
 | 13 | ✅ Published | What documents we actually need from you (and why no site visit) | "cost segregation study requirements documents" | Ethan |
 | 14 | ✅ Published | Depreciation recapture: what happens when you sell | "depreciation recapture cost segregation sale" | Eugene |
+| 15 | ✅ Published | Real estate professional status: who qualifies, and what it unlocks | "real estate professional status cost segregation", "REPS 750 hours" | Eugene |
 
 ## Cadence notes
 
