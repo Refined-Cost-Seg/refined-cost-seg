@@ -21,6 +21,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 13 | ✅ Published | What documents we actually need from you (and why no site visit) | "cost segregation study requirements documents" | Ethan |
 | 14 | ✅ Published | Depreciation recapture: what happens when you sell | "depreciation recapture cost segregation sale" | Eugene |
 | 15 | ✅ Published | Real estate professional status: who qualifies, and what it unlocks | "real estate professional status cost segregation", "REPS 750 hours" | Eugene |
+| 16 | ✅ Published | Cost segregation for passive investors: what happens to the losses you can't use yet | "cost segregation passive losses", "suspended passive losses rental" | Eugene |
 
 ## Cadence notes
 
