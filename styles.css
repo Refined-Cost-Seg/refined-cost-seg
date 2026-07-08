@@ -283,3 +283,30 @@
 .rcs-embed .listing-grid{max-width:1320px;margin:0 auto;padding:0 clamp(1.25rem,3.5vw,3rem);display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
 @media screen and (max-width:991px){.rcs-embed .listing-grid{grid-template-columns:1fr 1fr}}
 @media screen and (max-width:767px){.rcs-embed .listing-grid{grid-template-columns:1fr}}
+
+/* ===== Contact section (#contact): center + widen embedded Jotform ===== */
+.rcs-embed #contact .r-container { max-width: 980px; }
+
+.rcs-embed #contact .contact-wrap {
+  display: block;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.rcs-embed #contact .contact-wrap .lead { margin-left: auto; margin-right: auto; }
+
+.rcs-embed #contact .contact-info {
+  grid-template-columns: 1fr 1fr;
+  max-width: 620px;
+  margin: 2rem auto 0;
+}
+.rcs-embed #contact .info-block { text-align: left; }
+
+.rcs-embed #contact .contact-form {
+  margin-top: 2.5rem;
+  text-align: left;
+}
+
+@media screen and (max-width: 640px) {
+  .rcs-embed #contact .contact-info { grid-template-columns: 1fr; max-width: 360px; }
+}
