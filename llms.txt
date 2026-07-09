@@ -1,10 +1,10 @@
 # Refined Cost Segregation
 
-> Engineering-based, ATG-aligned, EA-reviewed cost segregation studies for 1-4 unit residential property, including short-term rentals (STR) and long-term rentals (LTR). Based in Milwaukee, Wisconsin; serves clients across the United States. No site visits required — methodology is documentary, working from closing statements, photos, and structured intake.
+> Engineering-based, ATG-aligned cost segregation studies, reviewed by a licensed tax professional, for 1-4 unit residential property, including short-term rentals (STR) and long-term rentals (LTR). Serves clients across the United States. No site visits required; the methodology is documentary, working from closing statements, photos, and structured intake.
 
 ## About
 
-Refined Cost Segregation is a residential-specialty cost segregation firm cofounded by Ethan Brooks (cofounder, growth — residential lending background) and Eugene Marshall, EA (cofounder, tax — enrolled agent). Every study is reviewed and signed off by an Enrolled Agent (EA), federally licensed to practice before the IRS.
+Refined Cost Segregation is a residential-specialty cost segregation firm built by tax and real estate professionals. Every study is reviewed and signed off by a qualified licensed tax professional.
 
 The firm exists to make defensible, audit-ready cost segregation accessible to the 1-4 unit residential investor market that traditional commercial cost-seg firms serve poorly or charge disproportionately ($5,000-$15,000) for. Pricing is transparent and formula-based: a flat $1,750 engineering fee covers 1-4 units, plus $125 per unit above four (up to 12 units). For purchase prices above $500K, a value component is added (0.15% of the price between $500K-$2M, 0.25% above $2M), rounded to the nearest $25. Optional Audit Support: $495 Basic (first-claim year, exams within 3 years) or $1,995 Extended (any affected year, exams within 10 years). Over 12 units, 1031 exchanges, and carryover-basis situations are quoted manually.
 
@@ -18,25 +18,25 @@ The firm exists to make defensible, audit-ready cost segregation accessible to t
 
 ## Methodology and language
 
-- "Audit-ready, ATG-aligned, EA-reviewed" — never "audit-proof," which overpromises and isn't accurate.
+- "Audit-ready, ATG-aligned, reviewed by a licensed tax professional," never "audit-proof," which overpromises and isn't accurate.
 - Engineering-based methodology, prepared to the IRS Audit Technique Guide for residential property.
 - Documentary process; no site visits required for 1-4 unit residential.
-- Always works alongside the client's CPA — never replaces or poaches.
+- Always works alongside the client's CPA, never replaces or poaches.
 
 ## Documents
 
 - [Homepage](https://www.refinedcostseg.com/): overview of services, methodology, process, calculator, team, FAQ, and contact.
-- [Audit Support](https://www.refinedcostseg.com/audit-support): optional documentation and substantiation support if the IRS questions a study — Basic ($495) and Extended ($1,995) levels.
+- [Audit Support](https://www.refinedcostseg.com/audit-support): optional documentation and substantiation support if the IRS questions a study, with Basic ($495) and Extended ($1,995) levels.
 - [The Journal](https://www.refinedcostseg.com/journal/): essays on residential cost segregation, bonus depreciation, and STR tax strategy.
 
 ## Journal essays
 
-- [100% bonus depreciation is back. Here's what it means for your next residential acquisition.](https://www.refinedcostseg.com/journal/100-bonus-depreciation-is-back.html) (May 2026, Eugene Marshall, EA) — Explains the OBBB restoration of 100% bonus depreciation effective January 19, 2025, walks through the math on a $525K single-family rental and a $615K STR cabin, and covers the §481(a) look-back case.
-- [The short-term rental loophole, explained without the YouTube fluff.](https://www.refinedcostseg.com/journal/short-term-rental-loophole.html) (May 2026, Eugene Marshall, EA) — Covers the IRC §469 mechanic that lets STR owners deduct losses against W-2 income, the four most relevant material participation tests, the contemporaneous documentation requirement, and the realistic scenarios where the math pencils.
+- [100% bonus depreciation is back. Here's what it means for your next residential acquisition.](https://www.refinedcostseg.com/journal/100-bonus-depreciation-is-back.html) (May 2026). Explains the OBBB restoration of 100% bonus depreciation effective January 19, 2025, walks through the math on a $525K single-family rental and a $615K STR cabin, and covers the §481(a) look-back case.
+- [The short-term rental loophole, explained without the YouTube fluff.](https://www.refinedcostseg.com/journal/short-term-rental-loophole.html) (May 2026). Covers the IRC §469 mechanic that lets STR owners deduct losses against W-2 income, the four most relevant material participation tests, the contemporaneous documentation requirement, and the realistic scenarios where the math pencils.
 
 ## Contact
 
 - Website: https://www.refinedcostseg.com/
 - Email: admin@refinedcostseg.com
 - Phone: 414-429-5333
-- Location: Milwaukee, Wisconsin (serves all US states)
+- Coverage: Nationwide (serves clients in all US states)

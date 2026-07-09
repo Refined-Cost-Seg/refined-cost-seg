@@ -45,9 +45,9 @@ retry blindly, and don't fall back to pushing from the mount.
 - If every row is `✅ Published`, GENERATE a new topic: a real search intent for
   residential cost seg / STR strategy / look-backs that the existing posts do not
   already cover. Add it to the calendar as a new row, then write it.
-- Note the assigned author (Eugene or Ethan). Eugene = tax/strategy angle,
-  byline "Eugene Marshall, EA", image `/assets/eugene-marshall.jpg`.
-  Ethan = investor/market angle, byline "Ethan Brooks", image `/assets/ethan-brooks.jpg`.
+- Byline every post to the firm, never an individual: visible byline "Refined Cost Segregation"
+  with image `/assets/logo-mark.png`, and a JSON-LD `author` of @type Organization
+  ("Refined Cost Segregation", url the homepage). Do not use personal names or an EA credential.
 
 ## 2. Write the post — copy `journal/100-bonus-depreciation-is-back.html` as the template
 Keep the exact `<head>`, nav, and footer structure. Swap only the per-post parts.
@@ -57,7 +57,7 @@ Required for SEO + AI citation (non-negotiable):
 - Open Graph (`og:type=article`, title, description, url, `article:published_time`
   = today's date `T12:00:00Z`, `article:author`, `article:section`) + Twitter card tags.
 - A JSON-LD `Article` block: headline, description, datePublished + dateModified =
-  today, named `author` Person with honorificSuffix where applicable, `publisher`
+  today, an `author` Organization ("Refined Cost Segregation"), `publisher`
   Organization, `mainEntityOfPage` = the post URL, `articleSection`, a specific
   `keywords` array (target the calendar row's keyword + close variants), and an
   `about` array of 2-3 Things.
