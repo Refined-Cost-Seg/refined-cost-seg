@@ -19,15 +19,19 @@
   ul{padding-left:22px}
   a{color:var(--sage-d)}
   a:focus-visible{outline:3px solid var(--sage-d);outline-offset:2px}
+  .skip-link{position:absolute;left:-9999px;top:0;z-index:99;background:var(--navy);color:#fff;padding:.7rem 1.2rem;border-radius:0 0 10px 0;font-weight:700;text-decoration:none}
+  .skip-link:focus{left:0}
   footer{margin-top:36px;color:var(--muted);font-size:12.5px;border-top:1px solid var(--rule);padding-top:14px}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header>
   <div class="kicker"><a href="/" style="color:inherit;text-decoration:none;">Refined Cost Segregation</a></div>
   <h1>Accessibility Statement</h1>
   <div class="meta">Last reviewed: July 12, 2026</div>
 </header>
+<main id="main-content">
 
 <p>Refined Cost Segregation, LLC wants every investor and tax professional to be able to use this website — including people who rely on screen readers, keyboard navigation, magnification, captions, or reduced motion. Accessibility is part of how we maintain this site, not an afterthought.</p>
 
@@ -60,6 +64,7 @@
 <h2>How we keep it this way</h2>
 <p>Accessibility checks (automated scanning plus a manual keyboard and screen-reader pass on key pages) are part of our release process for site changes, and this statement is reviewed whenever the site is significantly updated.</p>
 
+</main>
 <footer>
   <p>Refined Cost Segregation, LLC · Milwaukee, WI · <a href="/">refinedcostseg.com</a> · <a href="/privacy">Privacy Policy</a></p>
 </footer>

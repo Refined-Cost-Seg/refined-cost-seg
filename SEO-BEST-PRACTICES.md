@@ -1,3 +1,5 @@
+> **UPDATED 2026-07-12:** pricing is private (no fee amounts anywhere), client-facing EA claims are removed, and look-back/§481(a) content is SHELVED. Where guidance below conflicts with those three rules, the rules win.
+
 # SEO & AI Optimization — What's Done and What's Next
 
 A real-world audit and playbook for refinedcostseg.com. This document covers what changed in this session, what each piece is doing, and what to keep doing as you publish.
@@ -12,8 +14,8 @@ Every page now ships with JSON-LD structured data that tells both search engines
 - `Organization` — Refined Cost Segregation
 - `ProfessionalService` — the business itself with offers and a service catalog
 - `WebSite` — for site-level search behaviors
-- `Person × 2` — Ethan and Eugene as cofounders, with Eugene's EA credential explicitly modeled
-- `Service` — Cost segregation study, with the $1,750 starting offer
+- ~~Person × 2 with EA credential~~ REMOVED 2026-07-12 — no client-facing named-credential claims; model the Organization + "licensed tax professional" wording only
+- `Service` — Cost segregation study (NO price modeled — pricing is private as of 2026-07; quote via intake form)
 - `FAQPage` — auto-built from the 8 FAQ items on the page, so questions like "do you do site visits?" can show up as rich results in Google and as direct quotes in AI answers
 
 **Blog posts** each carry an `Article` schema with proper `datePublished`, named `author` (Eugene), `publisher`, `keywords`, and `about` entities. The article schema is what makes a post citable: it gives an LLM a clean source to attribute when answering a related question.
@@ -94,7 +96,6 @@ If the blog hits ~25 posts at one a week, all with the structure above, and you'
 - "residential cost segregation small landlords"
 - "cost segregation duplex"
 - "STR loophole material participation"
-- "look-back cost segregation §481(a)"
 
 And — more importantly given how people actually search now — when someone asks ChatGPT or Claude or Perplexity "is residential cost segregation worth it for a $400K rental?" — the answer is more likely to cite Refined Cost Segregation than a generic Investopedia article.
 

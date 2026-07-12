@@ -74,3 +74,29 @@
   to = "/accessibility.html"
   status = 200
   force = false
+
+# 2026-07-12 scrub: internal planning docs must not serve publicly (publish='.')
+[[redirects]]
+  from = "/README.md"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/SEO-BEST-PRACTICES.md"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/PUBLISHING-PLAYBOOK.md"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/CONTENT-CALENDAR.md"
+  to = "/"
+  status = 301
+  force = true
+

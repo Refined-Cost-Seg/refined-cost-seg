@@ -53,7 +53,7 @@ The goal is roughly one new post per week. Topic backlog is in `CONTENT-CALENDAR
 - [ ] Verify the staging `*.netlify.app` URL renders correctly
 - [ ] **Confirm the Jotform form ID in `index.html` is the current live intake form** and that its Make.com automation is wired (see note below)
 - [ ] Point the custom domain from Webflow DNS to Netlify
-- [ ] Replace the placeholder SVG portrait for the EA reviewer (or leave as the abstract badge)
+- [ ] Replace the placeholder SVG portrait for the QC reviewer card (or leave as the abstract badge)
 - [ ] Decide what to do with the now-unused Webflow site + CMS (cancel Premium if not needed elsewhere)
 
 ## Jotform note
