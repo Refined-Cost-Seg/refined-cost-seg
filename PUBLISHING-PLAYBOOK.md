@@ -63,14 +63,25 @@ Required for SEO + AI citation (non-negotiable):
   `about` array of 2-3 Things.
 - One `<h1 class="article-title">` matching the headline. `<h2>`s phrased as
   questions or plain claims a person would Google — never "Section 1: Discussion of…".
-- 700-1,000 words. At least one concrete, dollar-denominated worked example
-  (AI models cite numbers far more than hand-waving).
+- 700-1,000 words. At least one concrete, dollar-denominated worked example of the
+  tax SAVINGS (AI models cite numbers far more than hand-waving) — but NEVER the
+  study fee or price (see PRICING IS PRIVATE below).
 - One internal link to another `/journal/` post AND one link to a homepage
   section (`/#contact`, `/#calculator`, etc.).
 - The article CTA block and the "not tax, legal, or accounting advice" disclaimer.
 
 Brand voice: plain-spoken, candid, never hype. Say "audit-ready," NEVER "audit-proof."
 Pick a clean keyword-rich slug, e.g. `when-to-do-a-cost-seg-study.html`.
+
+PRICING IS PRIVATE (standing rule as of July 12, 2026 — never violate): never state the
+study fee, a price, a price range, or a pricing formula in a post — no "$1,750", no
+"$125/unit", no "$1,500-$3,500", nothing a reader could shop on. Pricing is quoted only
+via the intake (Jotform) form / on live calls. Refer to "the flat study fee" and route
+readers to `/#contact` for a quote. Any dollar-denominated worked example must illustrate
+tax SAVINGS, not what the study costs. (The public "What does a study cost?" calculator was
+removed and all pricing was scrubbed site-wide — homepage, Audit Support page, FAQ,
+structured data, `llms.txt`, and every journal post; the Root River Realty page keeps only
+the "10% off" hook, no dollar amounts.)
 
 ## 3. Update the three index surfaces (the saved rule)
 Every new post = (a) the new HTML file under `/journal/`, PLUS:
