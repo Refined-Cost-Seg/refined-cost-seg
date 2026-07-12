@@ -43,7 +43,7 @@ retry blindly, and don't fall back to pushing from the mount.
 ## 1. Pick the topic
 - Open `CONTENT-CALENDAR.md`. Choose the FIRST row still marked `⬜` (top to bottom).
 - If every row is `✅ Published`, GENERATE a new topic: a real search intent for
-  residential cost seg / STR strategy / look-backs that the existing posts do not
+  residential cost seg / STR strategy that the existing posts do not
   already cover. Add it to the calendar as a new row, then write it.
 - Byline every post to the firm, never an individual: visible byline "Refined Cost Segregation"
   with image `/assets/logo-mark.png`, and a JSON-LD `author` of @type Organization
@@ -108,3 +108,8 @@ so the next run does not repeat it.
 - Netlify auto-deploys every push to `main`; there is no build step (static site).
 - Pretty URLs: `/journal/<slug>` resolves to `<slug>.html` via netlify.toml redirects.
 - If the org rejects the token (org policy), stop and surface the error — do not retry.
+
+
+## Standing rule (2026-07-12): look-back / §481(a) / Form 3115 content is SHELVED
+
+The look-back service is shelved. Do not publish or link content about look-back studies, §481(a) catch-up adjustments, or Form 3115. Prior-year depreciation questions are referred to the client's CPA. If the service is revived, restore the retired post from git history and reverse the 301 in netlify.toml.

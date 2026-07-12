@@ -54,3 +54,16 @@
   for = "/root-river-realty*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
+
+# 2026-07-12: look-back service shelved; retired post redirects to the journal index
+[[redirects]]
+  from = "/journal/look-back-cost-segregation-481a*"
+  to = "/journal/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/accessibility"
+  to = "/accessibility.html"
+  status = 200
+  force = false

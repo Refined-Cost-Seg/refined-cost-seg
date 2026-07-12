@@ -10,7 +10,12 @@
   var navToggle = document.querySelector('.rcs-embed .mobile-toggle');
   var navLinks  = document.getElementById('rcs-navlinks');
   if (navToggle && navLinks) {
-    navToggle.addEventListener('click', function() { navLinks.classList.toggle('open'); });
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-controls', 'rcs-navlinks');
+    navToggle.addEventListener('click', function() {
+      var open = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
     navLinks.querySelectorAll('a').forEach(function(a) {
       a.addEventListener('click', function() { navLinks.classList.remove('open'); });
     });
@@ -26,8 +31,22 @@
   }
 
   // ─── FAQ accordion ───
-  document.querySelectorAll('.rcs-embed .faq-item').forEach(function(item) {
-    item.addEventListener('click', function() { item.classList.toggle('open'); });
+  document.querySelectorAll('.rcs-embed .faq-item').forEach(function(item, i) {
+    var q = item.querySelector('.q-row');
+    var a = item.querySelector('.a');
+    if (!q) return;
+    q.setAttribute('role', 'button');
+    q.setAttribute('tabindex', '0');
+    q.setAttribute('aria-expanded', 'false');
+    if (a) { a.id = a.id || ('faq-panel-' + i); q.setAttribute('aria-controls', a.id); }
+    function toggle() {
+      var open = item.classList.toggle('open');
+      q.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    item.addEventListener('click', toggle);
+    q.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); e.stopPropagation(); toggle(); }
+    });
   });
 
   // ─── Scroll reveal (IntersectionObserver) ───

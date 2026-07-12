@@ -11,7 +11,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 3 | ✅ Published | A CPA's quick reference: when residential cost seg is worth recommending | "cost segregation for CPAs", "when to recommend cost segregation" | Eugene |
 | 4 | ✅ Published | Do you really need a site visit for a residential cost seg study? | "cost segregation site visit required" | Eugene |
 | 5 | ✅ Published | What a cost segregation study actually costs for a residential rental | "cost segregation cost residential", "how much is a cost segregation study" | Ethan |
-| 6 | ✅ Published | Look-back studies and §481(a): catching the deduction you missed | "catch up depreciation 481a", "look back cost segregation" | Eugene |
+| 6 | 🗄 RETIRED 2026-07-12 (service shelved; page removed + 301) | Look-back studies and §481(a): catching the deduction you missed | "catch up depreciation 481a", "look back cost segregation" | Eugene |
 | 7 | ✅ Published | Audit-ready vs. audit-proof: what defensible actually means | "is cost segregation an audit risk" | Eugene |
 | 8 | ✅ Published | Cost segregation on a duplex or small multifamily: the numbers | "cost segregation duplex", "small multifamily depreciation" | Ethan |
 | 9 | ✅ Published | The five short-life assets STR owners almost always under-claim | "STR depreciation furniture appliances" | Eugene |
