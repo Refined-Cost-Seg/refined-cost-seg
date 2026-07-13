@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cost segregation after a 1031 exchange: Refined Cost Segregation</title>
+<meta name="description" content="A 1031 exchange splits your replacement property into carryover basis and excess basis. Only one side is bonus-eligible. Here's how cost segregation works after a like-kind exchange, with a worked example.">
+<link rel="canonical" href="https://www.refinedcostseg.com/journal/cost-segregation-1031-exchange.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cost segregation after a 1031 exchange: how the carryover-basis split changes the math.">
+<meta property="og:description" content="A like-kind exchange splits your replacement property into carryover basis and excess basis. Only the excess basis is bonus-eligible. Here's what that means for a study.">
+<meta property="og:url" content="https://www.refinedcostseg.com/journal/cost-segregation-1031-exchange.html">
+<meta property="og:site_name" content="Refined Cost Segregation">
+<meta property="article:published_time" content="2026-07-13T12:00:00Z">
+<meta property="article:author" content="Refined Cost Segregation">
+<meta property="article:section" content="Tax strategy">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://www.refinedcostseg.com/og-image.png">
+<meta name="twitter:image" content="https://www.refinedcostseg.com/og-image.png">
+<meta name="twitter:title" content="Cost segregation after a 1031 exchange.">
+<meta name="twitter:description" content="A like-kind exchange splits your replacement property into carryover basis and excess basis. Only the excess basis is bonus-eligible. Here's how a study works.">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Cost segregation after a 1031 exchange: how the carryover-basis split changes the math.","description":"A 1031 like-kind exchange splits your replacement property into carryover (exchanged) basis and excess basis. Only the excess basis is eligible for bonus depreciation. Here's how cost segregation works after an exchange, with a worked example.","datePublished":"2026-07-13T12:00:00Z","dateModified":"2026-07-13T12:00:00Z","author":{"@type":"Organization","name":"Refined Cost Segregation","url":"https://www.refinedcostseg.com/"},"publisher":{"@type":"Organization","name":"Refined Cost Segregation","url":"https://www.refinedcostseg.com/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.refinedcostseg.com/journal/cost-segregation-1031-exchange.html"},"articleSection":"Tax strategy","keywords":["cost segregation 1031 exchange","1031 exchange carryover basis","excess basis bonus depreciation","like-kind exchange depreciation","cost segregation replacement property"],"about":[{"@type":"Thing","name":"1031 exchange"},{"@type":"Thing","name":"Cost segregation"},{"@type":"Thing","name":"Bonus depreciation"}]}
+</script>
+</head>
+<body>
+<div class="rcs-embed">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav class="rcs-nav" id="rcs-topnav">
+    <a href="/" class="logo" aria-label="Refined Cost Segregation, home">
+      <img class="logo-mark" src="/assets/logo-mark.png" alt="Refined Cost Segregation" style="width:36px;height:auto">
+      <div class="logo-text">
+        <span class="name">Refined</span>
+        <span class="tag">Cost Segregation</span>
+      </div>
+    </a>
+    <div class="nav-links" id="rcs-navlinks">
+      <a href="/#process">How it works</a>
+      <a href="/#services">Services</a>
+      <a href="/#calculator">Estimate</a>
+      <a href="/#team">Team</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/#contact" class="nav-cta">Get started &rarr;</a>
+    </div>
+    <button class="mobile-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="rcs-navlinks">&#9776;</button>
+  </nav>
+<main id="main-content">
+<section class="rcs-article">
+  <article class="article-wrap">
+    <a href="/journal/" class="article-back">&larr; The Journal</a>
+    <div class="article-meta">
+      <span class="tag">Tax strategy</span>
+      <span class="date">July 13, 2026</span>
+      <span class="read-time">4 min read</span>
+    </div>
+    <h1 class="article-title">Cost segregation after a 1031 exchange: how the carryover-basis split changes the math.</h1>
+    <div class="article-byline">
+      <img src="/assets/logo-mark.png" alt="Refined Cost Segregation">
+      <div class="who"><span class="nm">Refined Cost Segregation</span><span class="rl">Residential cost segregation</span></div>
+    </div>
+    <div class="article-body">
+      <p>Investors who&rsquo;ve just closed a 1031 exchange ask us some version of the same question: &ldquo;I rolled a big gain into a new rental &mdash; can I still run a cost segregation study and take 100% bonus depreciation on it?&rdquo; The answer is yes, you can run a study, but the bonus part only reaches half of the picture. A like-kind exchange doesn&rsquo;t hand you a fresh, clean basis to accelerate. It hands you two different pieces of basis, and they play by different rules.</p>
+<p>This trips people up because the marketing rarely mentions it. So here&rsquo;s the plain version.</p>
+<h2>A 1031 exchange splits your replacement property into two pieces.</h2>
+<p>When you defer gain through a 1031 exchange, your replacement property doesn&rsquo;t start over at its purchase price for depreciation purposes. Under the depreciation rules for like-kind exchanges (Treasury Reg. &sect;1.168(i)-6), the depreciable basis of the replacement property is split in two.</p>
+<p>The first piece is the <strong>carryover basis</strong> (also called the exchanged basis) &mdash; the adjusted basis you carried over from the property you gave up. It keeps depreciating on the <em>old</em> schedule: same recovery period, same method, same remaining life. Roll a rental you&rsquo;d owned for eight years into a new one, and that carried-over slice keeps running out its remaining 19.5 years as if nothing happened.</p>
+<p>The second piece is the <strong>excess basis</strong> &mdash; the additional money you put in on top of the exchange. New cash, new debt, or boot you added to trade up. This piece is treated as a brand-new asset, placed in service the day you acquired the replacement property, on a fresh 27.5-year residential schedule.</p>
+<h2>Which piece actually gets bonus depreciation?</h2>
+<p>Here&rsquo;s the part that matters for anyone chasing a big Year 1 deduction. Cost segregation can be applied to <em>both</em> pieces &mdash; a study reclassifies the short-life components (5-, 7-, and 15-year property) across the whole replacement property. But <strong>bonus depreciation only reaches the excess basis.</strong></p>
+<p>The excess basis is new investment, so as long as the property was acquired after January 19, 2025, the short-life property carved out of it qualifies for 100% bonus depreciation &mdash; a full write-off in year one. The carryover basis generally does <em>not</em> qualify for bonus (it isn&rsquo;t newly acquired property in the eyes of the rule). Cost seg still helps that slice by moving components into shorter recovery periods, but the deduction comes over those shorter lives rather than all at once.</p>
+<p>So the honest framing is: the more of your replacement property that is <em>new money</em>, the more of it a study can turn into an immediate deduction. An investor who traded up substantially has a lot of excess basis to work with. An investor who did a near-even swap has mostly carryover basis, and the year-one number is smaller.</p>
+<h2>A worked example: a $480K replacement rental.</h2>
+<p>Say you exchange out of a small rental and into a single-family rental with $480K of depreciable basis (land already excluded). Of that, $180K is carryover basis from the old property, and $300K is excess basis &mdash; the new cash and debt you brought to trade up.</p>
+<p>A typical residential study reclassifies roughly 22% of basis into 5/7/15-year buckets. Applied to the property, that&rsquo;s about $106K of short-life property total &mdash; call it $40K sitting in the carryover slice and $66K in the excess slice.</p>
+<p>The $66K in the excess basis is bonus-eligible and fully deductible in year one. At a 32% marginal federal rate, that&rsquo;s roughly <strong>$21,000 in year-one tax savings</strong> &mdash; before any state benefit. The $40K in the carryover slice isn&rsquo;t bonus-eligible, but it still accelerates: instead of crawling along at 27.5 years, it depreciates over 5 and 15, front-loading deductions into the years you&rsquo;re most likely to want them. You don&rsquo;t get the lump sum on that piece, but you&rsquo;re still pulling deductions forward.</p>
+<p>Compare that with skipping the study entirely, where the whole $480K plods along on its two straight-line schedules, and the case tends to make itself. It&rsquo;s the same logic we walk through in <a href="/journal/when-to-do-a-cost-segregation-study.html">when to do a cost segregation study</a> &mdash; the exchange just changes how much of the benefit lands in year one.</p>
+<h2>Is there a way to bonus the whole thing?</h2>
+<p>Sometimes. The regulations let you <em>elect out</em> of the carryover-basis split and instead treat the entire replacement property basis as newly placed in service. In the right situation &mdash; particularly when the old property had little basis left to carry &mdash; that election can put more of the basis on the bonus-eligible side. It&rsquo;s a real lever, but it&rsquo;s a return-position call with tradeoffs (you give up the continuing schedule on the old basis), so it belongs with your CPA, on the return, not as a default assumption. We flag when it&rsquo;s worth a conversation and build the study so either treatment is supportable.</p>
+<h2>So is a study still worth it after an exchange?</h2>
+<p>Usually, yes &mdash; but the answer depends on how much excess basis you brought to the deal, your marginal rate, and how long you plan to hold. A study is at its most powerful when you&rsquo;ve traded up meaningfully, because that new money is exactly what bonus depreciation feeds on. And keep the exit in mind: cost seg concentrates future recapture in the reclassified slice, which is worth understanding before you sell, something we cover in <a href="/journal/depreciation-recapture-cost-segregation-sale.html">depreciation recapture when you sell</a>.</p>
+<p>Where it lands for your specific exchange comes down to the numbers. If you want a candid read, tell us the replacement property, the rough basis split, and your situation, and we&rsquo;ll tell you whether it pencils &mdash; including the cases where it doesn&rsquo;t. Our <a href="/#calculator">savings estimate</a> is a fast first cut.</p>
+    </div>
+    <div class="article-cta">
+      <h3>Just closed a 1031 exchange?</h3>
+      <p>A fifteen-minute feasibility call gets you a candid yes or no on whether a study pencils on your replacement property, and a fixed-fee quote if it makes sense.</p>
+      <a href="/#contact" class="btn">Request a feasibility review <span class="arrow">&rarr;</span></a>
+    </div>
+    <p class="article-disclaimer">This article is general information, not tax, legal, or accounting advice. Cost segregation and 1031 exchange outcomes depend on your specific property, basis, placed-in-service date, and tax situation. Confirm with your CPA before acting.</p>
+  </article>
+</section>
+</main>
+  <footer class="rcs-footer">
+    <div class="r-container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">
+            <img src="/assets/logo-mark-light.png" alt="Refined Cost Segregation" style="width:36px;height:auto">
+            <div>
+              <span class="name">Refined</span>
+              <span class="tag">Cost Segregation</span>
+            </div>
+          </div>
+          <p class="blurb">Residential cost segregation studies for 1-4 unit investment property and short-term rentals. Built by tax professionals.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="/#services">Residential studies</a>
+          <a href="/#services">STR studies</a>
+          <a href="/audit-support">Audit support</a>
+          <a href="/#services">CPA partner program</a>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <a href="/#calculator">Savings calculator</a>
+          <a href="/#journal">The journal</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/#process">How it works</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="/#contact">Get started</a>
+          <a href="mailto:admin@refinedcostseg.com">admin@refinedcostseg.com</a>
+          <a href="tel:+14144295333">414-429-5333</a>
+          <span>Nationwide &middot; Remote</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Refined Cost Segregation</span>
+        <span>Audit-ready &middot; ATG-aligned &middot; Professionally reviewed</span>
+        <span>Not tax, legal, or accounting advice</span><span style="margin-left:1rem;"><a href="/accessibility">Accessibility</a> <a href="/privacy" style="color:inherit;">Privacy</a></span>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="../script.js"></script>
+</body>
+</html>

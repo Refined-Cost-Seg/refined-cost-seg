@@ -23,6 +23,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 15 | ✅ Published | Real estate professional status: who qualifies, and what it unlocks | "real estate professional status cost segregation", "REPS 750 hours" | Eugene |
 | 16 | ✅ Published | Cost segregation for passive investors: what happens to the losses you can't use yet | "cost segregation passive losses", "suspended passive losses rental" | Eugene |
 | 17 | ✅ Published | Converting your home to a rental: does cost segregation still pay, and can you take bonus depreciation? | "converting primary residence to rental cost segregation", "convert home to rental depreciation" | Ethan |
+| 18 | ✅ Published | Cost segregation after a 1031 exchange: how the carryover-basis split changes the math | "cost segregation 1031 exchange", "1031 exchange carryover basis bonus depreciation" | Refined Cost Segregation |
 
 ## Cadence notes
 
