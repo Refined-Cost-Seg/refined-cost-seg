@@ -3,7 +3,7 @@
 
   // ─── Jotform auto-resize ───
   if (window.jotformEmbedHandler) {
-    window.jotformEmbedHandler("iframe[id='JotFormIFrame-261446273575059']", "https://form.jotform.com");
+    window.jotformEmbedHandler("iframe[id='JotFormIFrame-261446273575059']", "https://pci.jotform.com");
   }
 
   // ─── Mobile nav toggle ───
