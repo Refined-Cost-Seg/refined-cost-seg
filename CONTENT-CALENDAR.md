@@ -24,6 +24,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 16 | ✅ Published | Cost segregation for passive investors: what happens to the losses you can't use yet | "cost segregation passive losses", "suspended passive losses rental" | Eugene |
 | 17 | ✅ Published | Converting your home to a rental: does cost segregation still pay, and can you take bonus depreciation? | "converting primary residence to rental cost segregation", "convert home to rental depreciation" | Ethan |
 | 18 | ✅ Published | Cost segregation after a 1031 exchange: how the carryover-basis split changes the math | "cost segregation 1031 exchange", "1031 exchange carryover basis bonus depreciation" | Refined Cost Segregation |
+| 19 | ✅ Published | Land value allocation and cost segregation: why the land split sets your ceiling | "land value allocation cost segregation", "how much of purchase price is land" | Refined Cost Segregation |
 
 ## Cadence notes
 
