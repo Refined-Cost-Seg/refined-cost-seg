@@ -25,6 +25,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 17 | ✅ Published | Converting your home to a rental: does cost segregation still pay, and can you take bonus depreciation? | "converting primary residence to rental cost segregation", "convert home to rental depreciation" | Ethan |
 | 18 | ✅ Published | Cost segregation after a 1031 exchange: how the carryover-basis split changes the math | "cost segregation 1031 exchange", "1031 exchange carryover basis bonus depreciation" | Refined Cost Segregation |
 | 19 | ✅ Published | Land value allocation and cost segregation: why the land split sets your ceiling | "land value allocation cost segregation", "how much of purchase price is land" | Refined Cost Segregation |
+| 20 | ✅ Published | What a cost segregation study actually reclassifies: the 5-, 7-, and 15-year buckets | "what qualifies for cost segregation", "5-year property cost segregation", "15-year land improvements" | Refined Cost Segregation |
 
 ## Cadence notes
 
