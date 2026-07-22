@@ -27,6 +27,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 19 | ✅ Published | Land value allocation and cost segregation: why the land split sets your ceiling | "land value allocation cost segregation", "how much of purchase price is land" | Refined Cost Segregation |
 | 20 | ✅ Published | What a cost segregation study actually reclassifies: the 5-, 7-, and 15-year buckets | "what qualifies for cost segregation", "5-year property cost segregation", "15-year land improvements" | Refined Cost Segregation |
 | 21 | ✅ Published | Cost segregation on a vacation home you use yourself: how personal-use days change the math | "vacation home cost segregation", "personal use days rental depreciation" | Refined Cost Segregation |
+| 22 | ✅ Published | Cost segregation on a mid-term (30+ day) rental: why the 30-day guest changes how you use the deduction | "mid-term rental cost segregation", "medium-term rental depreciation", "30-day rental STR loophole" | Refined Cost Segregation |
 
 ## Cadence notes
 
