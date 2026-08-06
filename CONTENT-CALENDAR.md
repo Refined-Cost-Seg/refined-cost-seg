@@ -30,6 +30,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 22 | ✅ Published | Cost segregation on a mid-term (30+ day) rental: why the 30-day guest changes how you use the deduction | "mid-term rental cost segregation", "medium-term rental depreciation", "30-day rental STR loophole" | Refined Cost Segregation |
 | 23 | ✅ Published | Does your state follow federal bonus depreciation? Why your cost seg deduction can shrink on the state return | "state bonus depreciation conformity", "does my state allow bonus depreciation", "state decoupling bonus depreciation" | Refined Cost Segregation |
 | 24 | ✅ Published | Cost segregation and the partial disposition election: writing off the roof, HVAC, or kitchen you tore out | "partial disposition election", "partial asset disposition rental", "write off old roof rental renovation" | Refined Cost Segregation |
+| 25 | ✅ Published | Cost segregation on new construction: can you run a study on a house you built, and is it worth it? | "cost segregation new construction", "cost segregation build to rent", "new construction bonus depreciation" | Refined Cost Segregation |
 
 ## Cadence notes
 
