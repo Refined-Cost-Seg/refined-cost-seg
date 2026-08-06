@@ -374,7 +374,24 @@
         </div>
         <div class="contact-form reveal">
           <span class="form-eyebrow">Free feasibility review</span>
-          <iframe id="JotFormIFrame-261446273575059" title="Refined Cost Segregation: Get Your Free Tax Savings Estimate" allowtransparency="true" allow="geolocation; microphone; camera; fullscreen; payment" src="https://pci.jotform.com/261446273575059" frameborder="0" scrolling="no"></iframe>
+          <iframe
+            id="JotFormIFrame-261446273575059"
+            title="Refined Cost Segregation: Get Your Free Tax Savings Estimate"
+            onload="window.parent.scrollTo(0,0)"
+            allowtransparency="true"
+            allow="geolocation; microphone; camera; fullscreen; payment"
+            src="https://pci.jotform.com/261446273575059"
+            frameborder="0"
+            style="min-width:100%;max-width:100%;height:1000px;border:none;"
+            scrolling="no">
+          </iframe>
+          <script src="https://cdn.jotform.com/s/umd/latest/for-form-embed-handler.js"></script>
+          <script>
+            window.jotformEmbedHandler(
+              "iframe[id='JotFormIFrame-261446273575059']",
+              "https://pci.jotform.com/"
+            );
+          </script>
           <p class="form-note">No obligation. We reply within one business day. Not tax advice.</p>
         </div>
       </div>
@@ -427,7 +444,6 @@
   </footer>
 
 </div>
-<script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

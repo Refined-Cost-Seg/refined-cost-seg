@@ -1,11 +1,6 @@
 (function() {
   'use strict';
 
-  // ─── Jotform auto-resize ───
-  if (window.jotformEmbedHandler) {
-    window.jotformEmbedHandler("iframe[id='JotFormIFrame-261446273575059']", "https://pci.jotform.com");
-  }
-
   // ─── Mobile nav toggle ───
   var navToggle = document.querySelector('.rcs-embed .mobile-toggle');
   var navLinks  = document.getElementById('rcs-navlinks');

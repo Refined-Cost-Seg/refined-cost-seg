@@ -232,7 +232,7 @@
 .rcs-embed .info-block .val { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1rem; color: var(--navy); font-weight: 500; line-height: 1.4; display: block; }
 .rcs-embed .contact-form { background: var(--paper-2); border-radius: 16px; padding: 1.5rem; border: 1px solid var(--rule); }
 .rcs-embed .contact-form .form-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--sage-2); margin-bottom: 1.5rem; display: block; font-weight: 600; }
-.rcs-embed .contact-form iframe { min-width: 100%; max-width: 100%; height: 600px; border: none; background: transparent; border-radius: 8px; display: block; }
+.rcs-embed .contact-form iframe { min-width: 100%; max-width: 100%; border: none; background: transparent; border-radius: 8px; display: block; }
 .rcs-embed .form-note { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--muted); margin-top: 1rem; line-height: 1.5; }
 @media screen and (max-width: 991px) { .rcs-embed .contact-wrap { grid-template-columns: 1fr; } }
 
