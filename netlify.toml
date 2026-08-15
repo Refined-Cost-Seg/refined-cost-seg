@@ -75,6 +75,14 @@
   status = 200
   force = false
 
+# /invest quick-checkout page (2026-08-15): pretty URL. Page is noindex by design
+# and deliberately NOT in sitemap.xml.
+[[redirects]]
+  from = "/invest"
+  to = "/invest.html"
+  status = 200
+  force = false
+
 # 2026-07-12 scrub: internal planning docs must not serve publicly (publish='.')
 [[redirects]]
   from = "/README.md"

@@ -321,3 +321,11 @@
   .rcs-embed *, .rcs-embed *::before, .rcs-embed *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   html { scroll-behavior: auto !important; }
 }
+
+/* ═══ INVEST CTA (2026-08-15 work order) ═══ */
+.rcs-embed .nav-cta-invest { background: var(--sage-2); margin-left: 0.35rem; }
+.rcs-embed .nav-cta-invest:hover { background: var(--navy); }
+.rcs-embed .btn-invest { background: var(--sage-2); border-color: var(--sage-2); color: var(--paper); }
+.rcs-embed .btn-invest:hover { background: var(--navy); border-color: var(--navy); color: var(--paper); }
+.rcs-embed .article-invest { margin-top: 1rem; padding: 1.5rem 2rem; background: var(--sage-pale); border-radius: 16px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.rcs-embed .article-invest p { font-weight: 600; color: var(--navy); margin: 0; }
