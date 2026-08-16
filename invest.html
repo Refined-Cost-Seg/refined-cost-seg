@@ -139,6 +139,23 @@
     </script>
     <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
     <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-261446273575059']", "https://pci.jotform.com/")</script>
+    <script>
+      /* 2026-08-15 resize failsafe: the form announces its height on the
+         payment reveal but NOT on later growth inside the form (Stripe card
+         fields expanding, ACH switch, validation errors). Re-apply every
+         announced height with headroom so late growth can't clip Submit/Pay.
+         Supplements the official embed handler above; does not replace it. */
+      (function () {
+        var PAD = 260;
+        window.addEventListener('message', function (e) {
+          if (e.origin !== 'https://pci.jotform.com') return;
+          var m = (typeof e.data === 'string') && e.data.match(/^setHeight:(\d+)/);
+          if (!m) return;
+          var f = document.getElementById('JotFormIFrame-261446273575059');
+          if (f) setTimeout(function () { f.style.height = (parseInt(m[1], 10) + PAD) + 'px'; }, 60);
+        });
+      })();
+    </script>
   </div>
 
   <div class="assurance">
