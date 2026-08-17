@@ -60,6 +60,9 @@
   ol.steps p{font-size:.85rem;color:var(--muted);line-height:1.55;}
   @media (max-width:640px){ol.steps{grid-template-columns:1fr;}}
 
+  .audit-note{max-width:640px;margin:2rem auto 0;text-align:center;font-size:.9rem;color:var(--muted);}
+  .audit-note strong{color:var(--navy);}
+  .audit-note a{color:var(--sage);text-decoration:underline;}
   .form-shell{margin-top:2.4rem;}
   /* No fixed height, no overflow clipping — the Jotform embed handler
      resizes the iframe itself. Do not wrap in a fixed-height card. */
@@ -110,6 +113,8 @@
     </li>
   </ol>
 
+  <p class="audit-note">During checkout you can add optional <strong>Audit Support</strong> — flat-fee backup if the IRS ever asks about your study. <a href="/audit-support" target="_blank" rel="noopener">What Audit Support covers &rarr;</a></p>
+
   <div class="form-shell">
     <!-- Official Jotform auto-resizing embed. The origin argument in
          jotformEmbedHandler must stay "https://pci.jotform.com/". -->
@@ -119,7 +124,7 @@
       onload="window.parent.scrollTo(0,0)"
       allowtransparency="true"
       allow="geolocation; microphone; camera; fullscreen; payment"
-      src="https://pci.jotform.com/261446273575059"
+      src="https://pci.jotform.com/261446273575059?areYou25=Yes&embedSource=invest"
       frameborder="0"
       style="min-width:100%;max-width:100%;height:539px;border:none;"
       scrolling="no">
