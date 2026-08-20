@@ -108,3 +108,15 @@
   status = 301
   force = true
 
+
+# Internal quick-quote tool (2026-08-20): unlisted, noindex, not in sitemap.
+[[redirects]]
+  from = "/qq-x7k4"
+  to = "/qq-x7k4.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/qq-x7k4*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

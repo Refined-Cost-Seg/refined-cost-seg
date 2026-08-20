@@ -54,7 +54,6 @@
       <a href="#team">Approach</a>
       <a href="#faq">FAQ</a>
       <a href="tel:+14144295333" class="nav-phone" style="white-space:nowrap;">&#9742;&nbsp;414-429-5333</a>
-      <a href="#contact" class="nav-cta">Get started &rarr;</a>
       <a href="/invest" class="nav-cta nav-cta-invest">Invest in Your Report</a>
     </div>
     <button class="mobile-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="rcs-navlinks">&#9776;</button>
@@ -387,7 +386,6 @@
           <iframe
             id="JotFormIFrame-261446273575059"
             title="Refined Cost Segregation — set up and order your report"
-            onload="window.parent.scrollTo(0,0)"
             allowtransparency="true"
             allow="geolocation; microphone; camera; fullscreen; payment"
             src="https://pci.jotform.com/261446273575059?areYou25=Yes&embedSource=homepage"
@@ -405,8 +403,9 @@
     <script>
       /* 2026-08-15 resize failsafe: the form announces its height on the
          payment reveal but NOT on later growth inside the form (Stripe card
-         fields expanding, ACH switch, validation errors). Re-apply every
-         announced height with headroom so late growth can't clip Submit/Pay.
+         fields expanding, ACH switch, validation errors). Keep a MIN-HEIGHT floor (announced height + headroom) so late growth
+         can't clip Submit/Pay. Never touch height itself: the official handler
+         owns it, and two writers on one property caused a visible resize fight.
          Supplements the official embed handler above; does not replace it. */
       (function () {
         var PAD = 260;
@@ -415,7 +414,8 @@
           var m = (typeof e.data === 'string') && e.data.match(/^setHeight:(\d+)/);
           if (!m) return;
           var f = document.getElementById('JotFormIFrame-261446273575059');
-          if (f) setTimeout(function () { f.style.height = (parseInt(m[1], 10) + PAD) + 'px'; }, 60);
+          if (f) { var mh = parseInt(m[1], 10) + PAD;
+            if (parseInt(f.style.minHeight, 10) !== mh) { f.style.minHeight = mh + 'px'; } }
         });
       })();
     </script>
