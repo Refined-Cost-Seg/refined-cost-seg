@@ -44,9 +44,9 @@
   <button type="button" data-a="0" class="on">None</button><button type="button" data-a="495">Basic $495</button><button type="button" data-a="1995">Extended $1,995</button>
 </div>
 
-<label>Partner referral (10%)</label>
+<label>Discount codes</label>
 <div class="seg" id="ref">
-  <button type="button" data-r="0" class="on">No</button><button type="button" data-r="1">Yes &minus;10%</button>
+  <button type="button" data-r="0" class="on">None</button><button type="button" data-r="0.10">1 code &minus;10%</button><button type="button" data-r="0.20">2 codes &minus;20%</button>
 </div>
 
 <div class="out">
@@ -55,7 +55,7 @@
   <div class="sub" id="sub"></div>
 </div>
 
-<p class="note">Internal tool. Mirrors the order form's quote calculation exactly (base $1,750 &le;4 units; +$125/unit above 4; +0.15% of price $500K&ndash;$2M; +0.25% above $2M; rounded to $25; + Audit Support; valid referral code = 10% off the total). If the form changes, update this page.</p>
+<p class="note">Internal tool. Mirrors the order form's quote calculation exactly (base $1,750 &le;4 units; +$125/unit above 4; +0.15% of price $500K&ndash;$2M; +0.25% above $2M; rounded to $25; + Audit Support; one valid code = 10% off the total, two stacked codes (CPA/partner + PORTFOLIO10) = 20% off). If the form changes, update this page.</p>
 
 <script>
 (function(){
@@ -87,11 +87,11 @@
     var base=1750 + 125*Math.max(units-4,0) + 0.0015*Math.min(Math.max(p-500000,0),1500000) + 0.0025*Math.max(p-2000000,0);
     var study=Math.round(base/25)*25;
     var total=study+audit;
-    if(refd) total=total*0.9;
+    if(refd) total=total*(1-refd);
     document.getElementById('fee').textContent=fmt(total);
     var parts=['study '+fmt(study)];
     if(audit) parts.push('audit support '+fmt(audit));
-    if(refd) parts.push('10% referral applied');
+    if(refd) parts.push((refd*100)+'% codes applied');
     document.getElementById('sub').textContent=parts.join(' · ');
   }
 })();
