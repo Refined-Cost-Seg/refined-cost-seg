@@ -122,14 +122,14 @@ the team can run end-to-end test submissions without paying. This is INTENTIONAL
 flag it, remove it, or "fix" it in any automated run. If the code ever leaks, rotate it in
 the form's conditions rather than deleting the mechanism.
 
-## Referral codes — how to add one (2026-08-21 architecture)
+## Referral codes — how to add one (FINAL 2026-08-21 architecture)
 
-The order form validates codes against the hidden "Valid Referral Codes" field, which is
-populated at runtime by URL prefill on the two embeds (field defaults proved unreliable).
-The master list is the `validReferral=~Code1~Code2~` parameter in the iframe src of
-index.html and invest.html (tilde-wrapped, no spaces, exact case). To add a partner code:
-append `NewCode~` to BOTH src attributes and push; optionally add a partner landing page
-linking to /invest?referralCode=NewCode. All valid codes give 10% off; a partner code plus
-PORTFOLIO10 stacked gives 20%. Discount math lives in Jotform conditions (contains-vs-
-helper pattern) and does NOT need editing for new codes. Also update the internal quick
-reference: the form field's stored default is dead weight — the URL param is the truth.
+Code validation lives in the WEBSITE, not the form: Jotform's calculation-type
+conditions numerically coerce text comparisons, so the form cannot validate typed
+codes (hard engine limitation, proven 2026-08-21). The pages validate codes in JS
+and prefill the form with a numeric `discountTier` (10 or 20); the form's only
+discount rules compare that number. TO ADD A PARTNER CODE: add one line to
+/referral-codes.js (uppercase key, canonical code, pct) and push. Optionally add a
+partner page linking to /invest?referralCode=TheCode (auto-applies with a banner).
+NEVER add Jotform conditions for new codes. Matching is case-insensitive. Two
+distinct valid codes stack additively, capped at 20%.

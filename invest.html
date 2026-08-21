@@ -115,6 +115,17 @@
 
   <p class="audit-note">During checkout you can add optional <strong>Audit Support</strong> — flat-fee backup if the IRS ever asks about your study. <a href="/audit-support" target="_blank" rel="noopener">What Audit Support covers &rarr;</a></p>
 
+  <div id="rcsCodes" style="max-width:640px;margin:1.6rem auto 0;background:#F2F0E8;border:1px solid #E8E5D9;border-radius:12px;padding:1rem 1.1rem;">
+  <label for="rcsCode1" style="font-size:.85rem;font-weight:700;color:#1B2A3E;display:block;margin-bottom:.4rem;">Referral or discount code</label>
+  <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+    <input id="rcsCode1" placeholder="e.g. RootRiverRealty" style="flex:1;min-width:170px;padding:.55rem .7rem;border:1.5px solid #E8E5D9;border-radius:8px;font-size:1rem;">
+    <input id="rcsCode2" placeholder="second code (optional)" style="flex:1;min-width:170px;padding:.55rem .7rem;border:1.5px solid #E8E5D9;border-radius:8px;font-size:1rem;">
+    <button id="rcsApply" type="button" style="padding:.55rem 1.1rem;background:#1B2A3E;color:#FAF9F5;border:0;border-radius:8px;font-weight:700;cursor:pointer;">Apply</button>
+  </div>
+  <p id="rcsMsg" style="margin:.5rem 0 0;font-size:.85rem;color:#5B6570;">Have a partner or multi-property code? Apply it before you begin &mdash; your discount shows in the payment total.</p>
+</div>
+
+
   <div class="form-shell">
     <!-- Official Jotform auto-resizing embed. The origin argument in
          jotformEmbedHandler must stay "https://pci.jotform.com/". -->
@@ -124,24 +135,56 @@
       onload="window.parent.scrollTo(0,0)"
       allowtransparency="true"
       allow="geolocation; microphone; camera; fullscreen; payment"
-      src="https://pci.jotform.com/261446273575059?areYou25=Yes&embedSource=invest&validReferral=~RootRiverRealty~PORTFOLIO10~"
+      src="https://pci.jotform.com/261446273575059?areYou25=Yes&embedSource=invest"
       frameborder="0"
       style="min-width:100%;max-width:100%;height:539px;border:none;"
       scrolling="no">
     </iframe>
-    <script>
-      /* Forward this page's query string into the form (referral codes,
-         prefills) BEFORE the embed handler initializes. Keeps existing
-         ?referral / prefill links working when pointed at /invest. */
-      (function () {
-        var qs = window.location.search;
-        if (!qs || qs.length < 2) { return; }
-        var f = document.getElementById('JotFormIFrame-261446273575059');
-        if (!f) { return; }
-        var src = f.getAttribute('src');
-        f.setAttribute('src', src + (src.indexOf('?') > -1 ? '&' : '?') + qs.substring(1));
-      })();
-    </script>
+<script src="/referral-codes.js"></script>
+<script>
+/* Code validation lives HERE (page layer), not in the form: the form's
+   condition engine numerically coerces text comparisons, so it can only
+   act on the numeric discountTier we pass by prefill. Codes are defined
+   in /referral-codes.js (one line per partner). */
+(function () {
+  var BASE = 'https://pci.jotform.com/261446273575059?areYou25=Yes&embedSource=invest';
+  var f = document.getElementById('JotFormIFrame-261446273575059');
+  var c1 = document.getElementById('rcsCode1'), c2 = document.getElementById('rcsCode2');
+  var msg = document.getElementById('rcsMsg'), btn = document.getElementById('rcsApply');
+  function lookup(v) { v = (v || '').trim().toUpperCase(); return (v && window.RCS_CODES && window.RCS_CODES[v]) || null; }
+  function apply(quiet) {
+    var e1 = lookup(c1.value), e2 = lookup(c2.value);
+    var entered = (c1.value.trim() || c2.value.trim());
+    var codes = []; if (e1) codes.push(e1); if (e2 && (!e1 || e2 !== e1)) codes.push(e2);
+    var tier = 0; codes.forEach(function (c) { tier += c.pct; }); if (tier > 20) tier = 20;
+    var qs = BASE;
+    if (codes[0]) qs += '&referralCode=' + encodeURIComponent(codes[0].code);
+    if (codes[1]) qs += '&referralCode2=' + encodeURIComponent(codes[1].code);
+    if (tier) qs += '&discountTier=' + tier;
+    var extra = window.location.search.replace(/^\?/, '').split('&').filter(function (p) {
+      return p && !/^(referralCode2?|discountTier|validReferral)=/.test(p);
+    }).join('&');
+    if (extra) qs += '&' + extra;
+    if (f.getAttribute('src') !== qs) f.setAttribute('src', qs);
+    if (quiet && !entered) return;
+    if (!entered) { msg.textContent = 'Enter a code first.'; msg.style.color = '#5B6570'; return; }
+    if (codes.length) {
+      var names = codes.map(function (c) { return c.label; }).join(' + ');
+      msg.textContent = '\u2713 ' + tier + '% discount applied \u2014 ' + names + '. It will show in your payment total.';
+      msg.style.color = '#5F7239';
+      if ((c1.value.trim() && !e1) || (c2.value.trim() && !e2)) msg.textContent += ' (One code was not recognized.)';
+    } else {
+      msg.textContent = 'Code not recognized \u2014 double-check the spelling, or email admin@refinedcostseg.com.';
+      msg.style.color = '#B4232A';
+    }
+  }
+  btn.addEventListener('click', function () { apply(false); });
+  var m = window.location.search.match(/[?&]referralCode=([^&]+)/); if (m) c1.value = decodeURIComponent(m[1]);
+  var m2 = window.location.search.match(/[?&]referralCode2=([^&]+)/); if (m2) c2.value = decodeURIComponent(m2[1]);
+  apply(true);
+})();
+</script>
+
     <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
     <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-261446273575059']", "https://pci.jotform.com/")</script>
     <script>
