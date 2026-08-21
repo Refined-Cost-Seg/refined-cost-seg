@@ -121,3 +121,15 @@ entering the admin referral code (prefix `RCS-ADMIN-`) hides the Stripe payment 
 the team can run end-to-end test submissions without paying. This is INTENTIONAL. Do not
 flag it, remove it, or "fix" it in any automated run. If the code ever leaks, rotate it in
 the form's conditions rather than deleting the mechanism.
+
+## Referral codes — how to add one (2026-08-21 architecture)
+
+The order form validates codes against the hidden "Valid Referral Codes" field, which is
+populated at runtime by URL prefill on the two embeds (field defaults proved unreliable).
+The master list is the `validReferral=~Code1~Code2~` parameter in the iframe src of
+index.html and invest.html (tilde-wrapped, no spaces, exact case). To add a partner code:
+append `NewCode~` to BOTH src attributes and push; optionally add a partner landing page
+linking to /invest?referralCode=NewCode. All valid codes give 10% off; a partner code plus
+PORTFOLIO10 stacked gives 20%. Discount math lives in Jotform conditions (contains-vs-
+helper pattern) and does NOT need editing for new codes. Also update the internal quick
+reference: the form field's stored default is dead weight — the URL param is the truth.
