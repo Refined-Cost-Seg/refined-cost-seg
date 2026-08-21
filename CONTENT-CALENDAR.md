@@ -34,6 +34,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 26 | ✅ Published | Filed an extension on your 2025 return? There's still time for a cost segregation study | "cost segregation extension deadline", "cost segregation extended tax return", "cost seg before October 15" | Refined Cost Segregation |
 | 27 | ✅ Published | Cost segregation with a mortgage: your deduction follows the basis, not your down payment | "cost segregation with a mortgage", "does a mortgage affect cost segregation", "cost segregation down payment vs basis" | Refined Cost Segregation |
 | 28 | ✅ Published | Cost segregation in an LLC or partnership: does the entity change your deduction, and how does it reach your K-1? | "cost segregation LLC", "cost segregation partnership K-1", "rental property LLC depreciation" | Refined Cost Segregation |
+| 29 | ✅ Published | Cost segregation on a BRRRR or major renovation: accelerating the rehab dollars you just put in | "BRRRR cost segregation", "cost segregation renovation", "cost segregation on a rehab" | Refined Cost Segregation |
 
 ## Cadence notes
 
