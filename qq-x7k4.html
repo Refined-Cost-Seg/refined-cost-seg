@@ -19,11 +19,13 @@
   input[type=text]{width:100%;font-size:1.5rem;font-weight:600;padding:.65rem .8rem;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--navy);-webkit-appearance:none;}
   input:focus{outline:2px solid var(--sage);border-color:var(--sage);}
   .seg{display:flex;gap:.4rem;flex-wrap:wrap;}
+  .seg-units{display:grid;grid-template-columns:repeat(6,1fr);}
+  .seg-units button{min-width:0;padding:.55rem 0;}
   .seg button{flex:1;min-width:30%;font-size:.85rem;font-weight:600;padding:.6rem .3rem;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--muted);cursor:pointer;}
   .seg button.on{background:var(--navy);border-color:var(--navy);color:var(--paper);}
-  .out{margin-top:1.4rem;background:var(--navy);border-radius:14px;padding:1.1rem 1.2rem;color:var(--paper);}
+  .out{margin-top:1.4rem;background:#1B2A3E;border-radius:14px;padding:1.2rem 1.3rem;color:#FAF9F5;}
   .out .lbl{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#A8B981;}
-  .out .fee{font-size:2.6rem;font-weight:700;line-height:1.15;}
+  .out .fee{font-size:3rem;font-weight:800;line-height:1.2;color:#FFFFFF;letter-spacing:.01em;min-height:3.6rem;}
   .out .sub{font-size:.8rem;color:rgba(250,249,245,.75);margin-top:.35rem;line-height:1.5;}
   .note{margin-top:1rem;font-size:.72rem;color:var(--muted);line-height:1.5;}
 </style>
@@ -34,10 +36,11 @@
 <label for="price">Purchase price</label>
 <input type="text" id="price" inputmode="numeric" placeholder="$ 500,000" autocomplete="off">
 
-<label for="units">Units</label>
-<div class="seg" id="units">
-  <button type="button" data-u="1" class="on">1</button><button type="button" data-u="2">2</button><button type="button" data-u="3">3</button><button type="button" data-u="4">4</button><button type="button" data-u="6">6</button><button type="button" data-u="8">8</button><button type="button" data-u="12">12</button>
+<label for="unitsIn">Units</label>
+<div class="seg seg-units" id="units">
+  <button type="button" data-u="1" class="on">1</button><button type="button" data-u="2">2</button><button type="button" data-u="3">3</button><button type="button" data-u="4">4</button><button type="button" data-u="5">5</button><button type="button" data-u="6">6</button><button type="button" data-u="7">7</button><button type="button" data-u="8">8</button><button type="button" data-u="9">9</button><button type="button" data-u="10">10</button><button type="button" data-u="11">11</button><button type="button" data-u="12">12</button>
 </div>
+<input type="text" id="unitsIn" inputmode="numeric" placeholder="or type unit count" value="1" style="margin-top:.45rem;font-size:1.1rem;">
 
 <label>Audit Support</label>
 <div class="seg" id="audit">
@@ -69,7 +72,16 @@
       b.classList.add('on'); cb(parseFloat(b.getAttribute(attr))); calc();
     });
   }
-  seg('units','data-u',function(v){units=v;});
+  var unitsIn=document.getElementById('unitsIn');
+  seg('units','data-u',function(v){units=v; unitsIn.value=v;});
+  unitsIn.addEventListener('input', function(){
+    var v=parseInt(unitsIn.value.replace(/[^0-9]/g,''),10);
+    units=isNaN(v)?0:v;
+    document.querySelectorAll('#units button').forEach(function(b){
+      b.classList.toggle('on', parseInt(b.getAttribute('data-u'),10)===units);
+    });
+    calc();
+  });
   seg('audit','data-a',function(v){audit=v;});
   seg('ref','data-r',function(v){refd=v;});
   priceEl.addEventListener('input', function(){
@@ -80,7 +92,9 @@
   function fmt(n){ return '$'+n.toLocaleString('en-US',{minimumFractionDigits:(n%1?2:0),maximumFractionDigits:2}); }
   function calc(){
     var p=parseFloat(priceEl.value.replace(/[^0-9]/g,''))||0;
-    if(!p){ document.getElementById('fee').innerHTML='&mdash;'; document.getElementById('sub').textContent=''; return; }
+    var feeEl=document.getElementById('fee'), subEl=document.getElementById('sub');
+    if(!p || !units){ feeEl.textContent='\u2014'; subEl.textContent=!p?'enter a purchase price':'enter a unit count'; return; }
+    if(units>12){ feeEl.textContent='Custom'; subEl.textContent='Over 12 units \u00b7 quoted individually \u2014 call it in'; return; }
     /* EXACT mirror of the order form (field 165 + referral condition):
        round((1750 + 125*max(u-4,0) + 0.0015*min(max(p-500000,0),1500000) + 0.0025*max(p-2000000,0))/25)*25 + audit;
        valid referral => total * 0.9 */
@@ -88,11 +102,11 @@
     var study=Math.round(base/25)*25;
     var total=study+audit;
     if(refd) total=total*(1-refd);
-    document.getElementById('fee').textContent=fmt(total);
+    feeEl.textContent=fmt(total);
     var parts=['study '+fmt(study)];
     if(audit) parts.push('audit support '+fmt(audit));
     if(refd) parts.push((refd*100)+'% codes applied');
-    document.getElementById('sub').textContent=parts.join(' · ');
+    subEl.textContent=parts.join(' \u00b7 ');
   }
 })();
 </script>
