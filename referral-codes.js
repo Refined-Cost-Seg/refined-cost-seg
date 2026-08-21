@@ -1,12 +1,11 @@
-/* Refined Cost Segregation — valid referral / discount codes.
-   SINGLE SOURCE OF TRUTH for the whole site. To add a partner:
-   add ONE line below and push. Keys must be UPPERCASE (matching is
-   case-insensitive); `code` is the canonical form recorded in the
-   submission; `pct` is the discount percent. Two distinct valid codes
-   stack additively, capped at 20. The order form itself only ever
-   sees the numeric discountTier (10 or 20) — never edit Jotform
-   conditions for new codes. */
+/* Refined Cost Segregation — referral/discount code fingerprints.
+   Codes are stored as SHA-256 hashes of the UPPERCASE code, so the actual
+   code strings are never visible in site source. To add a partner:
+   1) hash it:  node -e "console.log(require('crypto').createHash('sha256').update('NEWCODEUPPERCASE').digest('hex'))"
+   2) add one line below and push. (Or just tell Claude the code + percent.)
+   Matching is case-insensitive. Two distinct valid codes stack additively,
+   capped at 20%. The order form only ever receives the numeric discountTier. */
 window.RCS_CODES = {
-  "ROOTRIVERREALTY": { code: "RootRiverRealty", label: "Root River Realty", pct: 10 },
-  "PORTFOLIO10":     { code: "PORTFOLIO10",     label: "Multi-property",    pct: 10 }
+  "6147a5d0e81da119302759100e6f3b3d39fdc1f3cf1da8522c56b821dc1486de": { label: "Root River Realty", pct: 10 },
+  "b6a5e8289b2577df99a2a539f7fecf0000695f20ad336a0dc1f729491d25b77b": { label: "Multi-property", pct: 10 }
 };
