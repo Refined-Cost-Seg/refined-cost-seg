@@ -147,7 +147,7 @@
 /* Code validation lives in the page layer (the form engine numerically
    coerces text comparisons). Codes are matched by SHA-256 fingerprint so
    they are not readable in site source. The form receives only the numeric
-   discountTier by prefill. */
+   numeric discountLevel by prefill. */
 (function () {
   var BASE = 'https://pci.jotform.com/261446273575059?areYou25=Yes&embedSource=invest';
   var f = document.getElementById('JotFormIFrame-261446273575059');
@@ -174,9 +174,9 @@
       var qs = BASE;
       if (codes[0]) qs += '&referralCode=' + encodeURIComponent(codes[0].typed);
       if (codes[1]) qs += '&referralCode2=' + encodeURIComponent(codes[1].typed);
-      if (tier) qs += '&discountTier=' + tier;
+      if (tier) qs += '&discountLevel=' + tier;
       var extra = window.location.search.replace(/^\?/, '').split('&').filter(function (p) {
-        return p && !/^(referralCode2?|discountTier|validReferral|areYou25|embedSource)=/.test(p);
+        return p && !/^(referralCode2?|discountTier|discountLevel|validReferral|areYou25|embedSource)=/.test(p);
       }).join('&');
       if (extra) qs += '&' + extra;
       if (f.getAttribute('src') !== qs) f.setAttribute('src', qs);

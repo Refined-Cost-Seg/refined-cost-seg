@@ -127,7 +127,7 @@ the form's conditions rather than deleting the mechanism.
 Code validation lives in the WEBSITE, not the form: Jotform's calculation-type
 conditions numerically coerce text comparisons, so the form cannot validate typed
 codes (hard engine limitation, proven 2026-08-21). The pages validate codes in JS
-and prefill the form with a numeric `discountTier` (10 or 20); the form's only
+and prefill the form with a numeric `discountLevel` (10 or 20; builder-created field — API-created fields are invisible to the condition engine, hard lesson 2026-08-21); the form's only
 discount rules compare that number. TO ADD A PARTNER CODE: add one line to
 /referral-codes.js (uppercase key, canonical code, pct) and push. Optionally add a
 partner page linking to /invest?referralCode=TheCode (auto-applies with a banner).
