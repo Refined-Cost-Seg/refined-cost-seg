@@ -123,7 +123,7 @@
       <input id="rcsCode2" placeholder="Second code (optional)" autocomplete="off" style="flex:1;min-width:150px;padding:.55rem .7rem;border:1.5px solid #E8E5D9;border-radius:8px;font-size:1rem;">
       <button id="rcsApply" type="button" style="padding:.55rem 1.1rem;background:#1B2A3E;color:#FAF9F5;border:0;border-radius:8px;font-weight:700;cursor:pointer;">Apply</button>
     </div>
-    <p id="rcsMsg" style="margin:.5rem 0 0;font-size:.85rem;color:#5B6570;">Apply your referral code before starting the form &mdash; it will be reflected in your payment total. <span style="opacity:.45;">(v4)</span></p>
+    <p id="rcsMsg" style="margin:.5rem 0 0;font-size:.85rem;color:#5B6570;">Apply your referral code before starting the form &mdash; it will be reflected in your payment total. <span style="opacity:.45;">(v5)</span></p>
   </div>
 </div>
 
@@ -179,7 +179,18 @@
         return p && !/^(referralCode2?|discountTier|discountLevel|validReferral|areYou25|embedSource)=/.test(p);
       }).join('&');
       if (extra) qs += '&' + extra;
-      if (f.getAttribute('src') !== qs) f.setAttribute('src', qs);
+      if (f.getAttribute('src') !== qs) {
+        /* Do NOT mutate the handler-managed iframe: jotformEmbedHandler
+           re-asserts its own URL and wipes our params. Replace the node
+           and re-init so the handler adopts the new URL as canonical. */
+        var n = f.cloneNode(false);
+        n.src = qs;
+        f.parentNode.replaceChild(n, f);
+        f = n;
+        if (window.jotformEmbedHandler) {
+          window.jotformEmbedHandler("iframe[id='JotFormIFrame-261446273575059']", 'https://pci.jotform.com/');
+        }
+      }
       if (quiet && !entered) return;
       if (!entered) { msg.textContent = 'Enter a code first.'; msg.style.color = '#5B6570'; return; }
       if (codes.length) {
