@@ -120,3 +120,8 @@
   for = "/qq-x7k4*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/referral-codes.js"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
