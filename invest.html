@@ -123,7 +123,7 @@
       <input id="rcsCode2" placeholder="Second code (optional)" autocomplete="off" style="flex:1;min-width:150px;padding:.55rem .7rem;border:1.5px solid #E8E5D9;border-radius:8px;font-size:1rem;">
       <button id="rcsApply" type="button" style="padding:.55rem 1.1rem;background:#1B2A3E;color:#FAF9F5;border:0;border-radius:8px;font-weight:700;cursor:pointer;">Apply</button>
     </div>
-    <p id="rcsMsg" style="margin:.5rem 0 0;font-size:.85rem;color:#5B6570;">Apply your referral code before starting the form &mdash; it will be reflected in your payment total. <span style="opacity:.45;">(v5)</span></p>
+    <p id="rcsMsg" style="margin:.5rem 0 0;font-size:.85rem;color:#5B6570;">Apply your referral code before starting the form &mdash; it will be reflected in your payment total. <span style="opacity:.45;">(v6)</span></p>
   </div>
 </div>
 
@@ -131,6 +131,7 @@
   <div class="form-shell">
     <!-- Official Jotform auto-resizing embed. The origin argument in
          jotformEmbedHandler must stay "https://pci.jotform.com/". -->
+    <div id="rcsFormHolder">
     <iframe
       id="JotFormIFrame-261446273575059"
       title="Refined Cost Segregation — set up and order your report"
@@ -142,6 +143,7 @@
       style="min-width:100%;max-width:100%;height:539px;border:none;"
       scrolling="no">
     </iframe>
+    </div>
 <script src="/referral-codes.js?v=3"></script>
 <script>
 /* Code validation lives in the page layer (the form engine numerically
@@ -150,7 +152,6 @@
    numeric discountLevel by prefill. */
 (function () {
   var BASE = 'https://pci.jotform.com/261446273575059?areYou25=Yes&embedSource=invest';
-  var f = document.getElementById('JotFormIFrame-261446273575059');
   var wrap = document.getElementById('rcsCodes'), tog = document.getElementById('rcsToggle');
   var c1 = document.getElementById('rcsCode1'), c2 = document.getElementById('rcsCode2');
   var msg = document.getElementById('rcsMsg'), btn = document.getElementById('rcsApply');
@@ -179,14 +180,23 @@
         return p && !/^(referralCode2?|discountTier|discountLevel|validReferral|areYou25|embedSource)=/.test(p);
       }).join('&');
       if (extra) qs += '&' + extra;
-      if (f.getAttribute('src') !== qs) {
-        /* Do NOT mutate the handler-managed iframe: jotformEmbedHandler
-           re-asserts its own URL and wipes our params. Replace the node
-           and re-init so the handler adopts the new URL as canonical. */
-        var n = f.cloneNode(false);
+      var holder = document.getElementById('rcsFormHolder');
+      var cur = document.getElementById('JotFormIFrame-261446273575059');
+      if (holder && (!cur || cur.getAttribute('src') !== qs)) {
+        /* The Jotform embed handler owns and may recreate the iframe, wiping
+           any src we set and detaching nodes we hold. So never mutate or
+           track it: rebuild the embed fresh inside our holder and re-init. */
+        var n = document.createElement('iframe');
+        n.id = 'JotFormIFrame-261446273575059';
+        n.title = 'Refined Cost Segregation \u2014 set up and order your report';
+        n.setAttribute('allowtransparency', 'true');
+        n.setAttribute('allow', 'geolocation; microphone; camera; fullscreen; payment');
+        n.setAttribute('frameborder', '0');
+        n.setAttribute('scrolling', 'no');
+        n.style.cssText = 'min-width:100%;max-width:100%;height:539px;border:none;';
         n.src = qs;
-        f.parentNode.replaceChild(n, f);
-        f = n;
+        holder.innerHTML = '';
+        holder.appendChild(n);
         if (window.jotformEmbedHandler) {
           window.jotformEmbedHandler("iframe[id='JotFormIFrame-261446273575059']", 'https://pci.jotform.com/');
         }
