@@ -393,7 +393,7 @@
       <input id="rcsCode2" placeholder="Second code (optional)" autocomplete="off" style="flex:1;min-width:150px;padding:.55rem .7rem;border:1.5px solid #E8E5D9;border-radius:8px;font-size:1rem;">
       <button id="rcsApply" type="button" style="padding:.55rem 1.1rem;background:#1B2A3E;color:#FAF9F5;border:0;border-radius:8px;font-weight:700;cursor:pointer;">Apply</button>
     </div>
-    <p id="rcsMsg" style="margin:.5rem 0 0;font-size:.85rem;color:#5B6570;">Apply your referral code before starting the form &mdash; it will be reflected in your payment total. <span style="opacity:.45;">(v6)</span></p>
+    <p id="rcsMsg" style="margin:.5rem 0 0;font-size:.85rem;color:#5B6570;">Apply your referral code before starting the form &mdash; it will be reflected in your payment total. <span style="opacity:.45;">(v7)</span></p>
   </div>
 </div>
 
@@ -468,6 +468,12 @@
       }
       if (quiet && !entered) return;
       if (!entered) { msg.textContent = 'Enter a code first.'; msg.style.color = '#5B6570'; return; }
+      var isAdmin = codes.some(function (c) { return c.admin; });
+      if (isAdmin) {
+        msg.textContent = '\u2713 Internal test mode \u2014 payment is disabled for this order' + (tier ? ' (' + tier + '% code also applied)' : '') + '.';
+        msg.style.color = '#5F7239';
+        return;
+      }
       if (codes.length) {
         msg.textContent = '\u2713 Referral applied \u2014 ' + codes.map(function (c) { return c.label; }).join(' + ') + ' (' + tier + '% off your study fee). It will show in your payment total.';
         msg.style.color = '#5F7239';
