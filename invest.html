@@ -123,7 +123,7 @@
       <input id="rcsCode2" placeholder="Second code (optional)" autocomplete="off" style="flex:1;min-width:150px;padding:.55rem .7rem;border:1.5px solid #E8E5D9;border-radius:8px;font-size:1rem;">
       <button id="rcsApply" type="button" style="padding:.55rem 1.1rem;background:#1B2A3E;color:#FAF9F5;border:0;border-radius:8px;font-weight:700;cursor:pointer;">Apply</button>
     </div>
-    <p id="rcsMsg" style="margin:.5rem 0 0;font-size:.85rem;color:#5B6570;">Apply your referral code before starting the form &mdash; it will be reflected in your payment total. <span style="opacity:.45;">(v9)</span></p>
+    <p id="rcsMsg" style="margin:.5rem 0 0;font-size:.85rem;color:#5B6570;">Apply your referral code before starting the form &mdash; it will be reflected in your payment total. <span style="opacity:.45;">(v10)</span></p>
   </div>
 </div>
 
@@ -176,6 +176,7 @@
       if (codes[0]) qs += '&referralCode=' + encodeURIComponent(codes[0].typed);
       if (codes[1]) qs += '&referralCode2=' + encodeURIComponent(codes[1].typed);
       if (tier) qs += '&discountLevel=' + tier;
+      if (codes.some(function (c) { return c.admin; })) qs += '&testMode=Yes';
       var extra = window.location.search.replace(/^\?/, '').split('&').filter(function (p) {
         return p && !/^(referralCode2?|discountTier|discountLevel|validReferral|areYou25|embedSource)=/.test(p);
       }).join('&');
