@@ -36,6 +36,8 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 28 | ✅ Published | Cost segregation in an LLC or partnership: does the entity change your deduction, and how does it reach your K-1? | "cost segregation LLC", "cost segregation partnership K-1", "rental property LLC depreciation" | Refined Cost Segregation |
 | 29 | ✅ Published | Cost segregation on a BRRRR or major renovation: accelerating the rehab dollars you just put in | "BRRRR cost segregation", "cost segregation renovation", "cost segregation on a rehab" | Refined Cost Segregation |
 
+| 30 | ✅ Published | Cost segregation on inherited property: the stepped-up basis, and why bonus depreciation usually won’t apply | "cost segregation inherited property", "stepped-up basis depreciation", "bonus depreciation inherited rental" | Refined Cost Segregation |
+
 ## Cadence notes
 
 - Aim for ~700–1,000 words per post — long enough to rank, short enough to actually publish weekly.
