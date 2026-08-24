@@ -167,3 +167,27 @@ TO ADD A NEW REFERRING PARTNER — Claude does ALL of it via git, no Jotform:
    auto-applies with a banner; page may state the discount).
 4. git push. Live in ~60 seconds. NEVER add Jotform conditions for codes; never
    API-create Jotform fields expected to drive logic.
+
+
+## No-payment lanes & two-phase form map (2026-08-24)
+
+The order form is TWO PHASES on the SAME form: phase 1 (contact + property basics
++ payment) submits, then the thank-you/notification hands the client a prefill
+link with fillMode=details&paymentRef={id}&... which opens the SAME form in
+questionnaire mode (Step 2 of 2) for a second submission. fillMode=details via
+URL works standalone (proven 2026-08-24).
+
+No-payment lanes (both enter their code in the site code box; both prefill
+testMode=Yes into the hidden-or-CSS-hidden "Test Mode" radio, qid 379):
+- RCS-ADMIN-K7Q4 (admin:true) — internal testing.
+- A PREPAID code (paid:true in referral-codes.js) — clients who paid externally.
+  Rotate/mint per arrangement: one line + push. Never publish prepaid codes.
+Payment visibility is CONDITIONAL-SHOW ONLY: the gate rule shows step-1 pieces
+WITHOUT Payment Amount; a separate rule shows Payment Amount when [gate AND
+Test Mode != Yes]. NEVER add a Hide rule against a Show rule: in this form's
+engine SHOW BEATS HIDE regardless of order (proven 2026-08-24; the old
+RCS-ADMIN hide rule never worked in order mode for this reason).
+Correction to the prefill rule: prefilled TEXT fields DO drive field-type SHOW
+rules (fillMode=details proves it); they are invisible ONLY to calc-type terms.
+Radios work everywhere. Phase-1 no-payment submissions flow into the same
+Step-2 handoff as paid orders.
