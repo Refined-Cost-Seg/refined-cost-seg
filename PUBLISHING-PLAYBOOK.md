@@ -122,14 +122,40 @@ the team can run end-to-end test submissions without paying. This is INTENTIONAL
 flag it, remove it, or "fix" it in any automated run. If the code ever leaks, rotate it in
 the form's conditions rather than deleting the mechanism.
 
-## Referral codes — how to add one (FINAL 2026-08-21 architecture)
+## Referral & partner system — OPERATING MANUAL (2026-08-22, battle-tested, WORKING)
 
-Code validation lives in the WEBSITE, not the form: Jotform's calculation-type
-conditions numerically coerce text comparisons, so the form cannot validate typed
-codes (hard engine limitation, proven 2026-08-21). The pages validate codes in JS
-and prefill the form with a numeric `discountLevel` (10 or 20; builder-created field — API-created fields are invisible to the condition engine, hard lesson 2026-08-21); the form's only
-discount rules compare that number. TO ADD A PARTNER CODE: add one line to
-/referral-codes.js (uppercase key, canonical code, pct) and push. Optionally add a
-partner page linking to /invest?referralCode=TheCode (auto-applies with a banner).
-NEVER add Jotform conditions for new codes. Matching is case-insensitive. Two
-distinct valid codes stack additively, capped at 20%.
+Architecture (do not re-litigate — two days of debugging proved each point):
+- Codes are validated ON THE WEBSITE in page JS, never in Jotform. The form's
+  calculation-condition engine numerically coerces text (cannot compare codes),
+  API-created fields are invisible to its term store, and conditions writing into
+  the payment field are IGNORED (it follows its bound amount source).
+- `/referral-codes.js` = single source of truth. SHA-256 hashes of the UPPERCASE
+  code → {label, pct}. Entry is case-insensitive; codes are never plaintext in
+  site source. Two distinct valid codes stack additively, capped at 20%.
+- The pages pass numeric `discountLevel=10|20` (+ `referralCode`/`referralCode2`
+  for the submission record) into the embed by REBUILDING the iframe inside
+  `#rcsFormHolder` — never mutate the iframe src (the Jotform embed handler
+  re-asserts its own URL and detaches nodes). A "(v#)" marker in the code-box
+  helper line identifies the deployed page version (cache check: hard-refresh
+  until current).
+- Form side: builder-created field "Discount Level" (name `discountLevel`, qid
+  374 — MUST remain builder-created); Form Calculation widgets: Final Total
+  (qid 377) = {Calculation}×(1−{discountLevel}/100) and the savings display
+  (qid 378) = {Calculation}−{Final Total}, both with Decimal Places 2; the
+  STRIPE PAYMENT AMOUNT SOURCE = Final Total ONLY (payment field settings — if
+  the total ever looks like two numbers added together, this got multi-selected
+  or re-pointed). NO pricing conditions exist or should exist. The savings
+  widget shows only via condition IF Discount Level Is Filled → Show.
+- Intentional test bypass: referral code RCS-ADMIN-K7Q4 hides the payment field
+  for free end-to-end test submissions. Keep it; rotate if leaked.
+- Public copy: "referral code" only — never "discount code" — on public pages.
+  Partner landing pages (noindex) may say "10% off".
+
+TO ADD A NEW REFERRING PARTNER — Claude does ALL of it via git, no Jotform:
+1. Hash: node -e "console.log(require('crypto').createHash('sha256').update('CODEUPPERCASE').digest('hex'))"
+2. Append one line to /referral-codes.js ({hash: {label, pct}}).
+3. Optional partner landing page: follow root-river-realty.html (noindex header +
+   pretty URL in netlify.toml; CTAs → /invest?referralCode=TheCode which
+   auto-applies with a banner; page may state the discount).
+4. git push. Live in ~60 seconds. NEVER add Jotform conditions for codes; never
+   API-create Jotform fields expected to drive logic.
