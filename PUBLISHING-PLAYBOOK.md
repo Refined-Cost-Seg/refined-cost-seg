@@ -149,8 +149,13 @@ Architecture (do not re-litigate — two days of debugging proved each point):
 - Intentional test bypass: referral code RCS-ADMIN-K7Q4 hides the payment field
   for free end-to-end test submissions. Keep it; rotate if leaked.
   It is entered in the SITE code box like any code (it lives in referral-codes.js
-  as an admin entry, pct 0): the page shows "Internal test mode" and prefills it
-  through to the form's hide rule. lookup() must preserve the admin flag.
+  as an admin entry, pct 0): the page shows "Internal test mode" and prefills
+  testMode=Yes into the hidden builder-created "Test Mode" RADIO (qid 379), which
+  the hide-payment rule keys on. lookup() must preserve the admin flag.
+  HARD RULE: prefilled TEXT fields are invisible to ALL Jotform condition types;
+  only RADIO/choice fields carry URL prefills into conditions (the areYou25
+  pattern). Numeric prefills that feed WIDGET equations (discountLevel) work
+  because widgets read the calc engine, not condition terms.
 - Public copy: "referral code" only — never "discount code" — on public pages.
   Partner landing pages (noindex) may say "10% off".
 
