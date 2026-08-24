@@ -191,3 +191,10 @@ Correction to the prefill rule: prefilled TEXT fields DO drive field-type SHOW
 rules (fillMode=details proves it); they are invisible ONLY to calc-type terms.
 Radios work everywhere. Phase-1 no-payment submissions flow into the same
 Step-2 handoff as paid orders.
+
+Thank-you page (thanktext, set via API 2026-08-24): includes a "Continue to
+Step 2" button carrying the fillMode=details handoff link with paymentRef +
+property prefills — shown to all submitters (conditional phrasing), so paid,
+prepaid, and test lanes all reach the questionnaire immediately as well as by
+email. If the builder overwrites it, the canonical HTML is in this repo's git
+history (commit "thank-you Step 2 button").
