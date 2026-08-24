@@ -148,6 +148,9 @@ Architecture (do not re-litigate — two days of debugging proved each point):
   widget shows only via condition IF Discount Level Is Filled → Show.
 - Intentional test bypass: referral code RCS-ADMIN-K7Q4 hides the payment field
   for free end-to-end test submissions. Keep it; rotate if leaked.
+  It is entered in the SITE code box like any code (it lives in referral-codes.js
+  as an admin entry, pct 0): the page shows "Internal test mode" and prefills it
+  through to the form's hide rule. lookup() must preserve the admin flag.
 - Public copy: "referral code" only — never "discount code" — on public pages.
   Partner landing pages (noindex) may say "10% off".
 
