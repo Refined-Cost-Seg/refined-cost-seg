@@ -198,3 +198,14 @@ property prefills — shown to all submitters (conditional phrasing), so paid,
 prepaid, and test lanes all reach the questionnaire immediately as well as by
 email. If the builder overwrites it, the canonical HTML is in this repo's git
 history (commit "thank-you Step 2 button").
+
+Demo findings (2026-08-25 full E2E): system verified working in all lanes.
+Two hardening notes: (1) Form Calculation widgets corrupt on EMPTY operands in
+parenthesized form — write discounts as {A}-{A}*{x}/100, never {A}*(1-{x}/100)
+(the latter evaluated to NEGATIVE base with x empty; Stripe clamped, but fix
+the formula). (2) isAdvancedSignature=Yes on ANY signature field turns on the
+form-wide Jotform Sign ceremony (doc preview + consent modal) for EVERY
+submission — keep signature fields isAdvancedSignature=No.
+Audit-support signature system: decline/scope acknowledgment texts (qids
+380/382) + required signatures (381/383) shown by radio-driven conditions;
+audit radio has no default and is required.
