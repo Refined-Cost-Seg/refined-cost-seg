@@ -209,3 +209,15 @@ submission — keep signature fields isAdvancedSignature=No.
 Audit-support signature system: decline/scope acknowledgment texts (qids
 380/382) + required signatures (381/383) shown by radio-driven conditions;
 audit radio has no default and is required.
+
+Demo addendum (2026-08-25 late): TWO more engine lessons. (1) Adding any
+signature field with isAdvancedSignature=Yes silently sets form property
+useJotformSign=Yes, which SERVER-RENDERS the submit button display:none and
+runs the Sign ceremony; turning the questions back to No does NOT clear it —
+clear properties[useJotformSign]=No explicitly (done). (2) Condition terms
+cannot read Form Calculation widget values (the flooring "hide submit until
+total=100" guard could never unmatch and silently blocked ALL Step-2
+submissions; rule deleted 2026-08-25). Flooring fields 68-76 now default to 0
+so their sum widget is always defined. In-form completeness policing must use:
+visible widget math (display), required builder-made radios (attestation), or
+Make-side post-submission checks — never condition terms against widgets.
