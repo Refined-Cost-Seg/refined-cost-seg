@@ -37,6 +37,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 29 | ✅ Published | Cost segregation on a BRRRR or major renovation: accelerating the rehab dollars you just put in | "BRRRR cost segregation", "cost segregation renovation", "cost segregation on a rehab" | Refined Cost Segregation |
 
 | 30 | ✅ Published | Cost segregation on inherited property: the stepped-up basis, and why bonus depreciation usually won’t apply | "cost segregation inherited property", "stepped-up basis depreciation", "bonus depreciation inherited rental" | Refined Cost Segregation |
+| 31 | ✅ Published | Cost segregation when you house hack: how the unit you live in changes the math | "cost segregation house hacking", "house hacking depreciation", "owner occupied duplex cost segregation" | Refined Cost Segregation |
 
 ## Cadence notes
 
