@@ -221,3 +221,34 @@ submissions; rule deleted 2026-08-25). Flooring fields 68-76 now default to 0
 so their sum widget is always defined. In-form completeness policing must use:
 visible widget math (display), required builder-made radios (attestation), or
 Make-side post-submission checks — never condition terms against widgets.
+
+## Engine: aggressive-default site utilities + reviewer pare-back (2026-08-26)
+Owner directive (Ethan): the engine defaults AGGRESSIVE and reviewers pare
+back. Approval is pure governance — "Suggested" and "Approved" produce
+identical dollars (Project_Assets col S ignores the distinction; only
+"Excluded" zeroes a row), so a submission's draft allocation IS the valid
+report once a reviewer signs off. Reviewer decisions go in
+Project_Assets!AC (starts with A=Approved, E/X=Excluded); the plug (A-017)
+and BC renormalization keep tie-out exact on any combination.
+
+Change made in Master Engine LIVE (1jwirbBwui3H7S5n-xrDaWpVOQ039MkfT5knSZx3JNbs):
+- Automation_Rules rows 60-61: R-059 (A-015 Septic, $25K med) and R-060
+  (A-016 Well, $15K med) trigger on Units>0 — i.e., suggested on EVERY
+  property. Both assets pre-existed in Asset_Library rows 16-17 with
+  validated cost tiers (VVV) but had no rules. Reviewer EXCLUDES when
+  municipal (county record / closing docs).
+- Building_Components G2 (Sewer/Septic), G7 (Water Well), G22 (Well J-Box)
+  are now FORMULAS: auto "No" while the matching asset is not Excluded,
+  auto-restore on exclusion. Prevents double-count; BC renormalizes.
+- Engine architecture (decoded 2026-08-26): Automation_Rules row N ↔
+  Suggested_Assets row N ↔ Project_Assets row N (formula-linked 1:1,
+  coverage through row 64). Adding a default = one Automation_Rules row
+  (+ Asset_Library row if the asset is new). Rules marked "HELD — market
+  cost NOT approved" follow the Eugene sign-off protocol; never activate
+  those without cost validation.
+- Utility LATERALS (electric/water/phone/gas, ~$8K) remain in the 27.5-yr
+  building split — moving them to 15-yr is a tax position needing Eugene's
+  call + new library assets. Open item.
+- Landscaping rules (R-043/R-044) compute qty 0 when Grounds Composition /
+  Plant Density intake fields are blank — intake completeness item, catch
+  in reviewer scrub.
