@@ -252,3 +252,24 @@ Change made in Master Engine LIVE (1jwirbBwui3H7S5n-xrDaWpVOQ039MkfT5knSZx3JNbs)
 - Landscaping rules (R-043/R-044) compute qty 0 when Grounds Composition /
   Plant Density intake fields are blank — intake completeness item, catch
   in reviewer scrub.
+
+## Source of truth: Drive → Workflows folder (2026-08-26)
+The Google Drive "Workflows" folder is the company's operational source of
+truth, numbered 00-10 with an index: 00_README_INDEX.md (catalog + start-here
+paths), 01_RCS_MASTER_GUIDE.md (entire process start-to-finish, current),
+02_ADMIN_KEY.md (PRIVATE owners' ops key — every system ID/recipe; supersedes
+CLAUDE_CONTEXT_OWNERS.md), 03 Training Manual v3.5 (reviewer craft + email
+library, still canonical), 04-10 reference docs. Superseded files live in its
+ARCHIVE/ as "ZZ OLD (reason) — name". Material system changes update BOTH this
+playbook AND 02_ADMIN_KEY.md the same day.
+
+## Form helper-text pass (2026-08-26)
+All six quality-tier dropdowns (qids 35-40) now carry rich descriptions with
+concrete brand/material examples per tier + "Not sure? Choose Medium — the
+reviewer verifies from photos." Grounds trio (170/172/173), land value (12),
+fence LF (84), closet shelving LF (189) got examples; flooring fields 68-76
+sublabels note the nine fields should total ~100%. COMPLIANCE FIX: the
+contract-date sublabel (qid 174) previously named the Jan-19-2025 bonus cliff
+— rewritten neutrally (never name the threshold in a question; manual Part
+eight rule). Writes were query-param API edits; if a builder session was open
+during them, re-verify in the builder.
