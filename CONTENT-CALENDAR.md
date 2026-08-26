@@ -38,6 +38,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 
 | 30 | ✅ Published | Cost segregation on inherited property: the stepped-up basis, and why bonus depreciation usually won’t apply | "cost segregation inherited property", "stepped-up basis depreciation", "bonus depreciation inherited rental" | Refined Cost Segregation |
 | 31 | ✅ Published | Cost segregation when you house hack: how the unit you live in changes the math | "cost segregation house hacking", "house hacking depreciation", "owner occupied duplex cost segregation" | Refined Cost Segregation |
+| 32 | ✅ Published | Is cost segregation worth it on a smaller or lower-priced rental? Where the math stops penciling | "is cost segregation worth it small rental", "minimum property value cost segregation", "cost segregation lower priced rental" | Refined Cost Segregation |
 
 ## Cadence notes
 
