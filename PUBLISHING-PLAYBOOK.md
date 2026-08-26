@@ -273,3 +273,20 @@ contract-date sublabel (qid 174) previously named the Jan-19-2025 bonus cliff
 — rewritten neutrally (never name the threshold in a question; manual Part
 eight rule). Writes were query-param API edits; if a builder session was open
 during them, re-verify in the builder.
+
+## Cloud publishing + Make prune (2026-08-26 late)
+All Cowork scheduled tasks are now CLOUD-FIRST (they run with Ethan's laptop
+closed). Publishing auth: the official GitHub MCP connector (OAuth,
+account-level, covers Refined-Cost-Seg org + Ethan-Tyler-Brooks repos) —
+commits go through connector tools (get_file_contents / push_files), one
+commit per publish; Netlify deploys main regardless of commit method. The
+LOCAL git-token method in this playbook remains the fallback for local runs
+(token files: .rcs-publish/gh_token for this repo, gh_token_pinedandy_rmg for
+the other three sites). Never paste tokens into chats or task prompts.
+Make is EXCLUSIVELY Cost Seg operations. Active scenarios are exactly three:
+Intake Bridge 5102194, Lead Router Estimate 5989089, Lead Router Shortform
+6001867. Deactivated 2026-08-26: Referral Code Sync 5642956 (dead qid-192
+field — page-layer referral system replaced it), Order Bridge 5602490 +
+Lead Router Order 5989105 (legacy order form). A briefly-created Make GitHub
+passthrough tool was retired unused (token never set) — delete from MCP
+Toolboxes at leisure.
