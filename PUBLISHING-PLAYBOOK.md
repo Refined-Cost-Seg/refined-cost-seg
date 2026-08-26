@@ -290,3 +290,15 @@ field — page-layer referral system replaced it), Order Bridge 5602490 +
 Lead Router Order 5989105 (legacy order form). A briefly-created Make GitHub
 passthrough tool was retired unused (token never set) — delete from MCP
 Toolboxes at leisure.
+
+## GitHub identity map (2026-08-26, verified in-browser)
+TWO personal GitHub accounts (no orgs): "Refined-Cost-Seg" owns
+refined-cost-seg; "Ethan-Tyler-Brooks" owns refined-mortgage-site-clean,
+PineAndDandy, hubcityheatingandair. The Claude GitHub MCP connector is
+authorized as Ethan-Tyler-Brooks, the "Claude Github MCP Connector" app is
+installed on BOTH accounts (All repositories), and Ethan-Tyler-Brooks is a
+collaborator on Refined-Cost-Seg/refined-cost-seg — so connector tools reach
+all four repos. GitHub App rule to remember: user-token access = app
+installed on the resource owner AND the user has repo permission — if a repo
+ever 401s, check both halves. (A separate "Claude" app authorization on the
+Refined-Cost-Seg account is the Claude Code PR app — unrelated, leave it.)
