@@ -40,6 +40,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 31 | ✅ Published | Cost segregation when you house hack: how the unit you live in changes the math | "cost segregation house hacking", "house hacking depreciation", "owner occupied duplex cost segregation" | Refined Cost Segregation |
 | 32 | ✅ Published | Is cost segregation worth it on a smaller or lower-priced rental? Where the math stops penciling | "is cost segregation worth it small rental", "minimum property value cost segregation", "cost segregation lower priced rental" | Refined Cost Segregation |
 | 33 | ✅ Published | Cost segregation on a property with an ADU: how the accessory unit changes your depreciation math | "ADU cost segregation", "accessory dwelling unit depreciation", "cost segregation in-law suite" | Refined Cost Segregation |
+| 34 | ✅ Published | Can you take bonus depreciation on a used rental property? Usually yes, and here's why | "bonus depreciation used property", "bonus depreciation used rental property", "cost segregation used property" | Refined Cost Segregation |
 
 ## Cadence notes
 
