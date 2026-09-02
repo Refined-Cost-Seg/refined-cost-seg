@@ -5,18 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>RCS Quick Quote</title>
 <!-- INTERNAL TOOL — unlisted. Not linked anywhere, not in sitemap.xml. -->
+<!-- Access-gated: the calculator only renders after the admin referral code is entered.
+     The code itself is never in this file — only referral-codes.js's SHA-256 fingerprints. -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="RCS Quote">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/referral-codes.js"></script>
 <style>
   :root{--navy:#1B2A3E;--paper:#FAF9F5;--sage:#5F7239;--panel:#F2F0E8;--line:#E8E5D9;--muted:#5B6570;}
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:var(--paper);color:var(--navy);min-height:100vh;padding:1.1rem 1.1rem 2rem;max-width:480px;margin:0 auto;}
+  [hidden]{display:none!important;}
   h1{font-size:1rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin:.4rem 0 1.1rem;font-weight:700;}
   label{display:block;font-size:.8rem;font-weight:600;color:var(--muted);margin:.9rem 0 .3rem;letter-spacing:.04em;}
-  input[type=text]{width:100%;font-size:1.5rem;font-weight:600;padding:.65rem .8rem;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--navy);-webkit-appearance:none;}
+  input[type=text],input[type=password]{width:100%;font-size:1.5rem;font-weight:600;padding:.65rem .8rem;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--navy);-webkit-appearance:none;}
   input:focus{outline:2px solid var(--sage);border-color:var(--sage);}
   .seg{display:flex;gap:.4rem;flex-wrap:wrap;}
   .seg-units{display:grid;grid-template-columns:repeat(6,1fr);}
@@ -28,10 +32,29 @@
   .out .fee{font-size:3rem;font-weight:800;line-height:1.2;color:#FFFFFF;letter-spacing:.01em;min-height:3.6rem;}
   .out .sub{font-size:.8rem;color:rgba(250,249,245,.75);margin-top:.35rem;line-height:1.5;}
   .note{margin-top:1rem;font-size:.72rem;color:var(--muted);line-height:1.5;}
+  /* ---- access gate ---- */
+  #gate{margin-top:2.2rem;}
+  #gate .gate-sub{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:.4rem;}
+  #gate button{margin-top:.7rem;width:100%;font-size:.95rem;font-weight:700;padding:.75rem 1rem;border:1.5px solid var(--navy);border-radius:10px;background:var(--navy);color:var(--paper);cursor:pointer;}
+  #gate button[disabled]{opacity:.55;cursor:default;}
+  #gateMsg{margin-top:.7rem;font-size:.82rem;font-weight:600;color:#8C2F2F;min-height:1.2rem;}
 </style>
 </head>
 <body>
 <h1>RCS Quick Quote</h1>
+
+<!-- ============== ACCESS GATE (shown until the admin code is entered) ============== -->
+<form id="gate" autocomplete="off">
+  <p class="gate-sub">Internal tool. Enter the admin access code to continue.</p>
+  <label for="gateCode">Access code</label>
+  <input type="password" id="gateCode" name="gateCode" inputmode="text" autocomplete="off"
+         autocapitalize="characters" spellcheck="false" placeholder="Access code">
+  <button type="submit" id="gateBtn">Unlock</button>
+  <p id="gateMsg" role="status" aria-live="polite"></p>
+</form>
+
+<!-- ============== CALCULATOR (revealed only after a successful unlock) ============== -->
+<div id="app" hidden>
 
 <label for="price">Purchase price</label>
 <input type="text" id="price" inputmode="numeric" placeholder="$ 500,000" autocomplete="off">
@@ -59,6 +82,80 @@
 </div>
 
 <p class="note">Internal tool. Mirrors the order form's quote calculation exactly (base $1,750 &le;4 units; +$125/unit above 4; +0.15% of price $500K&ndash;$2M; +0.25% above $2M; rounded to $25; + Audit Support; one valid code = 10% off the total, two stacked codes (CPA/partner + PORTFOLIO10) = 20% off). If the form changes, update this page.</p>
+
+</div><!-- /#app -->
+
+<script>
+/* ---------------- access gate ----------------
+   Validates the typed code by SHA-256 against the admin entry in /referral-codes.js
+   (same hashing approach the site uses: UPPERCASE the code, then SHA-256).
+   The plaintext code is never stored in this file. */
+(function(){
+  var KEY='rcs_qqx7k4_ok';
+  var gate=document.getElementById('gate');
+  var app=document.getElementById('app');
+  var input=document.getElementById('gateCode');
+  var btn=document.getElementById('gateBtn');
+  var msg=document.getElementById('gateMsg');
+
+  function adminHashes(){
+    var codes=(window.RCS_CODES||{}), out=[];
+    for(var h in codes){ if(Object.prototype.hasOwnProperty.call(codes,h) && codes[h] && codes[h].admin===true){ out.push(h.toLowerCase()); } }
+    return out;
+  }
+
+  function sha256Hex(str){
+    var enc=new TextEncoder().encode(str);
+    return crypto.subtle.digest('SHA-256', enc).then(function(buf){
+      return Array.prototype.map.call(new Uint8Array(buf), function(b){
+        return ('00'+b.toString(16)).slice(-2);
+      }).join('');
+    });
+  }
+
+  function reveal(){
+    gate.hidden=true;
+    app.hidden=false;
+    var p=document.getElementById('price');
+    if(p){ p.focus(); }
+  }
+
+  function remembered(){
+    try{ return sessionStorage.getItem(KEY)==='1'; }catch(e){ return false; }
+  }
+  function remember(){
+    try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
+  }
+
+  if(remembered()){ reveal(); }
+
+  gate.addEventListener('submit', function(e){
+    e.preventDefault();
+    var raw=(input.value||'').trim().toUpperCase();
+    if(!raw){ msg.textContent='Enter the access code.'; return; }
+    var allowed=adminHashes();
+    if(!allowed.length){ msg.textContent='Code list unavailable — reload the page.'; return; }
+    if(!(window.crypto && crypto.subtle)){ msg.textContent='This browser cannot verify the code (needs a secure connection).'; return; }
+    btn.disabled=true; msg.textContent='Checking…';
+    sha256Hex(raw).then(function(hex){
+      btn.disabled=false;
+      if(allowed.indexOf(hex.toLowerCase())!==-1){
+        msg.textContent='';
+        input.value='';
+        remember();
+        reveal();
+      } else {
+        msg.textContent='That code is not valid.';
+        input.value='';
+        input.focus();
+      }
+    }).catch(function(){
+      btn.disabled=false;
+      msg.textContent='Could not verify the code — try again.';
+    });
+  });
+})();
+</script>
 
 <script>
 (function(){
@@ -93,8 +190,8 @@
   function calc(){
     var p=parseFloat(priceEl.value.replace(/[^0-9]/g,''))||0;
     var feeEl=document.getElementById('fee'), subEl=document.getElementById('sub');
-    if(!p || !units){ feeEl.textContent='\u2014'; subEl.textContent=!p?'enter a purchase price':'enter a unit count'; return; }
-    if(units>12){ feeEl.textContent='Custom'; subEl.textContent='Over 12 units \u00b7 quoted individually \u2014 call it in'; return; }
+    if(!p || !units){ feeEl.textContent='—'; subEl.textContent=!p?'enter a purchase price':'enter a unit count'; return; }
+    if(units>12){ feeEl.textContent='Custom'; subEl.textContent='Over 12 units · quoted individually — call it in'; return; }
     /* EXACT mirror of the order form (field 165 + referral condition):
        round((1750 + 125*max(u-4,0) + 0.0015*min(max(p-500000,0),1500000) + 0.0025*max(p-2000000,0))/25)*25 + audit;
        valid referral => total * 0.9 */
@@ -106,7 +203,7 @@
     var parts=['study '+fmt(study)];
     if(audit) parts.push('audit support '+fmt(audit));
     if(refd) parts.push((refd*100)+'% codes applied');
-    subEl.textContent=parts.join(' \u00b7 ');
+    subEl.textContent=parts.join(' · ');
   }
 })();
 </script>
