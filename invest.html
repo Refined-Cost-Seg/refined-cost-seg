@@ -7,7 +7,7 @@
 <meta name="description" content="Set up your cost segregation study in minutes: a quick property setup, your instant savings estimate, and secure checkout.">
 <!-- Checkout page: intentionally kept out of the search index and out of sitemap.xml -->
 <meta name="robots" content="noindex">
-<link rel="canonical" href="https://refinedcostseg.com/invest">
+<link rel="canonical" href="https://www.refinedcostseg.com/invest">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,6 +60,12 @@
   ol.steps p{font-size:.85rem;color:var(--muted);line-height:1.55;}
   @media (max-width:640px){ol.steps{grid-template-columns:1fr;}}
 
+  .ready-list{max-width:640px;margin:1.6rem auto 0;padding:1rem 1.2rem;background:var(--panel);border:1px solid var(--line);border-radius:10px;font-size:.85rem;color:var(--muted);line-height:1.5;}
+  .ready-list h2{font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--navy);margin:0 0 .45rem;}
+  .ready-list ul{margin:0 0 .5rem;padding-left:1.2rem;}
+  .ready-list li{margin-bottom:.2rem;}
+  .ready-list p{font-size:.8rem;color:var(--muted);}
+  .ready-list a{color:var(--sage);text-decoration:underline;}
   .audit-note{max-width:640px;margin:2rem auto 0;text-align:center;font-size:.9rem;color:var(--muted);}
   .audit-note strong{color:var(--navy);}
   .audit-note a{color:var(--sage);text-decoration:underline;}
@@ -87,7 +93,7 @@
 <header class="site">
   <div class="head-inner">
     <a class="wordmark" href="/" aria-label="Refined Cost Segregation, home"><img src="/assets/logo-mark.png" alt="">Refined&nbsp;<span>Cost Segregation</span></a>
-    <p class="head-contact">Questions before you order? <a href="mailto:admin@refinedcostseg.com">admin@refinedcostseg.com</a></p>
+    <p class="head-contact">Questions before you order? <a href="mailto:admin@refinedcostseg.com">admin@refinedcostseg.com</a> &middot; <a href="tel:+14144295333">414-429-5333</a></p>
   </div>
 </header>
 
@@ -112,6 +118,18 @@
       <p>Pay by card through Stripe. The property questionnaire (10–15 minutes) opens right after checkout, and you can pause and pick it back up anytime.</p>
     </li>
   </ol>
+
+  <div class="ready-list">
+    <h2>What to have ready for the questionnaire</h2>
+    <ul>
+      <li>Closing / settlement statement (ALTA, HUD-1, or Closing Disclosure)</li>
+      <li>County assessor card or appraisal showing the land value</li>
+      <li>Your depreciation schedule (Form 4562) &mdash; only if the property was already depreciated</li>
+      <li>About 20 phone photos &mdash; see <a href="https://drive.google.com/file/d/1FK6OYGzKpstjM2KbtdYfsjcYDJ3Cf4fF/view" target="_blank" rel="noopener">the 10-photo guide</a></li>
+      <li>Invoices for major improvements since purchase</li>
+    </ul>
+    <p class="muted">Full list: <a href="/journal/cost-segregation-study-documents-required">what documents a study needs</a>.</p>
+  </div>
 
   <p class="audit-note">During checkout you can add optional <strong>Audit Support</strong> — flat-fee backup if the IRS ever asks about your study. <a href="/audit-support" target="_blank" rel="noopener">What Audit Support covers &rarr;</a></p>
 
@@ -189,7 +207,7 @@
            track it: rebuild the embed fresh inside our holder and re-init. */
         var n = document.createElement('iframe');
         n.id = 'JotFormIFrame-261446273575059';
-        n.title = 'Refined Cost Segregation \u2014 set up and order your report';
+        n.title = 'Refined Cost Segregation — set up and order your report';
         n.setAttribute('allowtransparency', 'true');
         n.setAttribute('allow', 'geolocation; microphone; camera; fullscreen; payment');
         n.setAttribute('frameborder', '0');
@@ -210,17 +228,17 @@
       var isPaid = codes.some(function (c) { return c.paid; });
       if (isAdmin || isPaid) {
         msg.textContent = isPaid
-          ? '\u2713 Prepaid order \u2014 no payment due. Complete and submit your details below.'
-          : '\u2713 Internal test mode \u2014 payment is disabled for this order.';
+          ? '✓ Prepaid order — no payment due. Complete and submit your details below.'
+          : '✓ Internal test mode — payment is disabled for this order.';
         msg.style.color = '#5F7239';
         return;
       }
       if (codes.length) {
-        msg.textContent = '\u2713 Referral applied \u2014 ' + codes.map(function (c) { return c.label; }).join(' + ') + ' (' + tier + '% off your study fee). It will show in your payment total.';
+        msg.textContent = '✓ Referral applied — ' + codes.map(function (c) { return c.label; }).join(' + ') + ' (' + tier + '% off your study fee). It will show in your payment total.';
         msg.style.color = '#5F7239';
         if ((c1.value.trim() && !e1) || (c2.value.trim() && !e2)) msg.textContent += ' (One code was not recognized.)';
       } else {
-        msg.textContent = 'Code not recognized \u2014 double-check the spelling, or email admin@refinedcostseg.com.';
+        msg.textContent = 'Code not recognized — double-check the spelling, or email admin@refinedcostseg.com.';
         msg.style.color = '#B4232A';
       }
     });
