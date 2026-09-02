@@ -302,3 +302,45 @@ all four repos. GitHub App rule to remember: user-token access = app
 installed on the resource owner AND the user has repo permission — if a repo
 ever 401s, check both halves. (A separate "Claude" app authorization on the
 Refined-Cost-Seg account is the Claude Code PR app — unrelated, leave it.)
+
+## 2026-09-01/02 — top-to-bottom review: what changed (READ THIS BEFORE the sections above that mention Make)
+SUPERSEDES the "Cloud publishing + Make prune" Make paragraph and the Aug-26 form map where they conflict.
+- **Make.com runs NOTHING (since 2026-08-28).** Fulfillment + lead routing = the Google Apps
+  Script **RCS Bridge** (private repo github.com/Ethan-Tyler-Brooks/rcs-bridge, main de3d36b, 157
+  tests; Apps Script project "RCS Bridge" running as admin@). Never reactivate a Make scenario.
+  Kept on-demand only: the Sheets/Drive/Jotform passthrough tools and the parked upload webhook.
+  Full ops key: Drive → RCS Share Folder › Workflows › 02_ADMIN_KEY.md (v3.0).
+- **Form 261446273575059 changes (2026-09-01):** q384/q385 flooring confirmation gated to Step 2
+  (they had leaked into Step 1 for every visitor); q136 banded avg-stay radio HIDDEN, replaced by
+  q386 number "average nights per booking" (never name the 7-day threshold in a question); new
+  Step-2 questions q387 taxpayer/entity · q388 closing date · q389 first tax year · q390
+  improvements list · q391 Mechanicals Photos · q392 accuracy & scope confirmation (required);
+  q94 sewer / q95 well gained "Not sure"; q143 driveway asked on every file (Pavers, None added;
+  144/145 shown when a type is chosen); q101 prior-depreciation upload REQUIRED when q32 = Yes;
+  q169 referred-by email now follows q118/q119; q377 Final Total UNHIDDEN as "Your flat study fee
+  (total)" (Step 1 only — the site promises the fee before payment).
+  ENGINE LAW ADDENDUM: conditions are still not API-writable, but the Jotform MCP `edit_form`
+  editor agent applies ONE rule per call reliably (~90 s); a six-rule batch silently never applied.
+  Always verify with GET /form/{id}/properties?properties[]=conditions afterwards. New questions
+  created by API are visible in Step 1 until their Fill-Mode show rule lands — set hidden=Yes on
+  creation as the safety net (Show rules override hidden).
+- **Engine v1.21 (2026-09-01):** Intake_Tracker = 108 columns A–DD (CU Sewer System · CV Private
+  Well · CW Septic Likely · CX Well Likely · CY Taxpayer / Entity Name · CZ Closing Date · DA First
+  Tax Year Claimed · DB Improvements Detail · DC Avg Nights Per Booking · DD Accuracy
+  Confirmation). R-059/R-060 now trigger on Septic Likely / Well Likely = Yes (bridge-derived: No only
+  on a stated Public Sewer / no well) — aggressive when unknown, evidence-led when known. The bridge
+  checks the header row against its 108-header contract before every write; adding/renaming an
+  Intake column without a bridge release breaks the build (loudly, by design). Master Engine title
+  is now "…(Bridge-fed; …)". ZZ BACKUP 2026-09-01 in AUTOMATIONS/ARCHIVE.
+- **monday:** the router flips a lead to Ordered only with payment evidence (Stripe record on the
+  Step-1 q166, or the test/prepaid lane q379); otherwise it posts "verify in Stripe". The Review
+  Pipeline board scrub and the Pre-Flight Reviewer task were retired 2026-08-27 — the reviewer's
+  checklist is the per-P-folder "Needs — P-…" sheet + the bridge's build email.
+- **Site pass (commits 8194cfe, 00350a1):** #process rewritten to the pay-first flow; deliverables
+  named (report PDF + fixed-asset CSV + one-page CPA implementation letter); "fifteen-minute
+  feasibility call" CTAs retired in all 34 posts (use "Start with the free instant estimate … or
+  call us for a candid yes or no"); "What to have ready" blocks on / and /invest; privacy vendor
+  line = Google Apps Script within Google Workspace. New posts must use the new CTA sentence.
+- **Workflows folder moved** into RCS Share Folder › Workflows (ethan-owned, id
+  1g5t0J2FRtOqyrl-ltBt4VUiD1B1w4J16); numbered set now 00–10 with PDFs for every doc, v3.6/v1.1/
+  v2.2/v2.1 reissues, HTML sources beside the PDFs. 02_ADMIN_KEY.md stays Markdown.
