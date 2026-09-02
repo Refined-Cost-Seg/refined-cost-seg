@@ -28,7 +28,7 @@ Static HTML marketing site for Refined Cost Segregation. No build step, no frame
 - **Design** (colors, fonts, spacing): `styles.css`. The brand tokens are the CSS variables at the very top (`--navy`, `--sage`, etc.).
 - **Homepage copy / sections**: `index.html`.
 - **Calculator math**: `script.js`, the `reclassRates` object.
-- **Contact form**: it's a Jotform iframe in `index.html`. Search `JotFormIFrame`. ⚠️ See migration note below — confirm the form ID is the current one.
+- **Estimate + order form**: it's a Jotform iframe in `index.html` and `invest.html`. Search `JotFormIFrame`. See the Jotform note below.
 
 After any edit: commit + push to GitHub → Netlify rebuilds and publishes automatically (usually under a minute).
 
@@ -51,11 +51,13 @@ The goal is roughly one new post per week. Topic backlog is in `CONTENT-CALENDAR
 - [ ] Create the GitHub repo and push these files
 - [ ] Connect the repo to Netlify (New site from Git → pick the repo → deploy; no build command, publish directory `.`)
 - [ ] Verify the staging `*.netlify.app` URL renders correctly
-- [ ] **Confirm the Jotform form ID in `index.html` is the current live intake form** and that its Make.com automation is wired (see note below)
+- [ ] **Confirm the Jotform form ID in `index.html` and `invest.html` is the current live form** and that the RCS Bridge (Google Apps Script) is receiving its submissions (see note below)
 - [ ] Point the custom domain from Webflow DNS to Netlify
 - [ ] Replace the placeholder SVG portrait for the QC reviewer card (or leave as the abstract badge)
 - [ ] Decide what to do with the now-unused Webflow site + CMS (cancel Premium if not needed elsewhere)
 
 ## Jotform note
 
-The contact form embeds Jotform form `261446273575059` — "Refined Cost Segregation — Get Your Free Tax Savings Estimate." This is the current live intake, wired to the Make.com automation. It's built as a short capture form by default; the full intake only appears once a visitor selects "yes, ready to move forward" (the Q25 gate). The form ID appears in two files — `index.html` (the iframe `id` + `src`) and `script.js` (the auto-resize handler selector) — so if it ever changes, update both.
+The site embeds a single Jotform, `261446273575059`, on `/` (`#contact`) and `/invest`, always via `pci.jotform.com` with `areYou25=Yes` so the form opens directly in estimate/order mode. It is a two-phase estimate + order form: **Step 1** (`areYou25=Yes`) collects the property basics, shows the projected savings and flat study fee, and takes Stripe payment; **Step 2** (`fillMode=details`) is the post-payment property questionnaire (closing statement, photos, land-value support, etc.). The referral-code UI on each page prefills `referralCode` / `discountLevel` on the iframe URL (see `referral-codes.js`).
+
+Fulfillment runs on the Google Apps Script "RCS Bridge" inside Google Workspace (Drive folder setup, sheet/board updates, notifications). Make.com is no longer part of the pipeline — it has run nothing since 2026-08-28. The form ID appears only in the two HTML files (iframe `id` + `src` and the embed-handler selector on the same page); `script.js` contains no Jotform code, so if the ID ever changes, update `index.html` and `invest.html` only.

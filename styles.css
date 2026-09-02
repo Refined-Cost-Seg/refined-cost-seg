@@ -329,3 +329,11 @@
 .rcs-embed .btn-invest:hover { background: var(--navy); border-color: var(--navy); color: var(--paper); }
 .rcs-embed .article-invest { margin-top: 1rem; padding: 1.5rem 2rem; background: var(--sage-pale); border-radius: 16px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .rcs-embed .article-invest p { font-weight: 600; color: var(--navy); margin: 0; }
+
+/* ═══ WHAT TO HAVE READY (2026-09-02, #contact) ═══ */
+.rcs-embed .ready-list { margin: 0 0 1.25rem; padding: 1rem 1.25rem; background: #fff; border: 1px solid var(--rule); border-radius: 10px; font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+.rcs-embed .ready-list h4 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+.rcs-embed .ready-list ul { list-style: disc; padding-left: 1.2rem; margin: 0 0 0.6rem; }
+.rcs-embed .ready-list li { margin-bottom: 0.25rem; }
+.rcs-embed .ready-list p { font-size: 0.8rem; color: var(--muted); }
+.rcs-embed .ready-list a { color: var(--sage-2); text-decoration: underline; text-underline-offset: 2px; }
