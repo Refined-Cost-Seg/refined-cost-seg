@@ -42,6 +42,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 33 | ✅ Published | Cost segregation on a property with an ADU: how the accessory unit changes your depreciation math | "ADU cost segregation", "accessory dwelling unit depreciation", "cost segregation in-law suite" | Refined Cost Segregation |
 | 34 | ✅ Published | Can you take bonus depreciation on a used rental property? Usually yes, and here's why | "bonus depreciation used property", "bonus depreciation used rental property", "cost segregation used property" | Refined Cost Segregation |
 | 35 | ✅ Published | Cost segregation and the QBI deduction: does accelerating depreciation shrink your Section 199A write-off? | "cost segregation QBI deduction", "does depreciation reduce section 199A deduction", "cost segregation section 199A rental" | Refined Cost Segregation |
+| 36 | ✅ Published | Buying a rental before year-end? The cost segregation timeline that actually works | "cost segregation before year end", "placed in service by december 31", "buy rental property before year end tax deduction" | Refined Cost Segregation |
 
 ## Cadence notes
 
