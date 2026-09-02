@@ -13,7 +13,8 @@ The firm exists to make defensible, audit-ready cost segregation accessible to t
 - 100% bonus depreciation was restored for property acquired (contract signed) and placed in service after January 19, 2025, by the One Big Beautiful Bill (OBBB), signed mid-2025. No scheduled sunset.
 - A typical residential cost segregation study reclassifies 20-35% of depreciable basis into 5-, 7-, and 15-year property; short-term rentals often land in the upper part of that range.
 - For STRs with an average customer-use period of 7 days or less, IRS Treasury Regulation §1.469-1T(e)(3) treats the activity as a non-rental trade or business. Material participation (any of the IRS's 7 tests) makes the resulting losses non-passive and usable against W-2 income.
-- Turnaround: 5-10 business days from complete intake to delivered PDF report.
+- Deliverables: the report PDF, a per-asset fixed-asset schedule (CSV), and a one-page CPA implementation letter, delivered by email within 5-10 business days of a complete questionnaire.
+- Process: instant estimate and flat fee shown before payment → Stripe checkout → 10–15 minute property questionnaire → automated working-file build → human reviewer + QC → licensed-professional sign-off → delivery.
 - Services: residential (1-4 unit) studies, short-term-rental studies, optional Audit Support (Basic 3-year / Extended 10-year), and a CPA partner program. Study pricing is quoted per property (not published).
 
 ## Methodology and language
