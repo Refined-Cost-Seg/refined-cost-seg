@@ -87,6 +87,13 @@ the "10% off" hook, no dollar amounts.)
 Every new post = (a) the new HTML file under `/journal/`, PLUS:
 - **`journal/index.html`** — add a new `.blog-card` at the TOP of `.listing-grid`,
   and add a `BlogPosting` entry at the TOP of the JSON-LD `Blog` -> `blogPost` array.
+  NOTE: the listing is progressively disclosed and needs NO extra markup. `styles.css`
+  hides every `.blog-card` past the ninth (`.listing-grid .blog-card:nth-child(n+10)`),
+  and the "Journal listing" block at the end of `script.js` injects the `.listing-more`
+  counter plus a "Show 9 more essays" button that reveals nine at a time. Every card
+  stays in the HTML, so crawlers still see all the links. Adding a card at the TOP of
+  `.listing-grid` is all a new post needs — the count and the button update themselves.
+  Do not add per-card classes or ids for this; the behaviour is position-based.
 - **`index.html`** (homepage) — refresh the `#journal` section's `.blog-grid` so it
   shows the THREE most recent posts (newest replaces the oldest of the three).
 - **`sitemap.xml`** — add a `<url>` for the new post (priority 0.7, changefreq monthly,
