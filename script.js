@@ -86,4 +86,68 @@
   if (tR) tR.addEventListener('input', calcSavings);
   calcSavings(); // initial run
 
+  // ─── Journal listing: progressive disclosure ("show more") ───
+  var listing = document.querySelector('.rcs-embed .listing-grid');
+  if (listing) {
+    var cards = listing.querySelectorAll('.blog-card');
+    var total = cards.length;
+    var STEP  = 9;
+    var shown = STEP;
+
+    if (total > STEP) {
+      if (!listing.id) listing.id = 'journal-listing';
+
+      var moreWrap = document.createElement('div');
+      moreWrap.className = 'listing-more';
+
+      var counter = document.createElement('p');
+      counter.className = 'listing-count';
+      counter.setAttribute('role', 'status');
+      counter.setAttribute('aria-live', 'polite');
+
+      var moreBtn = document.createElement('button');
+      moreBtn.type = 'button';
+      moreBtn.className = 'btn btn-ghost';
+      moreBtn.setAttribute('aria-controls', listing.id);
+
+      var moreLabel = document.createElement('span');
+      var moreArrow = document.createElement('span');
+      moreArrow.className = 'arrow';
+      moreArrow.setAttribute('aria-hidden', 'true');
+      moreArrow.textContent = '↓';
+
+      moreBtn.appendChild(moreLabel);
+      moreBtn.appendChild(moreArrow);
+      moreWrap.appendChild(counter);
+      moreWrap.appendChild(moreBtn);
+      listing.parentNode.insertBefore(moreWrap, listing.nextSibling);
+
+      var renderListing = function() {
+        for (var i = 0; i < total; i++) {
+          cards[i].style.display = i < shown ? 'flex' : '';
+        }
+        counter.textContent = 'Showing ' + shown + ' of ' + total + ' essays';
+        if (shown >= total) {
+          moreBtn.hidden = true;
+        } else {
+          var next = Math.min(STEP, total - shown);
+          moreLabel.textContent = 'Show ' + next + ' more ' + (next === 1 ? 'essay' : 'essays');
+        }
+      };
+
+      moreBtn.addEventListener('click', function() {
+        var firstNew = shown;
+        shown = Math.min(shown + STEP, total);
+        renderListing();
+        var target = cards[firstNew];
+        if (target) {
+          target.setAttribute('tabindex', '-1');
+          try { target.focus({ preventScroll: true }); } catch (e) { target.focus(); }
+        }
+      });
+
+      renderListing();
+    }
+  }
+
 })();

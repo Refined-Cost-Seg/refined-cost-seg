@@ -337,3 +337,14 @@
 .rcs-embed .ready-list li { margin-bottom: 0.25rem; }
 .rcs-embed .ready-list p { font-size: 0.8rem; color: var(--muted); }
 .rcs-embed .ready-list a { color: var(--sage-2); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ─── Journal listing: progressive disclosure ("show more") ───
+   Only the 9 newest cards render; script.js injects the counter + "Show 9 more"
+   button and reveals nine at a time. Every card stays in the HTML for crawlers.
+   New posts still just go at the TOP of .listing-grid — nothing else to update. */
+.rcs-embed .listing-grid .blog-card:nth-child(n+10){display:none}
+.rcs-embed .listing-more{max-width:1320px;margin:3.25rem auto 0;padding:0 clamp(1.25rem,3.5vw,3rem);display:flex;flex-direction:column;align-items:center;gap:0.9rem;text-align:center}
+.rcs-embed .listing-count{font-family:'JetBrains Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin:0}
+.rcs-embed .listing-more .btn[hidden]{display:none}
+.rcs-embed .listing-more .btn .arrow{transition:transform 0.25s ease}
+.rcs-embed .listing-more .btn:hover .arrow{transform:translateY(2px)}
