@@ -43,6 +43,7 @@ A backlog of post topics for the weekly SEO cadence. Each is chosen to target a 
 | 34 | ✅ Published | Can you take bonus depreciation on a used rental property? Usually yes, and here's why | "bonus depreciation used property", "bonus depreciation used rental property", "cost segregation used property" | Refined Cost Segregation |
 | 35 | ✅ Published | Cost segregation and the QBI deduction: does accelerating depreciation shrink your Section 199A write-off? | "cost segregation QBI deduction", "does depreciation reduce section 199A deduction", "cost segregation section 199A rental" | Refined Cost Segregation |
 | 36 | ✅ Published | Buying a rental before year-end? The cost segregation timeline that actually works | "cost segregation before year end", "placed in service by december 31", "buy rental property before year end tax deduction" | Refined Cost Segregation |
+| 37 | ✅ Published | Cost segregation and estimated tax payments: how a Q4 acquisition can lower what you owe in January | "cost segregation estimated tax payments", "reduce estimated tax payment rental property", "cost segregation Q4 tax payment" | Refined Cost Segregation |
 
 ## Cadence notes
 
