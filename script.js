@@ -124,11 +124,12 @@
 
       var renderListing = function() {
         for (var i = 0; i < total; i++) {
-          cards[i].style.display = i < shown ? 'flex' : '';
+          cards[i].style.display = i < shown ? 'flex' : 'none';
         }
         counter.textContent = 'Showing ' + shown + ' of ' + total + ' essays';
         if (shown >= total) {
           moreBtn.hidden = true;
+          moreBtn.style.display = 'none';
         } else {
           var next = Math.min(STEP, total - shown);
           moreLabel.textContent = 'Show ' + next + ' more ' + (next === 1 ? 'essay' : 'essays');
