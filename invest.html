@@ -125,7 +125,8 @@
       <li>Closing / settlement statement (ALTA, HUD-1, or Closing Disclosure)</li>
       <li>County assessor card or appraisal showing the land value</li>
       <li>Your depreciation schedule (Form 4562) &mdash; only if the property was already depreciated</li>
-      <li>About 20 phone photos &mdash; see <a href="https://drive.google.com/file/d/1FK6OYGzKpstjM2KbtdYfsjcYDJ3Cf4fF/view" target="_blank" rel="noopener">the 10-photo guide</a></li>
+      <li>About 20 phone photos &mdash; see <a href="https://drive.google.com/file/d/1FK6OYGzKpstjM2KbtdYfsjcYDJ3Cf4fF/view" target="_blank" rel="noopener">the photo guide</a></li>
+      <li>A photo of the furnace, water heater and electrical panel</li>
       <li>Invoices for major improvements since purchase</li>
     </ul>
     <p class="muted">Full list: <a href="/journal/cost-segregation-study-documents-required">what documents a study needs</a>.</p>
@@ -135,9 +136,14 @@
 
   <div id="rcsCodesWrap" style="max-width:640px;margin:1.2rem auto 0;">
   <a href="#" id="rcsToggle" style="font-size:.9rem;color:#5F7239;text-decoration:underline;">Have a referral code?</a>
+  <style>/* accessibility.html claims labeled form fields; a placeholder is not an
+       accessible name. Absolutely positioned, so it is out of the flex flow. */
+    .rcs-vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
   <div id="rcsCodes" hidden style="margin-top:.6rem;background:#F2F0E8;border:1px solid #E8E5D9;border-radius:12px;padding:1rem 1.1rem;">
     <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+      <label class="rcs-vh" for="rcsCode1">Referral code</label>
       <input id="rcsCode1" placeholder="Enter code" autocomplete="off" style="flex:1;min-width:150px;padding:.55rem .7rem;border:1.5px solid #E8E5D9;border-radius:8px;font-size:1rem;">
+      <label class="rcs-vh" for="rcsCode2">Second referral code (optional)</label>
       <input id="rcsCode2" placeholder="Second code (optional)" autocomplete="off" style="flex:1;min-width:150px;padding:.55rem .7rem;border:1.5px solid #E8E5D9;border-radius:8px;font-size:1rem;">
       <button id="rcsApply" type="button" style="padding:.55rem 1.1rem;background:#1B2A3E;color:#FAF9F5;border:0;border-radius:8px;font-weight:700;cursor:pointer;">Apply</button>
     </div>
@@ -224,12 +230,12 @@
       }
       if (quiet && !entered) return;
       if (!entered) { msg.textContent = 'Enter a code first.'; msg.style.color = '#5B6570'; return; }
-      var isAdmin = codes.some(function (c) { return c.admin; });
-      var isPaid = codes.some(function (c) { return c.paid; });
-      if (isAdmin || isPaid) {
-        msg.textContent = isPaid
-          ? '✓ Prepaid order — no payment due. Complete and submit your details below.'
-          : '✓ Internal test mode — payment is disabled for this order.';
+      /* Both no-payment lanes get ONE neutral confirmation. The lane still
+         drives the form (the &testMode=Yes prefill above) and the bridge
+         verifies it server-side — but public page source no longer tells a
+         reader what a valid code buys. */
+      if (codes.some(function (c) { return c.admin || c.paid; })) {
+        msg.textContent = '✓ Code accepted — complete and submit your details below.';
         msg.style.color = '#5F7239';
         return;
       }
