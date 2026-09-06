@@ -1,32 +1,56 @@
 # Refined Cost Segregation — robots.txt
+#
+# /qq-x7k4 is an internal tool. It carries noindex + X-Robots-Tag already, but
+# noindex only stops indexing — it does not stop fetching or model ingestion.
+# The Disallow has to be repeated in EVERY group below: a crawler that matches
+# a named group ignores the "*" group entirely, so a rule written only once at
+# the top would not bind GPTBot, ClaudeBot, CCBot or the others.
 
 User-agent: *
 Allow: /
+Disallow: /qq-x7k4
+Disallow: /qq-x7k4.html
 
 # Major AI crawlers — explicit allow so this content can be cited
 # in LLM responses to tax/depreciation/STR questions.
 User-agent: GPTBot
 Allow: /
+Disallow: /qq-x7k4
+Disallow: /qq-x7k4.html
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /qq-x7k4
+Disallow: /qq-x7k4.html
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /qq-x7k4
+Disallow: /qq-x7k4.html
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /qq-x7k4
+Disallow: /qq-x7k4.html
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /qq-x7k4
+Disallow: /qq-x7k4.html
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /qq-x7k4
+Disallow: /qq-x7k4.html
 
 User-agent: CCBot
 Allow: /
+Disallow: /qq-x7k4
+Disallow: /qq-x7k4.html
 
 User-agent: meta-externalagent
 Allow: /
+Disallow: /qq-x7k4
+Disallow: /qq-x7k4.html
 
 Sitemap: https://www.refinedcostseg.com/sitemap.xml
