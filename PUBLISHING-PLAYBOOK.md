@@ -153,16 +153,26 @@ Architecture (do not re-litigate — two days of debugging proved each point):
   the total ever looks like two numbers added together, this got multi-selected
   or re-pointed). NO pricing conditions exist or should exist. The savings
   widget shows only via condition IF Discount Level Is Filled → Show.
-- Intentional test bypass: referral code RCS-ADMIN-K7Q4 hides the payment field
-  for free end-to-end test submissions. Keep it; rotate if leaked.
+- Intentional test bypass: the admin referral code (prefix `RCS-ADMIN-`; the
+  code itself lives in Drive > Workflows > 02_ADMIN_KEY.md, never in this repo)
+  hides the payment field for free end-to-end test submissions. Keep it; rotate
+  if leaked. It is ALSO the decryption key for /qq-x7k4 (see the 2026-09-06
+  entry below), so never write it into a file, a PR, or a chat.
   It is entered in the SITE code box like any code (it lives in referral-codes.js
-  as an admin entry, pct 0): the page shows "Internal test mode" and prefills
-  testMode=Yes into the hidden builder-created "Test Mode" RADIO (qid 379), which
-  the hide-payment rule keys on. lookup() must preserve the admin flag.
+  as an admin entry, pct 0): the page shows the neutral "Code accepted" banner
+  (see the lane-labels bullet below) and prefills testMode=Yes into the hidden
+  builder-created "Test Mode" RADIO (qid 379), which the hide-payment rule keys
+  on. lookup() must preserve the admin flag.
   HARD RULE: prefilled TEXT fields are invisible to ALL Jotform condition types;
   only RADIO/choice fields carry URL prefills into conditions (the areYou25
   pattern). Numeric prefills that feed WIDGET equations (discountLevel) work
   because widgets read the calc engine, not condition terms.
+- Lane labels in referral-codes.js are PUBLIC TEXT (they render in the code box
+  and anyone can read the file). The two no-payment lanes are therefore named
+  "Partner A" (paid) and "Partner B" (admin), and both show one neutral banner,
+  "✓ Code accepted — complete and submit your details below." Never restore a
+  label or banner that describes what the lane does; the flags do the work and
+  the bridge verifies the lane server-side. (review #3, 2026-09-06)
 - Public copy: "referral code" only — never "discount code" — on public pages.
   Partner landing pages (noindex) may say "10% off".
 
@@ -186,7 +196,7 @@ URL works standalone (proven 2026-08-24).
 
 No-payment lanes (both enter their code in the site code box; both prefill
 testMode=Yes into the hidden-or-CSS-hidden "Test Mode" radio, qid 379):
-- RCS-ADMIN-K7Q4 (admin:true) — internal testing.
+- The admin code (admin:true, prefix `RCS-ADMIN-`) — internal testing.
 - A PREPAID code (paid:true in referral-codes.js) — clients who paid externally.
   Rotate/mint per arrangement: one line + push. Never publish prepaid codes.
 Payment visibility is CONDITIONAL-SHOW ONLY: the gate rule shows step-1 pieces
@@ -357,5 +367,44 @@ SUPERSEDES the "Cloud publishing + Make prune" Make paragraph and the Aug-26 for
 - **Bridge main = cc4371c (PRs #4–#5, 215 tests), nine standalone .gs files, SEVEN triggers** (weeklyReview Mondays 7 AM CT). New: daily form-schema drift detector (`checkSchema`, alerts "FORM SCHEMA DRIFT", monthly form snapshot to _assets/ARCHIVE); reviewer Gmail DRAFTS (T2 welcome, T3 ask) created in admin@ on every build — never auto-sent; milestone emails M1/M2 built but `MILESTONE_EMAILS=false`; `freeze("<sid>")` lever (Studies_Ledger row, anniversary, Workpaper Index skeleton, FROZEN); `weeklyReview()` five-number email; string-form date answers now parsed; same-poll Step-1/Step-2 pairs no longer create two monday items. Gmail-compose scope consented 2026-09-02.
 - **Engine v1.22:** Reviewer_Review rows 31–39 (PIS date, contract date, year built, land source, 1031, prev-dep, taxpayer/entity, closing date, first tax year) with effective values feeding QC-002/012/021/023/026 and Report_Output rows 33–37. **Report script v1.32** (`_assets/build_report_v1_32.py` + validate_engine v1.32): effective dates drive bonus/convention; CPA letter + cover address the taxpayer/entity; validator finds the intake row by Project ID. Run with Python 3.12 + playwright==1.56.0.
 - **Form:** q393 Personal Residence note (shown when q10 = Personal Residence, Step 1) + q25 hidden for Personal Residence; q118/q119/q169 hidden until a referral answer. Legacy forms renamed "ZZ ARCHIVED 2026-09-02 — …" (one UI Archive click still owed on 261878473886176). Autoresponder cannot be edited by API (emails array is a full replace; 8 KB URL cap) — UI only.
-- **Site:** `/qq-x7k4` gated behind the admin code (SHA-256 in page JS, sessionStorage flag; commit f2be43a); root-river FAQ/intro fixed (3b235e6).
+- **Site:** `/qq-x7k4` gated behind the admin code (SHA-256 in page JS, sessionStorage flag; commit f2be43a); root-river FAQ/intro fixed (3b235e6). **SUPERSEDED 2026-09-06 — see below.**
+
 - **Live E2E proof 2026-09-02:** API-created Step-1 + Step-2 test submissions built a P-folder + engine copy in one poll, CU–DD populated, Septic/Well evidence-led, monday lead Ordered with test-lane evidence, M1 dry-run logged; found and fixed the two PR #5 defects; test artifacts cleaned up (ledger rows SKIP, Leads rows kept as TEST_CLEANED_UP so the router never re-routes them, monday items archived, submissions deleted; two admin@-owned test P-folders still to be trashed by an owner).
+
+
+## `/qq-x7k4` is encrypted, not hidden (2026-09-06, review #3)
+
+A `hidden` div is not an access gate: the response body still carried every byte.
+The page shipped the whole fee formula, both Audit Support prices and a live
+stackable referral code to anyone who fetched the URL or opened the file on
+raw.githubusercontent.com — against the standing PRICING IS PRIVATE rule. So the
+calculator (the inner HTML of `#app` **plus its `<script>`**, as one string) is now
+AES-256-GCM ciphertext embedded as base64 `salt` / `iv` / `ciphertext`. The key is
+derived in the browser with `crypto.subtle`: PBKDF2-SHA-256, 250,000 iterations,
+16-byte random salt, over the **trimmed, upper-cased admin access code**. On unlock
+the page decrypts, injects the markup into `#app` and executes the payload's script.
+A wrong code cannot produce plaintext — GCM authentication fails and the answer is
+"Invalid code." There is no client-side flag to flip. `referral-codes.js` still
+loads (hashes only) for a cheap SHA-256 pre-check and for the stacking figures.
+
+**To change what the tool computes — two lines:**
+
+```bash
+# 1. Edit your LOCAL plaintext payload. It is deliberately NOT in this repo. Never commit it.
+#    (Lost it? Unlock /qq-x7k4 in a browser and copy sessionStorage.rcs_qqx7k4_open.)
+node tools/qq-encrypt.mjs ~/rcs-qq-payload.html qq-x7k4.html   # asks for the access code (no echo), rewrites the QQ-PAYLOAD block
+```
+
+Then commit `qq-x7k4.html` alone, and prove it before pushing — this must print nothing:
+
+```bash
+grep -Ein '\$[0-9]|[0-9],[0-9]{3}|PORTFOLIO|Prepaid|Internal test' qq-x7k4.html
+```
+
+Rules that go with it: the access code never appears in a committed file, a PR, or a
+chat; rotating the code means re-running the tool (the old ciphertext will not open
+with the new code) **and** re-hashing the admin entry in `referral-codes.js`;
+`robots.txt` carries `Disallow: /qq-x7k4` in **every** user-agent group, because a
+crawler that matches a named group ignores the `*` group entirely. Note also that
+`publish = "."` means any new top-level path is served publicly — `tools/` is
+reachable at /tools/qq-encrypt.mjs and must stay free of secrets and figures.

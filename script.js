@@ -59,30 +59,38 @@
     document.querySelectorAll('.rcs-embed .reveal').forEach(function(el) { el.classList.add('in'); });
   }
 
-  // ─── Calculator ───
-  var reclassRates = { str: 0.32, sfr: 0.22, duplex: 0.24, small_mf: 0.26, mixed: 0.28 };
+  // ─── Savings estimator ───
+  // Must agree with the order form. The form shows three tiers — Conservative,
+  // Balanced, Upper-Range — at 15/25/35% of (price − land) × marginal rate, and
+  // it is the number the client actually buys on, two clicks after this one.
+  // The old version used per-type ratios against a flat 80% basis, which put a
+  // fourth number in front of the same property. One method, one set of numbers.
+  var TIERS = { low: 0.15, mid: 0.25, high: 0.35 };
+  var LAND_SHARE = 0.20;               // land defaults to 20% of price until the client says otherwise
   var $ = function(id) { return document.getElementById(id); };
-  var pV = $('rcs-propValue'), pT = $('rcs-propType'), tR = $('rcs-taxRate');
-  var rV = $('rcs-resultValue'), rA = $('rcs-resultAccel'), rP = $('rcs-resultPct');
-  function fmt(n) {
-    if (n >= 1000000) return (n/1000000).toFixed(2).replace(/\.?0+$/,'') + 'M';
-    if (n >= 1000)    return Math.round(n/1000) + 'K';
-    return Math.round(n).toString();
-  }
+  var pV = $('rcs-propValue'), lV = $('rcs-landValue'), tR = $('rcs-taxRate');
+  var rMid = $('rcs-resultValue'), rLow = $('rcs-resultLow'), rHigh = $('rcs-resultHigh');
+  var landEdited = false;
+  // Whole dollars with separators, exactly as the form prints them. The old
+  // rounded "31K" shorthand could not be visibly tied out against the form.
+  function money(n) { return Math.round(n).toLocaleString('en-US'); }
   function calcSavings() {
-    if (!pV || !pT || !tR) return;
+    if (!pV || !lV || !tR) return;
     var price = parseFloat(pV.value) || 0;
+    var land  = parseFloat(lV.value);
+    if (isNaN(land) || land < 0) land = 0;
     var rate  = (parseFloat(tR.value) || 0) / 100;
-    var ratio = reclassRates[pT.value] || 0.22;
-    var basis = price * 0.80;            // 80% depreciable basis
-    var reclassified = basis * ratio;    // dollar amount reclassified
-    var savings = reclassified * rate;   // year-1 tax savings (assumes 100% bonus)
-    if (rV) rV.textContent = fmt(savings);
-    if (rA) rA.textContent = '$' + fmt(reclassified);
-    if (rP) rP.textContent = Math.round(ratio * 100);
+    var basis = Math.max(price - land, 0);   // depreciable basis: land is never depreciated
+    if (rLow)  rLow.textContent  = money(basis * TIERS.low  * rate);
+    if (rMid)  rMid.textContent  = money(basis * TIERS.mid  * rate);
+    if (rHigh) rHigh.textContent = money(basis * TIERS.high * rate);
   }
-  if (pV) pV.addEventListener('input', calcSavings);
-  if (pT) pT.addEventListener('change', calcSavings);
+  function trackLand() {
+    if (landEdited || !pV || !lV) return;
+    lV.value = Math.round((parseFloat(pV.value) || 0) * LAND_SHARE);
+  }
+  if (pV) pV.addEventListener('input', function() { trackLand(); calcSavings(); });
+  if (lV) lV.addEventListener('input', function() { landEdited = true; calcSavings(); });
   if (tR) tR.addEventListener('input', calcSavings);
   calcSavings(); // initial run
 
