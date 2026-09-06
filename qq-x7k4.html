@@ -5,13 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>RCS Quick Quote</title>
 <!-- INTERNAL TOOL — unlisted. Not linked anywhere, not in sitemap.xml. -->
-<!-- Access-gated: the calculator only renders after the admin referral code is entered.
-     The code itself is never in this file — only referral-codes.js's SHA-256 fingerprints. -->
+<!-- Access-gated by ENCRYPTION, not by hiding. Everything the tool computes —
+     markup, script, constants — ships only as AES-256-GCM ciphertext, so the
+     served bytes carry no figures at all. The key is derived in the browser
+     (PBKDF2-SHA-256) from the admin access code; a wrong code fails to decrypt.
+     Neither the code nor the plaintext is in this file. Re-encrypt after an
+     edit with tools/qq-encrypt.mjs — see PUBLISHING-PLAYBOOK.md. -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="RCS Quote">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- Fingerprints only (no plaintext codes): the unlock does a cheap SHA-256
+     pre-check against the admin entry before attempting the decryption. -->
 <script src="/referral-codes.js"></script>
 <style>
   :root{--navy:#1B2A3E;--paper:#FAF9F5;--sage:#5F7239;--panel:#F2F0E8;--line:#E8E5D9;--muted:#5B6570;}
@@ -43,7 +49,7 @@
 <body>
 <h1>RCS Quick Quote</h1>
 
-<!-- ============== ACCESS GATE (shown until the admin code is entered) ============== -->
+<!-- ============== ACCESS GATE (shown until the payload is decrypted) ============== -->
 <form id="gate" autocomplete="off">
   <p class="gate-sub">Internal tool. Enter the admin access code to continue.</p>
   <label for="gateCode">Access code</label>
@@ -53,50 +59,63 @@
   <p id="gateMsg" role="status" aria-live="polite"></p>
 </form>
 
-<!-- ============== CALCULATOR (revealed only after a successful unlock) ============== -->
-<div id="app" hidden>
+<!-- ============== CALCULATOR ==============
+     Intentionally empty in the served document. Its markup and script live in
+     the encrypted block below and are injected here only after a successful
+     unlock. Nothing about the quote — no figure, no formula, no code name —
+     exists in this response body. -->
+<div id="app" hidden></div>
 
-<label for="price">Purchase price</label>
-<input type="text" id="price" inputmode="numeric" placeholder="$ 500,000" autocomplete="off">
-
-<label for="unitsIn">Units</label>
-<div class="seg seg-units" id="units">
-  <button type="button" data-u="1" class="on">1</button><button type="button" data-u="2">2</button><button type="button" data-u="3">3</button><button type="button" data-u="4">4</button><button type="button" data-u="5">5</button><button type="button" data-u="6">6</button><button type="button" data-u="7">7</button><button type="button" data-u="8">8</button><button type="button" data-u="9">9</button><button type="button" data-u="10">10</button><button type="button" data-u="11">11</button><button type="button" data-u="12">12</button>
-</div>
-<input type="text" id="unitsIn" inputmode="numeric" placeholder="or type unit count" value="1" style="margin-top:.45rem;font-size:1.1rem;">
-
-<label>Audit Support</label>
-<div class="seg" id="audit">
-  <button type="button" data-a="0" class="on">None</button><button type="button" data-a="495">Basic $495</button><button type="button" data-a="1995">Extended $1,995</button>
-</div>
-
-<label>Discount codes</label>
-<div class="seg" id="ref">
-  <button type="button" data-r="0" class="on">None</button><button type="button" data-r="0.10">1 code &minus;10%</button><button type="button" data-r="0.20">2 codes &minus;20%</button>
-</div>
-
-<div class="out">
-  <span class="lbl">Study fee</span>
-  <div class="fee" id="fee">&mdash;</div>
-  <div class="sub" id="sub"></div>
-</div>
-
-<p class="note">Internal tool. Mirrors the order form's quote calculation exactly (base $1,750 &le;4 units; +$125/unit above 4; +0.15% of price $500K&ndash;$2M; +0.25% above $2M; rounded to $25; + Audit Support; one valid code = 10% off the total, two stacked codes (CPA/partner + PORTFOLIO10) = 20% off). If the form changes, update this page.</p>
-
-</div><!-- /#app -->
+<!-- Encrypted calculator payload. Regenerate with:
+       node tools/qq-encrypt.mjs <your-local-payload.html> qq-x7k4.html
+     Base64 salt / iv / ciphertext only; the ciphertext carries its GCM auth
+     tag in the last 16 bytes. Written by tools/qq-encrypt.mjs — do not hand-edit. -->
+<!-- QQ-PAYLOAD:BEGIN -->
+<script id="qq-payload" type="application/json">
+{
+  "v": 1,
+  "kdf": "PBKDF2-SHA-256",
+  "iterations": 250000,
+  "cipher": "AES-256-GCM",
+  "salt": "5TVP2wblYgbDDOX5ROzOZw==",
+  "iv": "0ASmE4FXD0giOL+q",
+  "ciphertext": "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"
+}
+</script>
+<!-- QQ-PAYLOAD:END -->
 
 <script>
 /* ---------------- access gate ----------------
-   Validates the typed code by SHA-256 against the admin entry in /referral-codes.js
-   (same hashing approach the site uses: UPPERCASE the code, then SHA-256).
-   The plaintext code is never stored in this file. */
+   Two steps, in this order:
+   1. A SHA-256 fingerprint pre-check against the admin entry in
+      /referral-codes.js. It costs nothing and gives a clean "Invalid code"
+      before we spend a quarter-million PBKDF2 iterations on a typo.
+   2. The real gate: derive an AES-256-GCM key from the trimmed, upper-cased
+      code with PBKDF2-SHA-256 and decrypt the payload. A wrong code cannot
+      produce plaintext — GCM authentication fails and the calculator stays
+      unreachable. There is no client-side flag to flip.
+   The access code is never stored anywhere. sessionStorage holds only the
+   already-decrypted payload, so a refresh in the same tab does not re-prompt;
+   it dies with the tab and never contains the code itself. */
 (function(){
-  var KEY='rcs_qqx7k4_ok';
+  var STORE='rcs_qqx7k4_open';
   var gate=document.getElementById('gate');
   var app=document.getElementById('app');
   var input=document.getElementById('gateCode');
   var btn=document.getElementById('gateBtn');
   var msg=document.getElementById('gateMsg');
+  var BAD='Invalid code.';
+
+  function cfg(){
+    try{ return JSON.parse(document.getElementById('qq-payload').textContent); }
+    catch(e){ return null; }
+  }
+
+  function bytes(b64){
+    var bin=atob(b64), out=new Uint8Array(bin.length);
+    for(var i=0;i<bin.length;i++){ out[i]=bin.charCodeAt(i); }
+    return out;
+  }
 
   function adminHashes(){
     var codes=(window.RCS_CODES||{}), out=[];
@@ -105,106 +124,85 @@
   }
 
   function sha256Hex(str){
-    var enc=new TextEncoder().encode(str);
-    return crypto.subtle.digest('SHA-256', enc).then(function(buf){
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(function(buf){
       return Array.prototype.map.call(new Uint8Array(buf), function(b){
         return ('00'+b.toString(16)).slice(-2);
       }).join('');
     });
   }
 
-  function reveal(){
+  /* PBKDF2-SHA-256 over the code -> AES-256-GCM key -> decrypt -> UTF-8 string. */
+  function decrypt(code){
+    var c=cfg();
+    if(!c || !c.ciphertext || !c.salt || !c.iv){ return Promise.reject(new Error('payload')); }
+    return crypto.subtle.importKey('raw', new TextEncoder().encode(code), 'PBKDF2', false, ['deriveKey'])
+      .then(function(base){
+        return crypto.subtle.deriveKey(
+          { name:'PBKDF2', salt:bytes(c.salt), iterations:(c.iterations||250000), hash:'SHA-256' },
+          base, { name:'AES-GCM', length:256 }, false, ['decrypt']);
+      })
+      .then(function(key){
+        return crypto.subtle.decrypt({ name:'AES-GCM', iv:bytes(c.iv) }, key, bytes(c.ciphertext));
+      })
+      .then(function(buf){ return new TextDecoder().decode(buf); });
+  }
+
+  /* innerHTML never runs a <script>, so lift the scripts out and run them
+     after the markup is in the document — the calculator binds to #price and
+     the segmented buttons on execution. */
+  function inject(plain){
+    var holder=document.createElement('div');
+    holder.innerHTML=plain;
+    var code=[];
+    Array.prototype.forEach.call(holder.querySelectorAll('script'), function(s){
+      code.push(s.textContent||'');
+      s.parentNode.removeChild(s);
+    });
+    app.innerHTML=holder.innerHTML;
     gate.hidden=true;
     app.hidden=false;
+    for(var i=0;i<code.length;i++){
+      try{ (new Function(code[i]))(); }
+      catch(e){ msg.textContent='The calculator failed to start — reload the page.'; }
+    }
     var p=document.getElementById('price');
     if(p){ p.focus(); }
   }
 
-  function remembered(){
-    try{ return sessionStorage.getItem(KEY)==='1'; }catch(e){ return false; }
-  }
-  function remember(){
-    try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
-  }
+  function remember(plain){ try{ sessionStorage.setItem(STORE, plain); }catch(e){} }
+  function remembered(){ try{ return sessionStorage.getItem(STORE); }catch(e){ return null; } }
 
-  if(remembered()){ reveal(); }
+  var open=remembered();
+  if(open){ inject(open); }
 
   gate.addEventListener('submit', function(e){
     e.preventDefault();
     var raw=(input.value||'').trim().toUpperCase();
     if(!raw){ msg.textContent='Enter the access code.'; return; }
-    var allowed=adminHashes();
-    if(!allowed.length){ msg.textContent='Code list unavailable — reload the page.'; return; }
-    if(!(window.crypto && crypto.subtle)){ msg.textContent='This browser cannot verify the code (needs a secure connection).'; return; }
+    if(!(window.crypto && crypto.subtle)){ msg.textContent='This browser cannot unlock the tool (needs a secure connection).'; return; }
     btn.disabled=true; msg.textContent='Checking…';
+    var allowed=adminHashes();
     sha256Hex(raw).then(function(hex){
+      /* Skip the wasted key derivation on a code we already know is wrong.
+         If referral-codes.js failed to load we simply go straight to the
+         decryption, which is the authority either way. */
+      if(allowed.length && allowed.indexOf(hex.toLowerCase())===-1){ return Promise.reject(new Error('nomatch')); }
+      return decrypt(raw);
+    }).then(function(plain){
       btn.disabled=false;
-      if(allowed.indexOf(hex.toLowerCase())!==-1){
-        msg.textContent='';
-        input.value='';
-        remember();
-        reveal();
-      } else {
-        msg.textContent='That code is not valid.';
-        input.value='';
-        input.focus();
-      }
-    }).catch(function(){
+      msg.textContent='';
+      input.value='';
+      remember(plain);
+      inject(plain);
+    }).catch(function(err){
       btn.disabled=false;
-      msg.textContent='Could not verify the code — try again.';
+      input.value='';
+      input.focus();
+      msg.textContent = (err && err.message==='payload')
+        ? 'The tool payload is missing — re-run tools/qq-encrypt.mjs.'
+        : BAD;
     });
   });
-})();
-</script>
-
-<script>
-(function(){
-  var units=1, audit=0, refd=0;
-  var priceEl=document.getElementById('price');
-  function seg(id, attr, cb){
-    var box=document.getElementById(id);
-    box.addEventListener('click', function(e){
-      var b=e.target.closest('button'); if(!b) return;
-      box.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});
-      b.classList.add('on'); cb(parseFloat(b.getAttribute(attr))); calc();
-    });
-  }
-  var unitsIn=document.getElementById('unitsIn');
-  seg('units','data-u',function(v){units=v; unitsIn.value=v;});
-  unitsIn.addEventListener('input', function(){
-    var v=parseInt(unitsIn.value.replace(/[^0-9]/g,''),10);
-    units=isNaN(v)?0:v;
-    document.querySelectorAll('#units button').forEach(function(b){
-      b.classList.toggle('on', parseInt(b.getAttribute('data-u'),10)===units);
-    });
-    calc();
-  });
-  seg('audit','data-a',function(v){audit=v;});
-  seg('ref','data-r',function(v){refd=v;});
-  priceEl.addEventListener('input', function(){
-    var digits=priceEl.value.replace(/[^0-9]/g,'');
-    priceEl.value = digits ? '$ '+Number(digits).toLocaleString('en-US') : '';
-    calc();
-  });
-  function fmt(n){ return '$'+n.toLocaleString('en-US',{minimumFractionDigits:(n%1?2:0),maximumFractionDigits:2}); }
-  function calc(){
-    var p=parseFloat(priceEl.value.replace(/[^0-9]/g,''))||0;
-    var feeEl=document.getElementById('fee'), subEl=document.getElementById('sub');
-    if(!p || !units){ feeEl.textContent='—'; subEl.textContent=!p?'enter a purchase price':'enter a unit count'; return; }
-    if(units>12){ feeEl.textContent='Custom'; subEl.textContent='Over 12 units · quoted individually — call it in'; return; }
-    /* EXACT mirror of the order form (field 165 + referral condition):
-       round((1750 + 125*max(u-4,0) + 0.0015*min(max(p-500000,0),1500000) + 0.0025*max(p-2000000,0))/25)*25 + audit;
-       valid referral => total * 0.9 */
-    var base=1750 + 125*Math.max(units-4,0) + 0.0015*Math.min(Math.max(p-500000,0),1500000) + 0.0025*Math.max(p-2000000,0);
-    var study=Math.round(base/25)*25;
-    var total=study+audit;
-    if(refd) total=total*(1-refd);
-    feeEl.textContent=fmt(total);
-    var parts=['study '+fmt(study)];
-    if(audit) parts.push('audit support '+fmt(audit));
-    if(refd) parts.push((refd*100)+'% codes applied');
-    subEl.textContent=parts.join(' · ');
-  }
 })();
 </script>
 </body>

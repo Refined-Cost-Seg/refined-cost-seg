@@ -64,18 +64,21 @@ function readCode(promptText) {
     stdin.resume();
     stdin.setEncoding('utf8');
     let buf = '';
+    /* Compared by character code on purpose: control characters written as
+       escape literals get mangled by tools that re-encode this file. */
     const onData = (ch) => {
-      if (ch === '\r' || ch === '\n' || ch === '') {
+      const c = ch.charCodeAt(0);
+      if (c === 13 || c === 10 || c === 4) {        // Enter / Ctrl-D - done
         stdin.setRawMode(false);
         stdin.pause();
         stdin.removeListener('data', onData);
         process.stdout.write('\n');
         resolve(buf);
-      } else if (ch === '') {          // Ctrl-C
+      } else if (c === 3) {                         // Ctrl-C - give up
         stdin.setRawMode(false);
         process.stdout.write('\n');
         process.exit(130);
-      } else if (ch === '' || ch === '\b') {
+      } else if (c === 127 || c === 8) {            // Backspace / Delete
         buf = buf.slice(0, -1);
       } else {
         buf += ch;
