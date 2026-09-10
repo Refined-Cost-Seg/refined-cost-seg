@@ -25,6 +25,18 @@ This script (run by .github/workflows/splice-posts.yml on push) then:
   * makes sure sitemap.xml lists the post and bumps lastmod on / and /journal/;
   * deletes the inbox file it consumed.
 
+Small text edits to the same two pages (a <title>, a meta description, a
+sentence) travel the same way, as journal/_inbox/_patch-<name>.json:
+
+    {
+      "path": "index.html",                 # only index.html or journal/index.html
+      "replace": [{"from": "<title>old</title>", "to": "<title>new</title>"}],
+      "note": "homepage title 82 -> 58 chars"
+    }
+
+Each "from" must occur exactly once in the file, or the patch is refused and
+nothing is written. Patches are applied after the posts.
+
 Everything is idempotent: a post already linked on a surface is left alone.
 Every edit is validated before anything is written; a failed validation
 leaves the working tree untouched and exits non-zero so the Action fails loudly.
@@ -237,10 +249,54 @@ def splice_sitemap(x, post, today):
     return x, changed
 
 
+# ---------------------------------------------------------------- patches
+PATCHABLE = {"index.html": "index.html", "journal/index.html": os.path.join("journal", "index.html")}
+
+
+def load_patches():
+    items = []
+    for p in sorted(glob.glob(os.path.join(INBOX, "_patch-*.json"))):
+        try:
+            d = json.loads(read(p))
+        except json.JSONDecodeError as e:
+            raise SpliceError(f"{p}: not valid JSON ({e})")
+        path = (d.get("path") or "").strip().lstrip("/")
+        if path not in PATCHABLE:
+            raise SpliceError(f"{p}: path '{path}' is not patchable — only index.html and journal/index.html "
+                              f"(every other page is small enough to commit whole)")
+        reps = d.get("replace")
+        if not isinstance(reps, list) or not reps:
+            raise SpliceError(f"{p}: 'replace' must be a non-empty list of {{from, to}}")
+        for r in reps:
+            if not isinstance(r, dict) or not isinstance(r.get("from"), str) or not r["from"] \
+                    or not isinstance(r.get("to"), str):
+                raise SpliceError(f"{p}: every replace entry needs a non-empty 'from' string and a 'to' string")
+        d["path"] = path
+        d["_path"] = p
+        items.append(d)
+    return items
+
+
+def apply_patch(s, patch):
+    """Apply one patch file to page text. Each 'from' must occur exactly once."""
+    changed = False
+    for r in patch["replace"]:
+        n = s.count(r["from"])
+        if n == 0 and r["to"] and s.count(r["to"]) == 1:
+            continue                      # already applied — idempotent
+        if n != 1:
+            raise SpliceError(f"{patch['_path']}: 'from' text occurs {n} times in {patch['path']} (needs exactly 1): "
+                              f"{r['from'][:80]!r}")
+        s = s.replace(r["from"], r["to"], 1)
+        changed = True
+    return s, changed
+
+
 # ---------------------------------------------------------------- main
 def main():
     posts = load_inbox()
-    if not posts:
+    patches = load_patches()
+    if not posts and not patches:
         print("inbox empty — nothing to splice")
         return 0
     j, g, x = read(JOURNAL_INDEX), read(HOME_INDEX), read(SITEMAP)
@@ -253,6 +309,14 @@ def main():
         x, cx = splice_sitemap(x, p, today)
         report.append(f"{p['slug']}: journal {'linked' if cj else 'already linked'}, "
                       f"home {'featured' if cg else 'already present'}, sitemap {'updated' if cx else 'ok'}")
+        consumed.append(p["_path"])
+    for p in patches:
+        if p["path"] == "index.html":
+            g, cp = apply_patch(g, p)
+        else:
+            j, cp = apply_patch(j, p)
+        report.append(f"patch {os.path.basename(p['_path'])} -> {p['path']}: "
+                      f"{'applied' if cp else 'already applied'}" + (f" ({p['note']})" if p.get("note") else ""))
         consumed.append(p["_path"])
 
     # Whole-file sanity before anything touches disk.
@@ -273,7 +337,8 @@ def main():
         os.remove(p)
     print("\n".join(report))
     with open(os.environ.get("GITHUB_OUTPUT", os.devnull), "a") as out:
-        out.write("titles=" + " | ".join(p["title"] for p in posts) + "\n")
+        out.write("titles=" + " | ".join([p["title"] for p in posts] +
+                                          [p.get("note") or os.path.basename(p["_path"]) for p in patches]) + "\n")
     return 0
 
 
