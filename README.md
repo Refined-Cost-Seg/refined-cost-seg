@@ -16,7 +16,6 @@ Static HTML marketing site for Refined Cost Segregation. No build step, no frame
 ├── llms.txt                  ← LLM-friendly site summary (llmstxt.org spec)
 ├── README.md                 ← This file
 ├── SEO-BEST-PRACTICES.md     ← What's implemented and what to keep doing
-├── CONTENT-CALENDAR.md       ← Backlog of blog topics
 └── journal/
     ├── index.html                              ← Blog listing page
     ├── 100-bonus-depreciation-is-back.html     ← Post #1 (Eugene, Tax policy)
@@ -44,7 +43,7 @@ Three steps — **always do all three** so the new post is actually discoverable
 
 ## SEO blog cadence
 
-The goal is roughly one new post per week. Topic backlog is in `CONTENT-CALENDAR.md`. Posts can be batch-written in advance and published on a schedule, or written one at a time.
+Posts publish Monday, Wednesday and Friday from a scheduled task. There is no topic backlog file: topics come from Search Console plus the steer on the Four-Site Control page. New posts are linked into the index pages by the `splice-posts` GitHub Action (see `scripts/splice_posts.py`).
 
 ## Migration checklist (Webflow → Netlify)
 
