@@ -1,0 +1,48 @@
+# Links new journal posts into journal/index.html and the homepage journal grid.
+#
+# The two index pages are too large to re-emit safely through an API client, so a
+# publisher never edits them. It commits the post plus a small hand-off file at
+# journal/_inbox/<slug>.json (schema in scripts/splice_posts.py); this workflow
+# splices the card, the BlogPosting entry, the homepage feature and the sitemap
+# entry in, deletes the inbox file, and pushes one commit. Netlify deploys that
+# commit like any other. A push made with GITHUB_TOKEN does not re-trigger this
+# workflow, so there is no loop.
+name: Splice journal posts
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "journal/_inbox/*.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: splice-posts
+  cancel-in-progress: false
+
+jobs:
+  splice:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Splice inbox posts into the index surfaces
+        id: splice
+        run: python3 scripts/splice_posts.py
+
+      - name: Commit and push
+        env:
+          TITLES: ${{ steps.splice.outputs.titles }}
+        run: |
+          git config user.name "rcs-splice"
+          git config user.email "admin@refinedcostseg.com"
+          git add -A journal/index.html index.html sitemap.xml journal/_inbox
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          git commit -m "chore: link new post into journal + home" -m "${TITLES:-inbox drained}"
+          git push
