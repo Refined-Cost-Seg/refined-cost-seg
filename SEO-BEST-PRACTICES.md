@@ -62,7 +62,7 @@ Five things, in rough order of impact:
 
 **3. Add Plausible or Google Analytics.** You can't improve what you can't measure. Plausible is privacy-friendly and ~$9/month; GA4 is free but heavier. Either gives you traffic, sources, top pages, and conversion tracking.
 
-**4. Build out the content calendar.** You have 12 unwritten topics in `CONTENT-CALENDAR.md`. Topical breadth in this niche (residential cost seg + STR strategy + look-backs) is small enough that ~15 well-written posts puts you near comprehensive coverage. AI models reward sites that are clearly the canonical source on a topic.
+**4. Keep the topic loop honest.** The content calendar was retired on 2026-09-06. Topics now come from Search Console (write next to pages that already rank; stop feeding clusters stuck at position 50+) plus the per-site steer on the Four-Site Control page. Topical breadth in this niche is small enough that ~15 well-written posts puts you near comprehensive coverage, so the question is which post moves a ranking page, not how many are left on a list.
 
 **5. Inbound links.** Hardest and most valuable. Three concrete moves:
    - Write a guest post for one of Eugene's tax-CPE / EA-community publications
