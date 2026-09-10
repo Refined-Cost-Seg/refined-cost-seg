@@ -39,6 +39,15 @@
   status = 200
   force = false
 
+# Journal posts are indexable by design. The default is index,follow, but state
+# it explicitly so it is never ambiguous — and do it here rather than per-page so
+# new posts are covered the moment they ship. Equivalent to a <meta name="robots">
+# tag; the pages that already carry one agree with this and are unaffected.
+[[headers]]
+  for = "/journal/*"
+  [headers.values]
+    X-Robots-Tag = "index, follow"
+
 # Security + caching headers
 [[headers]]
   for = "/*"

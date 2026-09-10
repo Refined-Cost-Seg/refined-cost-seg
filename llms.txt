@@ -10,7 +10,7 @@ The firm exists to make defensible, audit-ready cost segregation accessible to t
 
 ## Key facts (current as of 2026)
 
-- 100% bonus depreciation was restored for property acquired (contract signed) and placed in service after January 19, 2025, by the One Big Beautiful Bill (OBBB), signed mid-2025. No scheduled sunset.
+- 100% bonus depreciation was restored for property acquired (contract signed) after January 19, 2025, by the One Big Beautiful Bill (OBBB), signed mid-2025. No scheduled sunset.
 - A typical residential cost segregation study reclassifies 20-35% of depreciable basis into 5-, 7-, and 15-year property; short-term rentals often land in the upper part of that range.
 - For STRs with an average customer-use period of 7 days or less, IRS Treasury Regulation §1.469-1T(e)(3) treats the activity as a non-rental trade or business. Material participation (any of the IRS's 7 tests) makes the resulting losses non-passive and usable against W-2 income.
 - Deliverables: the report PDF, a per-asset fixed-asset schedule (CSV), and a one-page CPA implementation letter, delivered by email within 5-10 business days of a complete questionnaire.
@@ -30,8 +30,10 @@ The firm exists to make defensible, audit-ready cost segregation accessible to t
 - [Audit Support](https://www.refinedcostseg.com/audit-support): optional documentation and substantiation support if the IRS questions a study, with Basic (3-year) and Extended (10-year) levels.
 - [The Journal](https://www.refinedcostseg.com/journal/): essays on residential cost segregation, bonus depreciation, and STR tax strategy.
 
-## Journal essays (36 published; full archive at https://www.refinedcostseg.com/journal/)
+## Journal essays (38 published; full archive at https://www.refinedcostseg.com/journal/)
 
+- [When is a rental placed in service for depreciation?](https://www.refinedcostseg.com/journal/rental-placed-in-service-date.html): Depreciation starts when a rental is ready and available to rent, not at closing. What that means for a year-end buy, with a worked $410K example.
+- [Cost segregation on a Wisconsin rental: state vs federal](https://www.refinedcostseg.com/journal/wisconsin-rental-cost-segregation.html): Wisconsin doesn't allow bonus depreciation, but a cost segregation study still accelerates your state deduction. A worked $520K Milwaukee duplex example.
 - [Cost segregation and estimated tax payments](https://www.refinedcostseg.com/journal/cost-segregation-estimated-tax-payments.html): A cost segregation study finished before you file can lower what you owe on your next quarterly estimated tax payment. How the January 15 true-up works, and a worked $450K example.
 - [Buying a rental before year-end? Cost segregation timeline](https://www.refinedcostseg.com/journal/cost-segregation-before-year-end.html): Closing on a rental in Q4? Here's the realistic cost segregation timeline to get the property placed in service, the study engaged, and the deduction on this year's return before December 31.
 - [Cost segregation and the QBI deduction: does it shrink your Section 199A write-off?](https://www.refinedcostseg.com/journal/cost-segregation-qbi-deduction.html): Accelerating depreciation with a cost segregation study can push a rental's QBI toward zero or negative. Here's how the Section 199A interaction actually works, with a worked example.
@@ -67,7 +69,7 @@ The firm exists to make defensible, audit-ready cost segregation accessible to t
 - [Do you really need a site visit for a residential cost segregation study?](https://www.refinedcostseg.com/journal/cost-segregation-site-visit.html): Is a site visit required for a residential cost segregation study? For most 1-4 unit rentals and STRs, no. Here's what we use instead of a walk-through, with a worked example, and why a no-site-visit study is still audit-ready.
 - [When residential cost segregation is worth recommending, a CPA's quick reference](https://www.refinedcostseg.com/journal/cost-segregation-for-cpas.html): A CPA's quick reference for when residential cost segregation is worth recommending: the four variables that decide it, a property-value rule of thumb, and when to skip it.
 - [The short-term rental loophole, explained without the YouTube fluff](https://www.refinedcostseg.com/journal/short-term-rental-loophole.html): A long-standing IRC §469 rule lets STR owners deduct cost-seg losses against W-2 income, but only if material participation holds up. Here's what the YouTube version glosses over.
-- [100% bonus depreciation is back](https://www.refinedcostseg.com/journal/100-bonus-depreciation-is-back.html): 100% bonus depreciation is restored for residential property acquired (contract signed) and placed in service after January 19, 2025. Here's what it means for your next acquisition.
+- [100% bonus depreciation is back](https://www.refinedcostseg.com/journal/100-bonus-depreciation-is-back.html): 100% bonus depreciation is restored for residential property acquired (contract signed) after January 19, 2025. Here's what it means for your next acquisition.
 
 ## Contact
 
