@@ -107,6 +107,11 @@ client, so do not edit them. Commit `journal/_inbox/<slug>.json` (schema in
 links the card, the BlogPosting entry, the homepage feature and the sitemap entry in,
 deletes the inbox file, and pushes its own commit.
 
+Small text edits to those two pages (a title, a description, a sentence) go the same
+way: commit `journal/_inbox/_patch-<name>.json` with `{"path", "replace": [{"from",
+"to"}], "note"}` — each `from` must occur exactly once in the page, or the Action
+refuses the patch and changes nothing. Never re-emit either page whole.
+
 ## 5. Validate, commit, push, verify
 - Validate: the post's and journal index's JSON-LD must `json.loads` cleanly;
   `sitemap.xml` must parse as XML. Abort the push if either fails.
