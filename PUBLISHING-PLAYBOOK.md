@@ -41,10 +41,11 @@ retry blindly, and don't fall back to pushing from the mount.
    never written to disk in `.git/config`; pass the tokened URL only on `git push`.
 
 ## 1. Pick the topic
-- Open `CONTENT-CALENDAR.md`. Choose the FIRST row still marked `⬜` (top to bottom).
-- If every row is `✅ Published`, GENERATE a new topic: a real search intent for
-  residential cost seg / STR strategy that the existing posts do not
-  already cover. Add it to the calendar as a new row, then write it.
+- There is no content calendar (retired 2026-09-06). Topic choice comes from this
+  site's Search Console data plus the steer (anchor / prefer / avoid) Ethan keeps on
+  the Four-Site Control page; the scheduled task's prompt is authoritative. Pick a
+  real search intent for residential cost seg / STR strategy that the existing
+  posts do not already cover — narrow and situational beats broad national terms.
 - Byline every post to the firm, never an individual: visible byline "Refined Cost Segregation"
   with image `/assets/logo-mark.png`, and a JSON-LD `author` of @type Organization
   ("Refined Cost Segregation", url the homepage). Do not use personal names or an EA credential.
@@ -99,9 +100,12 @@ Every new post = (a) the new HTML file under `/journal/`, PLUS:
 - **`sitemap.xml`** — add a `<url>` for the new post (priority 0.7, changefreq monthly,
   lastmod today), and bump `lastmod` on `/` and `/journal/` to today.
 
-## 4. Mark the calendar
-In `CONTENT-CALENDAR.md`, change the chosen row's status from `⬜` to `✅ Published`
-so the next run does not repeat it.
+## 4. Hand off the index surfaces
+`journal/index.html` and `index.html` are too large to re-emit safely through an API
+client, so do not edit them. Commit `journal/_inbox/<slug>.json` (schema in
+`scripts/splice_posts.py`) alongside the sitemap; the `splice-posts` GitHub Action
+links the card, the BlogPosting entry, the homepage feature and the sitemap entry in,
+deletes the inbox file, and pushes its own commit.
 
 ## 5. Validate, commit, push, verify
 - Validate: the post's and journal index's JSON-LD must `json.loads` cleanly;
