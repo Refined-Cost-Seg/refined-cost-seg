@@ -34,6 +34,7 @@ jobs:
         run: python3 scripts/splice_posts.py
 
       - name: Commit and push
+        id: push
         env:
           TITLES: ${{ steps.splice.outputs.titles }}
         run: |
@@ -46,3 +47,15 @@ jobs:
           fi
           git commit -m "chore: link new post into journal + home" -m "${TITLES:-inbox drained}"
           git push
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      # IndexNow: tell Bing and the other IndexNow engines the two index pages changed.
+      # Best-effort — a non-2xx is logged, never fails the job. Key file lives at the site root.
+      - name: Ping IndexNow
+        if: steps.push.outputs.pushed == 'true'
+        run: |
+          sleep 90
+          code=$(curl -sS --max-time 30 -o /dev/null -w "%{http_code}" -X POST https://api.indexnow.org/indexnow \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{"host":"www.refinedcostseg.com","key":"a4bc166e0151b19f17a930b84fb79a87","keyLocation":"https://www.refinedcostseg.com/a4bc166e0151b19f17a930b84fb79a87.txt","urlList":["https://www.refinedcostseg.com/","https://www.refinedcostseg.com/journal/"]}')
+          echo "indexnow: HTTP $code"
