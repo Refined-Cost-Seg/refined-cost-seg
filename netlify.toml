@@ -78,6 +78,18 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
+# Magnolia Tax Services partner landing page — pretty URL + keep it out of search indexes
+[[redirects]]
+  from = "/magnolia-tax"
+  to = "/magnolia-tax.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/magnolia-tax*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 [[redirects]]
   from = "/accessibility"
   to = "/accessibility.html"
