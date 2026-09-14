@@ -39,6 +39,7 @@
   .out .fee{font-size:3rem;font-weight:800;line-height:1.2;color:#FFFFFF;letter-spacing:.01em;min-height:3.6rem;}
   .out .sub{font-size:.8rem;color:rgba(250,249,245,.75);margin-top:.35rem;line-height:1.5;}
   .note{margin-top:1rem;font-size:.72rem;color:var(--muted);line-height:1.5;}
+  .note a{color:var(--sage);}
   /* ---- access gate ---- */
   #gate{margin-top:2.2rem;}
   #gate .gate-sub{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:.4rem;}
@@ -95,9 +96,13 @@
       code with PBKDF2-SHA-256 and decrypt the payload. A wrong code cannot
       produce plaintext — GCM authentication fails and the calculator stays
       unreachable. There is no client-side flag to flip.
-   The access code is never stored anywhere. sessionStorage holds only the
-   already-decrypted payload, so a refresh in the same tab does not re-prompt;
-   it dies with the tab and never contains the code itself. */
+   The access code is never stored anywhere. Storage holds only the ALREADY-
+   DECRYPTED payload, never the code - so what sits on the device is the same
+   thing the person who just unlocked it is looking at, and it cannot be
+   replayed anywhere else. localStorage (2026-09-14) rather than sessionStorage:
+   asking once per TAB meant retyping the code all day, and a gate people fight
+   is a gate people write on a sticky note. "Lock" below clears it - use it on a
+   shared machine. */
 (function(){
   var STORE='rcs_qqx7k4_open';
   var gate=document.getElementById('gate');
@@ -171,6 +176,7 @@
       try{ (new Function(code[i]))(); }
       catch(e){ msg.textContent='The calculator failed to start — reload the page.'; }
     }
+    addLock();
     var p=document.getElementById('price');
     /* Open on a real worked quote instead of an empty box. The placeholder used
        to render "$ 500,000" at the same size and weight as a real entry, so the
@@ -189,8 +195,28 @@
     }
   }
 
-  function remember(plain){ try{ sessionStorage.setItem(STORE, plain); }catch(e){} }
-  function remembered(){ try{ return sessionStorage.getItem(STORE); }catch(e){ return null; } }
+  function remember(plain){ try{ localStorage.setItem(STORE, plain); }catch(e){} }
+  function remembered(){
+    try{ return localStorage.getItem(STORE) || sessionStorage.getItem(STORE); }
+    catch(e){ return null; }
+  }
+  function forget(){
+    try{ localStorage.removeItem(STORE); sessionStorage.removeItem(STORE); }catch(e){}
+    location.reload();
+  }
+
+  /* A tool that stays unlocked needs a way to lock it again, or "shared laptop"
+     becomes "permanently unlocked laptop". */
+  function addLock(){
+    if(document.getElementById('qqLock')){ return; }
+    var p=document.createElement('p');
+    p.className='note';
+    p.innerHTML='<a href="#" id="qqLock">Lock this tool on this device</a>';
+    document.body.appendChild(p);
+    document.getElementById('qqLock').addEventListener('click', function(ev){
+      ev.preventDefault(); forget();
+    });
+  }
 
   var open=remembered();
   if(open){ inject(open); }
