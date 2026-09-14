@@ -24,5 +24,6 @@ window.RCS_CODES = {
   "f842c68c8e8b9c56dd7b3bc4d8b928e28d47a0cde6f078e437e70b42d9a0b66d": { label: "Partner B", pct: 0, admin: true },
   "6147a5d0e81da119302759100e6f3b3d39fdc1f3cf1da8522c56b821dc1486de": { label: "Root River Realty", pct: 10 },
   "24656b413306a8dbf2f4fb8f36e2d5e99de9929b346c546cace2e660c51940a4": { label: "Magnolia Tax Services", pct: 10 },
-  "b6a5e8289b2577df99a2a539f7fecf0000695f20ad336a0dc1f729491d25b77b": { label: "Multi-property", pct: 10 }
+  "b6a5e8289b2577df99a2a539f7fecf0000695f20ad336a0dc1f729491d25b77b": { label: "Multi-property", pct: 10 },
+  "bbab94e84fef703ed65593676e9d2250606df1ee2889add43d187a6986a56a04": { label: "Refined Mortgage Group", pct: 10 }
 };
