@@ -174,3 +174,15 @@
   for = "/referral-codes.js"
   [headers.values]
     Cache-Control = "public, max-age=300"
+
+# Refined Mortgage Group partner landing page (added by partner-admin)
+[[redirects]]
+  from = "/refined-mortgage-group"
+  to = "/refined-mortgage-group.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/refined-mortgage-group*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
