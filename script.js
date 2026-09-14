@@ -70,16 +70,18 @@
   // pooled with it. A purchase basis is mostly structure; a renovation is mostly the
   // things that reclassify - flooring, cabinetry, appliances, fixtures, site work - so
   // published renovation studies land far higher than whole-building ones (commonly
-  // quoted at 50-70% against roughly 17-18% for an acquisition). These tiers sit
-  // deliberately under that band: the Conservative tier has to stay genuinely
-  // conservative, because it is the number a cautious CPA will hold us to.
+  // quoted at 50-70% against roughly 17-18% for an acquisition).
+  // The tiers are pinned to that band: Conservative deliberately BELOW its floor,
+  // Balanced at its midpoint, Upper-Range at its ceiling. Note the band comes from
+  // industry publications rather than our own completed studies - once enough studies
+  // are delivered, replace these with our measured reclass rates and delete this note.
   // Two other reasons they are their own line and not added to the price:
   //   - land. Land is never depreciated, but a renovation contains no land, so pushing
   //     it through (price - land) would strip ~20% of it for nothing.
   //   - timing. Each improvement is its own asset with its own placed-in-service date,
   //     so a renovation finished now is 100% bonus-eligible on its own footing even
   //     when the building it sits in was acquired before the bonus window reopened.
-  var RENO_TIERS = { low: 0.30, mid: 0.45, high: 0.60 };
+  var RENO_TIERS = { low: 0.40, mid: 0.60, high: 0.70 };
   var LAND_SHARE = 0.20;               // land defaults to 20% of price until the client says otherwise
   var $ = function(id) { return document.getElementById(id); };
   var pV = $('rcs-propValue'), lV = $('rcs-landValue'), tR = $('rcs-taxRate');
@@ -121,7 +123,7 @@
     if (rHigh) rHigh.textContent = money(tier('high'));
     if (resLabel) {
       resLabel.textContent = reno > 0
-        ? 'Estimated first-year tax savings · Balanced (25% of basis + 45% of renovations)'
+        ? 'Estimated first-year tax savings · Balanced (25% of basis + 60% of renovations)'
         : resLabelBase;
     }
   }
