@@ -129,6 +129,20 @@
   status = 301
   force = true
 
+# 2026-09-14: the partner-page skeleton is a build input, not a page. Tokens and all,
+# publish="." was serving it to anyone who guessed the name.
+[[redirects]]
+  from = "/partner-template.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/partner-template"
+  to = "/"
+  status = 301
+  force = true
+
 
 # Internal quick-quote tool (2026-08-20): unlisted, noindex, not in sitemap.
 [[redirects]]
