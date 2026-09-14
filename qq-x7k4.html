@@ -27,6 +27,7 @@
   h1{font-size:1rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin:.4rem 0 1.1rem;font-weight:700;}
   label{display:block;font-size:.8rem;font-weight:600;color:var(--muted);margin:.9rem 0 .3rem;letter-spacing:.04em;}
   input[type=text],input[type=password]{width:100%;font-size:1.5rem;font-weight:600;padding:.65rem .8rem;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--navy);-webkit-appearance:none;}
+  input::placeholder{color:#98A0AB;font-weight:400;}
   input:focus{outline:2px solid var(--sage);border-color:var(--sage);}
   .seg{display:flex;gap:.4rem;flex-wrap:wrap;}
   .seg-units{display:grid;grid-template-columns:repeat(6,1fr);}
@@ -45,7 +46,7 @@
   #gate button[disabled]{opacity:.55;cursor:default;}
   #gateMsg{margin-top:.7rem;font-size:.82rem;font-weight:600;color:#8C2F2F;min-height:1.2rem;}
 </style>
-</head>
+<script defer data-domain="refinedcostseg.com" src="https://plausible.io/js/script.outbound-links.js"></script></head>
 <body>
 <h1>RCS Quick Quote</h1>
 
@@ -87,9 +88,9 @@
 <script>
 /* ---------------- access gate ----------------
    Two steps, in this order:
-   1. A SHA-256 fingerprint pre-check against the admin entry in
-      /referral-codes.js. It costs nothing and gives a clean "Invalid code"
-      before we spend a quarter-million PBKDF2 iterations on a typo.
+   1. A SHA-256 fingerprint pre-check against GATE_FINGERPRINTS below. It costs
+      nothing and gives a clean "Invalid code" before we spend a quarter-million
+      PBKDF2 iterations on a typo.
    2. The real gate: derive an AES-256-GCM key from the trimmed, upper-cased
       code with PBKDF2-SHA-256 and decrypt the payload. A wrong code cannot
       produce plaintext — GCM authentication fails and the calculator stays
@@ -117,11 +118,16 @@
     return out;
   }
 
-  function adminHashes(){
-    var codes=(window.RCS_CODES||{}), out=[];
-    for(var h in codes){ if(Object.prototype.hasOwnProperty.call(codes,h) && codes[h] && codes[h].admin===true){ out.push(h.toLowerCase()); } }
-    return out;
-  }
+  /* The gate's own fingerprint, pinned here on purpose.
+     This used to be read from the admin:true entry in /referral-codes.js, which
+     welded the calculator's access code to the order form's NO-PAYMENT lane:
+     one code did both jobs, so rotating either one broke or exposed the other.
+     They are separate secrets now.
+     Rotating THIS one means re-encrypting the payload in the same commit
+     (tools/qq-encrypt.mjs) — the fingerprint and the ciphertext are derived
+     from the same code and must move together, or the page stops opening. */
+  var GATE_FINGERPRINTS=['349edfb76aa08685541b5e7324028de3dc17b89888c747d628919d671b6e1c1a'];
+  function adminHashes(){ return GATE_FINGERPRINTS.slice(); }
 
   function sha256Hex(str){
     return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(function(buf){
@@ -166,7 +172,21 @@
       catch(e){ msg.textContent='The calculator failed to start — reload the page.'; }
     }
     var p=document.getElementById('price');
-    if(p){ p.focus(); }
+    /* Open on a real worked quote instead of an empty box. The placeholder used
+       to render "$ 500,000" at the same size and weight as a real entry, so the
+       tool looked like it had a price in it and had failed to produce a fee —
+       the fee line said "—" and the sub-line said "enter a purchase price", and
+       both got read as a broken calculator. Seeding an actual value makes the
+       empty state impossible to mistake for a computed one. Selected, so the
+       first keystroke replaces it. */
+    if(p){
+      if(!p.value){
+        p.value='500000';
+        p.dispatchEvent(new Event('input',{bubbles:true}));
+      }
+      p.focus();
+      if(p.select){ p.select(); }
+    }
   }
 
   function remember(plain){ try{ sessionStorage.setItem(STORE, plain); }catch(e){} }
