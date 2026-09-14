@@ -156,6 +156,20 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
+# Internal partner-admin tool (2026-09-14): unlisted, noindex, not in sitemap,
+# disallowed in every robots.txt group. Holds no secret itself — see the comment
+# at the top of pa-r7w2.html.
+[[redirects]]
+  from = "/pa-r7w2"
+  to = "/pa-r7w2.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/pa-r7w2*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 [[headers]]
   for = "/referral-codes.js"
   [headers.values]
