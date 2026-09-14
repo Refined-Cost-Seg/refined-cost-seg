@@ -66,6 +66,20 @@
   // The old version used per-type ratios against a flat 80% basis, which put a
   // fourth number in front of the same property. One method, one set of numbers.
   var TIERS = { low: 0.15, mid: 0.25, high: 0.35 };
+  // Renovation dollars are NOT the same asset mix as an acquisition and must not be
+  // pooled with it. A purchase basis is mostly structure; a renovation is mostly the
+  // things that reclassify - flooring, cabinetry, appliances, fixtures, site work - so
+  // published renovation studies land far higher than whole-building ones (commonly
+  // quoted at 50-70% against roughly 17-18% for an acquisition). These tiers sit
+  // deliberately under that band: the Conservative tier has to stay genuinely
+  // conservative, because it is the number a cautious CPA will hold us to.
+  // Two other reasons they are their own line and not added to the price:
+  //   - land. Land is never depreciated, but a renovation contains no land, so pushing
+  //     it through (price - land) would strip ~20% of it for nothing.
+  //   - timing. Each improvement is its own asset with its own placed-in-service date,
+  //     so a renovation finished now is 100% bonus-eligible on its own footing even
+  //     when the building it sits in was acquired before the bonus window reopened.
+  var RENO_TIERS = { low: 0.30, mid: 0.45, high: 0.60 };
   var LAND_SHARE = 0.20;               // land defaults to 20% of price until the client says otherwise
   var $ = function(id) { return document.getElementById(id); };
   var pV = $('rcs-propValue'), lV = $('rcs-landValue'), tR = $('rcs-taxRate');
@@ -74,16 +88,42 @@
   // Whole dollars with separators, exactly as the form prints them. The old
   // rounded "31K" shorthand could not be visibly tied out against the form.
   function money(n) { return Math.round(n).toLocaleString('en-US'); }
+  // The renovation input is created here rather than in index.html so the field and the
+  // arithmetic that depends on it live in one file and cannot drift apart.
+  var rV = $('rcs-renoValue');
+  if (!rV && lV && lV.parentNode && lV.parentNode.parentNode) {
+    var wrap = document.createElement('div');
+    wrap.className = lV.parentNode.className;   // matches the land field exactly
+    wrap.innerHTML = '<label for="rcs-renoValue">Renovations since purchase (optional)</label>' +
+      '<input type="number" id="rcs-renoValue" value="0" min="0" step="5000">';
+    lV.parentNode.parentNode.insertBefore(wrap, lV.parentNode.nextSibling);
+    rV = $('rcs-renoValue');
+  }
+
+  // The printed label names the method. Once renovations are in play the old label
+  // ("25% of basis") stops describing the number above it, so it says both parts or
+  // neither - a stated method that is quietly wrong is worse than no method at all.
+  var resLabel = document.querySelector('.calc-result .res-label');
+  var resLabelBase = resLabel ? resLabel.textContent : '';
+
   function calcSavings() {
     if (!pV || !lV || !tR) return;
     var price = parseFloat(pV.value) || 0;
     var land  = parseFloat(lV.value);
     if (isNaN(land) || land < 0) land = 0;
+    var reno  = rV ? parseFloat(rV.value) : 0;
+    if (isNaN(reno) || reno < 0) reno = 0;
     var rate  = (parseFloat(tR.value) || 0) / 100;
     var basis = Math.max(price - land, 0);   // depreciable basis: land is never depreciated
-    if (rLow)  rLow.textContent  = money(basis * TIERS.low  * rate);
-    if (rMid)  rMid.textContent  = money(basis * TIERS.mid  * rate);
-    if (rHigh) rHigh.textContent = money(basis * TIERS.high * rate);
+    function tier(k) { return (basis * TIERS[k] + reno * RENO_TIERS[k]) * rate; }
+    if (rLow)  rLow.textContent  = money(tier('low'));
+    if (rMid)  rMid.textContent  = money(tier('mid'));
+    if (rHigh) rHigh.textContent = money(tier('high'));
+    if (resLabel) {
+      resLabel.textContent = reno > 0
+        ? 'Estimated first-year tax savings · Balanced (25% of basis + 45% of renovations)'
+        : resLabelBase;
+    }
   }
   function trackLand() {
     if (landEdited || !pV || !lV) return;
@@ -91,6 +131,7 @@
   }
   if (pV) pV.addEventListener('input', function() { trackLand(); calcSavings(); });
   if (lV) lV.addEventListener('input', function() { landEdited = true; calcSavings(); });
+  if (rV) rV.addEventListener('input', calcSavings);
   if (tR) tR.addEventListener('input', calcSavings);
   calcSavings(); // initial run
 
