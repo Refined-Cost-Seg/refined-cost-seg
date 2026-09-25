@@ -168,7 +168,7 @@
       scrolling="no">
     </iframe>
     </div>
-<script src="/referral-codes.js?v=3"></script>
+<script src="/referral-codes.js?v=4"></script>
 <script>
 /* Code validation lives in the page layer (the form engine numerically
    coerces text comparisons). Codes are matched by SHA-256 fingerprint so
@@ -188,7 +188,7 @@
   function lookup(v) {
     v = (v || '').trim().toUpperCase();
     if (!v || !window.crypto || !window.crypto.subtle) return Promise.resolve(null);
-    return sha256(v).then(function (h) { var e = window.RCS_CODES && window.RCS_CODES[h]; return e ? { label: e.label, pct: e.pct, admin: e.admin, paid: e.paid, typed: v } : null; });
+    return sha256(v).then(function (h) { var e = window.RCS_CODES && window.RCS_CODES[h]; return e ? { label: e.label, pct: e.pct, admin: e.admin, paid: e.paid, flat: e.flat, typed: v } : null; });
   }
   function apply(quiet) {
     Promise.all([lookup(c1.value), lookup(c2.value)]).then(function (r) {
@@ -199,10 +199,17 @@
       var qs = BASE;
       if (codes[0]) qs += '&referralCode=' + encodeURIComponent(codes[0].typed);
       if (codes[1]) qs += '&referralCode2=' + encodeURIComponent(codes[1].typed);
-      if (tier) qs += '&discountLevel=' + tier;
+      /* Flat-price lane: the order total is exactly the code's amount (the
+         form's Final Total zeroes out any percentage discount when q403 is
+         set) and Audit Support is preset to None. discountLevel is not sent
+         either, belt and braces. The bridge verifies q403 against the same
+         fingerprints server-side. */
+      var flat = codes.filter(function (c) { return c.flat > 0; })[0];
+      if (flat) qs += '&flatPrice403=' + flat.flat + '&addAudit113=' + encodeURIComponent('None - $0');
+      else if (tier) qs += '&discountLevel=' + tier;
       if (codes.some(function (c) { return c.admin || c.paid; })) qs += '&testMode=Yes';
       var extra = window.location.search.replace(/^\?/, '').split('&').filter(function (p) {
-        return p && !/^(referralCode2?|discountTier|discountLevel|validReferral|areYou25|embedSource)=/.test(p);
+        return p && !/^(referralCode2?|discountTier|discountLevel|flatPrice|flatPrice403|validReferral|areYou25|embedSource)=/.test(p);
       }).join('&');
       if (extra) qs += '&' + extra;
       var holder = document.getElementById('rcsFormHolder');
@@ -234,7 +241,7 @@
          drives the form (the &testMode=Yes prefill above) and the bridge
          verifies it server-side — but public page source no longer tells a
          reader what a valid code buys. */
-      if (codes.some(function (c) { return c.admin || c.paid; })) {
+      if (codes.some(function (c) { return c.admin || c.paid || c.flat > 0; })) {
         msg.textContent = '✓ Code accepted — complete and submit your details below.';
         msg.style.color = '#5F7239';
         return;
