@@ -1,0 +1,27 @@
+# One-shot: unpack the ads landing-page bundle into the repo root, then remove bundle + self.
+name: Unpack landing-page bundle
+on:
+  push:
+    branches: [main]
+    paths: ["_deploy/lp-bundle.b64"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack and commit
+        run: |
+          set -e
+          base64 -d _deploy/lp-bundle.b64 > /tmp/lp.tgz
+          tar xzf /tmp/lp.tgz -C .
+          ls -la go-*.html
+          python3 -c "import tomllib;tomllib.load(open('netlify.toml','rb'))"
+          git rm -q _deploy/lp-bundle.b64 .github/workflows/unpack-lp.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Ads landing pages: /go/* x7 + netlify.toml rules (WO-5, noindex, not in sitemap)"
+          git push
