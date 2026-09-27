@@ -49,6 +49,24 @@
 
 
 [[redirects]]
+  from = "/for-cpas"
+  to = "/for-cpas.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/cpa-partners"
+  to = "/cpa-partners.html"
+  status = 200
+  force = false
+
+# /cpa-partners is the landing page for the CPA email campaign: noindex, not in sitemap.
+[[headers]]
+  for = "/cpa-partners*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[redirects]]
   from = "/privacy"
   to = "/privacy.html"
   status = 200
