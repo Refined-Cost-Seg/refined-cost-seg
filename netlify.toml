@@ -219,3 +219,58 @@
   for = "/refined-mortgage-group*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
+
+# 2026-09-27 Google Ads landing pages (WO-5): pretty URLs /go/<slug> -> /go-<slug>.html.
+# noindex by design (meta tag on-page + header here), deliberately NOT in sitemap.xml.
+# The extension page stays paused in Ads until Eugene confirms <=10 business-day turnaround.
+[[redirects]]
+  from = "/go/luxury-str"
+  to = "/go-luxury-str.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/go/luxury-str-b"
+  to = "/go-luxury-str-b.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/go/multifamily"
+  to = "/go-multifamily.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/go/multifamily-b"
+  to = "/go-multifamily-b.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/go/bonus"
+  to = "/go-bonus.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/go/bonus-b"
+  to = "/go-bonus-b.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/go/extension"
+  to = "/go-extension.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/go/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/go-*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
