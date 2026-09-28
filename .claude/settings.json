@@ -16,7 +16,39 @@
       "Bash(rg:*)",
       "Bash(sed -n:*)",
       "Bash(python3 -m http.server:*)",
-      "Bash(npx serve:*)"
+      "Bash(npx serve:*)",
+      "Bash(git push:*)",
+      "Bash(gh:*)",
+      "Bash(curl:*)",
+      "Bash(python3:*)",
+      "Bash(node:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(sed:*)",
+      "Bash(awk:*)",
+      "Bash(diff:*)",
+      "Bash(jq:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(echo:*)",
+      "Bash(for:*)",
+      "Read(**)",
+      "Edit(**)",
+      "Write(**)",
+      "Glob(**)",
+      "Grep(**)",
+      "WebFetch",
+      "Artifact",
+      "ArtifactData",
+      "mcp__github",
+      "mcp__GIT_-_Ethan_Tyler_Brooks",
+      "mcp__Make_-_STR__s6226105_plausible_stats_api_read",
+      "mcp__Make_-_STR__s6166669_gsc_search_analytics_read",
+      "mcp__Claude_Code_Remote"
     ],
     "deny": [
       "Bash(rm -rf:*)",
@@ -24,7 +56,9 @@
       "Bash(git push -f:*)",
       "Bash(git push origin main:*)",
       "Read(.env*)",
-      "Read(**/.env*)"
+      "Read(**/.env*)",
+      "mcp__github__delete_repository",
+      "mcp__GIT_-_Ethan_Tyler_Brooks__delete_repository"
     ]
   }
 }
