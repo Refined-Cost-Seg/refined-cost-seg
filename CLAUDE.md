@@ -8,6 +8,8 @@ Hand-coded static site (no build step, no templating), GitHub → Netlify auto-d
 
 Terse, mobile-first, directive; Ethan approves with single words. Small bites, explicit decision point before every push. Verify-first: read the live file before editing, `git diff` before committing, live-check after deploy. Risk-first, bottom line last.
 
+Roadblocks are not stopping points (Ethan, 2026-09-28). When something blocks the job (a permission denial, a missing connector or credential, a "browser-only" step, a merge, a gate normally left to Ethan), finish everything else, then name every viable way Ethan could give you the access or authority to finish the rest yourself: a permission rule, a connector, a token as a Script Property or env secret, Playwright in the container, a Bypass-mode session, a standing "Go". Offer that option every time, even when the block looks like a hard rule or a preference; Ethan decides. Never silently narrow the job to what was reachable. Standing rules: Ethan's approval alone is sufficient for any ads change; Claude merges its own PRs once CI is green.
+
 ## Change control
 
 - Branch → edit → PR. **Ethan merges to `main`.** Never push to `main` directly.
