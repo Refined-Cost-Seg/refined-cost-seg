@@ -265,6 +265,12 @@
   status = 200
   force = false
 
+[[redirects]]
+  from = "/go/cost-seg"
+  to = "/go-cost-seg.html"
+  status = 200
+  force = false
+
 [[headers]]
   for = "/go/*"
   [headers.values]
