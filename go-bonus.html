@@ -7,7 +7,7 @@
 <title>Bonus Depreciation on Rental Property | Free Cost Segregation Estimate</title>
 <meta name="description" content="Property acquired and placed in service after January 19, 2025 may qualify for 100% bonus depreciation. Get a free cost segregation estimate.">
 <link rel="canonical" href="https://www.refinedcostseg.com/go/bonus">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://form.jotform.com"><link rel="preconnect" href="https://cdn.jotfor.ms"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#1B2A3E;--paper:#FAF9F5;--sage:#5F7239;--ink:#22262b;--muted:#565e6b;--line:#ddd9d1;--soft:#f1efe8}
@@ -102,6 +102,12 @@ footer p{margin:0 0 9px;max-width:78ch}
   </div>
 </div>
 
+<section id="estimate"><div class="wrap">
+  <h2>Your free estimate</h2>
+  <p style="color:var(--muted);max-width:62ch">Answer a few questions about the property. We'll send a personalized estimate — there's nothing to pay to see it.</p>
+  <div class="frame" id="frame"><noscript><iframe src="https://form.jotform.com/261446273575059" title="Free cost segregation estimate"></iframe></noscript></div>
+</div></section>
+
 <section><div class="wrap">
   <h2>What you actually receive</h2>
   <div class="two">
@@ -128,11 +134,6 @@ footer p{margin:0 0 9px;max-width:78ch}
   </div>
 </div></section>
 
-<section id="estimate"><div class="wrap">
-  <h2>Your free estimate</h2>
-  <p style="color:var(--muted);max-width:62ch">Answer a few questions about the property. We'll send a personalized estimate — there's nothing to pay to see it.</p>
-  <div class="frame" id="frame"><noscript><iframe src="https://form.jotform.com/261446273575059" title="Free cost segregation estimate"></iframe></noscript></div>
-</div></section>
 
 <section><div class="wrap">
   <h2>Questions we get</h2>
@@ -167,17 +168,25 @@ footer p{margin:0 0 9px;max-width:78ch}
     f.setAttribute('allowtransparency','true'); f.setAttribute('allow','geolocation; microphone; camera; fullscreen; payment');
     f.setAttribute('scrolling','no'); f.id = 'JotFormIFrame-261446273575059';
     frame.innerHTML = ''; frame.appendChild(f);
-    if(window.gtag){gtag('event','conversion',{send_to:'AW-18476695308/Zsm5CKOipokdEIz-r-pE'});}
     var s = document.createElement('script');
     s.src = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
     s.onload = function(){ if(window.jotformEmbedHandler) window.jotformEmbedHandler("iframe[id='JotFormIFrame-261446273575059']", "https://form.jotform.com"); };
     document.body.appendChild(s);
   }
-  // Lazy: mount when the form scrolls close, or immediately if someone taps the button.
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(e,o){ if(e[0].isIntersecting){ mount(); o.disconnect(); } }, {rootMargin:'600px'}).observe(frame);
-  } else { mount(); }
+  // Paid landing: the form is the page, so mount it on arrival (the CTA is a fallback).
+  mount();
   document.querySelector('.cta').addEventListener('click', mount);
+  // Queue shim so custom events survive an analytics script that loads after this one.
+  window.plausible = window.plausible || function(){ (window.plausible.q = window.plausible.q || []).push(arguments); };
+  // Count a form start once, on the first real interaction: focus moving into the Jotform iframe.
+  var started = false;
+  function started_(){
+    if(started) return; started = true;
+    if(window.gtag){gtag('event','conversion',{send_to:'AW-18476695308/Zsm5CKOipokdEIz-r-pE'});}
+    if(window.plausible){plausible('Form Start',{props:{path:'/go/bonus'}});}
+  }
+  window.addEventListener('blur', function(){ setTimeout(function(){ var a=document.activeElement; if(a && a.tagName==='IFRAME' && a.id==='JotFormIFrame-261446273575059') started_(); }, 0); });
+  if(window.plausible){plausible('LP View',{props:{path:'/go/bonus'}});}
 })();
 </script>
 </body>
