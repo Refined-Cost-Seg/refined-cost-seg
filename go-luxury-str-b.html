@@ -30,6 +30,12 @@ h1{font-size:38px;max-width:20ch}
 .cta{display:inline-block;background:var(--sage);color:#fff;text-decoration:none;font-weight:600;font-size:18px;padding:15px 30px;border-radius:9px;margin-top:24px}
 .cta:hover{background:#51632f}
 .ctanote{font-size:14px;color:var(--muted);margin-top:10px}
+.strip{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.strip li{flex:1 1 190px;background:var(--soft);border-left:4px solid var(--sage);padding:9px 13px;font-size:15px;line-height:1.4;color:var(--ink);border-radius:0 7px 7px 0}
+.sticky{display:none}
+@media(max-width:700px){.sticky{display:block;position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--navy);padding:10px 16px}.cta-sticky{display:block;text-align:center;background:var(--sage);color:#fff;text-decoration:none;font-weight:700;font-size:18px;padding:14px 20px;border-radius:9px}.cta-sticky:hover{background:#51632f}footer{padding-bottom:90px}}
+.cta-sticky:focus-visible{outline:3px solid #fff;outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.sticky,.cta-sticky{animation:none;transition:none}}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:34px 0 0}
 @media(max-width:700px){.steps{grid-template-columns:1fr}}
 .step{background:#fff;border:1px solid var(--line);border-radius:10px;padding:15px 17px}
@@ -80,6 +86,12 @@ footer p{margin:0 0 9px;max-width:78ch}
   
   <div style="display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 4px"><span class="qual" style="margin:0;font-size:13.5px">Audit-ready report</span><span class="qual" style="margin:0;font-size:13.5px">Follows the IRS Audit Techniques Guide</span><span class="qual" style="margin:0;font-size:13.5px">Your CPA files from it</span><span class="qual" style="margin:0;font-size:13.5px">No site visit required option</span></div><a class="cta" href="#estimate">Start your free estimate</a>
   <div class="ctanote">About two minutes. No obligation, and we don't need your tax return to give you a number.</div>
+  <ul class="strip" aria-label="What you get">
+    <li>Free estimate in about two minutes</li>
+    <li>Documentary, cost-library-based study</li>
+    <li>Quality-control review before delivery</li>
+    <li>A report your CPA can file from</li>
+  </ul>
   <div class="steps">
     <div class="step"><i>STEP 1</i><b>Tell us about the property</b>A few basics — address, what you paid, how it's used.</div>
     <div class="step"><i>STEP 2</i><b>Get your estimate</b>We send a personalized estimate of what a study could reallocate.</div>
@@ -129,6 +141,7 @@ footer p{margin:0 0 9px;max-width:78ch}
   <details><summary>What if the numbers don&#x27;t justify it?</summary><p>Then we&#x27;ll say so. The estimate exists precisely so you can decide before spending anything. Smaller or lower-basis properties sometimes don&#x27;t move enough to be worth the exercise, and we&#x27;d rather tell you that than sell you a study.</p></details>
 </div></section>
 </main>
+<div class="sticky"><a class="cta-sticky" href="#estimate" onclick="document.querySelector('.cta').click();return false;">Get my free estimate</a></div>
 
 <footer><div class="wrap">
   <p><b>This estimate is not tax advice.</b> Estimates are based on the information you provide and on typical component allocations for comparable properties. Your actual result depends on facts specific to you and your property, and should be reviewed with your tax adviser before you rely on it.</p>
