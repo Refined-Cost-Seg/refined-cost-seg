@@ -222,7 +222,7 @@
 
 # 2026-09-27 Google Ads landing pages (WO-5): pretty URLs /go/<slug> -> /go-<slug>.html.
 # noindex by design (meta tag on-page + header here), deliberately NOT in sitemap.xml.
-# The extension page stays paused in Ads until Eugene confirms <=10 business-day turnaround.
+# The extension page runs until Oct 9, 2026 (S2-EXT window); /go/cost-seg-b and /go/rental added 2026-09-28.
 [[redirects]]
   from = "/go/luxury-str"
   to = "/go-luxury-str.html"
@@ -268,6 +268,18 @@
 [[redirects]]
   from = "/go/cost-seg"
   to = "/go-cost-seg.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/go/cost-seg-b"
+  to = "/go-cost-seg-b.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/go/rental"
+  to = "/go-rental.html"
   status = 200
   force = false
 
