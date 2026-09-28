@@ -30,8 +30,11 @@ The firm exists to make defensible, audit-ready cost segregation accessible to t
 - [Audit Support](https://www.refinedcostseg.com/audit-support): optional documentation and substantiation support if the IRS questions a study, with Basic (3-year) and Extended (10-year) levels.
 - [The Journal](https://www.refinedcostseg.com/journal/): essays on residential cost segregation, bonus depreciation, and STR tax strategy.
 
-## Journal essays (43 published; full archive at https://www.refinedcostseg.com/journal/)
+## Journal essays (46 published; full archive at https://www.refinedcostseg.com/journal/)
 
+- [Cost segregation and the Section 121 home sale exclusion](https://www.refinedcostseg.com/journal/cost-segregation-section-121-exclusion.html): Depreciation from a cost segregation study sits outside the Section 121 exclusion. What you keep, what recaptures, with a worked $340K example.
+- [Mid-quarter convention: does it hurt a December rental?](https://www.refinedcostseg.com/journal/mid-quarter-convention-december-rental.html): Short answer: usually no. Residential buildings are excluded from the 40% test, and 100% bonus leaves nothing for it to slow. A worked $365K example.
+- [Does a cost segregation study raise property taxes?](https://www.refinedcostseg.com/journal/does-cost-segregation-raise-property-taxes.html): No. A cost segregation study changes federal depreciation, not your county assessment. Why the two systems never meet, and what does move your tax bill.
 - [Upgrading a rental before year-end: which improvements get 100% bonus depreciation](https://www.refinedcostseg.com/journal/rental-improvements-before-year-end-bonus-depreciation.html): Appliances, carpet, fencing and paving on a rental can get 100% bonus depreciation if in service by December 31. A new roof or HVAC cannot. A worked example.
 - [Closing on a rental in December: does it count this year?](https://www.refinedcostseg.com/journal/december-closing-rental-placed-in-service.html): A December closing does not start depreciation. The placed-in-service date does. What has to be true by December 31 for the deduction to land this year.
 - [STR to a long-term lease: what happens to your deduction](https://www.refinedcostseg.com/journal/switching-str-to-long-term-lease.html): Moved your short-term rental to an annual lease mid-year? How the average-stay test, material participation, and this year's deduction actually change.
