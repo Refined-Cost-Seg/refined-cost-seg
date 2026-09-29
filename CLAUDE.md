@@ -12,7 +12,7 @@ Roadblocks are not stopping points (Ethan, 2026-09-28). When something blocks th
 
 ## Change control
 
-- Branch → edit → PR. **Ethan merges to `main`.** Never push to `main` directly.
+- Branch → edit → PR. **Claude merges its own PR once the Netlify deploy preview is green** (standing rule 2026-09-28); Ethan can always merge in the browser. Never push to `main` directly.
 - Every page edit: keep canonicals on `www`, JSON-LD in sync with visible copy, `sitemap.xml` + `llms.txt` updated when pages change, `404.html` branded.
 - Site-wide find/replace across 60+ pages = the self-removing GitHub Actions sed workflow (`/site-sweep` in the bridge repo; proven 2026-09-27, commit e9b0dae). One small commit, not sixty re-emitted files.
 - The Claude.ai connector cannot push `.github/workflows/*` (no workflow scope); a local `git push` from Claude Code can.
