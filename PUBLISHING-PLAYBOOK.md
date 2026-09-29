@@ -417,3 +417,10 @@ with the new code) **and** re-hashing the admin entry in `referral-codes.js`;
 crawler that matches a named group ignores the `*` group entirely. Note also that
 `publish = "."` means any new top-level path is served publicly — `tools/` is
 reachable at /tools/qq-encrypt.mjs and must stay free of secrets and figures.
+
+## 2026-09-28/29 — paid-ads landing pages and the refund sentence
+
+- **`/go/*` landing pages** (noindex header + meta, not in the sitemap, redirects in `netlify.toml`): cost-seg (A) + cost-seg-b, rental, luxury-str + -b, multifamily + -b, bonus + -b, extension. Every page: estimate section directly under the hero, Jotform iframe mounted on load (preconnects to form.jotform.com and cdn.jotfor.ms), `<noscript>` iframe kept (the daily pulse's breaker curls for `JotFormIFrame` / `form.jotform.com` and pauses campaigns whose page lacks it). Google tag AW-18476695308 on these pages only; the "LP Form Start (interaction)" conversion and Plausible `Form Start` fire once on first focus into the form, `LP View` on load. Keep all of that when editing a `/go/*` page.
+- **`/go/extension`** stays up until the extension message comes out of the account on Oct 9; then remove the page and its redirect in one PR.
+- **Refund sentence** (Ethan's written sign-off 2026-09-29), live on `/invest` (Secure checkout step) and `/` (Checkout & questionnaire step), PR #19: "If, after reviewing your questionnaire and photos, we conclude that a study would not be worth doing for your property, or we cannot complete it, your payment is refunded in full. Once your report is delivered, the fee is earned." Any change to it is legal text: Ethan's written sign-off first. It also lives in the bridge's T2/M1 emails; change both places together.
+- **Push check:** once, a container push printed "Everything up-to-date" after a proxy 403 and PR #18 merged with no diff. After every push compare `git rev-parse origin/<branch>` with HEAD, and live-check the page after Netlify publishes.
