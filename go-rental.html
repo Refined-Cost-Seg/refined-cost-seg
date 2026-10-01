@@ -179,13 +179,24 @@ footer p{margin:0 0 9px;max-width:78ch}
   // Queue shim so custom events survive an analytics script that loads after this one.
   window.plausible = window.plausible || function(){ (window.plausible.q = window.plausible.q || []).push(arguments); };
   // Count a form start once, on the first real interaction: focus moving into the Jotform iframe.
+  var poll;
   var started = false;
+  function inForm(){
+    var a = document.activeElement;
+    return !!(a && a.tagName==='IFRAME' && a.id==='JotFormIFrame-261446273575059');
+  }
   function started_(){
     if(started) return; started = true;
+    if(poll){ clearInterval(poll); poll = null; }
     if(window.gtag){gtag('event','conversion',{send_to:'AW-18476695308/Zsm5CKOipokdEIz-r-pE'});}
     if(window.plausible){plausible('Form Start',{props:{path:'/go/rental'}});}
   }
-  window.addEventListener('blur', function(){ setTimeout(function(){ var a=document.activeElement; if(a && a.tagName==='IFRAME' && a.id==='JotFormIFrame-261446273575059') started_(); }, 0); });
+  window.addEventListener('blur', function(){ setTimeout(function(){ if(inForm()) started_(); }, 0); });
+  // Safari and several mobile browsers do not fire a usable window blur when focus enters a
+  // cross-origin iframe, but they do update document.activeElement. Poll for it.
+  poll = setInterval(function(){ if(inForm()) started_(); }, 500);
+  // Stop after 10 minutes so an abandoned tab is not holding a timer.
+  setTimeout(function(){ if(poll){ clearInterval(poll); poll = null; } }, 600000);
   if(window.plausible){plausible('LP View',{props:{path:'/go/rental'}});}
 })();
 </script>
