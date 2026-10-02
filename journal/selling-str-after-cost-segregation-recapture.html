@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selling an STR after cost segregation: recapture math</title>
+<meta name="description" content="Sell a short-term rental two years after a cost segregation study and recapture arrives fast. The real math on a $620K STR, and when it still wins.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://www.refinedcostseg.com/journal/selling-str-after-cost-segregation-recapture.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Selling a short-term rental two years after a cost segregation study: what recapture really costs">
+<meta property="og:description" content="A short hold changes the cost segregation math. On a two-year STR exit the rate arbitrage is close to zero and the time value is what you keep. Here are the numbers.">
+<meta property="og:url" content="https://www.refinedcostseg.com/journal/selling-str-after-cost-segregation-recapture.html">
+<meta property="og:site_name" content="Refined Cost Segregation">
+<meta property="article:published_time" content="2026-10-02T12:00:00Z">
+<meta property="article:author" content="Refined Cost Segregation">
+<meta property="article:section" content="Tax strategy">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://www.refinedcostseg.com/og-image.png">
+<meta name="twitter:image" content="https://www.refinedcostseg.com/og-image.png">
+<meta name="twitter:title" content="Short-hold STR sale: what recapture really costs">
+<meta name="twitter:description" content="Two-year hold, $620K short-term rental, 31% reclassified. The recapture bill, line by line, and the one case where it goes against you.">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Selling a short-term rental two years after a cost segregation study: what recapture really costs","description":"Selling a short-term rental two or three years after a cost segregation study brings recapture forward fast, and an STR's unusually large Section 1245 slice is the part that recaptures at ordinary rates. A worked $620,000 example on a two-year hold, the installment-sale and 1031 wrinkles, and the one scenario where a short hold makes a study the wrong call.","datePublished":"2026-10-02T12:00:00Z","dateModified":"2026-10-02T12:00:00Z","author":{"@type":"Organization","name":"Refined Cost Segregation","url":"https://www.refinedcostseg.com/"},"publisher":{"@type":"Organization","name":"Refined Cost Segregation","url":"https://www.refinedcostseg.com/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.refinedcostseg.com/journal/selling-str-after-cost-segregation-recapture.html"},"articleSection":"Tax strategy","keywords":["selling short term rental after cost segregation","depreciation recapture short term rental sale","cost segregation short holding period","section 1245 recapture furniture appliances","is cost segregation worth it if I sell in 2 years","STR recapture ordinary income"],"about":[{"@type":"Thing","name":"Depreciation recapture"},{"@type":"Thing","name":"Short-term rental"},{"@type":"Thing","name":"Cost segregation"}]}</script>
+</head>
+<body>
+<div class="rcs-embed">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav class="rcs-nav" id="rcs-topnav">
+    <a href="/" class="logo" aria-label="Refined Cost Segregation, home">
+      <img class="logo-mark" src="/assets/logo-mark.png" alt="Refined Cost Segregation" style="width:36px;height:auto">
+      <div class="logo-text">
+        <span class="name">Refined</span>
+        <span class="tag">Cost Segregation</span>
+      </div>
+    </a>
+    <div class="nav-links" id="rcs-navlinks">
+      <a href="/#process">How it works</a>
+      <a href="/#services">Services</a>
+      <a href="/#calculator">Estimate</a>
+      <a href="/#team">Team</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/invest" class="nav-cta nav-cta-invest">Invest in Your Report</a>
+    </div>
+    <button class="mobile-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="rcs-navlinks">&#9776;</button>
+  </nav>
+<main id="main-content">
+<section class="rcs-article">
+  <article class="article-wrap">
+    <a href="/journal/" class="article-back">&larr; The Journal</a>
+    <div class="article-meta">
+      <span class="tag">Tax strategy</span>
+      <span class="date">October 2, 2026</span>
+      <span class="read-time">5 min read</span>
+    </div>
+    <h1 class="article-title">Selling a short-term rental two years after a cost segregation study: what recapture really costs</h1>
+    <div class="article-byline">
+      <img src="/assets/logo-mark.png" alt="Refined Cost Segregation">
+      <div class="who"><span class="nm">Refined Cost Segregation</span><span class="rl">Residential cost segregation</span></div>
+    </div>
+    <div class="article-body">
+      <p>If you expect to own a short-term rental for two or three years rather than ten, the cost segregation question changes shape. The deduction is the same. The recapture is not &mdash; it arrives before the time value of the deferral has had a chance to compound, and on an STR the slice that recaptures at ordinary income rates is unusually large. Short answer: a two-year hold usually still comes out ahead, but by thousands rather than tens of thousands, and one scenario flips it. Here are the numbers.</p>
+<h2>Why a short-term rental recaptures differently than a long-term one</h2>
+<p>Recapture splits in two. Building depreciation is Section 1250 property, and it comes back as unrecaptured Section 1250 gain at a maximum 25% federal rate. The 5- and 7-year personal property a study carves out is Section 1245 property, and it recaptures at your ordinary rate, with no ceiling.</p>
+<p>An STR tilts the mix hard toward the second bucket. A furnished short-term rental carries beds, seating, televisions, linens, kitchenware, outdoor furniture, and appliances on top of the flooring, cabinetry, and specialty electrical any rental has. Where a long-term single-family rental might reclassify 20&ndash;25% of its basis, a well-documented furnished STR frequently lands near 30%, and more of that is 5-year personal property rather than 15-year land improvements. Terrific in year one &mdash; and it is the part that comes back as ordinary income when you sell.</p>
+<h2>A worked example: a $620,000 STR sold after two years</h2>
+<p>Take a $620,000 furnished short-term rental acquired in 2026, land at roughly 15% of the price, leaving about $527,000 of depreciable basis. A documented study reclassifies about 31% of that &mdash; roughly $163,000 &mdash; with about $112,000 in 5- and 7-year personal property and about $51,000 in 15-year land improvements. With 100% bonus depreciation restored for property acquired (contract signed) after January 19, 2025, the whole $163,000 is deductible in year one.</p>
+<p>At a 32% marginal federal rate, that is about <strong>$52,200</strong> of tax deferred in the first year. Over two years the remaining $364,000 of building basis also throws off about $24,800 of straight-line depreciation. Now you sell, into a gain big enough to absorb all of it:</p>
+<p>&bull; The $24,800 of building depreciation returns as <strong>unrecaptured Section 1250 gain</strong> at up to 25% &mdash; about $6,200 in tax, against the roughly $7,900 it saved you. That piece exists whether or not you ever ordered a study.</p>
+<p>&bull; The accelerated slice comes back mostly as <strong>Section 1245 ordinary income</strong>: the $112,000 of personal property in full, plus the accelerated-over-straight-line portion of the land improvements, roughly $44,200. That is about $156,200 taxed at 32%, or <strong>$49,984</strong>. The straight-line portion of the land improvements, about $6,800, is taxed at up to 25%, roughly $1,700.</p>
+<p>Add the accelerated pieces and you get about <strong>$51,700 of recapture tax against $52,200 of deduction</strong>. On a two-year hold at an unchanged bracket, the rate arbitrage is essentially a wash.</p>
+<h2>So what do you actually keep on a two-year hold?</h2>
+<p>The time value, and it is real but modest. You had the use of roughly $52,200 for two years. At a 7% return that is about <strong>$7,600</strong> &mdash; worth having, and nothing like what a ten-year hold produces, where the deferral compounds and a step-up or a paired exchange can erase the recapture outright. On a short hold, that is the number to weigh against the flat study fee, not the headline first-year deduction.</p>
+<p>Put plainly: on a property you intend to sell in twenty-four months, cost segregation is a cash-flow tool rather than a tax-savings tool. If you have a use for that cash in 2026 &mdash; a down payment on the next property, a renovation, expensive debt to retire &mdash; that is a real reason to do it. If it would sit in a savings account until the closing, the case is thin.</p>
+<h2>When does a short hold make a study the wrong call?</h2>
+<p>One scenario, and it is worth checking before you order anything: <strong>if your income is materially higher in the sale year than in the purchase year.</strong> Section 1245 recapture has no rate cap. Deduct at 32% because that was your bracket in 2026, then sell in a year when a business exit, a bonus, or the gain itself pushes you to 37%, and you recapture the same dollars at the higher rate. On $156,200 of ordinary recapture, a five-point bracket difference is about $7,800 &mdash; which wipes out the entire time-value benefit calculated above. Investors planning a sale into a known high-income year should run that comparison with their CPA first.</p>
+<p>Two mechanical traps also catch short-hold sellers. An <strong>installment sale does not spread Section 1245 recapture</strong> &mdash; you recognize it in the year of sale even if the cash arrives over five years, which can leave you owing tax on money you have not been paid. And in a <strong>1031 exchange</strong>, Section 1031 has not covered personal property since 2018, so the furniture and appliances do not ride along; their recapture can be triggered at the exchange unless a study on the replacement property generates equivalent Section 1245 basis to absorb it.</p>
+<h2>What to do if you are selling this year</h2>
+<p>If a sale is already in motion for late 2026, the closing date matters more than most sellers realize: recapture lands in the year of sale, so a closing that slips from late December into January moves the entire bill into the next tax year and whatever bracket comes with it. Have that conversation with your CPA while the date is still negotiable.</p>
+<p>If you are buying rather than selling, the question is simply whether you are a holder: a buy-and-hold investor gets the deferral plus the exit tools, a two-year operator gets cash flow. Our <a href="/journal/depreciation-recapture-cost-segregation-sale.html">longer walk-through of how recapture works on a sale</a> covers the hold-and-plan side, and the <a href="/#calculator">savings calculator</a> on our homepage will put a first-year number on your own property in about a minute.</p>
+<p>Whatever the holding period, documentation is what decides how the exit goes: recapture is where a thin component allocation gets tested, because the basis schedule is the first thing a reviewer pulls. Every study we deliver is built to be audit-ready and reviewed by a qualified licensed tax professional.</p>
+    </div>
+    <div class="article-cta">
+      <h3>Not sure a study pays off on your holding period?</h3>
+      <p>Start with the free instant estimate &mdash; you'll see your projected savings and your flat study fee before any payment &mdash; or call us for a candid yes or no.</p>
+      <a href="/#contact" class="btn">Request a feasibility review <span class="arrow">&rarr;</span></a>
+    </div>
+    <div class="article-invest">
+      <p>Ready to put this to work on your own property?</p>
+      <a href="/invest" class="btn btn-invest">Invest in Your Report</a>
+    </div>
+    <p class="article-disclaimer">This article is general information, not tax, legal, or accounting advice. Recapture outcomes depend on your specific property, its component allocations, your holding period, your sale price, and your tax situation. Confirm with your CPA or a qualified tax advisor before acting.</p>
+  </article>
+</section>
+</main>
+  <footer class="rcs-footer">
+    <div class="r-container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">
+            <img src="/assets/logo-mark-light.png" alt="Refined Cost Segregation" style="width:36px;height:auto">
+            <div>
+              <span class="name">Refined</span>
+              <span class="tag">Cost Segregation</span>
+            </div>
+          </div>
+          <p class="blurb">Residential cost segregation studies for 1-4 unit investment property and short-term rentals. Built by tax professionals.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="/#services">Residential studies</a>
+          <a href="/#services">STR studies</a>
+          <a href="/audit-support">Audit support</a>
+          <a href="/#services">CPA partner program</a>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <a href="/#calculator">Savings calculator</a>
+          <a href="/#journal">The journal</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/#process">How it works</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="/#contact">Get started</a>
+          <a href="mailto:admin@refinedcostseg.com">admin@refinedcostseg.com</a>
+          <a href="tel:+14142061948">414-206-1948</a>
+          <span>Nationwide &middot; Remote</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Refined Cost Segregation</span>
+        <span>Audit-ready &middot; ATG-aligned &middot; Professionally reviewed</span>
+        <span>Not tax, legal, or accounting advice</span><span style="margin-left:1rem;"><a href="/accessibility">Accessibility</a> <a href="/privacy" style="color:inherit;">Privacy</a></span>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="../script.js"></script>
+</body>
+</html>
