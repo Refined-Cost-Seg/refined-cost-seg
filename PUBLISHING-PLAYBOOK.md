@@ -335,8 +335,8 @@ SUPERSEDES the "Cloud publishing + Make prune" Make paragraph and the Aug-26 for
   Script **RCS Bridge** (private repo github.com/Ethan-Tyler-Brooks/rcs-bridge, main de3d36b, 157
   tests; Apps Script project "RCS Bridge" running as admin@). Never reactivate a Make scenario.
   Kept on-demand only: the Sheets/Drive/Jotform passthrough tools and the parked upload webhook.
-  Full ops key: Drive → RCS Share Folder › Workflows › 02_ADMIN_KEY.md (live file id
-  `1kytMt0uStr50zpWUyYMOjPIWYwvjGKv3`; v3.6 as of 2026-10-01 — the version bumps, the id does not).
+  Full ops key: Drive → RCS Share Folder › Workflows › 02_ADMIN_KEY.md (v3.8 as of 2026-10-06, file id
+  `16ogO9GBrLvXE7h9OIIQsiQZ3fVNC9mre`; every supersede is a new file, so read the current id from `00_README_INDEX.md` or `CLAUDE.md`).
 - **Form 261446273575059 changes (2026-09-01):** q384/q385 flooring confirmation gated to Step 2
   (they had leaked into Step 1 for every visitor); q136 banded avg-stay radio HIDDEN, replaced by
   q386 number "average nights per booking" (never name the 7-day threshold in a question); new
