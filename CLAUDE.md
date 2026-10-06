@@ -2,7 +2,7 @@
 
 Hand-coded static site (no build step, no templating), GitHub → Netlify auto-deploys `main` in ~40 s. Redirects are first-match in `netlify.toml`. Content truth = git.
 
-**Read `PUBLISHING-PLAYBOOK.md` first — it is the site's persistent working memory (site/form/engine laws, standing rules, history). Where it and this file disagree, the playbook wins; fix this file.** `SEO-BEST-PRACTICES.md` governs journal posts. System ids and the qid map live in Drive `02_ADMIN_KEY.md` (file id `1kytMt0uStr50zpWUyYMOjPIWYwvjGKv3`, v3.6 — the old id `1PZoyN2aSw54RYt0ggHEgn7YYJIH-ST-_` is the archived v3.4); the bridge repo `Ethan-Tyler-Brooks/rcs-bridge` is the ops control plane.
+**Read `PUBLISHING-PLAYBOOK.md` first — it is the site's persistent working memory (site/form/engine laws, standing rules, history). Where it and this file disagree, the playbook wins; fix this file.** `SEO-BEST-PRACTICES.md` governs journal posts. System ids and the qid map live in Drive `02_ADMIN_KEY.md` (file id `16ogO9GBrLvXE7h9OIIQsiQZ3fVNC9mre`, v3.8 of 2026-10-06 — the old ids `1EvcuFh798YEL57FnuDaTEKUNM_eMQY0B` v3.7, `1kytMt0uStr50zpWUyYMOjPIWYwvjGKv3` v3.6 and `1PZoyN2aSw54RYt0ggHEgn7YYJIH-ST-_` v3.4 are archived); the bridge repo `Ethan-Tyler-Brooks/rcs-bridge` is the ops control plane.
 
 ## Working style
 
