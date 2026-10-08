@@ -23,8 +23,19 @@
    2026-09-25: `flat: <dollars>` = flat-price lane. The page prefills the
    hidden radio flatPrice403=<dollars> and presets Audit Support to None; the
    form charges exactly that amount (+ Audit Support only if the client
-   re-selects it) and cancels any percentage code. The form only knows 1000 —
-   a different amount needs a new radio option + formula change first. */
+   re-selects it) and cancels any percentage code.
+
+   2026-10-08: negotiated-price codes. `flat` may be ANY whole-dollar study
+   fee: the page ticks the radio (flatPrice403=1000 is only the tick) and
+   sends the amount as customPrice (form q417). Two optional keys:
+     exp: "YYYY-MM-DD"  last day the code works (Central time). The page
+                        ignores it afterwards; the bridge judges the order's
+                        submission date against it.
+     once: true         minted for one deal; the bridge flags a second order.
+   One line per deal, a neutral serial label ("N-001"), 30-day exp, once:true.
+   Who the serial belongs to lives in Drive 12_PARTNER_ROSTER.md, never here.
+   Delete expired lines whenever you add one. Recipe: PUBLISHING-PLAYBOOK.md,
+   "Negotiated-price codes". */
 window.RCS_CODES = {
   "932c319f3ff6596ff79b69cf6c60f4124f6e971ff226e2d37cdec2dd481b1285": { label: "Partner A", pct: 0, paid: true },
   "f842c68c8e8b9c56dd7b3bc4d8b928e28d47a0cde6f078e437e70b42d9a0b66d": { label: "Partner B", pct: 0, admin: true },

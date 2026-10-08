@@ -425,3 +425,21 @@ reachable at /tools/qq-encrypt.mjs and must stay free of secrets and figures.
 - **`/go/extension`** stays up until the extension message comes out of the account on Oct 9; then remove the page and its redirect in one PR.
 - **Refund sentence** (Ethan's written sign-off 2026-09-29), live on `/invest` (Secure checkout step) and `/` (Checkout & questionnaire step), PR #19: "If, after reviewing your questionnaire and photos, we conclude that a study would not be worth doing for your property, or we cannot complete it, your payment is refunded in full. Once your report is delivered, the fee is earned." Any change to it is legal text: Ethan's written sign-off first. It also lives in the bridge's T2/M1 emails; change both places together.
 - **Push check:** once, a container push printed "Everything up-to-date" after a proxy 403 and PR #18 merged with no diff. After every push compare `git rev-parse origin/<branch>` with HEAD, and live-check the page after Netlify publishes.
+
+## Negotiated-price codes (2026-10-08) — one random code per negotiated fee
+
+Ethan's decision: when a study fee is negotiated, mint ONE random code for that exact price. No prefix+price codes (the holder can retype the number), no cipher (page JS cannot keep a key). The code table is the translation.
+
+- **Entry:** `"<sha256>": { label: "N-014", pct: 0, flat: 900, exp: "2026-11-07", once: true },` — `flat` = the study fee in whole dollars (Audit Support adds on top if the client picks it), `exp` = last valid day (Central), `once` = one deal. Partner C's reusable `flat: 1000` line has neither and behaves as before.
+- **Page (v13, `referral-codes.js?v=5`):** a flat code sends `flatPrice403=1000` (only ticks the hidden radio q403) + `customPrice=<flat>` (hidden Number q417) + Audit Support preset to None; no `discountLevel`. A code past `exp` reads as "not recognized". `customPrice` is in the pass-through strip list.
+- **Form:** Final Total q377 = `[({165}-{113})*(100-{374})/100*(1-{403})+{417}*{403}+{113}]`. Check `02_ADMIN_KEY` §3 for whether this is applied yet; until it is, every flat code charges $1,000.
+- **Bridge (PR #77):** verifies the amount against this file, judges `exp` against the Step-1 submission date, flags a reused `once` code. The build never stops; an UNVERIFIED flat fee holds DELIVERY until Ethan ticks "Flat fee confirmed against the quote" on `00 REVIEW`. Every flat order carries a `FLAT FEE $X` flag.
+
+**TO MINT A CODE (Ethan says "code for 900"):**
+1. Make the code: `node -e "const c=require('crypto').randomBytes(5).toString('hex').toUpperCase();console.log(c.slice(0,5)+'-'+c.slice(5))"` — random, never a word, never contains the price.
+2. Hash it (UPPERCASE, as typed): `node -e "console.log(require('crypto').createHash('sha256').update('THE-CODE').digest('hex'))"`.
+3. Next serial label (`N-001`, `N-002`, … — look at `12_PARTNER_ROSTER.md` for the last one used). `exp` = today + 30 days unless Ethan says otherwise. `once: true`.
+4. Add the line to `referral-codes.js`; in the same commit delete any line whose `exp` has passed. Branch → PR → merge on a green preview. Live in about a minute. No cache-buster bump is needed for a new line unless a client reports the code "not recognized" right after minting (then bump `?v=`).
+5. Add a row to Drive `12_PARTNER_ROSTER.md` (serial, client, price, minted, expires). The code itself goes to Ethan in chat and nowhere else: not in this repo, not in a PR description, not in a doc.
+6. Tell Ethan the code and the link `https://www.refinedcostseg.com/invest?referralCode=<code>` (auto-applies).
+
