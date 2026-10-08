@@ -1,6 +1,6 @@
 # Refined Cost Segregation
 
-> Documentary, cost-library-based, ATG-aligned cost segregation studies, reviewed by a licensed tax professional, for 1-4 unit residential property, including short-term rentals (STR) and long-term rentals (LTR). Serves clients across the United States. No site visits required; the methodology is documentary, working from closing statements, photos, and structured intake.
+> Documentary, cost-library-based, ATG-aligned cost segregation studies, reviewed by a licensed tax professional, for 1-4 unit residential property, including short-term rentals (STR) and long-term rentals (LTR). Based in Milwaukee, Wisconsin; serves clients across the United States. No site visits required for most properties; the methodology is documentary, working from closing statements, photos, and structured intake.
 
 ## About
 
@@ -10,7 +10,7 @@ The firm exists to make defensible, audit-ready cost segregation accessible to t
 
 ## Key facts (current as of 2026)
 
-- 100% bonus depreciation was restored for property acquired (contract signed) after January 19, 2025, by the One Big Beautiful Bill (OBBB), signed mid-2025. No scheduled sunset.
+- 100% bonus depreciation was restored for property acquired (contract signed) and placed in service after January 19, 2025, by the One Big Beautiful Bill (OBBB), signed mid-2025. No scheduled sunset.
 - A typical residential cost segregation study reclassifies 20-35% of depreciable basis into 5-, 7-, and 15-year property; short-term rentals often land in the upper part of that range.
 - For STRs with an average customer-use period of 7 days or less, IRS Treasury Regulation §1.469-1T(e)(3) treats the activity as a non-rental trade or business. Material participation (any of the IRS's 7 tests) makes the resulting losses non-passive and usable against W-2 income.
 - Deliverables: the report PDF, a per-asset fixed-asset schedule (CSV), and a one-page CPA implementation letter, delivered by email within 5-10 business days of a complete questionnaire.
@@ -28,10 +28,15 @@ The firm exists to make defensible, audit-ready cost segregation accessible to t
 
 - [Homepage](https://www.refinedcostseg.com/): overview of services, methodology, process, calculator, team, FAQ, and contact.
 - [Audit Support](https://www.refinedcostseg.com/audit-support): optional documentation and substantiation support if the IRS questions a study, with Basic (3-year) and Extended (10-year) levels.
+- [Milwaukee & southeast Wisconsin](https://www.refinedcostseg.com/milwaukee-cost-segregation): local service page. In-person walk-throughs and CPA meetings by appointment in Milwaukee, Waukesha, Ozaukee, Washington, Racine, Kenosha, Walworth and Jefferson counties; Wisconsin bonus-depreciation decoupling explained.
 - [The Journal](https://www.refinedcostseg.com/journal/): essays on residential cost segregation, bonus depreciation, and STR tax strategy.
 
-## Journal essays (46 published; full archive at https://www.refinedcostseg.com/journal/)
+## Journal essays (50 published; full archive at https://www.refinedcostseg.com/journal/)
 
+- [Selling an STR after cost segregation: recapture math](https://www.refinedcostseg.com/journal/selling-str-after-cost-segregation-recapture.html): Sell a short-term rental two years after a cost segregation study and recapture arrives fast. The real math on a $620K STR, and when it still wins.
+- [Installment sale recapture after cost segregation](https://www.refinedcostseg.com/journal/installment-sale-rental-cost-segregation-recapture.html): Seller-finance a rental after a cost segregation study and Section 1245 recapture is all due in the year of sale. A worked $585,000 example.
+- [Is cost segregation worth it if you sell in 3 years?](https://www.refinedcostseg.com/journal/cost-segregation-sell-within-3-years.html): Selling a rental three years after a cost segregation study? Here is the recapture math on a $520K example, and when a short hold still pencils.
+- [Adding cost segregation to an already-filed 2025 return](https://www.refinedcostseg.com/journal/add-cost-segregation-already-filed-return.html): Filed your 2025 return with no cost segregation study? A superseding return by October 15, or an amended return, can still claim it. A worked $95,700 example.
 - [Cost segregation and the Section 121 home sale exclusion](https://www.refinedcostseg.com/journal/cost-segregation-section-121-exclusion.html): Depreciation from a cost segregation study sits outside the Section 121 exclusion. What you keep, what recaptures, with a worked $340K example.
 - [Mid-quarter convention: does it hurt a December rental?](https://www.refinedcostseg.com/journal/mid-quarter-convention-december-rental.html): Short answer: usually no. Residential buildings are excluded from the 40% test, and 100% bonus leaves nothing for it to slow. A worked $365K example.
 - [Does a cost segregation study raise property taxes?](https://www.refinedcostseg.com/journal/does-cost-segregation-raise-property-taxes.html): No. A cost segregation study changes federal depreciation, not your county assessment. Why the two systems never meet, and what does move your tax bill.
@@ -84,4 +89,6 @@ The firm exists to make defensible, audit-ready cost segregation accessible to t
 - Website: https://www.refinedcostseg.com/
 - Email: admin@refinedcostseg.com
 - Phone: 414-206-1948
-- Coverage: Nationwide (serves clients in all US states)
+- Based in: Milwaukee, Wisconsin
+- Coverage: Nationwide (serves clients in all US states); in-person appointments in southeast Wisconsin
+- Hours: Mon-Fri 8a-6p CT
