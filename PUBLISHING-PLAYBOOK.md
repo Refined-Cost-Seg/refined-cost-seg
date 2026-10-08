@@ -336,7 +336,7 @@ SUPERSEDES the "Cloud publishing + Make prune" Make paragraph and the Aug-26 for
   tests; Apps Script project "RCS Bridge" running as admin@). Never reactivate a Make scenario.
   Kept on-demand only: the Sheets/Drive/Jotform passthrough tools and the parked upload webhook.
   Full ops key: Drive → RCS Share Folder › Workflows › 02_ADMIN_KEY.md (v3.8 as of 2026-10-06, file id
-  `16ogO9GBrLvXE7h9OIIQsiQZ3fVNC9mre`; every supersede is a new file, so read the current id from `00_README_INDEX.md` or `CLAUDE.md`).
+  `16ogO9GBrLvXE7h9OIIQsiQZ3fVNC9mre`, plus `02B_ADMIN_KEY_ADDENDUM_2026-10-08.md` `1iHMlR-QUP9qEAET5pnmh0HxT9A0wBjqB` until it is folded into v3.9; every supersede is a new file, so read the current id from `00_README_INDEX.md` v1.9 `1kfimrUwulLUKu8NcMGh5yOg1bHY0701F` or `CLAUDE.md`).
 - **Form 261446273575059 changes (2026-09-01):** q384/q385 flooring confirmation gated to Step 2
   (they had leaked into Step 1 for every visitor); q136 banded avg-stay radio HIDDEN, replaced by
   q386 number "average nights per booking" (never name the 7-day threshold in a question); new
@@ -432,7 +432,7 @@ Ethan's decision: when a study fee is negotiated, mint ONE random code for that 
 
 - **Entry:** `"<sha256>": { label: "N-014", pct: 0, flat: 900, exp: "2026-11-07", once: true },` — `flat` = the study fee in whole dollars (Audit Support adds on top if the client picks it), `exp` = last valid day (Central), `once` = one deal. Partner C's reusable `flat: 1000` line has neither and behaves as before.
 - **Page (v13, `referral-codes.js?v=5`):** a flat code sends `flatPrice403=1000` (only ticks the hidden radio q403) + `customPrice=<flat>` (hidden Number q417) + Audit Support preset to None; no `discountLevel`. A code past `exp` reads as "not recognized". `customPrice` is in the pass-through strip list.
-- **Form:** Final Total q377 = `[({165}-{113})*(100-{374})/100*(1-{403})+({417}+1000*(1-min({417},1)))*{403}+{113}]` (a ticked q403 with no Custom Price still charges $1,000, never $0). Check `02_ADMIN_KEY` §3 for whether this is applied yet; until it is, every flat code charges $1,000.
+- **Form:** Final Total q377 = `[({165}-{113})*(100-{374})/100*(1-{403})+({417}+1000*(1-min({417},1)))*{403}+{113}]` (a ticked q403 with no Custom Price still charges $1,000, never $0). **Applied 2026-10-08 15:55Z** (Code session, through the form-level `calculations` array; proven read-only 11/11 with `Handoffs/form_total_live_test.js` — full, Basic, Extended, 10%, 20%, Partner C on a new and a stale page, minted 900 / 900 + Basic / 2250 + Extended / 900 + a 10% code, `customPrice` without the tick). Minted codes charge their price from that moment.
 - **Bridge (PR #77):** verifies the amount against this file, judges `exp` against the Step-1 submission date, flags a reused `once` code. The build never stops; an UNVERIFIED flat fee holds DELIVERY until Ethan ticks "Flat fee confirmed against the quote" on `00 REVIEW`. Every flat order carries a `FLAT FEE $X` flag.
 
 **TO MINT A CODE (Ethan says "code for 900"):**
