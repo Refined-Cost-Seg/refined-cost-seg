@@ -408,7 +408,7 @@
       <input id="rcsCode2" placeholder="Second code (optional)" autocomplete="off" style="flex:1;min-width:150px;padding:.55rem .7rem;border:1.5px solid #E8E5D9;border-radius:8px;font-size:1rem;">
       <button id="rcsApply" type="button" style="padding:.55rem 1.1rem;background:#1B2A3E;color:#FAF9F5;border:0;border-radius:8px;font-weight:700;cursor:pointer;">Apply</button>
     </div>
-    <p id="rcsMsg" style="margin:.5rem 0 0;font-size:.85rem;color:#5B6570;">Apply your referral code before starting the form &mdash; it will be reflected in your payment total. <span style="opacity:.45;">(v12)</span></p>
+    <p id="rcsMsg" style="margin:.5rem 0 0;font-size:.85rem;color:#5B6570;">Apply your referral code before starting the form &mdash; it will be reflected in your payment total. <span style="opacity:.45;">(v13)</span></p>
   </div>
 </div>
 
@@ -424,7 +424,7 @@
             scrolling="no">
           </iframe>
           </div>
-<script src="/referral-codes.js?v=4"></script>
+<script src="/referral-codes.js?v=5"></script>
 <script>
 /* Code validation lives in the page layer (the form engine numerically
    coerces text comparisons). Codes are matched by SHA-256 fingerprint so
@@ -441,10 +441,20 @@
       return Array.prototype.map.call(new Uint8Array(b), function (x) { return ('0' + x.toString(16)).slice(-2); }).join('');
     });
   }
+  function today() {
+    try { return new Date().toLocaleDateString('en-CA', { timeZone: 'America/Chicago' }); }
+    catch (x) { return new Date().toISOString().slice(0, 10); }
+  }
   function lookup(v) {
     v = (v || '').trim().toUpperCase();
     if (!v || !window.crypto || !window.crypto.subtle) return Promise.resolve(null);
-    return sha256(v).then(function (h) { var e = window.RCS_CODES && window.RCS_CODES[h]; return e ? { label: e.label, pct: e.pct, admin: e.admin, paid: e.paid, flat: e.flat, typed: v } : null; });
+    return sha256(v).then(function (h) {
+      var e = window.RCS_CODES && window.RCS_CODES[h];
+      /* A code with `exp` stops working the day after that date (Central time).
+         The bridge applies the same rule to the order's submission date. */
+      if (e && e.exp && today() > e.exp) e = null;
+      return e ? { label: e.label, pct: e.pct, admin: e.admin, paid: e.paid, flat: e.flat, typed: v } : null;
+    });
   }
   function apply(quiet) {
     Promise.all([lookup(c1.value), lookup(c2.value)]).then(function (r) {
@@ -458,14 +468,16 @@
       /* Flat-price lane: the order total is exactly the code's amount (the
          form's Final Total zeroes out any percentage discount when q403 is
          set) and Audit Support is preset to None. discountLevel is not sent
-         either, belt and braces. The bridge verifies q403 against the same
+         either, belt and braces. flatPrice403=1000 only TICKS the hidden radio
+         (its one option is the text "1000"); the amount itself travels in
+         customPrice (q417). The bridge verifies the amount against the same
          fingerprints server-side. */
       var flat = codes.filter(function (c) { return c.flat > 0; })[0];
-      if (flat) qs += '&flatPrice403=' + flat.flat + '&addAudit113=' + encodeURIComponent('None - $0');
+      if (flat) qs += '&flatPrice403=1000&customPrice=' + flat.flat + '&addAudit113=' + encodeURIComponent('None - $0');
       else if (tier) qs += '&discountLevel=' + tier;
       if (codes.some(function (c) { return c.admin || c.paid; })) qs += '&testMode=Yes';
       var extra = window.location.search.replace(/^\?/, '').split('&').filter(function (p) {
-        return p && !/^(referralCode2?|discountTier|discountLevel|flatPrice|flatPrice403|validReferral|areYou25|embedSource)=/.test(p);
+        return p && !/^(referralCode2?|discountTier|discountLevel|flatPrice|flatPrice403|customPrice|validReferral|areYou25|embedSource)=/.test(p);
       }).join('&');
       if (extra) qs += '&' + extra;
       var holder = document.getElementById('rcsFormHolder');
