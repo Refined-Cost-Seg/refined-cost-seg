@@ -335,8 +335,8 @@ SUPERSEDES the "Cloud publishing + Make prune" Make paragraph and the Aug-26 for
   Script **RCS Bridge** (private repo github.com/Ethan-Tyler-Brooks/rcs-bridge, main de3d36b, 157
   tests; Apps Script project "RCS Bridge" running as admin@). Never reactivate a Make scenario.
   Kept on-demand only: the Sheets/Drive/Jotform passthrough tools and the parked upload webhook.
-  Full ops key: Drive → RCS Share Folder › Workflows › 02_ADMIN_KEY.md (v3.8 as of 2026-10-06, file id
-  `16ogO9GBrLvXE7h9OIIQsiQZ3fVNC9mre`, plus `02B_ADMIN_KEY_ADDENDUM_2026-10-08.md` `1iHMlR-QUP9qEAET5pnmh0HxT9A0wBjqB` until it is folded into v3.9; every supersede is a new file, so read the current id from `00_README_INDEX.md` v1.9 `1kfimrUwulLUKu8NcMGh5yOg1bHY0701F` or `CLAUDE.md`).
+  Full ops key: Drive → RCS Share Folder › Workflows › 02_ADMIN_KEY.md (v3.9 as of 2026-10-08, file id
+  `1wisA8eSsUpQvVfCyNhjf-Z38cju9Lm7b`, the 02B addendum folded in; every supersede is a new file, so read the current id from `00_README_INDEX.md` v1.10 `1HpHvY2cdFlD6z7SBOutzMFKFZex4Qyna` or `CLAUDE.md`).
 - **Form 261446273575059 changes (2026-09-01):** q384/q385 flooring confirmation gated to Step 2
   (they had leaked into Step 1 for every visitor); q136 banded avg-stay radio HIDDEN, replaced by
   q386 number "average nights per booking" (never name the 7-day threshold in a question); new
