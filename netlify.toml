@@ -203,6 +203,19 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
+# Internal quote desk (2026-10-12): unlisted, noindex, not in sitemap, disallowed in every robots.txt group.
+# Holds no secret itself — see the comment at the top of qd-h4m9.html; the bridge (src/Quotes.js) enforces everything.
+[[redirects]]
+  from = "/qd-h4m9"
+  to = "/qd-h4m9.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/qd-h4m9*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 [[headers]]
   for = "/referral-codes.js"
   [headers.values]

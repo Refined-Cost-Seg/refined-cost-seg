@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quote desk</title>
+<!-- INTERNAL TOOL (2026-10-12) - unlisted, noindex, not in sitemap.xml, disallowed in robots.txt.
+     The quote desk: quote any price, Stripe invoices the client, the referral source is logged and the monday
+     lead(s) are created; packs of N studies become N single-use study credits whose questionnaire links go out
+     when the invoice is paid. This page holds no secret: the endpoint is kept in this browser's localStorage, the
+     passphrase only in memory while the tab is open. Every check - passphrase, rate limits, the invoice, the
+     credits - is enforced in the bridge (rcs-bridge src/Quotes.js), not here. -->
+<style>
+  :root{--navy:#1B2A3E;--paper:#FAF9F5;--sage:#5F7239;--line:#E8E5D9;--muted:#5B6570;--red:#8C2F2F;--amber:#9A6B12}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:var(--paper);color:var(--navy);
+       padding:1.2rem 1rem 3rem;max-width:640px;margin:0 auto;line-height:1.5}
+  h1{font-size:1rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin:.4rem 0 .2rem;font-weight:700}
+  h2{font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:2rem 0 .6rem}
+  .sub{font-size:.85rem;color:var(--muted);margin-bottom:1.2rem}
+  label{display:block;font-size:.76rem;font-weight:600;color:var(--muted);margin:.9rem 0 .25rem;letter-spacing:.03em}
+  input,select,textarea{width:100%;font:inherit;font-size:1rem;padding:.55rem .7rem;border:1.5px solid var(--line);
+       border-radius:10px;background:#fff;color:var(--navy)}
+  textarea{min-height:64px;resize:vertical}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--sage);border-color:var(--sage)}
+  .hint{font-size:.72rem;color:var(--muted);margin-top:.25rem}
+  .row{display:flex;gap:.6rem;flex-wrap:wrap}.row>*{flex:1;min-width:120px}
+  .check{display:flex;gap:.55rem;align-items:flex-start;margin-top:.9rem;font-size:.88rem}
+  .check input{width:18px;height:18px;flex:none;margin-top:.15rem}
+  button{font:inherit;font-weight:700;padding:.7rem 1rem;border:1.5px solid var(--navy);border-radius:10px;
+         background:var(--navy);color:var(--paper);cursor:pointer}
+  button.ghost{background:#fff;color:var(--navy)}
+  button.small{padding:.35rem .6rem;font-size:.8rem;margin:.3rem .3rem 0 0}
+  button[disabled]{opacity:.5;cursor:default}
+  .wide{width:100%;margin-top:1.4rem}
+  .box{border:1px dashed var(--line);border-radius:12px;padding:.8rem .9rem;margin-top:.9rem;background:#fff}
+  .msg{margin-top:.9rem;font-size:.9rem;font-weight:600;min-height:1.2rem}
+  .msg.err{color:var(--red)}.msg.ok{color:var(--sage)}.msg.warn{color:var(--amber)}
+  .total{font-size:1.05rem;font-weight:700;margin-top:.8rem}
+  .q{background:#fff;border:1px solid var(--line);border-radius:12px;padding:.8rem .9rem;margin-top:.7rem;font-size:.88rem}
+  .q .h{display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap;font-weight:700}
+  .chip{display:inline-block;font-size:.7rem;font-weight:700;padding:.1rem .45rem;border-radius:99px;background:var(--line);color:var(--navy)}
+  .chip.paid,.chip.sent,.chip.used{background:#DDE8C9}.chip.error,.chip.void{background:#F1D5D5}.chip.open{background:#F6E7C1}
+  .credit{border-top:1px solid var(--line);margin-top:.6rem;padding-top:.6rem}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:.82rem}
+  a{color:var(--sage)}
+  .hide{display:none}
+</style>
+</head>
+<body>
+<h1>Quote desk</h1>
+<p class="sub">Any price → Stripe invoices the client → the questionnaire link goes out when it's paid. Packs supported.</p>
+
+<div class="box" id="setup">
+  <label for="ep">Bridge endpoint</label>
+  <input type="url" id="ep" placeholder="https://script.google.com/macros/s/.../exec" autocomplete="off">
+  <label for="secret">Passphrase</label>
+  <input type="password" id="secret" autocomplete="current-password" name="quote-desk-passphrase" placeholder="Kept only while this tab is open">
+  <button class="ghost small" id="connect" type="button">Connect</button>
+  <p class="msg" id="setupMsg" role="status" aria-live="polite"></p>
+</div>
+
+<form id="f" class="hide" autocomplete="off">
+  <h2>New quote</h2>
+  <label for="by">Quoted by</label>
+  <select id="by"></select>
+
+  <div class="row">
+    <div><label for="first">Client first name</label><input id="first" type="text"></div>
+    <div><label for="last">Last name</label><input id="last" type="text"></div>
+  </div>
+  <div class="row">
+    <div><label for="email">Client email *</label><input id="email" type="email" required></div>
+    <div><label for="phone">Phone</label><input id="phone" type="tel"></div>
+  </div>
+
+  <div class="row">
+    <div><label for="studies">Studies on this invoice</label><input id="studies" type="number" min="1" max="20" value="1"></div>
+    <div><label for="mode">Price is</label>
+      <select id="mode"><option value="total">the total</option><option value="per">per study</option></select></div>
+    <div><label for="amount">Price ($) *</label><input id="amount" type="text" inputmode="decimal" placeholder="1750" required></div>
+  </div>
+  <div class="row">
+    <div><label for="audit">Audit Support</label>
+      <select id="audit"><option>None</option><option>Basic</option><option>Extended</option></select></div>
+    <div><label for="auditUsd">Audit Support $ per study</label><input id="auditUsd" type="text" inputmode="decimal" placeholder="0">
+      <p class="hint">Standard price fills in; set 0 if it's included in the price.</p></div>
+  </div>
+
+  <label for="referral">Referral source</label>
+  <input id="referral" type="text" list="refs" placeholder="Who sent them (optional)">
+  <datalist id="refs"></datalist>
+
+  <label for="note">Personal note (shows on the invoice and in the questionnaire email)</label>
+  <textarea id="note" maxlength="500" placeholder="Optional"></textarea>
+
+  <div class="row">
+    <div><label for="due">Invoice due in (days)</label><input id="due" type="number" min="1" max="30" value="7"></div>
+  </div>
+
+  <h2>Properties <span style="text-transform:none;letter-spacing:0;font-weight:400">— optional, pre-fills the questionnaire</span></h2>
+  <div id="props"></div>
+  <label class="check"><input type="checkbox" id="plain"><span>Send the questionnaire plain (no pre-fill), and send every link as soon as the invoice is paid even without an address</span></label>
+
+  <p class="total" id="total"></p>
+  <button type="submit" class="wide" id="go">Send invoice</button>
+  <p class="msg" id="msg" role="status" aria-live="polite"></p>
+</form>
+
+<div id="recentWrap" class="hide">
+  <h2>Recent quotes <button class="ghost small" id="refresh" type="button">Refresh</button></h2>
+  <div id="recent"></div>
+</div>
+
+<datalist id="ptypes"><option>Single-Family</option><option>Duplex</option><option>Triplex</option><option>Fourplex</option><option>Condo / Townhome</option></datalist>
+<datalist id="utypes"><option>Short-Term Rental (STR)</option><option>Long-Term Rental</option></datalist>
+
+<script>
+(function(){
+  var EP_KEY = 'rcs_qd_endpoint';
+  var $ = function(id){ return document.getElementById(id); };
+  var secret = '', meta = null;
+  try { $('ep').value = localStorage.getItem(EP_KEY) || localStorage.getItem('rcs_pa_endpoint') || ''; } catch (e) {}
+
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function say(el, t, k){ el.textContent = t; el.className = 'msg' + (k ? ' ' + k : ''); }
+  function money(n){ return '$' + Number(n).toLocaleString('en-US', { maximumFractionDigits: 2 }); }
+  function dollars(v){ var s = String(v || '').replace(/[$,\s]/g, ''); return /^\d+(\.\d{1,2})?$/.test(s) ? Number(s) : NaN; }
+
+  /* text/plain on purpose: any other content type triggers a CORS preflight, which Apps Script does not answer. */
+  function call(payload){
+    var url = $('ep').value.trim();
+    if (!/^https:\/\/script\.google\.com\/macros\/s\/[^\/]+\/exec$/.test(url)) return Promise.reject(new Error('That endpoint is not a web app /exec URL.'));
+    if (location.protocol !== 'https:' && location.hostname !== 'localhost') return Promise.reject(new Error('Refusing to send a passphrase over an insecure connection.'));
+    payload.secret = secret;
+    return fetch(url, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) })
+      .then(function(r){ return r.text(); })
+      .then(function(t){ var d; try { d = JSON.parse(t); } catch (e) { throw new Error('The bridge replied with something that was not JSON.'); } return d; });
+  }
+
+  $('connect').addEventListener('click', function(){
+    secret = $('secret').value;
+    try { localStorage.setItem(EP_KEY, $('ep').value.trim()); } catch (e) {}
+    say($('setupMsg'), 'Connecting…');
+    call({ action: 'quoteMeta' }).then(function(d){
+      if (!d.ok) throw new Error(d.error || 'Refused.');
+      meta = d;
+      $('by').innerHTML = d.quoters.map(function(q){ return '<option value="' + esc(q.email) + '">' + esc(q.name) + ' — ' + esc(q.email) + '</option>'; }).join('');
+      $('refs').innerHTML = (d.referrals || []).map(function(r){ return '<option value="' + esc(r) + '">'; }).join('');
+      $('secret').value = '';
+      $('setup').classList.add('hide'); $('f').classList.remove('hide'); $('recentWrap').classList.remove('hide');
+      if (!d.stripe_ready) say($('msg'), 'Stripe is not connected yet (STRIPE_INVOICE_KEY) — quotes will be refused until it is.', 'warn');
+      drawProps(); recalc(); loadRecent();
+    }).catch(function(e){ secret = ''; say($('setupMsg'), e.message, 'err'); });
+  });
+
+  function propBlock(i){
+    return '<div class="box" data-i="' + i + '"><strong style="font-size:.8rem">Study ' + (i + 1) + '</strong>' +
+      '<label>Street address</label><input data-k="address_line1" type="text" placeholder="Leave blank if not known yet">' +
+      '<div class="row"><div><label>City</label><input data-k="city" type="text"></div><div><label>State</label><input data-k="state" type="text" maxlength="2"></div><div><label>ZIP</label><input data-k="zip" type="text" inputmode="numeric"></div></div>' +
+      '<div class="row"><div><label>Property type</label><input data-k="property_type" list="ptypes"></div><div><label>How it\'s used</label><input data-k="use_type" list="utypes"></div><div><label>Purchase price</label><input data-k="purchase_price" inputmode="decimal"></div></div>' +
+      '<p class="hint">Type and use pre-fill only when they match the form\'s wording exactly.</p></div>';
+  }
+  function drawProps(){
+    var n = Math.max(1, Math.min(20, parseInt($('studies').value, 10) || 1));
+    var have = $('props').querySelectorAll('[data-i]').length;
+    if (n > have) { for (var i = have; i < n; i++) $('props').insertAdjacentHTML('beforeend', propBlock(i)); }
+    else { var blocks = $('props').querySelectorAll('[data-i]'); for (var j = blocks.length - 1; j >= n; j--) blocks[j].remove(); }
+  }
+  function recalc(){
+    var n = Math.max(1, parseInt($('studies').value, 10) || 1), a = dollars($('amount').value);
+    var aud = $('audit').value === 'None' ? 0 : (dollars($('auditUsd').value) || 0);
+    if (isNaN(a)) { $('total').textContent = ''; return; }
+    var total = ($('mode').value === 'per' ? a * n : a) + aud * n;
+    $('total').textContent = 'Invoice total: ' + money(total) + (n > 1 ? ' for ' + n + ' studies' : '');
+  }
+  $('studies').addEventListener('input', function(){ drawProps(); recalc(); });
+  ['amount', 'mode', 'auditUsd'].forEach(function(id){ $(id).addEventListener('input', recalc); });
+  $('audit').addEventListener('change', function(){
+    $('auditUsd').value = meta && $('audit').value !== 'None' ? meta.audit_prices[$('audit').value] : '';
+    recalc();
+  });
+
+  function collect(){
+    return Array.prototype.map.call($('props').querySelectorAll('[data-i]'), function(b){
+      var o = {}; b.querySelectorAll('[data-k]').forEach(function(x){ o[x.getAttribute('data-k')] = x.value.trim(); }); return o;
+    });
+  }
+
+  $('f').addEventListener('submit', function(e){
+    e.preventDefault();
+    send(false);
+  });
+  function send(confirmLarge){
+    var body = { action: 'quoteCreate', quoted_by: $('by').value, studies: parseInt($('studies').value, 10) || 1, price_mode: $('mode').value,
+      amount: $('amount').value, audit_support: $('audit').value, audit_usd: $('auditUsd').value, referral: $('referral').value,
+      note: $('note').value, days_until_due: $('due').value, send_plain: $('plain').checked, confirm_large: confirmLarge,
+      client: { first: $('first').value, last: $('last').value, email: $('email').value, phone: $('phone').value }, properties: collect() };
+    $('go').disabled = true; say($('msg'), 'Creating the invoice in Stripe…');
+    call(body).then(function(d){
+      $('go').disabled = false;
+      if (!d.ok && d.needs_confirm) {
+        if (window.confirm(d.error)) return send(true);
+        return say($('msg'), 'Not sent.', 'warn');
+      }
+      if (!d.ok) throw new Error(d.error || 'Refused.');
+      say($('msg'), 'Sent: ' + d.quote_id + ' · ' + d.total + ' · ' + d.credits.length + ' stud' + (d.credits.length > 1 ? 'ies' : 'y') +
+        (d.warning ? ' — ' + d.warning : '') + '. Stripe has emailed the invoice.', d.warning ? 'warn' : 'ok');
+      $('f').reset(); $('studies').value = 1; $('due').value = 7; $('props').innerHTML = ''; drawProps(); recalc(); loadRecent();
+    }).catch(function(err){ $('go').disabled = false; say($('msg'), String(err.message || err), 'err'); });
+  }
+
+  function loadRecent(){
+    call({ action: 'quoteList' }).then(function(d){
+      if (!d.ok) throw new Error(d.error);
+      $('recent').innerHTML = d.quotes.length ? d.quotes.map(drawQuote).join('') : '<p class="hint">No quotes yet.</p>';
+    }).catch(function(e){ $('recent').innerHTML = '<p class="msg err">' + esc(e.message) + '</p>'; });
+  }
+  function drawQuote(q){
+    return '<div class="q"><div class="h"><span>' + esc(q.client || q.email) + ' · ' + esc(q.total) + (q.studies > 1 ? ' · ' + q.studies + '-pack' : '') + '</span>' +
+      '<span class="chip ' + esc(q.status) + '">' + esc(q.status) + '</span></div>' +
+      '<div class="hint">' + esc(q.quote_id) + ' · ' + esc(String(q.created_at).slice(0, 10)) + ' · ' + esc(q.quoted_by) +
+      (q.invoice_url ? ' · <a href="' + esc(q.invoice_url) + '" target="_blank" rel="noopener">invoice</a>' : '') + (q.error ? ' · ' + esc(q.error) : '') + '</div>' +
+      q.credits.map(drawCredit).join('') + '</div>';
+  }
+  function drawCredit(c){
+    var editable = c.status === 'unpaid' || c.status === 'open' || c.status === 'sent';
+    var fields = editable ? '<div class="row" data-c="' + esc(c.credit_id) + '">' +
+      '<div><input data-k="address_line1" placeholder="Street" value="' + esc(c.address_line1) + '"></div>' +
+      '<div><input data-k="city" placeholder="City" value="' + esc(c.city) + '"></div>' +
+      '<div style="max-width:70px"><input data-k="state" placeholder="ST" maxlength="2" value="' + esc(c.state) + '"></div>' +
+      '<div style="max-width:100px"><input data-k="zip" placeholder="ZIP" value="' + esc(c.zip) + '"></div></div>' +
+      '<button class="small" data-act="creditSend" data-id="' + esc(c.credit_id) + '">' + (c.status === 'sent' ? 'Resend' : 'Save & send') + '</button>' +
+      '<button class="small ghost" data-act="creditSendPlain" data-id="' + esc(c.credit_id) + '">Send plain</button>' +
+      '<button class="small ghost" data-act="creditVoid" data-id="' + esc(c.credit_id) + '">Void</button>' : '';
+    return '<div class="credit"><div><code>' + esc(c.credit_id) + '</code> ' + (c.of > 1 ? c.n + ' of ' + c.of + ' ' : '') +
+      '<span class="chip ' + esc(c.status) + '">' + esc(c.status) + '</span> ' + esc(c.address || '(no property yet)') +
+      (c.step1_sid ? ' · Step-1 ' + esc(c.step1_sid) : '') + (c.link_sent_at ? ' · link ' + esc(String(c.link_sent_at).slice(0, 10)) : '') + '</div>' + fields + '</div>';
+  }
+  $('recent').addEventListener('click', function(e){
+    var b = e.target.closest('button[data-act]'); if (!b) return;
+    var id = b.getAttribute('data-id'), act = b.getAttribute('data-act');
+    if (act === 'creditVoid' && !window.confirm('Void ' + id + '? A link already sent for it will be held.')) return;
+    var body = { action: act === 'creditSendPlain' ? 'creditSend' : act, credit_id: id };
+    if (act === 'creditSendPlain') body.send_plain = true;
+    if (act === 'creditSend') {
+      var row = $('recent').querySelector('[data-c="' + id + '"]'); body.property = {};
+      if (row) row.querySelectorAll('[data-k]').forEach(function(x){ body.property[x.getAttribute('data-k')] = x.value.trim(); });
+    }
+    b.disabled = true;
+    call(body).then(function(d){
+      if (!d.ok) throw new Error(d.error || 'Refused.');
+      if (d.note) window.alert(d.note);
+      loadRecent();
+    }).catch(function(err){ b.disabled = false; window.alert(err.message); });
+  });
+  $('refresh').addEventListener('click', loadRecent);
+})();
+</script>
+</body>
+</html>
