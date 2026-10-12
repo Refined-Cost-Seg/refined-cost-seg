@@ -31,8 +31,10 @@ The firm exists to make defensible, audit-ready cost segregation accessible to t
 - [Milwaukee & southeast Wisconsin](https://www.refinedcostseg.com/milwaukee-cost-segregation): local service page. In-person walk-throughs and CPA meetings by appointment in Milwaukee, Waukesha, Ozaukee, Washington, Racine, Kenosha, Walworth and Jefferson counties; Wisconsin bonus-depreciation decoupling explained.
 - [The Journal](https://www.refinedcostseg.com/journal/): essays on residential cost segregation, bonus depreciation, and STR tax strategy.
 
-## Journal essays (50 published; full archive at https://www.refinedcostseg.com/journal/)
+## Journal essays (52 published; full archive at https://www.refinedcostseg.com/journal/)
 
+- [Selling a rental at a loss: do you still owe depreciation recapture?](https://www.refinedcostseg.com/journal/depreciation-recapture-selling-rental-at-a-loss.html): Sold a rental for less than you paid after a cost segregation study? You can still owe Section 1245 recapture. Here is where the line sits, with the math.
+- [Selling a rental after cost segregation: December or January closing?](https://www.refinedcostseg.com/journal/selling-rental-december-vs-january-closing.html): Closing a rental sale in December or January after a cost segregation study? How the year of sale changes your Section 1245 recapture bill.
 - [Selling an STR after cost segregation: recapture math](https://www.refinedcostseg.com/journal/selling-str-after-cost-segregation-recapture.html): Sell a short-term rental two years after a cost segregation study and recapture arrives fast. The real math on a $620K STR, and when it still wins.
 - [Installment sale recapture after cost segregation](https://www.refinedcostseg.com/journal/installment-sale-rental-cost-segregation-recapture.html): Seller-finance a rental after a cost segregation study and Section 1245 recapture is all due in the year of sale. A worked $585,000 example.
 - [Is cost segregation worth it if you sell in 3 years?](https://www.refinedcostseg.com/journal/cost-segregation-sell-within-3-years.html): Selling a rental three years after a cost segregation study? Here is the recapture math on a $520K example, and when a short hold still pencils.
