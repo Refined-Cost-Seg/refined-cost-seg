@@ -296,6 +296,13 @@
   status = 200
   force = false
 
+# 2026-10-15 buyer-intent landing page (S4 target): two doors, short call-back form + Order now.
+[[redirects]]
+  from = "/go/estimate"
+  to = "/go-estimate.html"
+  status = 200
+  force = false
+
 [[headers]]
   for = "/go/*"
   [headers.values]
@@ -303,5 +310,11 @@
 
 [[headers]]
   for = "/go-*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# Sample report pages and PDF shown on /go/estimate: unlisted, not in sitemap.
+[[headers]]
+  for = "/samples/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
