@@ -48,10 +48,62 @@ ul.tick li:before{content:"";position:absolute;left:0;top:8px;width:9px;height:9
 section{padding:38px 0;border-top:1px solid var(--line)}
 h2{font-size:25px;margin-bottom:8px}
 .pages{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
-@media(max-width:640px){.pages{grid-template-columns:1fr 1fr}.pages figure:last-child{display:none}}
+@media(max-width:760px){.pages{display:flex;overflow-x:auto;gap:14px;scroll-snap-type:x mandatory;padding-bottom:8px;-webkit-overflow-scrolling:touch}.pages figure{flex:0 0 280px;scroll-snap-align:start}}
 .pages figure{margin:0}
-.pages img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:6px;box-shadow:0 3px 12px rgba(27,42,62,.10);background:#fff}
 .pages figcaption{font-size:13.5px;color:var(--muted);margin-top:7px}
+/* Miniature report pages, drawn in the report's own palette */
+.pg{--rnavy:#16293B;--rnavyd:#0E1F2D;--rolive:#61723C;--rolivet:#ECEFE3;--rclay:#AE6E45;--rink:#1C2733;--rmuted:#6B7480;--rline:rgba(22,41,59,.15);
+ aspect-ratio:8.5/11;background:#FCFBF8;border:1px solid var(--line);border-radius:6px;box-shadow:0 3px 12px rgba(27,42,62,.10);overflow:hidden;position:relative;font-size:7.5px;line-height:1.4;color:var(--rink);container-type:inline-size}
+.pg *{box-sizing:border-box}
+.pg .bar{height:4%;background:var(--rnavy)}
+.pg .in{padding:7% 8%}
+.pg .k{font-size:5px;letter-spacing:.3em;text-transform:uppercase;color:var(--rolive);font-weight:600}
+.pg .t{font-family:Fraunces,Georgia,serif;font-weight:600;color:var(--rnavyd);font-size:17px;line-height:1.05;margin-top:4px}
+.pg .sub{font-family:Fraunces,Georgia,serif;font-style:italic;color:#4C5A2F;font-size:8px;margin-top:3px}
+.pg .tags{display:flex;gap:3px;margin-top:6px;flex-wrap:wrap}
+.pg .tg{font-size:4.2px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:2px 4px;border-radius:2px;border:1px solid var(--rline);color:#46596B}
+.pg .tg.f{background:var(--rnavy);color:#fff;border-color:var(--rnavy)} .pg .tg.o{background:var(--rolivet);color:#4C5A2F;border-color:transparent} .pg .tg.c{background:var(--rclay);color:#fff;border-color:var(--rclay)}
+.pg .meta{position:absolute;left:8%;right:8%;bottom:9%;display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--rline);padding-top:4px}
+.pg .meta div+div{border-left:1px solid var(--rline);padding-left:5px}
+.pg .meta b{display:block;font-family:Fraunces,Georgia,serif;font-size:7.5px;color:var(--rnavyd);margin-top:1px}
+.pg .h2{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--rnavy);padding-bottom:3px;font-family:Fraunces,Georgia,serif;font-weight:600;font-size:10px;color:var(--rnavyd)}
+.pg .h2 span{font-size:6px;color:var(--rolive)}
+.pg .lead{font-family:Fraunces,Georgia,serif;font-size:6.2px;line-height:1.5;color:#2C3742;margin-top:5px}
+.pg .lead i{color:#4C5A2F}
+.pg .dash{display:grid;grid-template-columns:1fr 1.1fr;gap:6px;align-items:center;margin-top:6px}
+.pg .lg{display:grid;grid-template-columns:5px 1fr auto auto;gap:3px;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--rline);font-size:5.2px}
+.pg .lg:first-child{border-top:1px solid var(--rline)}
+.pg .sw{width:4px;height:4px;border-radius:1px;align-self:center}
+.pg .lg b{font-weight:600} .pg .lg small{display:block;color:var(--rmuted);font-size:4.2px}
+.pg .lg .pc{font-family:Fraunces,Georgia,serif;color:#4C5A2F;font-weight:600} .pg .lg .am{font-family:Fraunces,Georgia,serif;font-weight:700;color:var(--rnavyd);font-size:6px}
+.pg .hl{background:var(--rnavy);color:#EAF0F4;border-radius:2px;margin-top:7px;padding:6px 8px;display:flex;align-items:center;gap:7px;font-size:5px;line-height:1.5}
+.pg .hl b{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:15px;color:#fff;letter-spacing:-.02em;white-space:nowrap}
+.pg .hl i{font-style:normal;color:#8C9A6C}
+.pg .strip{display:grid;grid-template-columns:repeat(4,1fr);margin-top:6px;border:1px solid var(--rline);border-radius:2px;overflow:hidden}
+.pg .strip div{padding:4px 5px;font-size:4px;letter-spacing:.1em;text-transform:uppercase;color:var(--rmuted);font-weight:600}
+.pg .strip div:nth-child(even){background:#F1F2EC}
+.pg .strip b{display:block;font-family:Fraunces,Georgia,serif;font-size:7px;color:var(--rnavyd);letter-spacing:0;text-transform:none;margin-top:2px}
+.pg .alloc{display:flex;height:8px;border-radius:2px;overflow:hidden;margin-top:6px}
+.pg .alloc span{display:flex;align-items:center;padding-left:3px;color:#fff;font-size:4px;font-weight:600}
+.pg .ic{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:6px}
+.pg .ic div{border:1px solid var(--rline);border-radius:2px;padding:5px 6px}
+.pg .ic div.d{background:var(--rnavy);border-color:var(--rnavy);color:#EAF0F4}
+.pg .ic b{display:block;font-family:Fraunces,Georgia,serif;font-weight:900;font-size:12px;color:var(--rnavyd);margin:2px 0}
+.pg .ic .d b{color:#fff}
+.pg .ic small{display:block;font-size:4.2px;color:var(--rmuted);line-height:1.4} .pg .ic .d small{color:#AEBEC9}
+.pg table{width:100%;border-collapse:collapse;margin-top:6px;font-size:5px}
+.pg th{font-size:4px;letter-spacing:.12em;text-transform:uppercase;color:var(--rmuted);text-align:right;padding:0 0 2px;border-bottom:1px solid var(--rnavy);font-weight:600}
+.pg th:first-child,.pg td:first-child{text-align:left}
+.pg td{padding:3px 0;border-bottom:1px solid var(--rline);text-align:right}
+.pg tr.hi td{background:var(--rolivet)}
+.pg td.h{font-family:Fraunces,Georgia,serif;font-weight:700;color:var(--rnavyd);font-size:6px}
+.pg .cmp{display:flex;gap:4px;margin-top:7px;align-items:flex-end}
+.pg .cmp div{flex:1}
+.pg .cmp .lab{font-size:4px;letter-spacing:.08em;text-transform:uppercase;color:var(--rmuted);font-weight:600;margin-bottom:2px}
+.pg .cmp .tr{height:22px;background:#F1F2EC;border-radius:2px;position:relative;overflow:hidden}
+.pg .cmp .tr i{position:absolute;left:0;right:0;bottom:0}
+.pg .cmp .am{font-family:Fraunces,Georgia,serif;font-weight:700;font-size:6px;color:var(--rnavyd);margin-top:2px}
+.pg .stamp{position:absolute;right:6%;top:34%;transform:rotate(-14deg);font-family:Fraunces,Georgia,serif;font-weight:900;font-size:16px;letter-spacing:.16em;color:rgba(174,110,69,.16);border:1.5px solid rgba(174,110,69,.16);padding:1px 7px;border-radius:3px}
 .two{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:start}
 @media(max-width:760px){.two{grid-template-columns:1fr}}
 .panel{background:#fff;border:1px solid var(--line);border-radius:10px;padding:17px 19px}
@@ -90,7 +142,7 @@ footer p{margin:0 0 9px;max-width:78ch}
     <div class="door primary" id="estimate">
       <i>Option 1 · Free</i>
       <h2>Get your estimate and the full sample report</h2>
-      <p>Five quick questions. We call within one business day with an estimate for your property, and the 13-page sample lands in your inbox right away.</p>
+      <p>Five quick questions. We call within one business day with an estimate for your property and send you the full 13-page sample.</p>
       <div class="frame" id="frame"><noscript><iframe src="https://form.jotform.com/262876778805073" title="Free estimate and sample report request"></iframe></noscript></div>
     </div>
     <div class="door" id="order">
@@ -111,11 +163,54 @@ footer p{margin:0 0 9px;max-width:78ch}
 
 <section><div class="wrap">
   <h2>What a finished study looks like</h2>
-  <p style="color:var(--muted);max-width:64ch">Pages from a real sample study of a lakefront short-term rental: the results summary, the first-year illustration and the asset detail. The full 13-page sample is sent with your estimate.</p>
+  <p style="color:var(--muted);max-width:64ch">Three of the thirteen pages from a sample study of a lakefront short-term rental, drawn from the report itself. The sample describes a different property; your numbers will differ. The full sample comes with your estimate.</p>
   <div class="pages">
-    <figure><img src="/samples/sample-p1.jpg" alt="Sample report cover page" loading="lazy" width="520" height="673"><figcaption>Cover: property, basis and review status</figcaption></figure>
-    <figure><img src="/samples/sample-p2.jpg" alt="Sample report results page showing the share of basis reclassified to 5- and 15-year property" loading="lazy" width="520" height="673"><figcaption>Results at a glance: what moved, and where</figcaption></figure>
-    <figure><img src="/samples/sample-p5.jpg" alt="Sample report property page with the basis reconciliation" loading="lazy" width="520" height="673"><figcaption>The property and the basis reconciliation</figcaption></figure>
+    <figure><div class="pg" role="img" aria-label="Sample report cover: Northwoods Lake Cabin, a lakefront short-term rental, depreciable basis of five hundred twenty-one thousand dollars">
+      <div class="bar"></div>
+      <div class="in" style="padding-top:12%">
+        <div class="k">Cost Segregation Study &nbsp;·&nbsp; Sample Report</div>
+        <div class="t">Northwoods Lake Cabin</div>
+        <div class="sub">“Sample: lakefront short-term rental”</div>
+        <div style="font-size:5px;color:var(--rmuted);margin-top:4px">Oneida County, Wisconsin &nbsp;·&nbsp; Lakefront cabin, 3 bedrooms, 2 baths</div>
+        <div class="tags"><span class="tg f">Residential · 1-4 unit</span><span class="tg o">Short-term rental</span><span class="tg">ATG-aligned</span><span class="tg">QC-reviewed</span><span class="tg c">Sample</span></div>
+      </div>
+      <div class="stamp">SAMPLE</div>
+      <div class="meta"><div><span class="k" style="letter-spacing:.15em">Prepared for</span><b>Sample Client</b></div><div><span class="k" style="letter-spacing:.15em">Report date</span><b>October 2026</b></div><div><span class="k" style="letter-spacing:.15em">Depreciable basis</span><b>$521,857</b></div></div>
+    </div><figcaption>Cover: property, basis and review status</figcaption></figure>
+
+    <figure><div class="pg" role="img" aria-label="Sample results page: 16.9 percent of basis, eighty-eight thousand dollars, reclassified into 5- and 15-year property">
+      <div class="in">
+        <div class="h2">Results at a Glance <span>01</span></div>
+        <p class="lead">Through a documentary analysis of the subject property, we reclassified <i>$88,350</i> of the depreciable basis, 16.9%, into short-life 5- and 15-year property.</p>
+        <div class="dash">
+          <svg viewBox="0 0 100 100" style="width:100%;height:auto"><circle cx="50" cy="50" r="38" fill="none" stroke="#F1F2EC" stroke-width="12"/><g transform="rotate(-90 50 50)" fill="none" stroke-width="12"><circle cx="50" cy="50" r="38" stroke="#16293B" stroke-dasharray="198.4 238.8"/><circle cx="50" cy="50" r="38" stroke="#61723C" stroke-dasharray="21.7 238.8" stroke-dashoffset="-198.4"/><circle cx="50" cy="50" r="38" stroke="#AE6E45" stroke-dasharray="18.7 238.8" stroke-dashoffset="-220.1"/></g><text x="50" y="49" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-weight="900" font-size="17" fill="#0E1F2D">16.9%</text><text x="50" y="59" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-weight="600" font-size="4" letter-spacing="1" fill="#61723C">RECLASSIFIED</text></svg>
+          <div>
+            <div class="lg"><span class="sw" style="background:#16293B"></span><span><b>39-Year, Straight-Line</b><small>Building structure · §1250</small></span><span class="pc">83.1%</span><span class="am">$433,506.61</span></div>
+            <div class="lg"><span class="sw" style="background:#61723C"></span><span><b>15-Year, 150% DB</b><small>Site / land improvements</small></span><span class="pc">9.1%</span><span class="am">$47,300.00</span></div>
+            <div class="lg"><span class="sw" style="background:#AE6E45"></span><span><b>5-Year, 200% DB</b><small>Personal property · §1245</small></span><span class="pc">7.9%</span><span class="am">$41,050.00</span></div>
+          </div>
+        </div>
+        <div class="hl"><b>$88,350</b><span>reclassified into <i>short-life property</i>: 16.9% of the $521,857 depreciable basis now recovers over 5- and 15-year schedules rather than 39 years.</span></div>
+        <div class="strip"><div>Purchase price<b>$728,000</b></div><div>Land<b>$293,548</b></div><div>Improvements<b>$87,405</b></div><div>Depreciable basis<b>$521,857</b></div></div>
+        <div class="k" style="margin-top:6px">Allocation of depreciable basis</div>
+        <div class="alloc"><span style="flex:83.1;background:#16293B">83.1%</span><span style="flex:9.1;background:#61723C">9.1%</span><span style="flex:7.9;background:#AE6E45">7.9%</span></div>
+      </div>
+    </div><figcaption>Results at a glance: what moved, and where</figcaption></figure>
+
+    <figure><div class="pg" role="img" aria-label="Sample first-year impact page: illustrative first-year savings at three marginal rates and the first-year acceleration">
+      <div class="in">
+        <div class="h2">Estimated First-Year Impact <span>02</span></div>
+        <p class="lead">Acquired under a contract signed after January 19, 2025 and placed in service in 2026, so the 5- and 15-year property qualifies for 100% bonus depreciation in year one.</p>
+        <div class="ic"><div><span class="k" style="letter-spacing:.15em">Basis reclassified</span><b>$88,350</b><small>5- and 15-year property eligible for 100% bonus in year one (16.9% of basis).</small></div><div class="d"><span class="k" style="letter-spacing:.15em;color:#8C9A6C">Illustrative yr-1 savings</span><b>$28,181</b><small>At a 32% marginal rate · acceleration × rate · illustrative only.</small></div></div>
+        <table><thead><tr><th>Scenario</th><th>Reclassified</th><th>Rate</th><th>Yr-1 savings</th></tr></thead><tbody>
+          <tr><td>Conservative</td><td>$88,350</td><td>24%</td><td class="h">$21,136</td></tr>
+          <tr class="hi"><td>Mid · typical investor</td><td>$88,350</td><td>32%</td><td class="h">$28,181</td></tr>
+          <tr><td>Top bracket</td><td>$88,350</td><td>37%</td><td class="h">$32,585</td></tr>
+        </tbody></table>
+        <div class="k" style="margin-top:7px">First-year depreciation, whole property</div>
+        <div class="cmp"><div><div class="lab">With this study</div><div class="tr"><i style="height:100%;background:#61723C"></i></div><div class="am">$89,739</div></div><div><div class="lab">Without a study</div><div class="tr"><i style="height:3%;background:#46596B"></i></div><div class="am">$1,673</div></div><div style="flex:1.3"><div class="lab">First-year acceleration</div><div class="tr" style="background:#16293B;display:flex;align-items:center;justify-content:center"><span style="font-family:Fraunces,Georgia,serif;font-weight:900;font-size:9px;color:#fff">$88,067</span></div><div class="am" style="color:#4C5A2F">additional deduction, year one</div></div></div>
+      </div>
+    </div><figcaption>First-year impact: the illustration your CPA checks</figcaption></figure>
   </div>
 </div></section>
 
