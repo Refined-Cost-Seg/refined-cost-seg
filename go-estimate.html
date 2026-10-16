@@ -125,6 +125,8 @@ footer p{margin:0 0 9px;max-width:78ch}
 <!-- Google tag (gtag.js) — ads landing pages only -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18476695308"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-18476695308',{allow_enhanced_conversions:false});</script>
+<!-- Microsoft Advertising UET tag (ti 343279456): ads landing pages only -->
+<script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"343279456",enableAutoSpaTracking:true};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
 </head>
 <body>
 <header><div class="wrap">
@@ -261,6 +263,9 @@ footer p{margin:0 0 9px;max-width:78ch}
   var MAP = {gclid:'textbox8', utm_source:'textbox9', utm_medium:'textbox10', utm_campaign:'textbox11', utm_term:'textbox12'};
   var params = new URLSearchParams(qs), pre = [];
   for (var k in MAP) { var v = params.get(k); if (v) pre.push(MAP[k] + '=' + encodeURIComponent(v)); }
+  // Microsoft Ads click id: no field of its own, so it rides in the gclid field (textbox8) only when gclid is absent,
+  // prefixed so it can never be mistaken for a Google click id.
+  if (!params.get('gclid') && params.get('msclkid')) pre.push('textbox8=' + encodeURIComponent('msclkid:' + params.get('msclkid')));
   pre.push('textbox13=' + encodeURIComponent('/go/estimate'));
   var src = 'https://form.jotform.com/' + FORM + '?' + pre.join('&');
   var frame = document.getElementById('frame'), loaded = false;
@@ -286,6 +291,7 @@ footer p{margin:0 0 9px;max-width:78ch}
     if(poll){ clearInterval(poll); poll = null; }
     if(window.gtag){gtag('event','conversion',{send_to:'AW-18476695308/Zsm5CKOipokdEIz-r-pE'});}
     if(window.plausible){plausible('Form Start',{props:{path:'/go/estimate'}});}
+    window.uetq = window.uetq || []; window.uetq.push('event', 'form_start', {});
   }
   window.addEventListener('blur', function(){ setTimeout(function(){ if(inForm()) started_(); }, 0); });
   poll = setInterval(function(){ if(inForm()) started_(); }, 500);
