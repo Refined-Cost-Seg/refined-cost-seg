@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Refer a friend: they get 10% off, you get $250 | Refined Cost Segregation</title>
+<meta name="description" content="Know someone with a rental? Share your Refined Cost Segregation referral link: they get 10% off their study and you earn $250 when it is delivered.">
+<link rel="canonical" href="https://www.refinedcostseg.com/refer">
+<meta property="og:title" content="Refer a friend: they get 10% off, you get $250 | Refined Cost Segregation">
+<meta property="og:description" content="Know someone with a rental? Share your Refined Cost Segregation referral link: they get 10% off their study and you earn $250 when it is delivered.">
+<meta property="og:image" content="https://www.refinedcostseg.com/og-image.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B2A3E; --navy-2:#12203046; --paper:#FAF9F5; --ink:#25303f;
+    --green:#5FA83D; --green-lt:#7FBF4D; --green-br:#9FD46B; --olive:#7C9050;
+    --muted:#5b6470; --faint:#98a0ab; --green-text:#4F7A28; --line:rgba(27,42,62,.12);
+    --tint:#EFF2E8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.62;-webkit-font-smoothing:antialiased}
+  .container{max-width:1120px;margin:0 auto;padding:0 clamp(1.2rem,4vw,2.5rem)}
+  h1,h2,h3{font-family:'Bricolage Grotesque',-apple-system,'Segoe UI',sans-serif;color:var(--navy);
+    line-height:1.06;letter-spacing:-.015em;font-weight:700}
+  h1{font-size:clamp(2.6rem,6.4vw,4.6rem)}
+  h2{font-size:clamp(1.7rem,3.6vw,2.55rem);letter-spacing:-.01em}
+  h3{font-size:1.06rem;letter-spacing:-.005em}
+  p{color:var(--ink)}
+  .lead{font-size:clamp(1.02rem,1.5vw,1.16rem);color:#3a4656;max-width:34rem}
+  a{color:inherit}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--navy);color:var(--paper);
+    font-weight:600;padding:.85rem 1.5rem;border-radius:999px;text-decoration:none;font-size:.98rem;
+    border:1.5px solid var(--navy);transition:transform .15s ease,box-shadow .15s ease;white-space:nowrap}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 12px 26px -16px rgba(27,42,62,.7)}
+  .btn-outline{background:transparent;color:var(--navy);border:1.5px solid rgba(27,42,62,.28)}
+  .btn-outline:hover{box-shadow:none;background:rgba(27,42,62,.04)}
+  .btn-green{background:var(--green);border-color:var(--green);color:#0f2213}
+  .btn-sm{padding:.58rem 1.05rem;font-size:.86rem}
+  .eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-family:'JetBrains Mono',monospace;
+    font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-text);font-weight:600}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--green);display:inline-block}
+
+  /* ---------- header ---------- */
+  .site-head{position:sticky;top:0;z-index:20;background:rgba(250,249,245,.86);
+    backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+  .head-in{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
+  .brand img{height:42px;width:auto;display:block}
+  .head-right{display:flex;align-items:center}
+  .ptn-partner{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;
+    text-transform:uppercase;color:#5F7239;align-self:center;margin-right:1.1rem}
+  @media (max-width:620px){.ptn-partner{display:none}}
+
+  /* ---------- hero ---------- */
+  .ptn-hero{padding:clamp(2.4rem,5vw,4.2rem) 0 clamp(2rem,4vw,3rem)}
+  .ptn-herogrid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  @media (max-width:900px){.ptn-herogrid{grid-template-columns:1fr}}
+  .ptn-hero .eyebrow{margin-bottom:1.3rem}
+  .ptn-hero h1{margin-bottom:1.25rem}
+  .ptn-hero .lead{margin-bottom:.5rem}
+  .offer-card{margin:2rem 0 1.75rem;padding:1.4rem 1.6rem;background:var(--navy);border-radius:16px;
+    color:var(--paper);display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem}
+  .offer-card .pct{font-family:'Bricolage Grotesque',sans-serif;font-size:2.5rem;line-height:1;
+    font-weight:700;color:var(--green-br);display:flex;align-items:baseline;gap:.35rem}
+  .offer-card .pct span{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;
+    text-transform:uppercase;color:#C7D2AE}
+  .offer-card .meta{font-size:.9rem;color:#C7D2AE}
+  .offer-card .now{font-family:'Bricolage Grotesque',sans-serif;font-size:1.25rem;font-weight:600}
+  .code-chip{margin-left:auto;display:inline-flex;align-items:center;gap:.5rem;font-family:'JetBrains Mono',monospace;
+    font-size:.82rem;font-weight:600;background:rgba(127,191,77,.15);border:1px dashed var(--green-lt);
+    padding:.55rem .8rem;border-radius:9px}
+  .code-chip b{color:var(--green-br);letter-spacing:.05em}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+  .ptn-trust{display:flex;flex-wrap:wrap;gap:.55rem 1.5rem;margin-top:2rem;font-family:'JetBrains Mono',monospace;
+    font-size:.72rem;letter-spacing:.02em;color:#5f6f5b}
+  .ptn-visual{display:flex;flex-direction:column;gap:1rem}
+  .ptn-photo{border-radius:18px;overflow:hidden;border:1px solid rgba(27,42,62,.10);
+    box-shadow:0 18px 44px -26px rgba(27,42,62,.55)}
+  .ptn-photo img{display:block;width:100%;height:auto}
+  .ptn-partner-badge{display:flex;align-items:center;gap:1.15rem;background:#fff;border:1px solid var(--line);
+    border-radius:14px;padding:1rem 1.25rem;box-shadow:0 10px 26px -22px rgba(27,42,62,.5)}
+  .ptn-partner-badge .lbl{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);line-height:1.5;white-space:nowrap}
+  .ptn-partner-badge img{height:52px;width:auto;display:block}
+  .ptn-partner-badge .wordmark{font-family:'Bricolage Grotesque',sans-serif;font-size:1.15rem;
+    font-weight:700;color:var(--navy);letter-spacing:-.01em;line-height:1.2}
+
+  /* ---------- sections ---------- */
+  .section{padding:clamp(3rem,7vw,5.2rem) 0}
+  .section.tint{background:var(--tint);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .sec-head{max-width:44rem;margin-bottom:2.4rem}
+  .sec-head .eyebrow{margin-bottom:1rem}
+  .sec-head p{color:#46536a;margin-top:.9rem;font-size:1.02rem}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+  @media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.steps{grid-template-columns:1fr}}
+  .step{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:1.4rem 1.3rem;position:relative}
+  .section.tint .step{background:#fff}
+  .step .n{font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:600;color:var(--green-text);
+    letter-spacing:.1em}
+  .step h3{margin:.7rem 0 .45rem}
+  .step p{font-size:.9rem;color:#4a5768;line-height:1.55}
+  .step .when{margin-top:.85rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .whygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+  @media (max-width:860px){.whygrid{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.whygrid{grid-template-columns:1fr}}
+  .why{display:flex;gap:.85rem;align-items:flex-start;padding:.3rem .2rem}
+  .why .ck{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(95,168,61,.14);color:var(--green);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;margin-top:.1rem}
+  .why h3{font-size:.98rem;margin-bottom:.25rem}
+  .why p{font-size:.87rem;color:#4a5768;line-height:1.5}
+  .value-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(1.8rem,4vw,3.5rem);align-items:center}
+  @media (max-width:820px){.value-grid{grid-template-columns:1fr}}
+  .value-grid p{color:#3a4656;margin-top:1rem;font-size:1.02rem}
+  .stat{background:var(--navy);color:var(--paper);border-radius:18px;padding:1.8rem 1.7rem}
+  .stat .big{font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:700;color:var(--green-br);line-height:1}
+  .stat .lab{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+    color:#C7D2AE;margin-top:.6rem;line-height:1.6}
+  .stat .fine{font-size:.72rem;color:#9fb0c2;margin-top:1rem;line-height:1.5;font-family:-apple-system,sans-serif}
+  .faq{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem 2.6rem}
+  @media (max-width:760px){.faq{grid-template-columns:1fr}}
+  .qa h3{font-size:1rem;margin-bottom:.4rem}
+  .qa p{font-size:.9rem;color:#4a5768;line-height:1.55}
+  .ctaband{background:var(--navy);border-radius:22px;padding:clamp(2rem,4vw,3rem);
+    display:flex;flex-wrap:wrap;gap:1.4rem;align-items:center;justify-content:space-between}
+  .ctaband h2{color:var(--paper)}
+  .ctaband p{color:#C7D2AE;margin-top:.5rem;font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.04em}
+  .ctaband .btns{display:flex;flex-wrap:wrap;gap:.8rem}
+  .ctaband .btn-outline{color:var(--paper);border-color:rgba(250,249,245,.4)}
+  .ctaband .btn-outline:hover{background:rgba(250,249,245,.08)}
+
+  /* ---------- footer ---------- */
+  .ptn-foot{padding:2.5rem 0 3rem;border-top:1px solid var(--line);margin-top:1rem;
+    font-size:.82rem;color:var(--muted);line-height:1.65}
+  .skip-link{position:absolute;left:-9999px;top:0;z-index:99;background:var(--navy);color:var(--paper);padding:.7rem 1.2rem;border-radius:0 0 10px 0;font-weight:700;text-decoration:none}
+  .skip-link:focus{left:0}
+  a:focus-visible,.btn:focus-visible{outline:3px solid #35502A;outline-offset:2px}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+  .ptn-foot a{color:#5F7239;text-decoration:none}
+  .ptn-foot .fine{margin-top:1rem;font-size:.72rem;color:var(--muted)}
+
+  .signup{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(1rem,3vw,2rem);box-shadow:0 18px 44px -30px rgba(27,42,62,.45)}
+  .signup iframe{display:block;width:1px;min-width:100%;border:none;min-height:1300px}
+  .choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+  @media (max-width:860px){.choice-grid{grid-template-columns:1fr}}
+  .choice{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:1.4rem 1.3rem}
+  .section.tint .choice{background:#fff}
+  .choice .big{font-family:'Bricolage Grotesque',sans-serif;font-size:1.9rem;font-weight:700;color:var(--navy);line-height:1}
+  .choice .big small{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green-text);margin-left:.35rem}
+  .choice h3{margin:.8rem 0 .4rem}
+  .choice p{font-size:.9rem;color:#4a5768;line-height:1.55}
+  .offer-card .now small{display:block;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:.84rem;font-weight:400;color:#C7D2AE;margin-top:.2rem}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#ptn-main">Skip to main content</a>
+
+<header class="site-head">
+  <div class="container head-in">
+    <a class="brand" href="https://www.refinedcostseg.com/" aria-label="Refined Cost Segregation home">
+      <img src="https://www.refinedcostseg.com/assets/logo-mark.png" alt="Refined Cost Segregation">
+    </a>
+    <div class="head-right">
+      <span class="ptn-partner">Referral program</span>
+      <a class="btn btn-sm" href="#signup">Get my link &rarr;</a>
+    </div>
+  </div>
+</header>
+
+<main id="ptn-main">
+
+<section class="ptn-hero">
+  <div class="container ptn-herogrid">
+    <div class="ptn-hero-copy">
+      <span class="eyebrow"><span class="dot"></span> Referral program &nbsp;&middot;&nbsp; for our clients</span>
+      <h1>Liked your study? Pass it on.</h1>
+      <p class="lead">You've seen what a cost segregation study can do for a rental. If someone you know owns one,
+        send them your link: they get 10% off their study, and you earn $250 once theirs is delivered.</p>
+
+      <div class="offer-card">
+        <div class="pct">$250<span>per study</span></div>
+        <div class="offer-mid">
+          <div class="meta">For every new client you refer</div>
+          <div class="now">And 10% off for them<small>Paid about 30 days after their study is delivered</small></div>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a class="btn" href="#signup">Sign up and get my link &rarr;</a>
+        <a class="btn btn-outline" href="tel:+14142061948">Call 414-206-1948</a>
+      </div>
+
+      <div class="ptn-trust">
+        <span>&check; Sign up in about two minutes</span>
+        <span>&check; Your link arrives by email right away</span>
+        <span>&check; No limit on referrals</span>
+      </div>
+    </div>
+    <div class="ptn-visual">
+      <div class="stat">
+        <div class="big">$250</div>
+        <div class="lab">to you, per referred study<br>&middot; 10% off for them &middot;</div>
+        <div class="fine">Paid about 30 days after the referred study is delivered and paid in full. New clients only; not on a
+          property you own any part of. Full terms are on the sign-up form.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== HOW IT WORKS ==================== -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="dot"></span> How it works</span>
+      <h2>Three minutes now, $250 later.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>Sign up</h3>
+        <p>Your name, your email and an e-signature on the program terms. Nothing to mail, nothing to print.</p>
+        <div class="when">~2 minutes</div></div>
+      <div class="step"><div class="n">02</div><h3>Get your link</h3>
+        <p>We email your personal link and code within a few minutes. It works the moment it arrives.</p>
+        <div class="when">Right away</div></div>
+      <div class="step"><div class="n">03</div><h3>Share it</h3>
+        <p>Text it to the friend who just bought a rental, or forward it to anyone who asks how your study went.</p>
+        <div class="when">Whenever it comes up</div></div>
+      <div class="step"><div class="n">04</div><h3>Get paid</h3>
+        <p>$250 for each new client who orders with your link, paid about 30 days after their study is delivered and paid in full.</p>
+        <div class="when">Per referred study</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== REWARD CHOICE ==================== -->
+<section class="section tint" id="reward">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="dot"></span> Your choice</span>
+      <h2>Keep the reward, or give it away.</h2>
+      <p>You pick when you sign up. Most people take the $250; some would rather the people they refer get the bigger discount.</p>
+    </div>
+    <div class="choice-grid">
+      <div class="choice"><div class="big">$250<small>to you</small></div><h3>Take the reward</h3>
+        <p>You earn $250 per referred study. The person you refer gets 10% off.</p></div>
+      <div class="choice"><div class="big">20%<small>off for them</small></div><h3>Give it to them</h3>
+        <p>No reward to you. The person you refer gets 20% off instead of 10%.</p></div>
+      <div class="choice"><div class="big">10%<small>off for them</small></div><h3>No reward</h3>
+        <p>Nothing is paid to you. The person you refer still gets 10% off.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SIGN UP ==================== -->
+<section class="section" id="signup">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="dot"></span> Sign up</span>
+      <h2>Get your referral link.</h2>
+      <p>Fill this in and sign the terms below. Your link is in your inbox a few minutes later.</p>
+    </div>
+    <div class="signup">
+      <iframe id="JotFormIFrame-262886193102055" title="Refined Cost Segregation referral program sign-up"
+        onload="window.parent.scrollTo(0,0)" allowtransparency="true" allow="fullscreen"
+        src="https://form.jotform.com/262886193102055?source=refer&amp;q16_textbox14=refer" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FAQ ==================== -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="dot"></span> Common questions</span>
+      <h2>Good questions, answered.</h2>
+    </div>
+    <div class="faq">
+      <div class="qa"><h3>When do I get paid?</h3>
+        <p>About 30 days after the study you referred is delivered and paid in full. Before your first payment we ask for a Form W-9, and we issue a Form 1099 where the law requires one.</p></div>
+      <div class="qa"><h3>Is there a limit?</h3>
+        <p>No. $250 for every new client who orders with your link.</p></div>
+      <div class="qa"><h3>Does it work on my own properties?</h3>
+        <p>No. Rewards are for new clients you refer, not for a property you own any part of, and not for someone who was already a Refined client.</p></div>
+      <div class="qa"><h3>Can I give my reward to the person I refer instead?</h3>
+        <p>Yes. Choose that when you sign up and the people you refer get 20% off instead of 10%, with no reward to you.</p></div>
+      <div class="qa"><h3>What does the person I refer get?</h3>
+        <p>Their discount applies automatically when they start from your link, and it shows in their total before they pay. They also get the same audit-ready report, fixed-asset schedule and preparer summary every client gets.</p></div>
+      <div class="qa"><h3>How do I share it?</h3>
+        <p>However you like: text it, email it, put it in your newsletter or on your site. The terms ask you to share honestly: no coupon or deal sites, no ads that bid on our name, and no promises of a specific tax result.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="ptn-foot">
+  <div class="container">
+    <p><strong>Refined Cost Segregation</strong>: documentary, cost-library-based cost segregation studies for 1&ndash;12 unit
+      rentals and short-term rentals, built in Milwaukee.
+      <a href="tel:+14142061948">414-206-1948</a> &middot;
+      <a href="mailto:admin@refinedcostseg.com">admin@refinedcostseg.com</a> &middot;
+      <a href="https://www.refinedcostseg.com/">refinedcostseg.com</a> &middot;
+      <a href="/privacy">Privacy</a> &middot;
+      <a href="/accessibility">Accessibility</a></p>
+    <p class="fine">Rewards are $250 per new client who orders with your referral link, paid about 30 days after their study is delivered and paid in full; no reward on a property you own any part of, on an existing or returning client, or on a cancelled or refunded study. Full terms are on the sign-up form. This page is general information, not tax, legal or accounting advice.</p>
+  </div>
+</footer>
+<script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+<script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-262886193102055']", "https://form.jotform.com/")</script>
+
+</body>
+</html>

@@ -123,6 +123,57 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
+# Referral program sign-up for past clients (linked from the T7 delivery email) — pretty URL + keep it out of search indexes (2026-10-16)
+[[redirects]]
+  from = "/refer"
+  to = "/refer.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/refer"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/refer.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# Referral program sign-up for partners (anyone with a following) — pretty URL + keep it out of search indexes (2026-10-16)
+[[redirects]]
+  from = "/partners"
+  to = "/partners.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/partners"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/partners.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# Referral share-link landing (/friend?code=…), sent by the bridge in each referrer's welcome email — pretty URL + keep it out of search indexes (2026-10-16)
+[[redirects]]
+  from = "/friend"
+  to = "/friend.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/friend"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/friend.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 [[redirects]]
   from = "/accessibility"
   to = "/accessibility.html"
