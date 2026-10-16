@@ -335,8 +335,8 @@ SUPERSEDES the "Cloud publishing + Make prune" Make paragraph and the Aug-26 for
   Script **RCS Bridge** (private repo github.com/Ethan-Tyler-Brooks/rcs-bridge, main de3d36b, 157
   tests; Apps Script project "RCS Bridge" running as admin@). Never reactivate a Make scenario.
   Kept on-demand only: the Sheets/Drive/Jotform passthrough tools and the parked upload webhook.
-  Full ops key: Drive → RCS Share Folder › Workflows › 02_ADMIN_KEY.md (v3.10 as of 2026-10-12, file id
-  `1phZonZS78OePCDlSLYXsoZKZuyXcj0fb`, the 02B addendum folded in; every supersede is a new file, so read the current id from `00_README_INDEX.md` v1.11 `19oakrQ3KyQgAmUY-CUAeuPZZgIbTHo7g` or `CLAUDE.md`).
+  Full ops key: Drive → RCS Share Folder › Workflows › 02_ADMIN_KEY.md (v3.12 as of 2026-10-16, file id
+  `1hG95N6DdKTLBc8C59Ff2vAOCGrA3byJt`, now edited in place on that id; read the current version from `00_README_INDEX.md` `1Ad4UIuyIjhnZiJAZOiPd6fbkfkSibmA6` or `CLAUDE.md`).
 - **Form 261446273575059 changes (2026-09-01):** q384/q385 flooring confirmation gated to Step 2
   (they had leaked into Step 1 for every visitor); q136 banded avg-stay radio HIDDEN, replaced by
   q386 number "average nights per booking" (never name the 7-day threshold in a question); new
@@ -425,6 +425,13 @@ reachable at /tools/qq-encrypt.mjs and must stay free of secrets and figures.
 - **`/go/extension`** stays up until the extension message comes out of the account on Oct 9; then remove the page and its redirect in one PR.
 - **Refund sentence** (Ethan's written sign-off 2026-09-29), live on `/invest` (Secure checkout step) and `/` (Checkout & questionnaire step), PR #19: "If, after reviewing your questionnaire and photos, we conclude that a study would not be worth doing for your property, or we cannot complete it, your payment is refunded in full. Once your report is delivered, the fee is earned." Any change to it is legal text: Ethan's written sign-off first. It also lives in the bridge's T2/M1 emails; change both places together.
 - **Push check:** once, a container push printed "Everything up-to-date" after a proxy 403 and PR #18 merged with no diff. After every push compare `git rev-parse origin/<branch>` with HEAD, and live-check the page after Netlify publishes.
+
+## 2026-10-15/16 — `/go/estimate`, the call-back form, Microsoft UET
+
+- **`/go/estimate`** (`go-estimate.html`, route in `netlify.toml`, noindex, not in the sitemap) is the page both Google S4 ads and the Microsoft mirror point at (`?lp=est` / `?lp=est-b`). Two doors: the five-question **call-back Jotform 262876778805073** and **Order now** → `/invest` with the query string carried. The page prefills the call-back form's hidden fields by unique name: `textbox8` = gclid, or `msclkid:<id>` when there is no gclid; `textbox9`–`textbox12` = utm_source / medium / campaign / term; `textbox13` = `/go/estimate`. The bridge routes every submission to monday at Lead Status **Call back** (rcs-bridge PR #107) and reads the click id for conversions.
+- **Sample report:** `samples/Sample_Cost_Segregation_Report.pdf` is the anonymized web copy (v1.2, phone (414) 206-1948); the call-back autoresponder and thank-you page link it. Rebuild it from Drive `_samples` (builder + owner copy), never by editing the PDF. `samples/*` is noindex.
+- **Microsoft Advertising UET tag `ti 343279456`** sits before `</head>` on `go-estimate.html` and `invest.html` only (PR #32), with `uetq.push('event','form_start',{})` beside the Google form-start conversion. `/invest` passes `msclkid` through to the main form (q407). Do not add UET (or the Google tag) to any other page.
+- **Open, legal text:** `/privacy` says the site runs no advertising pixel anywhere, which the `/go/*` Google tag and the UET tag contradict. Counsel words the disclosure, or the tags come off; do not edit the privacy text without counsel (02 §10 ⑰).
 
 ## Negotiated-price codes (2026-10-08) — one random code per negotiated fee
 
