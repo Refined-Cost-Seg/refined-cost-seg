@@ -349,3 +349,11 @@
 .rcs-embed .listing-more .btn[hidden]{display:none}
 .rcs-embed .listing-more .btn .arrow{transition:transform 0.25s ease}
 .rcs-embed .listing-more .btn:hover .arrow{transform:translateY(2px)}
+
+/* ═══ LANDING-PAGE REPORT THUMBNAILS (2026-10-17) ═══
+   /for-cpas, /cpa-partners and the /go-* pages draw schematic report pages as .samples > .sample > div.t/.s/.q.
+   The homepage rules .rcs-embed .sample {display:flex} and .rcs-embed .q {flex:1} (FAQ question) were bleeding in
+   and stretching every .q line into a tall block. Block layout + no hover lift for the thumbnails only. */
+.rcs-embed .samples .sample { display: block; }
+.rcs-embed .samples .sample:hover { transform: none; }
+.rcs-embed .samples .sample > div { flex: none; }
