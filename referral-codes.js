@@ -43,5 +43,6 @@ window.RCS_CODES = {
   "24656b413306a8dbf2f4fb8f36e2d5e99de9929b346c546cace2e660c51940a4": { label: "Magnolia Tax Services", pct: 10 },
   "b6a5e8289b2577df99a2a539f7fecf0000695f20ad336a0dc1f729491d25b77b": { label: "Multi-property", pct: 10 },
   "bbab94e84fef703ed65593676e9d2250606df1ee2889add43d187a6986a56a04": { label: "Refined Mortgage Group", pct: 10 },
-  "8fd172ddf478f8e2c1e7fe08d1580391adc3b81b9ffe46e51803b81893aa965f": { label: "Partner C", pct: 0, flat: 1000 }
+  "8fd172ddf478f8e2c1e7fe08d1580391adc3b81b9ffe46e51803b81893aa965f": { label: "Partner C", pct: 0, flat: 1000 },
+  "9ba20a903b3859e0c9f7e9bc5dd66c0b0193b45bbf68c2111a177971ac26d347": { label: "Partner referral", pct: 10 }
 };
