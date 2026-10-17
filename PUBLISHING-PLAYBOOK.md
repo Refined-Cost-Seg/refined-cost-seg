@@ -75,7 +75,7 @@ Brand voice: plain-spoken, candid, never hype. Say "audit-ready," NEVER "audit-p
 
 REVIEW WORDING (Ethan, 2026-10-17 — never violate): describe the review as "a documented
 quality-control review" (or "quality-control review"). NEVER claim a credential: no "licensed tax
-professional", "licensed tax pros", "licensed-professional sign-off", "signed off by a qualified
+professional", "licensed tax pros", "licensed-professional sign-off", "Licensed-pro reviewed", "signed off by a qualified
 …", "EA", "CPA-reviewed" or any named reviewer. Applies to body copy, CTA blocks, meta and
 JSON-LD alike. Privacy and audit-support pages are counsel-only: flag, never edit.
 Pick a clean keyword-rich slug, e.g. `when-to-do-a-cost-seg-study.html`.
