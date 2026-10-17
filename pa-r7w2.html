@@ -87,6 +87,33 @@
     </div>
   </div>
 
+  <div class="check">
+    <input type="checkbox" id="paid" checked>
+    <span>Paid partner (receives a reward per referred client). Untick for a related party with no reward.</span>
+  </div>
+
+  <div id="payWrap">
+    <label for="legalName">Legal name for the W-9</label>
+    <input type="text" id="legalName" placeholder="Root River Realty LLC" autocomplete="off">
+    <p class="hint">The person or business the reward is paid to. Their W-9 is requested from them by email; never type a tax ID here.</p>
+
+    <div class="row">
+      <div>
+        <label for="email">Partner email</label>
+        <input type="email" id="email" placeholder="owner@rootriverrealty.com" autocomplete="off">
+        <p class="hint">The W-9 request and the reward go here.</p>
+      </div>
+      <div>
+        <label for="reward">Reward per client (optional)</label>
+        <input type="text" id="reward" inputmode="decimal" placeholder="250" autocomplete="off">
+        <p class="hint">Blank = the standard reward. A VIP rate, up to $1,000.</p>
+      </div>
+    </div>
+
+    <label for="phone">Partner phone (optional)</label>
+    <input type="tel" id="phone" autocomplete="off">
+  </div>
+
   <label for="logo">Partner logo (optional)</label>
   <input type="file" id="logo" accept="image/png,image/jpeg,image/webp">
   <img id="prev" class="preview" alt="">
@@ -156,6 +183,14 @@ so do that too, then update 12_PARTNER_ROSTER.md.</p>
     img.src = URL.createObjectURL(file);
   });
 
+  function syncPaid(){
+    var paid = $('paid').checked;
+    $('payWrap').style.display = paid ? '' : 'none';
+    $('legalName').required = paid; $('email').required = paid;
+  }
+  $('paid').addEventListener('change', syncPaid);
+  syncPaid();
+
   function show(text, kind){ msg.textContent = text; msg.className = 'msg ' + (kind || ''); }
 
   $('f').addEventListener('submit', function(e){
@@ -175,6 +210,11 @@ so do that too, then update 12_PARTNER_ROSTER.md.</p>
       code: $('code').value.trim(),
       pct: parseInt($('pct').value, 10),
       createPage: $('page').checked,
+      paid: $('paid').checked,
+      legalName: $('legalName').value.trim(),
+      email: $('email').value.trim(),
+      phone: $('phone').value.trim(),
+      reward: $('reward').value.trim(),
       logoDataUri: logoDataUri,
       logoAspect: logoAspect
     };
@@ -202,6 +242,7 @@ so do that too, then update 12_PARTNER_ROSTER.md.</p>
         '<div>Link to share: <a href="https://www.refinedcostseg.com/invest?referralCode=' +
           encodeURIComponent(payload.code) + '" target="_blank" rel="noopener">/invest?referralCode=' +
           esc(payload.code) + '</a></div>' +
+        (r.referrer ? '<div>Ledger: Referrers row <code>' + esc(r.referrer) + '</code></div>' : '') +
         (r.notes && r.notes.length ? '<div>Note: ' + esc(r.notes.join(' ')) + '</div>' : '') +
         '<div style="margin-top:.6rem;font-size:.8rem;color:#C7D2AE">Add them to monday Referral Partners, ' +
         'then update 12_PARTNER_ROSTER.md.</div>';
