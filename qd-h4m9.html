@@ -76,7 +76,7 @@
   </div>
 
   <div class="row">
-    <div><label for="studies">Studies on this invoice</label><input id="studies" type="number" min="1" max="20" value="1"></div>
+    <div><label for="studies">Properties (studies) on this invoice</label><input id="studies" type="number" min="1" max="20" value="1"></div>
     <div><label for="mode">Price is</label>
       <select id="mode"><option value="total">the total</option><option value="per">per study</option></select></div>
     <div><label for="amount">Price ($) *</label><input id="amount" type="text" inputmode="decimal" placeholder="1750" required></div>
@@ -101,6 +101,7 @@
 
   <h2>Properties <span style="text-transform:none;letter-spacing:0;font-weight:400">— optional, pre-fills the questionnaire</span></h2>
   <div id="props"></div>
+  <div><button class="ghost small" id="addProp" type="button">+ Add another property</button><button class="ghost small" id="delProp" type="button">Remove last property</button></div>
   <label class="check"><input type="checkbox" id="plain"><span>Send the questionnaire plain (no pre-fill), and send every link as soon as the invoice is paid even without an address</span></label>
 
   <p class="total" id="total"></p>
@@ -176,6 +177,11 @@
     $('total').textContent = 'Invoice total: ' + money(total) + (n > 1 ? ' for ' + n + ' studies' : '');
   }
   $('studies').addEventListener('input', function(){ drawProps(); recalc(); });
+  // One property = one study. The buttons move the same count the number box holds (2026-10-17: the box alone was easy to miss).
+  function setStudies(n){ $('studies').value = Math.max(1, Math.min(20, n)); drawProps(); recalc(); $('delProp').disabled = parseInt($('studies').value, 10) <= 1; }
+  $('addProp').addEventListener('click', function(){ setStudies((parseInt($('studies').value, 10) || 1) + 1); var b = $('props').lastElementChild; if (b) { var f = b.querySelector('input'); if (f) f.focus(); } });
+  $('delProp').addEventListener('click', function(){ setStudies((parseInt($('studies').value, 10) || 1) - 1); });
+  $('delProp').disabled = true;
   ['amount', 'mode', 'auditUsd'].forEach(function(id){ $(id).addEventListener('input', recalc); });
   $('audit').addEventListener('change', function(){
     $('auditUsd').value = meta && $('audit').value !== 'None' ? meta.audit_prices[$('audit').value] : '';
@@ -207,7 +213,7 @@
       if (!d.ok) throw new Error(d.error || 'Refused.');
       say($('msg'), 'Sent: ' + d.quote_id + ' · ' + d.total + ' · ' + d.credits.length + ' stud' + (d.credits.length > 1 ? 'ies' : 'y') +
         (d.warning ? ' — ' + d.warning : '') + '. Stripe has emailed the invoice.', d.warning ? 'warn' : 'ok');
-      $('f').reset(); $('studies').value = 1; $('due').value = 7; $('props').innerHTML = ''; drawProps(); recalc(); loadRecent();
+      $('f').reset(); $('studies').value = 1; $('due').value = 7; $('props').innerHTML = ''; drawProps(); recalc(); $('delProp').disabled = true; loadRecent();
     }).catch(function(err){ $('go').disabled = false; say($('msg'), String(err.message || err), 'err'); });
   }
 
