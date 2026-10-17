@@ -21,7 +21,7 @@ Roadblocks are not stopping points (Ethan, 2026-09-28). When something blocks th
 ## Hard rules (client-facing language and money)
 
 - **Pricing is never on the public site.** The fee lives only in form calc q165, shown inside the form before payment. `/qq-x7k4` is the access-gated internal quick quote (noindex). Do not ship any widget that displays the fee.
-- Documentary, cost-library-based study — never "engineering". Audit-ready, never audit-proof. No "guaranteed", no "IRS-approved". No credential claims: no "EA", no "Eugene Marshall, EA"; the approved phrase is "quality-control review". No tax advice. Never name the 7-day STR threshold or the Jan-19-2025 date inside a question. Never list Regrid.
+- Documentary, cost-library-based study — never "engineering". Audit-ready, never audit-proof. No "guaranteed", no "IRS-approved". No credential claims: no "EA", no "Eugene Marshall, EA", no "licensed tax professional" (retired 2026-10-17); the approved phrase is "quality-control review" (playbook, REVIEW WORDING). No tax advice. Never name the 7-day STR threshold or the Jan-19-2025 date inside a question. Never list Regrid.
 - Look-back / §481(a) / Form 3115 content is SHELVED site-wide (journal post deleted + 301'd). Do not reintroduce.
 - Business phone 414-206-1948 (Quo). The personal cell 414-429-5333 must never appear.
 - Legal text (privacy, audit-support page, terms, refund language) is counsel-approved only. Known inconsistencies awaiting counsel: audit-support page cites an "engagement agreement" that does not exist; Extended-window anchor differs page vs ack; privacy says ten-year retention — quote the live ten-year statement until counsel decides. No `/terms` page yet.

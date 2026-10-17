@@ -72,6 +72,12 @@ Required for SEO + AI citation (non-negotiable):
 - The article CTA block and the "not tax, legal, or accounting advice" disclaimer.
 
 Brand voice: plain-spoken, candid, never hype. Say "audit-ready," NEVER "audit-proof."
+
+REVIEW WORDING (Ethan, 2026-10-17 — never violate): describe the review as "a documented
+quality-control review" (or "quality-control review"). NEVER claim a credential: no "licensed tax
+professional", "licensed tax pros", "licensed-professional sign-off", "signed off by a qualified
+…", "EA", "CPA-reviewed" or any named reviewer. Applies to body copy, CTA blocks, meta and
+JSON-LD alike. Privacy and audit-support pages are counsel-only: flag, never edit.
 Pick a clean keyword-rich slug, e.g. `when-to-do-a-cost-seg-study.html`.
 
 PRICING IS PRIVATE (standing rule as of July 12, 2026 — never violate): never state the
