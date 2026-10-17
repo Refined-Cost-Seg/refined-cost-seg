@@ -1,0 +1,24 @@
+name: sweep-referral-footer
+on:
+  push:
+    paths: ['.github/workflows/sweep-referral-footer.yml']
+permissions:
+  contents: write
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: sed
+        run: |
+          grep -rl --include='*.html' -- 'CPA partner program</a>' . | grep -v '^./.git/' | xargs -r sed -i \
+            -e 's|href="/#services">CPA partner program</a>|href="/for-cpas">CPA partner program</a>|g' \
+            -e 's|^\( *\)\(<a href="/for-cpas">CPA partner program</a>\)$|\1\2\n\1<a href="/partners">Referral program</a>|'
+      - name: commit and self-remove
+        run: |
+          git config user.name 'rcs-sweep'
+          git config user.email 'admin@refinedcostseg.com'
+          git rm -q .github/workflows/sweep-referral-footer.yml
+          git add -A
+          git commit -m 'Sweep: footer Referral program link + CPA partner program -> /for-cpas (60 files)' || echo 'nothing to commit'
+          git push
