@@ -14,7 +14,7 @@ Every page now ships with JSON-LD structured data that tells both search engines
 - `Organization` — Refined Cost Segregation
 - `ProfessionalService` — the business itself with offers and a service catalog
 - `WebSite` — for site-level search behaviors
-- ~~Person × 2 with EA credential~~ REMOVED 2026-07-12 — no client-facing named-credential claims; model the Organization + "licensed tax professional" wording only
+- ~~Person × 2 with EA credential~~ REMOVED 2026-07-12 — no client-facing named-credential claims; model the Organization only, with "documented quality-control review" wording (the "licensed tax professional" wording was retired 2026-10-17; see the playbook's REVIEW WORDING rule)
 - `Service` — Cost segregation study (NO price modeled — pricing is private as of 2026-07; quote via intake form)
 - `FAQPage` — auto-built from the 8 FAQ items on the page, so questions like "do you do site visits?" can show up as rich results in Google and as direct quotes in AI answers
 
