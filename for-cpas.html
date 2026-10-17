@@ -43,16 +43,26 @@
 
 .cpa .cta:hover{background:#51632f}
 
+.cpa .ctarow{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.cpa .ctarow .cta{margin-top:0;text-align:center}
+.cpa .cta-alt{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+.cpa .cta-alt:hover{background:var(--soft)}
+@media(max-width:520px){.cpa .ctarow .cta{width:100%}}
+
 .cpa .ctanote{font-size:14px;color:var(--muted);margin-top:10px}
 
 .cpa .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:34px 0 0}
 @media(max-width:700px){.cpa .steps{grid-template-columns:1fr}}
+.cpa .steps-2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.cpa .steps-2{grid-template-columns:1fr}}
 
 .cpa .step{background:#fff;border:1px solid var(--line);border-radius:10px;padding:15px 17px}
 
 .cpa .step b{display:block;font-family:'Bricolage Grotesque',sans-serif;color:var(--navy);font-size:17px;margin-bottom:4px}
 
 .cpa .step i{font-style:normal;color:var(--sage);font-weight:600;font-size:13px;letter-spacing:.08em}
+
+.cpa .step a,.cpa details a{color:var(--sage-2);font-weight:600;text-decoration:underline;text-underline-offset:2px}
 
 .cpa section{padding:38px 0;border-top:1px solid var(--line)}
 
@@ -73,7 +83,7 @@
 
 .cpa .sample div.t{height:9px;background:#dfe3ea;width:62%;margin-bottom:8px}
 
-.cpa .sample div.s{width:78%} .sample div.q{width:45%}
+.cpa .sample div.s{width:78%} .cpa .sample div.q{width:45%}
 
 .cpa .bio{display:flex;gap:14px;align-items:flex-start;margin-top:4px}
 
@@ -139,8 +149,8 @@
   <div class="qual">For CPAs, tax preparers and advisers with clients who own rental property.</div>
   <p class="lede">A documentation-based cost segregation study that follows the IRS Audit Techniques Guide, passes quality-control review, and arrives as schedules and component detail your firm can file from without re-deriving anything. Your client gets a discount through your firm&#x27;s code. You keep your independence.</p>
   
-  <a class="cta" href="#estimate">Request a sample study</a>
-  <div class="ctanote">Anonymized pages from a delivered study, sent by email. No obligation.</div>
+  <div class="ctarow"><a class="cta" href="/partners">Register now — get your referral link</a><a class="cta cta-alt" href="#estimate">Request a sample study</a></div>
+  <div class="ctanote">Two-minute sign-up; your link is emailed to you. Prefer to look first? Anonymized sample pages by email, no obligation.</div>
   <div class="steps">
     <div class="step"><i>STEP 1</i><b>Your client requests an estimate</b>Two minutes, using your firm's code. They get a number; we keep you in the loop if they ask us to.</div>
     <div class="step"><i>STEP 2</i><b>We build the study</b>Documentation-based, following the IRS Audit Techniques Guide, through quality-control review. Photos and closing documents from the owner; no site visit in most cases.</div>
@@ -163,7 +173,7 @@
         <div class="sample"><div class="t"></div><div></div><div class="s"></div><div></div><div class="q"></div><div></div><div class="s"></div><div></div><div></div><div class="q"></div><div class="s"></div><div></div></div>
         <div class="sample"><div class="t"></div><div class="s"></div><div></div><div></div><div class="q"></div><div></div><div class="s"></div><div></div><div class="q"></div><div></div><div></div><div class="s"></div></div>
       </div>
-      <p style="font-size:14px;color:var(--muted);margin-top:9px">Pages from a completed study. Full anonymized sample pages on request.</p>
+      <p style="font-size:14px;color:var(--muted);margin-top:9px">Illustrative layout of a completed study. Full anonymized sample pages on request.</p>
     </div>
     <div class="panel">
       <h3>How every study is checked</h3>
@@ -176,11 +186,11 @@
 
 <section id="estimate"><div class="wrap">
   <h2>Ways to start</h2>
-  <div class="steps" style="margin-top:14px">
+  <div class="steps steps-2" style="margin-top:14px">
+    <div class="step"><i>YOUR LINK</i><b>Get your own referral link</b>Two-minute sign-up. People you send get a discount on their study, and the link works on its own. <a href="/partners">Register now</a>.</div>
     <div class="step"><i>SAMPLE</i><b>See a completed study first</b>Anonymized pages from a delivered report — schedules, component detail, method statement. <a href="mailto:admin@refinedcostseg.com?subject=Sample%20cost%20segregation%20study%20request">Request the sample</a>.</div>
     <div class="step"><i>BY EMAIL</i><b>Ask us anything</b>How the study is built, what your firm receives, how the referral program works. <a href="mailto:admin@refinedcostseg.com?subject=Question%20from%20a%20tax%20professional">Email a question</a> — answered by a person within one business day.</div>
     <div class="step"><i>YOUR CLIENT</i><b>Send them for an estimate</b>The free estimate takes two minutes and commits them to nothing. <a href="https://www.refinedcostseg.com/#contact">Estimate page</a>.</div>
-    <div class="step"><i>YOUR LINK</i><b>Get your own referral link</b>Two-minute sign-up. People you send get a discount on their study, and the link works on its own. <a href="/partners">Get my referral link</a>.</div>
   </div>
 </div></section>
 
