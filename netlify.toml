@@ -369,3 +369,15 @@
   for = "/samples/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
+
+# TestPartner partner landing page (added by partner-admin)
+[[redirects]]
+  from = "/testpartner"
+  to = "/testpartner.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/testpartner*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
