@@ -357,3 +357,7 @@
 .rcs-embed .samples .sample { display: block; }
 .rcs-embed .samples .sample:hover { transform: none; }
 .rcs-embed .samples .sample > div { flex: none; }
+/* Real sample-report pages (2026-10-17): unscoped because the /go-* pages are not inside .rcs-embed. */
+.samples a.sample-img { display: block; flex: 1 1 0; min-width: 0; padding: 0; cursor: zoom-in; transition: box-shadow 0.2s ease; }
+.samples a.sample-img:hover { box-shadow: 0 8px 22px rgba(27,42,62,0.14); transform: none; }
+.samples a.sample-img img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
