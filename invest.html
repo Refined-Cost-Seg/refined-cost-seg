@@ -264,6 +264,15 @@
         msg.textContent = '✓ Referral applied — ' + codes.map(function (c) { return c.label; }).join(' + ') + ' (' + tier + '% off your study fee). It will show in your payment total.';
         msg.style.color = '#5F7239';
         if ((c1.value.trim() && !e1) || (c2.value.trim() && !e2)) msg.textContent += ' (One code was not recognized.)';
+        /* Remember a plain referral code for 90 days on this device (2026-10-17), so a referred visitor who comes back
+           later still gets the discount. Never stored: admin, prepaid or flat-price codes (they returned above). */
+        try { localStorage.setItem('rcs_ref', JSON.stringify({ code: codes[0].typed, until: Date.now() + 7776000000 })); } catch (x) { /* storage off */ }
+      } else if (remembered && !e2) {
+        /* A remembered code that no longer works is dropped quietly, never shown as an error. */
+        try { localStorage.removeItem('rcs_ref'); } catch (x) { /* storage off */ }
+        c1.value = ''; remembered = false; wrap.hidden = true;
+        msg.textContent = 'Apply your referral code before starting the form \u2014 it will be reflected in your payment total.';
+        msg.style.color = '#5B6570';
       } else {
         msg.textContent = 'Code not recognized — double-check the spelling, or email admin@refinedcostseg.com.';
         msg.style.color = '#B4232A';
@@ -273,7 +282,15 @@
   btn.addEventListener('click', function () { apply(false); });
   var m = window.location.search.match(/[?&]referralCode=([^&]+)/); if (m) c1.value = decodeURIComponent(m[1]);
   var m2 = window.location.search.match(/[?&]referralCode2=([^&]+)/); if (m2) c2.value = decodeURIComponent(m2[1]);
-  if (m || m2) { wrap.hidden = false; }
+  /* No code in the link: use one remembered from an earlier visit (a friend link or a partner page), if still in date. */
+  var remembered = false;
+  if (!m && !m2) {
+    try {
+      var st = JSON.parse(localStorage.getItem('rcs_ref') || 'null');
+      if (st && st.code && st.until > Date.now()) { c1.value = st.code; remembered = true; }
+    } catch (x) { /* storage off */ }
+  }
+  if (m || m2 || remembered) { wrap.hidden = false; }
   apply(true);
 })();
 </script>
