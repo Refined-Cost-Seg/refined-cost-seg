@@ -193,6 +193,19 @@ TO ADD A NEW REFERRING PARTNER — Claude does ALL of it via git, no Jotform:
    auto-applies with a banner; page may state the discount).
 4. git push. Live in ~60 seconds. NEVER add Jotform conditions for codes; never
    API-create Jotform fields expected to drive logic.
+The manual path above (or the /pa-r7w2 tool) is now only for a partner who gets a
+branded landing page. Everyone else uses the SELF-SERVE program (2026-10-16):
+- `/partners` is the only public referral URL (CPA pages, footers, homepage FAQ);
+  `/refer` is the past-client twin, linked only from the T7 delivery email and the
+  bridge's invite texts/emails. Both embed Jotform 262886193102055 with a hidden
+  source (q16 = refer|partners). `/friend?code=X` is the share link → /invest.
+- The bridge (`src/Referrals.js`) mints `NAME-XXXX`, commits one neutral line
+  ("Client referral" / "Partner referral", pct 10 or 20) to referral-codes.js,
+  creates the monday Referral Partners item, files the signed agreement and emails
+  the link. Referrers live in the ledger `Referrers` tab, not in 12_PARTNER_ROSTER.
+- The program terms appear in six places: Jotform terms (the binding text),
+  /partners + /refer FAQs, the bridge welcome email, the CPA-page FAQ and the
+  homepage FAQ. Change all six together.
 
 
 ## No-payment lanes & two-phase form map (2026-08-24)
