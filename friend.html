@@ -276,7 +276,7 @@
 <script>
 /* /friend?code=X: a referrer's personal link. The code is checked against the same SHA-256 fingerprints the order
    page uses (referral-codes.js); a live code shows its discount and every CTA carries it to /invest, where it applies
-   itself. A dead or unknown code still gets a working page, just without the discount. Nothing is stored. */
+   itself. A dead or unknown code still gets a working page, just without the discount. The code is remembered on this device for 90 days (localStorage rcs_ref); nothing else is stored. */
 (function () {
   var m = window.location.search.match(/[?&]code=([^&]+)/);
   var code = m ? decodeURIComponent(m[1]).trim() : '';
@@ -298,6 +298,9 @@
     document.getElementById('rfOffer').hidden = false;
     document.getElementById('rfH1').textContent = 'You\u2019ve been referred: ' + e.pct + '% off your study.';
     var href = '/invest?referralCode=' + encodeURIComponent(up);
+    /* Remember it for 90 days on this device (2026-10-17): a visitor who leaves and comes back later, from any page,
+       still gets the discount on the order form. Only a plain referral code reaches this line. */
+    try { localStorage.setItem('rcs_ref', JSON.stringify({ code: up, until: Date.now() + 7776000000 })); } catch (x) { /* storage off */ }
     document.getElementById('rfGo').href = href;
     document.getElementById('rfGo2').href = href;
   });
