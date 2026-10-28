@@ -136,6 +136,14 @@ refuses the patch and changes nothing. Never re-emit either page whole.
 
 The look-back service is shelved. Do not publish or link content about look-back studies, §481(a) catch-up adjustments, or Form 3115. Prior-year depreciation questions are referred to the client's CPA. If the service is revived, restore the retired post from git history and reverse the 301 in netlify.toml.
 
+## Standing rule (2026-10-28): 1031 = normal fee + exchange note (Option B)
+
+Decided by Eugene and Ethan. 1031 replacement property keeps the normal fee (no add-on, no custom quote). The report adds an exchange note for the client's tax preparer, who splits carryover and excess basis on the return. Site copy must match the rules that note states:
+- By default the carryover slice stays on the old property's remaining schedule. It gets no bonus and does not pick up the shorter 5/7/15-yr lives.
+- Bonus on used property generally reaches only the excess basis, election or not.
+- The §1.168(i)-6(i) election out gives the carryover slice's components their full shorter lives, but restarts the building portion. It's a preparer call.
+Only "over 12 units" is quoted individually. Don't write that 1031s are quoted manually or carry a surcharge.
+
 ## Standing note (2026-08-20): intentional form test bypass — do not remove
 
 The order form (Jotform 261446273575059) contains a deliberate internal testing bypass:
