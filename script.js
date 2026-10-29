@@ -66,6 +66,10 @@
   // The old version used per-type ratios against a flat 80% basis, which put a
   // fourth number in front of the same property. One method, one set of numbers.
   var TIERS = { low: 0.15, mid: 0.25, high: 0.35 };
+  // 2026-10-29 (Eugene): the tiers are illustrative scenarios, not a quoted range. The
+  // page copy names the drivers instead (renovation, removable finishes, site work up;
+  // original hardwood/tile/plaster down) and promises a pre-estimate on pre-1970
+  // buildings with no recent renovation. Replace with measured rates after 10-20 studies.
   // Renovation dollars are NOT the same asset mix as an acquisition and must not be
   // pooled with it. A purchase basis is mostly structure; a renovation is mostly the
   // things that reclassify - flooring, cabinetry, appliances, fixtures, site work - so
