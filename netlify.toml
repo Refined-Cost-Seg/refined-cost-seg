@@ -157,6 +157,23 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
+# Referral sign-up thank-you page (the Jotform form redirects here on submit, 2026-10-29) — pretty URL, noindex
+[[redirects]]
+  from = "/partners/thanks"
+  to = "/partners/thanks.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/partners/thanks"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/partners/thanks.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 # Referral share-link landing (/friend?code=…), sent by the bridge in each referrer's welcome email — pretty URL + keep it out of search indexes (2026-10-16)
 [[redirects]]
   from = "/friend"

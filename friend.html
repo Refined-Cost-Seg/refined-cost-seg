@@ -292,7 +292,11 @@
     var e = window.RCS_CODES[h];
     if (e && e.exp && today() > e.exp) e = null;
     /* Only percentage referral codes belong on this page; anything else reads as not recognized. */
-    if (!e || e.admin || e.paid || e.flat || !(e.pct > 0)) { document.getElementById('rfBad').hidden = false; return; }
+    if (!e || e.admin || e.paid || e.flat || !(e.pct > 0)) {
+      /* A dead link must not leave an older remembered code on this device applying a discount nobody earns (2026-10-29). */
+      try { localStorage.removeItem('rcs_ref'); } catch (x) { /* storage off */ }
+      document.getElementById('rfBad').hidden = false; return;
+    }
     document.getElementById('rfPct').textContent = e.pct + '%';
     document.getElementById('rfCode').textContent = up;
     document.getElementById('rfOffer').hidden = false;
@@ -303,6 +307,7 @@
     try { localStorage.setItem('rcs_ref', JSON.stringify({ code: up, until: Date.now() + 7776000000 })); } catch (x) { /* storage off */ }
     document.getElementById('rfGo').href = href;
     document.getElementById('rfGo2').href = href;
+    var hd = document.querySelector('.site-head a.btn'); if (hd) hd.href = href;
   });
 })();
 </script>
