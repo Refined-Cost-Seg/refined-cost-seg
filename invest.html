@@ -191,22 +191,46 @@
     try { return new Date().toLocaleDateString('en-CA', { timeZone: 'America/Chicago' }); }
     catch (x) { return new Date().toISOString().slice(0, 10); }
   }
-  function lookup(v) {
+  /* The spellings a typed code may stand for (2026-10-29): as typed; spaces or underscores as the hyphen; and, with no
+     separator, the hyphen put back before the last four characters (every referral code is LABEL-XXXX). The bridge
+     tries the same list (laneCodeCandidates_), so whichever spelling matches is what the form carries. */
+  function candidates(v) {
     v = (v || '').trim().toUpperCase();
-    if (!v || !window.crypto || !window.crypto.subtle) return Promise.resolve(null);
-    return sha256(v).then(function (h) {
-      var e = window.RCS_CODES && window.RCS_CODES[h];
-      /* A code with `exp` stops working the day after that date (Central time).
-         The bridge applies the same rule to the order's submission date. */
-      if (e && e.exp && today() > e.exp) e = null;
-      return e ? { label: e.label, pct: e.pct, admin: e.admin, paid: e.paid, flat: e.flat, typed: v } : null;
-    });
+    var out = [];
+    function push(x) { if (x && out.indexOf(x) < 0) out.push(x); }
+    if (!v) return out;
+    push(v);
+    push(v.replace(/[\s_]+/g, '-').replace(/-+/g, '-'));
+    var bare = v.replace(/[\s_\-]+/g, '');
+    if (bare.length > 4) push(bare.slice(0, -4) + '-' + bare.slice(-4));
+    return out;
+  }
+  function lookup(v) {
+    var list = candidates(v);
+    if (!list.length || !window.crypto || !window.crypto.subtle) return Promise.resolve(null);
+    var i = 0;
+    function next() {
+      if (i >= list.length) return Promise.resolve(null);
+      var cand = list[i++];
+      return sha256(cand).then(function (h) {
+        var e = window.RCS_CODES && window.RCS_CODES[h];
+        /* A code with `exp` stops working the day after that date (Central time).
+           The bridge applies the same rule to the order's submission date. */
+        if (e && e.exp && today() > e.exp) e = null;
+        return e ? { label: e.label, pct: e.pct, admin: e.admin, paid: e.paid, flat: e.flat, ref: !!e.ref, typed: cand } : next();
+      });
+    }
+    return next();
   }
   function apply(quiet) {
     Promise.all([lookup(c1.value), lookup(c2.value)]).then(function (r) {
       var e1 = r[0], e2 = r[1];
       var entered = (c1.value.trim() || c2.value.trim());
       var codes = []; if (e1) codes.push(e1); if (e2 && (!e1 || e2.typed !== e1.typed)) codes.push(e2);
+      /* One referral partner per order (Affiliate Agreement §2; 2026-10-29): a second referral-lane code is dropped
+         here, so two partners never stack to 20% and the bridge never has to pick between them. */
+      var twoRefs = codes.length === 2 && codes[0].ref && codes[1].ref;
+      if (twoRefs) codes = [codes[0]];
       var tier = 0; codes.forEach(function (c) { tier += c.pct; }); if (tier > 20) tier = 20;
       var qs = BASE;
       if (codes[0]) qs += '&referralCode=' + encodeURIComponent(codes[0].typed);
@@ -264,6 +288,7 @@
         msg.textContent = '✓ Referral applied — ' + codes.map(function (c) { return c.label; }).join(' + ') + ' (' + tier + '% off your study fee). It will show in your payment total.';
         msg.style.color = '#5F7239';
         if ((c1.value.trim() && !e1) || (c2.value.trim() && !e2)) msg.textContent += ' (One code was not recognized.)';
+        if (twoRefs) msg.textContent += ' (Only one referral code can be used per order; the first one was applied.)';
         /* Remember a plain referral code for 90 days on this device (2026-10-17), so a referred visitor who comes back
            later still gets the discount. Never stored: admin, prepaid or flat-price codes (they returned above). */
         try { localStorage.setItem('rcs_ref', JSON.stringify({ code: codes[0].typed, until: Date.now() + 7776000000 })); } catch (x) { /* storage off */ }

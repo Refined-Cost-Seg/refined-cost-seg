@@ -11,6 +11,8 @@
    neutral names — a reader must not be able to learn from this file what a
    valid code buys. The `paid` and `admin` flags still drive the behaviour; the
    bridge verifies the lane server-side against these same hashes.
+   `ref: 1` marks a referral-partner lane (2026-10-29): the checkout applies at most ONE such code per order;
+   the bridge writes it on every self-serve sign-up line. Client-discount lanes (e.g. Multi-property) carry no flag.
 
    2026-09-14: the admin lane was rotated. It used to double as the /qq-x7k4
    access code, so one string both opened the internal calculator and switched
@@ -39,10 +41,10 @@
 window.RCS_CODES = {
   "932c319f3ff6596ff79b69cf6c60f4124f6e971ff226e2d37cdec2dd481b1285": { label: "Partner A", pct: 0, paid: true, exp: "2027-01-15" },
   "f842c68c8e8b9c56dd7b3bc4d8b928e28d47a0cde6f078e437e70b42d9a0b66d": { label: "Partner B", pct: 0, admin: true },
-  "6147a5d0e81da119302759100e6f3b3d39fdc1f3cf1da8522c56b821dc1486de": { label: "Root River Realty", pct: 10 },
-  "24656b413306a8dbf2f4fb8f36e2d5e99de9929b346c546cace2e660c51940a4": { label: "Magnolia Tax Services", pct: 10 },
+  "6147a5d0e81da119302759100e6f3b3d39fdc1f3cf1da8522c56b821dc1486de": { label: "Root River Realty", pct: 10, ref: 1 },
+  "24656b413306a8dbf2f4fb8f36e2d5e99de9929b346c546cace2e660c51940a4": { label: "Magnolia Tax Services", pct: 10, ref: 1 },
   "b6a5e8289b2577df99a2a539f7fecf0000695f20ad336a0dc1f729491d25b77b": { label: "Multi-property", pct: 10 },
-  "bbab94e84fef703ed65593676e9d2250606df1ee2889add43d187a6986a56a04": { label: "Refined Mortgage Group", pct: 10 },
+  "bbab94e84fef703ed65593676e9d2250606df1ee2889add43d187a6986a56a04": { label: "Refined Mortgage Group", pct: 10, ref: 1 },
   "51b2b9c88938ec4502b7affc82cc265157cc2a2621fc1a31872986399601a5e1": { label: "N-001", pct: 0, flat: 1575, exp: "2026-11-23", once: true },
   "8fd172ddf478f8e2c1e7fe08d1580391adc3b81b9ffe46e51803b81893aa965f": { label: "Partner C", pct: 0, flat: 1000 }
 };
