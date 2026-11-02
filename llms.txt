@@ -31,8 +31,10 @@ The firm exists to make defensible, audit-ready cost segregation accessible to t
 - [Milwaukee & southeast Wisconsin](https://www.refinedcostseg.com/milwaukee-cost-segregation): local service page. In-person walk-throughs and CPA meetings by appointment in Milwaukee, Waukesha, Ozaukee, Washington, Racine, Kenosha, Walworth and Jefferson counties; Wisconsin bonus-depreciation decoupling explained.
 - [The Journal](https://www.refinedcostseg.com/journal/): essays on residential cost segregation, bonus depreciation, and STR tax strategy.
 
-## Journal essays (58 published; full archive at https://www.refinedcostseg.com/journal/)
+## Journal essays (60 published; full archive at https://www.refinedcostseg.com/journal/)
 
+- [Do suspended passive losses offset depreciation recapture?](https://www.refinedcostseg.com/journal/suspended-passive-losses-offset-depreciation-recapture.html): Yes. Selling the rental releases your suspended passive losses in the same year, and they offset the recapture income dollar for dollar on your return.
+- [Does gifting a rental trigger depreciation recapture?](https://www.refinedcostseg.com/journal/gifting-rental-depreciation-recapture.html): No. A gift is not a sale, so no recapture hits your return. Your adjusted basis and recapture exposure carry over to the person you gift it to.
 - [Sold a rental this year? Whether the recapture needs a Q4 estimated payment.](https://www.refinedcostseg.com/journal/recapture-estimated-tax-payment-after-rental-sale.html): Sold a rental after a cost segregation study? When the recapture needs a Q4 estimated payment, and the January 15 date that decides the penalty.
 - [Can you expense rental furniture instead of depreciating it?](https://www.refinedcostseg.com/journal/expense-rental-furniture-de-minimis-safe-harbor.html): Yes, if each item is invoiced at $2,500 or less and you make the de minimis safe harbor election. A worked example on $18,400 of rental furnishings.
 - [Paid the contractor in December, work finishes in January: which year gets the deduction?](https://www.refinedcostseg.com/journal/rental-improvement-paid-december-finished-january.html): You paid the contractor in December but the work finishes in January. The rental depreciation deduction follows the placed-in-service date, not the payment.
