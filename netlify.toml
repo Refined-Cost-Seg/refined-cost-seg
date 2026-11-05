@@ -387,3 +387,26 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
+# Empowered Investor partner landing page (2026-11-05)
+[[redirects]]
+  from = "/empowered-investor"
+  to = "/empowered-investor.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/empowered-investor*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# Vandermolen Realty partner landing page (2026-11-05)
+[[redirects]]
+  from = "/vandermolen-realty"
+  to = "/vandermolen-realty.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/vandermolen-realty*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
