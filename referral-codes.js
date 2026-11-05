@@ -46,5 +46,6 @@ window.RCS_CODES = {
   "b6a5e8289b2577df99a2a539f7fecf0000695f20ad336a0dc1f729491d25b77b": { label: "Multi-property", pct: 10 },
   "bbab94e84fef703ed65593676e9d2250606df1ee2889add43d187a6986a56a04": { label: "Refined Mortgage Group", pct: 10, ref: 1 },
   "51b2b9c88938ec4502b7affc82cc265157cc2a2621fc1a31872986399601a5e1": { label: "N-001", pct: 0, flat: 1575, exp: "2026-11-23", once: true },
-  "8fd172ddf478f8e2c1e7fe08d1580391adc3b81b9ffe46e51803b81893aa965f": { label: "Partner C", pct: 0, flat: 1000 }
+  "8fd172ddf478f8e2c1e7fe08d1580391adc3b81b9ffe46e51803b81893aa965f": { label: "Partner C", pct: 0, flat: 1000 },
+  "f34b4f0266e4c905da8f302f5bf7e9607c23f19bb811a37674c1427ecd2abc75": { label: "Client referral", pct: 10, ref: 1 }
 };
