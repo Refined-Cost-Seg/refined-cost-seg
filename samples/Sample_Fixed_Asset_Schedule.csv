@@ -1,0 +1,79 @@
+Component,MACRS Class (yrs),Method,Convention,In Service,Basis ($),Bonus %,Rev. Proc. 87-56 Asset Class,CSI Division,Cost Source,Reference
+"Kitchen appliances: range, dishwasher, microwave, refrigerator",5,200% DB,MQ,2026-11-15,4800.00,100,57.0,11 30 00 Residential Equipment,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+"Carpet and pad, bedrooms and basement",5,200% DB,MQ,2026-11-15,4050.00,100,57.0,09 68 00 Carpeting,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+"Floating laminate flooring, main level",5,200% DB,MQ,2026-11-15,4400.00,100,57.0,09 64 00 Wood Flooring,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+Window blinds and treatments,5,200% DB,MQ,2026-11-15,1200.00,100,57.0,12 20 00 Window Treatments,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+Decorative light fixtures (existing),5,200% DB,MQ,2026-11-15,900.00,100,57.0,26 51 00 Interior Lighting,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+Dedicated appliance circuits and hook-ups,5,200% DB,MQ,2026-11-15,800.00,100,57.0,26 05 00 Electrical,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+"Bath accessories, mirrors and closet systems",5,200% DB,MQ,2026-11-15,1050.00,100,57.0,"10 28 00 Toilet, Bath Accessories","R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+"Furnishings conveyed with the sale: beds, sofas, tables, dressers",5,200% DB,MQ,2026-11-15,14500.00,100,57.0,12 50 00 Furniture,Owner statement; conveyed fully furnished,Allocated at used fair value; inventory in workpapers
+Deck and patio furniture conveyed,5,200% DB,MQ,2026-11-15,2200.00,100,57.0,12 93 00 Site Furnishings,Owner statement,Allocated at used fair value
+Televisions and wall mounts conveyed,5,200% DB,MQ,2026-11-15,1500.00,100,57.0,27 41 00 Audio-Video Systems,Owner statement,Allocated at used fair value
+Grills conveyed,5,200% DB,MQ,2026-11-15,600.00,100,57.0,11 30 00 Residential Equipment,Owner statement,Allocated at used fair value
+Lawn mower and shed tools conveyed,7,200% DB,MQ,2026-11-15,1200.00,100,00.11,11 30 00 Residential Equipment,Owner statement,Rev. Proc. 87-56 class 00.11 (7-year); allocated at used fair value
+Asphalt driveway and parking apron,15,150% DB,MQ,2026-11-15,7200.00,100,00.3,32 12 16 Asphalt Paving,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+Drilled well and casing,15,150% DB,MQ,2026-11-15,9500.00,100,00.3,33 21 00 Water Supply Wells,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+Septic tank and drain field,15,150% DB,MQ,2026-11-15,12000.00,100,00.3,33 36 00 Septic Systems,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+Pier and dock sections,15,150% DB,MQ,2026-11-15,5500.00,100,00.3,35 51 13 Floating Piers,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+Boat lift (conveyed with the sale),15,150% DB,MQ,2026-11-15,4200.00,100,00.3,35 51 13 Floating Piers,Owner statement,Allocated at used fair value
+"Landscaping, lawn and boulder retaining",15,150% DB,MQ,2026-11-15,5500.00,100,00.3,32 90 00 Planting,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+Playground set,15,150% DB,MQ,2026-11-15,1500.00,100,00.3,11 68 00 Play Field Equipment,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+Exterior yard lighting,15,150% DB,MQ,2026-11-15,600.00,100,00.3,26 56 00 Exterior Lighting,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+"Foundation, basement walls and slab",39,SL,MM,2026-11-15,52800.00,0,,03 30 00 Cast-in-Place Concrete,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+"Framing, sheathing and insulation",39,SL,MM,2026-11-15,68400.00,0,,06 11 00 Wood Framing,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+"Roofing, gutters and downspouts",39,SL,MM,2026-11-15,19200.00,0,,07 31 00 Shingles,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+"Vinyl siding, trim and exterior doors",39,SL,MM,2026-11-15,22600.00,0,,07 46 00 Siding,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+Windows and storm sashes,39,SL,MM,2026-11-15,18900.00,0,,08 50 00 Windows,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+"Interior walls, ceilings and finishes",39,SL,MM,2026-11-15,41300.00,0,,09 29 00 Gypsum Board,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+"Interior doors, trim and stairs",39,SL,MM,2026-11-15,14700.00,0,,06 20 00 Finish Carpentry,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+Kitchen cabinets and countertops,39,SL,MM,2026-11-15,16800.00,0,,12 35 30 Residential Casework,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+Plumbing rough-in and fixtures (2 baths),39,SL,MM,2026-11-15,21400.00,0,,22 40 00 Plumbing Fixtures,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+"Forced-air LP furnace, ducting and central air",39,SL,MM,2026-11-15,17600.00,0,,23 54 00 Furnaces,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+"Electrical service, wiring and general lighting",39,SL,MM,2026-11-15,19800.00,0,,26 05 00 Electrical,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+Masonry fireplace and chimney,39,SL,MM,2026-11-15,9400.00,0,,04 57 00 Masonry Fireplaces,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+"Bi-level deck, railings and covered porch",39,SL,MM,2026-11-15,13200.00,0,,06 15 00 Wood Decking,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+Detached two-car garage (720 sq ft),39,SL,MM,2026-11-15,24900.00,0,,13 34 00 Fabricated Structures,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+"Finished basement: partitions, finishes, egress",39,SL,MM,2026-11-15,18249.32,0,,09 00 00 Finishes,"R.S. Means residential unit costs, 2026, Northern Wisconsin locality","Workpapers: take-off from photographs, appraisal and county record"
+"Improvement (08/2026): Front entry: storm door, strike plate and weather stripping",39,SL,MM,2026-11-15,725.00,0,,,"Contractor invoice (08/13/2026), p.1",Report section 06
+"Improvement (08/2026): Entry, loft and track lighting replaced",39,SL,MM,2026-11-15,375.00,0,,,"Contractor invoice (08/13/2026), p.1",Report section 06
+"Improvement (08/2026): Kitchen: tile backsplash to ceiling, drywall, prime",39,SL,MM,2026-11-15,2100.00,0,,,"Contractor invoice (08/13/2026), p.1",Report section 06
+"Improvement (08/2026): Kitchen: can-light removal, ceiling paint, counter removal",39,SL,MM,2026-11-15,1050.00,0,,,"Contractor invoice (08/13/2026), p.1",Report section 06
+Improvement (08/2026): Kitchen: pendant fixture over island (decorative),5,200% DB,MQ,2026-11-15,300.00,100,57.0,,"Contractor invoice (08/13/2026), p.1",Report section 06
+Improvement (08/2026): Kitchen: island wrap and kickboard; custom banquette with storage,39,SL,MM,2026-11-15,3450.00,0,,,"Contractor invoice (08/13/2026), p.1",Report section 06
+"Improvement (08/2026): Hallway bath: demolition, cement board, penny tile floor",39,SL,MM,2026-11-15,2900.00,0,,,"Contractor invoice (08/13/2026), p.1",Report section 06
+"Improvement (08/2026): Hallway bath: vanity, toilet, faucet, mirror, towel bars, walls",39,SL,MM,2026-11-15,1425.00,0,,,"Contractor invoice (08/13/2026), p.1",Report section 06
+Improvement (08/2026): Hallway bath: vanity sconces and shower fixtures,39,SL,MM,2026-11-15,600.00,0,,,"Contractor invoice (08/13/2026), p.2",Report section 06
+"Improvement (08/2026): Bunk room: light, reading sconces, drywall and paint",39,SL,MM,2026-11-15,1800.00,0,,,"Contractor invoice (08/13/2026), p.2",Report section 06
+"Improvement (08/2026): Primary bedroom: wall repair, paint",39,SL,MM,2026-11-15,1050.00,0,,,"Contractor invoice (08/13/2026), p.2",Report section 06
+Improvement (08/2026): Primary bedroom: chandelier (decorative),5,200% DB,MQ,2026-11-15,250.00,100,57.0,,"Contractor invoice (08/13/2026), p.2",Report section 06
+"Improvement (08/2026): Basement: full drywall renovation, skim coats, corners",39,SL,MM,2026-11-15,3200.00,0,,,"Contractor invoice (08/13/2026), p.2",Report section 06
+"Improvement (08/2026): Basement: switches, wiring patch, stair and exterior lights",39,SL,MM,2026-11-15,425.00,0,,,"Contractor invoice (08/13/2026), p.2",Report section 06
+Improvement (08/2026): Basement: television mount,5,200% DB,MQ,2026-11-15,150.00,100,57.0,,"Contractor invoice (08/13/2026), p.2",Report section 06
+Improvement (08/2026): Living room: chandelier (decorative),5,200% DB,MQ,2026-11-15,250.00,100,57.0,,"Contractor invoice (08/13/2026), p.2",Report section 06
+"Improvement (08/2026): Basement: paint, texture, drop-ceiling leveling",39,SL,MM,2026-11-15,1250.00,0,,,"Contractor invoice (08/13/2026), p.2",Report section 06
+"Improvement (08/2026): Lower bar: butcher-block tops, sink cut-out, undermount sink and plumbing",39,SL,MM,2026-11-15,3975.00,0,,,"Contractor invoice (08/13/2026), p.2",Report section 06
+Improvement (08/2026): Lower cabinets sanded and painted,39,SL,MM,2026-11-15,900.00,0,,,"Contractor invoice (08/13/2026), p.3",Report section 06
+"Improvement (08/2026): Utility closet: moisture remediation, poly over insulation",39,SL,MM,2026-11-15,515.00,0,,,"Contractor invoice (08/13/2026), p.3",Report section 06
+"Improvement (08/2026): Hang-out room: drywall finish, lighting and outlet",39,SL,MM,2026-11-15,1625.00,0,,,"Contractor invoice (08/13/2026), p.3",Report section 06
+Improvement (08/2026): Hang-out room: carpet and pad over concrete,5,200% DB,MQ,2026-11-15,250.00,100,57.0,,"Contractor invoice (08/13/2026), p.3",Report section 06
+Improvement (08/2026): Hang-out room: custom toy-storage cabinet with bookshelf,5,200% DB,MQ,2026-11-15,750.00,100,57.0,,"Contractor invoice (08/13/2026), p.3",Report section 06
+Improvement (08/2026): Hang-out room: solid-core door with child door,39,SL,MM,2026-11-15,1200.00,0,,,"Contractor invoice (08/13/2026), p.3",Report section 06
+"Improvement (08/2026): Laundry: oak six-panel door, poly over insulation",39,SL,MM,2026-11-15,875.00,0,,,"Contractor invoice (08/13/2026), p.3",Report section 06
+"Improvement (08/2026): Basement bath: walls, mirror, light, vented fan",39,SL,MM,2026-11-15,1375.00,0,,,"Contractor invoice (08/13/2026), p.3",Report section 06
+"Improvement (08/2026): Bedroom: door, light fixture, texture and paint",39,SL,MM,2026-11-15,1100.00,0,,,"Contractor invoice (08/13/2026), p.3",Report section 06
+"Improvement (08/2026): Upstairs bath: mirror, light, faucet, drywall and paint",39,SL,MM,2026-11-15,950.00,0,,,"Contractor invoice (08/13/2026), p.3-4",Report section 06
+"Improvement (08/2026): Upstairs bedroom: fan-light, smoke alarm, drywall, closet light",39,SL,MM,2026-11-15,1465.00,0,,,"Contractor invoice (08/13/2026), p.4",Report section 06
+"Improvement (08/2026): Deck: entry step footings, railings, boards, lower stair and landing",39,SL,MM,2026-11-15,6025.00,0,,,"Contractor invoice (08/13/2026), p.4",Report section 06
+Improvement (08/2026): Fire-pit and kayak area: crushed-gravel pad over road-gravel base,15,150% DB,MQ,2026-11-15,3000.00,100,00.3,,"Contractor invoice (08/13/2026), p.4 (pad share of the $4,500 line)",Report section 06
+Improvement (10/2026): Sauna,5,200% DB,MQ,2026-11-15,7500.00,100,57.0,,Owner-reported cost; invoice to be filed in workpapers,Report section 06
+Improvement (10/2026): Dedicated electrical for sauna and hot tub,5,200% DB,MQ,2026-11-15,4200.00,100,57.0,,Owner-reported cost; invoice to be filed in workpapers,Report section 06
+Improvement (10/2026): Hot tub (portable spa),5,200% DB,MQ,2026-11-15,5200.00,100,57.0,,Owner-reported cost; invoice to be filed in workpapers,Report section 06
+Improvement (10/2026): Standby generator and transfer switch,39,SL,MM,2026-11-15,12500.00,0,,,Owner-reported cost; invoice to be filed in workpapers,Report section 06
+Improvement (10/2026): Kitchen countertops,39,SL,MM,2026-11-15,3200.00,0,,,Owner-reported cost; invoice to be filed in workpapers,Report section 06
+Improvement (10/2026): Furniture and furnishings,5,200% DB,MQ,2026-11-15,5000.00,100,57.0,,Owner-reported cost; invoice to be filed in workpapers,Report section 06
+Improvement (10/2026): Well pressure tank and whole-house sediment filter,39,SL,MM,2026-11-15,3000.00,0,,,Owner-reported cost; invoice to be filed in workpapers,Report section 06
+
+# SAMPLE FILE: illustrative data matching the public Sample Cost Segregation Report (SAMPLE-0001). Not for filing.
+# Convention note: MQ shown because the property is placed in service in Q4; the mid-quarter test is applied at the return level across all personal property placed in service by the taxpayer during the year - the preparer confirms the as-filed convention.
+# Basis 548354.32 | building recovery 39-yr SL mid-month (transient STR) | bonus 100% per acquisition/in-service dates | not tax advice
+# TOTAL 548354.32 - ties to Total Depreciable Basis in the report
