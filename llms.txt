@@ -31,8 +31,10 @@ The firm exists to make defensible, audit-ready cost segregation accessible to t
 - [Milwaukee & southeast Wisconsin](https://www.refinedcostseg.com/milwaukee-cost-segregation): local service page. In-person walk-throughs and CPA meetings by appointment in Milwaukee, Waukesha, Ozaukee, Washington, Racine, Kenosha, Walworth and Jefferson counties; Wisconsin bonus-depreciation decoupling explained.
 - [The Journal](https://www.refinedcostseg.com/journal/): essays on residential cost segregation, bonus depreciation, and STR tax strategy.
 
-## Journal essays (61 published; full archive at https://www.refinedcostseg.com/journal/)
+## Journal essays (63 published; full archive at https://www.refinedcostseg.com/journal/)
 
+- [Buying a short-term rental in December: can you still meet material participation this year?](https://www.refinedcostseg.com/journal/str-bought-in-december-material-participation.html): Close on a short-term rental in December and you can still be a material participant for 2026. Which test works in three weeks, and what quietly kills it.
+- [How to calculate your short-term rental's average guest stay, and what happens if it tips over seven days.](https://www.refinedcostseg.com/journal/str-average-guest-stay-7-day-test.html): Your short-term rental's average guest stay decides whether losses can offset W-2 income. How to calculate it, and fix it, before December 31.
 - [Furniture bought in December, STR opening in January: when do you deduct it?](https://www.refinedcostseg.com/journal/furniture-bought-before-str-placed-in-service.html): Bought short-term rental furniture in December but the unit opens in January? The deduction follows the placed-in-service date. What that costs, and the fix.
 - [Do suspended passive losses offset depreciation recapture?](https://www.refinedcostseg.com/journal/suspended-passive-losses-offset-depreciation-recapture.html): Yes. Selling the rental releases your suspended passive losses in the same year, and they offset the recapture income dollar for dollar on your return.
 - [Does gifting a rental trigger depreciation recapture?](https://www.refinedcostseg.com/journal/gifting-rental-depreciation-recapture.html): No. A gift is not a sale, so no recapture hits your return. Your adjusted basis and recapture exposure carry over to the person you gift it to.
