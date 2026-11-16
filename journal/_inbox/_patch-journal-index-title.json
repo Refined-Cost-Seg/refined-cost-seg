@@ -1,0 +1,30 @@
+{
+  "path": "journal/index.html",
+  "replace": [
+    {
+      "from": "<title>Residential cost segregation and STR tax strategy essays</title>",
+      "to": "<title>Cost Segregation Guides for Rental and STR Owners</title>"
+    },
+    {
+      "from": "<meta name=\"description\" content=\"Field notes on residential cost segregation, bonus depreciation, and tax strategy for 1-4 unit and short-term rental investors and their CPAs.\">",
+      "to": "<meta name=\"description\" content=\"Plain-English guides to residential cost segregation, bonus depreciation, depreciation recapture, and year-end timing for 1-4 unit rental and STR owners.\">"
+    },
+    {
+      "from": "<meta property=\"og:title\" content=\"Residential cost segregation and STR tax strategy essays\">",
+      "to": "<meta property=\"og:title\" content=\"Cost Segregation Guides for Rental and STR Owners\">"
+    },
+    {
+      "from": "<meta property=\"og:description\" content=\"Field notes on residential cost segregation, bonus depreciation, and tax strategy for 1-4 unit and short-term rental investors and their CPAs.\">",
+      "to": "<meta property=\"og:description\" content=\"Plain-English guides to residential cost segregation, bonus depreciation, depreciation recapture, and year-end timing for 1-4 unit rental and STR owners.\">"
+    },
+    {
+      "from": "<meta name=\"twitter:title\" content=\"Residential cost segregation and STR tax strategy essays\">",
+      "to": "<meta name=\"twitter:title\" content=\"Cost Segregation Guides for Rental and STR Owners\">"
+    },
+    {
+      "from": "<meta name=\"twitter:description\" content=\"Field notes on residential cost segregation, bonus depreciation, and tax strategy for 1-4 unit and short-term rental investors and their CPAs.\">",
+      "to": "<meta name=\"twitter:description\" content=\"Plain-English guides to residential cost segregation, bonus depreciation, depreciation recapture, and year-end timing for 1-4 unit rental and STR owners.\">"
+    }
+  ],
+  "note": "Title/description sweep: /journal/ sits at position 14.1 with 9 impressions and zero clicks over 2026-10-17..11-13. Retitled to lead with the search term and the audience instead of 'essays'; og/twitter mirrors updated to match. Title 56 -> 49 chars, description 142 -> 153."
+}
