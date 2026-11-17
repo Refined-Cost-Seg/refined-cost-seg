@@ -76,7 +76,9 @@
   </div>
   <label for="cc">Also send the invoice to (optional)</label>
   <input id="cc" type="text" inputmode="email" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="spouse@example.com, bookkeeper@example.com">
-  <p class="hint">Up to 3 more addresses, separated by commas. Each gets an email from you with the invoice link. The questionnaire link still goes only to the client email.</p>
+  <p class="hint">Up to 3 more addresses, separated by commas. Each gets an email from you with the invoice link.</p>
+  <label class="check"><input type="checkbox" id="ccPaid" checked><span>When the invoice is paid, also send them the questionnaire link and a payment-received note</span></label>
+  <p class="hint">Untick for someone who only needs the invoice (a bookkeeper, say). The questionnaire link is one per study, so only one person fills it in.</p>
 
   <div class="row">
     <div><label for="studies">Properties (studies) on this invoice</label><input id="studies" type="number" min="1" max="20" value="1"></div>
@@ -205,7 +207,7 @@
     var body = { action: 'quoteCreate', quoted_by: $('by').value, studies: parseInt($('studies').value, 10) || 1, price_mode: $('mode').value,
       amount: $('amount').value, audit_support: $('audit').value, audit_usd: $('auditUsd').value, referral: $('referral').value,
       note: $('note').value, days_until_due: $('due').value, send_plain: $('plain').checked, confirm_large: confirmLarge,
-      client: { first: $('first').value, last: $('last').value, email: $('email').value, phone: $('phone').value }, cc: $('cc').value, properties: collect() };
+      client: { first: $('first').value, last: $('last').value, email: $('email').value, phone: $('phone').value }, cc: $('cc').value, cc_on_paid: $('ccPaid').checked, properties: collect() };
     $('go').disabled = true; say($('msg'), 'Creating the invoice in Stripe…');
     call(body).then(function(d){
       $('go').disabled = false;
@@ -235,7 +237,7 @@
     return '<div class="q"><div class="h"><span>' + esc(q.client || q.email) + ' · ' + esc(q.total) + (q.studies > 1 ? ' · ' + q.studies + '-pack' : '') + '</span>' +
       '<span class="chip ' + esc(q.status) + '">' + esc(q.status) + '</span></div>' +
       '<div class="hint">' + esc(q.quote_id) + ' · ' + esc(String(q.created_at).slice(0, 10)) + ' · ' + esc(q.quoted_by) +
-      (q.invoice_url ? ' · <a href="' + esc(q.invoice_url) + '" target="_blank" rel="noopener">invoice</a>' : '') + (q.cc ? ' · copy to ' + esc(q.cc) : '') + (q.error ? ' · ' + esc(q.error) : '') + '</div>' +
+      (q.invoice_url ? ' · <a href="' + esc(q.invoice_url) + '" target="_blank" rel="noopener">invoice</a>' : '') + (q.cc ? ' · copy to ' + esc(q.cc) + (q.cc_on_paid ? ' (+ questionnaire link and payment note)' : ' (invoice only)') : '') + (q.error ? ' · ' + esc(q.error) : '') + '</div>' +
       q.credits.map(drawCredit).join('') + '</div>';
   }
   function drawCredit(c){
