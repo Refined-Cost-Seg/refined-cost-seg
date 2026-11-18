@@ -81,6 +81,13 @@
   [headers.values]
     X-Robots-Tag = "index, follow"
 
+# Client photo guide (linked from the welcome email; a client aid, not a landing page — kept out of search)
+[[headers]]
+  for = "/photo-guide.pdf"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+    Cache-Control = "public, max-age=3600"
+
 # Security + caching headers
 [[headers]]
   for = "/*"
