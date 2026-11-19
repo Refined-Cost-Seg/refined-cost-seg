@@ -137,7 +137,7 @@
   <p class="audit-note">During checkout you can add optional <strong>Audit Support</strong> — flat-fee backup if the IRS ever asks about your study. <a href="/audit-support" target="_blank" rel="noopener">What Audit Support covers &rarr;</a></p>
 
   <div id="rcsCodesWrap" style="max-width:640px;margin:1.2rem auto 0;">
-  <a href="#" id="rcsToggle" style="font-size:.9rem;color:#5F7239;text-decoration:underline;">Have a referral code?</a>
+  <button type="button" id="rcsToggle" aria-expanded="false" aria-controls="rcsCodes" style="font:inherit;font-size:.9rem;color:#5F7239;text-decoration:underline;background:none;border:0;padding:0;cursor:pointer;">Have a referral code?</button>
   <style>/* accessibility.html claims labeled form fields; a placeholder is not an
        accessible name. Absolutely positioned, so it is out of the flex flow. */
     .rcs-vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
@@ -149,7 +149,7 @@
       <input id="rcsCode2" placeholder="Second code (optional)" autocomplete="off" style="flex:1;min-width:150px;padding:.55rem .7rem;border:1.5px solid #E8E5D9;border-radius:8px;font-size:1rem;">
       <button id="rcsApply" type="button" style="padding:.55rem 1.1rem;background:#1B2A3E;color:#FAF9F5;border:0;border-radius:8px;font-weight:700;cursor:pointer;">Apply</button>
     </div>
-    <p id="rcsMsg" style="margin:.5rem 0 0;font-size:.85rem;color:#5B6570;">Apply your referral code before starting the form &mdash; it will be reflected in your payment total. <span style="opacity:.45;">(v13)</span></p>
+    <p id="rcsMsg" style="margin:.5rem 0 0;font-size:.85rem;color:#5B6570;">Apply your referral code before starting the form &mdash; it will be reflected in your payment total.</p>
   </div>
 </div>
 
@@ -181,7 +181,7 @@
   var wrap = document.getElementById('rcsCodes'), tog = document.getElementById('rcsToggle');
   var c1 = document.getElementById('rcsCode1'), c2 = document.getElementById('rcsCode2');
   var msg = document.getElementById('rcsMsg'), btn = document.getElementById('rcsApply');
-  tog.addEventListener('click', function (e) { e.preventDefault(); wrap.hidden = !wrap.hidden; if (!wrap.hidden) c1.focus(); });
+  tog.addEventListener('click', function (e) { e.preventDefault(); wrap.hidden = !wrap.hidden; tog.setAttribute('aria-expanded', String(!wrap.hidden)); if (!wrap.hidden) c1.focus(); });
   function sha256(s) {
     return window.crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)).then(function (b) {
       return Array.prototype.map.call(new Uint8Array(b), function (x) { return ('0' + x.toString(16)).slice(-2); }).join('');
