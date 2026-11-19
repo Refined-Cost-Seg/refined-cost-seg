@@ -473,7 +473,7 @@
         /* A code with `exp` stops working the day after that date (Central time).
            The bridge applies the same rule to the order's submission date. */
         if (e && e.exp && today() > e.exp) e = null;
-        return e ? { label: e.label, pct: e.pct, admin: e.admin, paid: e.paid, flat: e.flat, ref: !!e.ref, typed: cand } : next();
+        return e ? { label: e.label, pct: e.pct, admin: e.admin, paid: e.paid, flat: e.flat, ref: !!e.ref, solo: !!e.solo, typed: cand } : next();
       });
     }
     return next();
@@ -487,6 +487,11 @@
          here, so two partners never stack to 20% and the bridge never has to pick between them. */
       var twoRefs = codes.length === 2 && codes[0].ref && codes[1].ref;
       if (twoRefs) codes = [codes[0]];
+      /* A solo code (the returning-client 10%, 2026-11-19) never stacks: with a second percentage code the single
+         larger discount applies, not the sum. A flat-price, prepaid or admin code is left alone: it sets the price. */
+      var soloPair = codes.length === 2 && (codes[0].solo || codes[1].solo) &&
+        !codes.some(function (c) { return c.flat > 0 || c.admin || c.paid; });
+      if (soloPair) codes = [codes[1].pct > codes[0].pct ? codes[1] : codes[0]];
       var tier = 0; codes.forEach(function (c) { tier += c.pct; }); if (tier > 20) tier = 20;
       var qs = BASE;
       if (codes[0]) qs += '&referralCode=' + encodeURIComponent(codes[0].typed);
@@ -545,6 +550,7 @@
         msg.style.color = '#5F7239';
         if ((c1.value.trim() && !e1) || (c2.value.trim() && !e2)) msg.textContent += ' (One code was not recognized.)';
         if (twoRefs) msg.textContent += ' (Only one referral code can be used per order; the first one was applied.)';
+        if (soloPair) msg.textContent += ' (These two discounts do not combine; the larger one was applied.)';
         /* Remember a plain referral code for 90 days on this device (2026-10-17), so a referred visitor who comes back
            later still gets the discount. Never stored: admin, prepaid or flat-price codes (they returned above). */
         try { localStorage.setItem('rcs_ref', JSON.stringify({ code: codes[0].typed, until: Date.now() + 7776000000 })); } catch (x) { /* storage off */ }

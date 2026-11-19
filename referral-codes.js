@@ -37,7 +37,13 @@
    One line per deal, a neutral serial label ("N-001"), 30-day exp, once:true.
    Who the serial belongs to lives in Drive 12_PARTNER_ROSTER.md, never here.
    Delete expired lines whenever you add one. Recipe: PUBLISHING-PLAYBOOK.md,
-   "Negotiated-price codes". */
+   "Negotiated-price codes".
+
+   2026-11-19: `solo: 1` = a code that never stacks (the returning-client 10%,
+   "same as our portfolio discount"). With a second percentage code on the
+   order the page applies the single larger one, not the sum. The code itself
+   lives in the bridge (Script Property RETURNING_CODE) and travels on the
+   fast-lane link a person sends; a first-time buyer on it is flagged there. */
 window.RCS_CODES = {
   "932c319f3ff6596ff79b69cf6c60f4124f6e971ff226e2d37cdec2dd481b1285": { label: "Partner A", pct: 0, paid: true, exp: "2026-11-06" },
   "f842c68c8e8b9c56dd7b3bc4d8b928e28d47a0cde6f078e437e70b42d9a0b66d": { label: "Partner B", pct: 0, admin: true },
@@ -49,5 +55,6 @@ window.RCS_CODES = {
   "8fd172ddf478f8e2c1e7fe08d1580391adc3b81b9ffe46e51803b81893aa965f": { label: "Partner C", pct: 0, flat: 1000 },
   "f34b4f0266e4c905da8f302f5bf7e9607c23f19bb811a37674c1427ecd2abc75": { label: "Client referral", pct: 10, ref: 1 },
   "0c61cb6c8b988e8a540eba038a9ac0ccb2b436c6c8cb437cf57f893e412debde": { label: "Empowered Investor", pct: 10, ref: 1 },
+  "69be40b8bf73b400219d84bc3067b56c830d582417b7b4240e5f466b99eedd2d": { label: "Returning client", pct: 10, solo: 1 },
   "132ffa630c30cf5dcfe3b3a5a74b9cfc445221236c7cef7507f7f8c3c244ef86": { label: "Nurture M4WQ7", pct: 10, exp: "2027-01-14" }
 };

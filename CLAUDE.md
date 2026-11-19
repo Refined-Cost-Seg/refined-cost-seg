@@ -29,7 +29,7 @@ Roadblocks are not stopping points (Ethan, 2026-09-28). When something blocks th
 
 ## Referral / discount layer
 
-`referral-codes.js` = single source of truth: SHA-256 of UPPERCASE code → `{label, pct, admin?, paid?, flat?, exp?, once?}`; stacking additive, cap 20%. A negotiated fee = one minted flat-price line (playbook, "Negotiated-price codes"). Add a partner = one hash line + optional landing page cloned from `root-river-realty.html` (noindex) + the partner on monday Referral Partners. Internal lanes (`RCS-ADMIN-*`, `PREPAID-*`) are never published.
+`referral-codes.js` = single source of truth: SHA-256 of UPPERCASE code → `{label, pct, admin?, paid?, flat?, exp?, once?, ref?, solo?}`; stacking additive, cap 20%, one `ref` (partner) code per order, and a `solo` code never stacks (2026-11-19: the returning-client 10%; with another percentage code the single larger one applies. The code lives in the bridge as `RETURNING_CODE` and travels on the fast-lane link `/invest?referralCode=…&<kept details>`). A negotiated fee = one minted flat-price line (playbook, "Negotiated-price codes"). Add a partner = one hash line + optional landing page cloned from `root-river-realty.html` (noindex) + the partner on monday Referral Partners. Internal lanes (`RCS-ADMIN-*`, `PREPAID-*`) are never published.
 
 ## Forms on the site
 
