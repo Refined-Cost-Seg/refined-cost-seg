@@ -56,5 +56,6 @@ window.RCS_CODES = {
   "f34b4f0266e4c905da8f302f5bf7e9607c23f19bb811a37674c1427ecd2abc75": { label: "Client referral", pct: 10, ref: 1 },
   "0c61cb6c8b988e8a540eba038a9ac0ccb2b436c6c8cb437cf57f893e412debde": { label: "Empowered Investor", pct: 10, ref: 1 },
   "69be40b8bf73b400219d84bc3067b56c830d582417b7b4240e5f466b99eedd2d": { label: "Returning client", pct: 10, solo: 1 },
-  "132ffa630c30cf5dcfe3b3a5a74b9cfc445221236c7cef7507f7f8c3c244ef86": { label: "Nurture M4WQ7", pct: 10, exp: "2027-01-14" }
+  "132ffa630c30cf5dcfe3b3a5a74b9cfc445221236c7cef7507f7f8c3c244ef86": { label: "Nurture M4WQ7", pct: 10, exp: "2027-01-14" },
+  "c67a1371a31d8353b469ea778418b358b15dd4d27cfa03569e821449006bbfe2": { label: "Client referral", pct: 10, ref: 1 }
 };
